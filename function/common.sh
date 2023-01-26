@@ -1,6 +1,6 @@
-function printLogo {
-  bash <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/logo.sh)
-}
+# function printLogo {
+#   bash <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/logo.sh)
+# }
 
 function printLine {
   echo "====================================================================="
@@ -143,4 +143,15 @@ function printComing {
 $(printCyanBlink '                  =====================')
 $(printRed  ' ================')$(printCyanBlink ' = ')$(printBYellow 'Coming soon !!!')$(printCyanBlink ' = ')$(printRed  '================') 
 $(printCyanBlink '                  =====================')
+}
+
+function printLogo {
+echo -e "\033[1;32m"
+echo "  ██╗  ██╗      ██╗       ███╗  ██████╗░██████╗  █████╗ ";
+echo "  ╚██╗██╔       ██║      ████║  ██╔══██╗██╔══██╗██╔══██╗";
+echo "   ╚███╔╝ █████╗██║     ██╔██║  ██████╦╝██████╔╝███████║";
+echo "   ██╔██╗ ╚════╝██║     ╚═╝██║  ██╔══██╗██╔══██╗██╔══██║";
+echo "  ██╔╝╚██╗      ███████╗███████╗██████╦╝██║  ██║██║  ██║";
+echo "  ╚═╝  ╚═╝      ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝";
+echo -e "\e[0m"
 }

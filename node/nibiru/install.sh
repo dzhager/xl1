@@ -80,7 +80,7 @@ printGreen "Готово!" && sleep 1
 
 
 printYellow "4. Устанавливаем go........" && sleep 1
-	source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/scripts/go/go_1.19.4.sh)
+	source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/scripts/go_1.19.4.sh)
 printGreen "Готово!" && sleep 1
 
 
@@ -199,11 +199,11 @@ $(printBCyan 'Нажмите Enter:')  "
 		submenu
 		;;
 		3)
-		source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/nodes/nibiru/main.sh)
+		source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/logo.sh)
 		;;
 		*)
-		source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/scripts/logo.sh)
-		printRed  =======================================================================
+		source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/logo.sh)
+		printnibiru
 		echo $(printBRed 'Неверный запрс !!!')
 		submenu
 		;;
