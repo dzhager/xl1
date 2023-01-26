@@ -55,7 +55,7 @@ source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/nodes/cel
 }
 
 nibiru(){
-source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/Menu/menu.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/main.sh)
 }
 
 defund(){
