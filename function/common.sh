@@ -133,8 +133,14 @@ echo $(printRed '==') $(printBMagenta 'CELESTIA') $(printRed '==') $(printBYello
 printRed  =======================
 }
 
+# function printComing {
+# printCyanBlink  =====================
+# echo $(printCyanBlink '==') $(printBYellow 'Coming soon !!!') $(printCyanBlink '==')
+# printCyanBlink  =====================
+# }
+
 function printComing {
-printCyanBlink  =====================
-echo $(printCyanBlink '==') $(printBYellow 'Coming soon !!!') $(printCyanBlink '==')
-printCyanBlink  =====================
+$(printCyanBlink '                  =====================')
+$(printRed  ' ================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================') 
+$(printCyanBlink '                  =====================')
 }
