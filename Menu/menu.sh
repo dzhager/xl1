@@ -3,10 +3,10 @@
 #X-l1bra  
 clear && source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/common.sh)
 printLogo
-echo -ne "$(printCyan '                  =====================')
-$(printRed  ' ================')$(printCyan ' =      ')$(printBMagenta 'Добро пожаловать!')$(printCyan '       = ')$(printRed  '================') 
-$(printCyan '                  =====================')"
-}
+echo -ne "$(printCyanBlink '                  =====================')
+$(printRed  ' ================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================') 
+$(printCyanBlink '                  =====================')"
+
 mainmenu() { echo -ne "
 
  		     $(printBCyan 'Выберите ноду !')

@@ -43,15 +43,18 @@ yes(){
 clear
 printLogo
 printnibiru
-echo $(printBYellow 'Удаляем.....!')
+echo -ne "	
+
+$(printBYellow 'Удаляем.....!')"
 systemctl stop nibid.service && rm -rf /etc/systemd/system/nibid.service && rm -rf /usr/bin/nibid && rm -rf nibiru && rm -rf .nibid
 submenu
 }
 
 submenu(){
 	echo -ne "
-$(printBGreen    'Nibiru полностью удалена с вашего сервера ')$(printBGreenBlink '!!!')
-Нажмите Enter:  "
+	$(printBGreen    'Nibiru полностью удалена с вашего сервера ')$(printBGreenBlink '!!!')
+	
+	Нажмите Enter:  "
 	read -r ans
 	case $ans in
 		*)

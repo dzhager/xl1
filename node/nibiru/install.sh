@@ -184,11 +184,13 @@ submenu
 
 submenu(){
 echo -ne "
-$(printBGreen    'УСТАНОВКА ЗАВЕРШЕНА........') $(printBGreenBlink '!!!')
+	$(printBGreen    'УСТАНОВКА ЗАВЕРШЕНА........') $(printBGreenBlink '!!!')
+	
  		1) Просмотреть логи
  		2) Проверить синхронизацию
  		3) В меню
-$(printBCyan 'Нажмите Enter:')  "
+ 		
+	$(printBCyan 'Нажмите Enter:')  "
 	read -r ans
 	case $ans in
 		1)
