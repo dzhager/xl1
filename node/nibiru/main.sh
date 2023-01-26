@@ -1,20 +1,23 @@
 #! /bin/bash
 
 #X-l1bra  
-	clear #&& source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/scripts/common.sh)
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/common.sh)
 printLogo
-printnibiru
-echo
+          printnibiru
 mainmenu() {
     echo -ne "
-1) Управление
-2) Обновить
-3) Установка
-$(printRed     '4)') Удаление
-$(printYellow  '5)') Вернутся назад
-$(printYellow  '0)') Выйти
-Введите цифру:  "
-	read -r ans
+$(printBCyan ' -->') $(printBCyan    '1) Управление')
+
+$(printBCyan ' -->') $(printBYellow    '2) Обновить')
+$(printBCyan ' -->') $(printBGreen    '3) Установка')
+$(printBCyan ' -->') $(printBRed    '4) Удаление')
+
+$(printBBlue ' <-- 5) Назад')
+$(printBRed        '     0) Выход')
+
+ Введите цифру: "
+
+read -r ans
 	case $ans in
 		1)
 		control

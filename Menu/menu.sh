@@ -16,7 +16,7 @@ $(printBCyan ' -->') $(printBYellow     '4)') Shardeum $(printBTYellow '*****')
 
 $(printBRed        '     0) Выход')
 
-Введите цифру:  "
+ Введите цифру:  "
 	read -r ans
 	case $ans in
 	
