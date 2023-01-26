@@ -48,11 +48,11 @@ read -r ans
 }
 
 install(){
-source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/nodes/nibiru/install.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/install.sh)
 }
 
 control(){
-source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/nodes/nibiru/control.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/control.sh)
 }
 
 update(){
@@ -65,11 +65,11 @@ mainmenu
 }
 
 delet(){
-source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/nodes/nibiru/delet.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/delet.sh)
 }
 
 back(){
-source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/scripts/x-l1bra.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/Menu/menu.sh)
 }
 
 mainmenu
