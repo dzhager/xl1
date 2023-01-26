@@ -3,6 +3,7 @@
 #X-l1bra  
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/common.sh)
 printLogo
+printnibiru
 mainmenu() { echo -ne "
 $(printCyan '                  =====================')
 $(printRed  ' ================')$(printCyan ' =      ')$(printBMagenta 'NIBIRU')$(printCyan '       = ')$(printRed  '================') 
