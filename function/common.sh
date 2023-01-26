@@ -141,6 +141,6 @@ printRed  =======================
 
 function printComing {
 $(printCyanBlink '                  =====================')
-$(printRed  ' ================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================') 
+$(printRed  ' ================')$(printCyanBlink ' = ')$(printBYellow 'Coming soon !!!')$(printCyanBlink ' = ')$(printRed  '================') 
 $(printCyanBlink '                  =====================')
 }
