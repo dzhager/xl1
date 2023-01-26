@@ -4,10 +4,10 @@
 clear && source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/common.sh)
 printLogo
 printRed  ======================================================
-
+echo $(printCyan '213123')
 mainmenu() {
 	echo -ne "
-$(printBCyan    '     Выберите ноду !')
+$(printCyanBlink    '     Выберите ноду !')
 
 $(printBCyan ' -->') $(printBYellow    '1)') Celestia $(printBTYellow '*****')
 $(printBCyan ' -->') $(printBYellow     '2)') Nibiru $(printBTYellow '****')
@@ -16,7 +16,7 @@ $(printBCyan ' -->') $(printBYellow     '4)') Shardeum $(printBTYellow '*****')
 
 $(printBRed        '     0) Выход')
 
- Введите цифру:  "
+Введите цифру:  "
 	read -r ans
 	case $ans in
 	
