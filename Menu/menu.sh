@@ -3,20 +3,21 @@
 #X-l1bra  
 clear && source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/common.sh)
 printLogo
-printRed  ======================================================
-echo $(printCyan '213123')
-mainmenu() {
-	echo -ne "
-$(printCyanBlink    '     Выберите ноду !')
+mainmenu() { echo -ne "
+$(printCyanBlink '                  =====================')
+$(printRed  ' ================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================') 
+$(printCyanBlink '                  =====================')
 
-$(printBCyan ' -->') $(printBYellow    '1)') Celestia $(printBTYellow '*****')
-$(printBCyan ' -->') $(printBYellow     '2)') Nibiru $(printBTYellow '****')
-$(printBCyan ' -->') $(printBYellow    '3)') DeFund $(printBTYellow '***')
-$(printBCyan ' -->') $(printBYellow     '4)') Shardeum $(printBTYellow '*****')
+ 		     $(printBCyan 'Выберите ноду !')
 
-$(printBRed        '     0) Выход')
+		$(printBCyan ' -->') $(printBYellow    '1)') Celestia $(printBTYellow '*****')
+		$(printBCyan ' -->') $(printBYellow     '2)') Nibiru $(printBTYellow '****')
+		$(printBCyan ' -->') $(printBYellow    '3)') DeFund $(printBTYellow '***')
+		$(printBCyan ' -->') $(printBYellow     '4)') Shardeum $(printBTYellow '*****')
 
-Введите цифру:  "
+		$(printBRed        '     0) Выход')
+
+	Введите цифру:  "
 	read -r ans
 	case $ans in
 	
