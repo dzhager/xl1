@@ -59,22 +59,18 @@ source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/nodes/nib
 }
 
 defund(){
-#source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/nodes/defund/main.sh)
+#source <(curl -s  )
 clear
 printLogo
-printRed  =======================================================================
-echo
-printComing
+               echo "        $(printBYellow '             Coming soon !!!')"
 mainmenu
 }
 
 shardeum(){
-#source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/nodes/shardeum/main.sh
+#source <(curl -s  )
 clear
 printLogo
-printRed  =======================================================================
-echo
-printComing
+               echo "        $(printBYellow '             Coming soon !!!')"
 mainmenu
 }
 
