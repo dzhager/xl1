@@ -1,18 +1,21 @@
 #! /bin/bash
 
 #X-l1bra  
-clear && source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/scripts/common.sh)
+clear && source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/common.sh)
 printLogo
-printRed  =======================================================================
+printRed  ======================================================
 
 mainmenu() {
 	echo -ne "
-$(printBCyan    'Выберите ноду !')
-$(printBMagenta    '1)') Celestia $(printBTYellow '*****')
-$(printBBlue       '2)') Nibiru $(printBTYellow '****')
-$(printBMagenta    '3)') DeFund $(printBTYellow '***')
-$(printBYellow     '4)') Shardeum $(printBTYellow '*****')
-$(printBRed        '0)') Exit
+$(printBCyan    '     Выберите ноду !')
+
+$(printBCyan ' -->') $(printBYellow    '1)') Celestia $(printBTYellow '*****')
+$(printBCyan ' -->') $(printBYellow     '2)') Nibiru $(printBTYellow '****')
+$(printBCyan ' -->') $(printBYellow    '3)') DeFund $(printBTYellow '***')
+$(printBCyan ' -->') $(printBYellow     '4)') Shardeum $(printBTYellow '*****')
+
+$(printBRed        '     0) Выход')
+
 Введите цифру:  "
 	read -r ans
 	case $ans in
