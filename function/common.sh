@@ -122,9 +122,10 @@ function addToPath {
 	printBTYellow () { printf "${TBYELLOW}%s${RESET}\n" "$1"; }
 
 function printnibiru {
-printRed  ====================
-echo $(printRed '==') $(printBBlue 'NIBIRU') $(printRed '==') $(printBYellow '****') $(printRed '==')
-printRed  ====================
+echo -ne "
+$(printCyan '                  =====================')
+$(printRed  ' ================')$(printCyan ' =      ')$(printBMagenta 'NIBIRU')$(printCyan '       = ')$(printRed  '================') 
+$(printCyan '                  =====================')"
 }
 
 function printcelestia {
