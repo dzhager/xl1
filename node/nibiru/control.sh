@@ -1,24 +1,28 @@
 #!/bin/bash
 
 #X-l1bra  
-	clear #&& source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/scripts/common.sh)
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/common.sh)
 printLogo
 printnibiru
 echo
 
 mainmenu() {
 	echo -ne "
-1) Проверить баланс
-2) Показать адрес кошелька
-3) Добавить кошелек wallet
-4) Восстановить кошелек
-5) Создать валидатора
-6) Узнать информацию о валидаторе
-7) Проверить синхронизацию
-8) Просмотреть логи
-9) Вернутся назад
-$(printYellow  '0) Выйти')
-$(printCyan 'Введите цифру:')  "
+	    $(printBCyan ' -->') $(printBYellow    '1)') Проверить баланс
+	    $(printBCyan ' -->') $(printBYellow    '2)') Показать адрес кошелька
+	    $(printBCyan ' -->') $(printBYellow    '3)') Добавить кошелек wallet
+	    $(printBCyan ' -->') $(printBYellow    '4)') Восстановить кошелек
+	
+	    $(printBCyan ' -->') $(printBYellow    '5)') Создать валидатора
+	    $(printBCyan ' -->') $(printBYellow    '6)') Узнать информацию о валидаторе
+	    
+	    $(printBCyan ' -->') $(printBYellow    '7)') Проверить синхронизацию
+	    $(printBCyan ' -->') $(printBYellow    '8)') Просмотреть логи
+	
+	    $(printBBlue ' <--') $(printBBlue    '9) Вернутся назад')
+		 $(printBRed    '0) Выйти')
+		 
+	$(printCyan 'Введите цифру:')  "
 	read -r ans
 	case $ans in
 		1)
