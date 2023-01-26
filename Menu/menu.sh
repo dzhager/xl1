@@ -48,7 +48,7 @@ mainmenu() { echo -ne "
 }
 
 celestia(){
-source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/nodes/celestia/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/nodes/celestia/main.sh)
 }
 
 nibiru(){
