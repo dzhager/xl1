@@ -4,21 +4,21 @@
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/common.sh)
 printLogo
 printnibiru
+echo -ne "
+	$(printGreen  '-----------------------------------------')
+	  $(printYellow 'Минимальные требования к оборудованию.')
+		     $(printBCyan '4CPU 8RAM 200GB')
+	$(printGreen  '-----------------------------------------')
+	$(printYellow 'Рекомендуемые требования к оборудованию.')
+		     $(printBCyan '8CPU 15RAM 400GB')
+	$(printGreen  '-----------------------------------------')"
 echo
-	printGreen  ----------------------------------------
-echo $(printYellow 'Минимальные требования к оборудованию.')
-echo $(printBCyan '4CPU 8RAM 200GB')
-	printGreen  ----------------------------------------
-echo $(printYellow 'Рекомендуемые требования к оборудованию.')
-echo $(printBCyan '8CPU 15RAM 400GB')
-	printGreen  ----------------------------------------
-
 mainmenu() {
 	echo -ne "
-$(printCyan	'Вы действительно хотите начать установку') $(printCyanBlink '???')
- $(printGreen	'1) Да')
- $(printRed	'2) Нет')
-$(printCyan	'Введите цифру:') "
+	$(printCyan	'Вы действительно хотите начать установку') $(printCyanBlink '???')
+	$(printGreen	' 1) Да')
+	$(printRed	' 2) Нет')
+	$(printCyan	'Введите цифру:') "
 	read -r ans
 	case $ans in
 		1)
@@ -41,13 +41,15 @@ $(printCyan	'Введите цифру:') "
 
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/nodes/nibiru/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/main.sh)
 }
 yes(){
 clear
 printLogo
-printRed  =======================================================================
-read -r -p "Введите имя ноды:" MONIKER
+printnibiru
+echo
+echo
+read -r -p "  Введите имя ноды:  " MONIKER
 
 
 printBCyan "Пожалуйста подождите........" && sleep 1
