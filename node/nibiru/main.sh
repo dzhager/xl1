@@ -3,29 +3,31 @@
 #X-l1bra  
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/common.sh)
 printLogo
-printnibiru
-mainmenu() {
-    echo -ne "
-$(printBCyan ' -->') $(printBCyan    '1) Управление')
+mainmenu() { echo -ne "
+$(printCyan '                  =====================')
+$(printRed  ' ================')$(printCyan ' =      ')$(printBMagenta 'NIBIRU')$(printCyan '       = ')$(printRed  '================') 
+$(printCyan '                  =====================')
 
-$(printBCyan ' -->') $(printBYellow    '2) Обновить')
-$(printBCyan ' -->') $(printBGreen    '3) Установка')
-$(printBCyan ' -->') $(printBRed    '4) Удаление')
+		$(printBCyan ' -->') $(printBCyan    '1) Управление')
 
-$(printBBlue ' <-- 5) Назад')
-$(printBRed        '     0) Выход')
+		$(printBCyan ' -->') $(printBGreen    '2) Установить')
+		$(printBCyan ' -->') $(printBYellow    '3) Обновить')
+		$(printBCyan ' -->') $(printBRed    '4) Удалить')
 
- Введите цифру: "
+		$(printBBlue ' <-- 5) Назад')
+		$(printBRed        '     0) Выход')
+
+ 	Введите цифру: "
 
 read -r ans
 	case $ans in
 		1)
 		control
 		;;
-		2)
+		3)
 		update
 		;;
-		3)
+		2)
 		install
 		;;
 		4)
