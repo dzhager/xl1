@@ -4,9 +4,6 @@
 clear && source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/common.sh)
 printLogo
 mainmenu() { echo -ne "
-$(printCyanBlink '                  =====================')
-$(printRed  ' ================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================') 
-$(printCyanBlink '                  =====================')
 
  		     $(printBCyan 'Выберите ноду !')
 
