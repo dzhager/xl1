@@ -74,6 +74,13 @@ mainmenu() {
 		echo $(printRed 'Неверный запрос !')
 		mainmenu
 		;;
+		
+		10)
+		clear
+		printLogo
+		printnibiru
+		Send
+		;;
 	esac
 }
 
@@ -98,6 +105,14 @@ printRed         ============================================
 mainmenu
 }
 
+Send(){
+read -r -p "  Введите адресс кошелька:  " VAR1
+echo "1nibi = 1000000unibi"
+read -r -p "  Введите колличество монет unibi:  " VAR2
+nibid tx bank send wallet "$VAR1" "$VAR2"unibi --from wallet --chain-id nibiru-testnet-2 --gas-prices 0.1unibi --gas-adjustment 1.5 --gas auto -y
+mainmenu
+}
+
 RecoveryWallet(){
 clear && printLogo && printnibiru
 nibid keys add wallet --recover
@@ -105,21 +120,10 @@ mainmenu
 }
 
 CreateValidator(){
+
 clear && printLogo && printnibiru
-#nibid tx staking create-validator --amount 1000000unibi --commission-max-change-rate "0.1" --commission-max-rate "0.20" --commission-rate "0.1" --min-self-delegation "1" --pubkey=$(nibid tendermint show-validator) --moniker=$MONIKER --chain-id nibiru-testnet-2 --gas-prices 0.025unibi --from wallet
-nibid tx staking create-validator \
---amount=10000000unibi \
---pubkey=$(nibid tendermint show-validator) \
---moniker="$MONIKER" \
---identity=8F3C23EC3306B513 \
---chain-id=nibiru-testnet-2 \
---commission-rate=0.1 \
---commission-max-rate=0.2 \
---commission-max-change-rate=0.05 \
---min-self-delegation=1 \
---fees=2000unibi \
---from=wallet \
--y
+nibid tx staking create-validator --amount 1000000unibi --commission-max-change-rate "0.1" --commission-max-rate "0.20" --commission-rate "0.1" --min-self-delegation "1" --pubkey=$(nibid tendermint show-validator) --moniker="$MONIKER" --chain-id nibiru-testnet-2 --gas-prices 0.025unibi --from wallet
+
 
 echo
 echo -ne "$(printBRed 'Вы должны позаботится забэкапить priv_validator_key.json.
