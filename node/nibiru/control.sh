@@ -12,6 +12,7 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '2)') Показать адрес кошелька
 	    $(printBCyan ' -->') $(printBYellow    '3)') Добавить кошелек wallet
 	    $(printBCyan ' -->') $(printBYellow    '4)') Восстановить кошелек
+	    $(printBCyan ' -->') $(printBYellow    '10)') Send
 	
 	    $(printBCyan ' -->') $(printBYellow    '5)') Создать валидатора
 	    $(printBCyan ' -->') $(printBYellow    '6)') Узнать информацию о валидаторе
