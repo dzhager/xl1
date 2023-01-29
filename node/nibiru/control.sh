@@ -9,18 +9,20 @@ echo
 mainmenu() {
 	echo -ne "
 	    $(printBCyan ' -->') $(printBYellow    '1)') Проверить баланс
-	    $(printBCyan ' -->') $(printBYellow    '2)') Показать адрес кошелька
-	    $(printBCyan ' -->') $(printBYellow    '3)') Добавить кошелек wallet
-	    $(printBCyan ' -->') $(printBYellow    '4)') Восстановить кошелек
-	    $(printBCyan ' -->') $(printBYellow    '10)') Send
+	    $(printBCyan ' -->') $(printBYellow    '2)') Отправить монеты
+	    $(printBCyan ' -->') $(printBYellow    '3)') Показать адрес кошелька
+	    $(printBCyan ' -->') $(printBYellow    '4)') Добавить кошелек wallet
+	    $(printBCyan ' -->') $(printBYellow    '5)') Восстановить кошелек
 	
-	    $(printBCyan ' -->') $(printBYellow    '5)') Создать валидатора
-	    $(printBCyan ' -->') $(printBYellow    '6)') Узнать информацию о валидаторе
+	    $(printBCyan ' -->') $(printBYellow    '6)') Делегировать
+	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать самому себе
+	    $(printBCyan ' -->') $(printBYellow    '8)') Создать валидатора
+	    $(printBCyan ' -->') $(printBYellow    '9)') Узнать информацию о валидаторе
 	    
-	    $(printBCyan ' -->') $(printBYellow    '7)') Проверить синхронизацию
-	    $(printBCyan ' -->') $(printBYellow    '8)') Просмотреть логи
+	    $(printBCyan ' -->') $(printBYellow    '10)') Проверить синхронизацию
+	    $(printBCyan ' -->') $(printBYellow    '11)') Просмотреть логи
 	
-	    $(printBBlue ' <--') $(printBBlue    '9) Вернутся назад')
+	    $(printBBlue ' <--') $(printBBlue    '12) Вернутся назад')
 		 $(printBRed    '0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
@@ -31,43 +33,48 @@ mainmenu() {
 		;;
 		
 		2)
-		ShowWallet
+		Send
 		;;
 		
 		3)
-		AddWallet
+		ShowWallet
 		;;
 		
 		4)
-		RecoveryWallet
+		AddWallet
 		
 		;;
 		
 		5)
-		CreateValidator
+		RecoveryWallet
 		;;
 		
 		6)
-		InfoValidator
+		Delegate
 		;;
 		
 		7)
-		synced
+		DelegateYourself
 		;;
 		
 		8)
-		logs
+		CreateValidator
 		;;
 		
 		9)
-		back
+		InfoValidator
 		;;
 		
 		10)
-		clear
-		printLogo
-		printnibiru
-		Send
+		synced
+		;;
+		
+		11)
+		logs
+		;;
+		
+		12)
+		back
 		;;
 		
 		0)
@@ -96,6 +103,7 @@ mainmenu
 
 ShowWallet(){
 clear && printLogo && printnibiru
+echo
 nibid keys list
 mainmenu
 }
@@ -111,7 +119,8 @@ mainmenu
 
 Send(){
 read -r -p "  Введите адресс кошелька:  " VAR1
-echo "1nibi = 1000000unibi"
+echo
+echo -ne "($printBRed '		1nibi = 1000000unibi')"
 read -r -p "  Введите колличество монет unibi:  " VAR2
 nibid tx bank send wallet "$VAR1" "$VAR2"unibi --from wallet --chain-id nibiru-testnet-2 --gas-prices 0.1unibi --gas-adjustment 1.5 --gas auto -y
 mainmenu
@@ -119,13 +128,36 @@ mainmenu
 
 RecoveryWallet(){
 clear && printLogo && printnibiru
+echo
 nibid keys add wallet --recover
 mainmenu
 }
 
-CreateValidator(){
-
+Delegate(){
 clear && printLogo && printnibiru
+echo
+read -r -p "  Введите валопер адресс:  " VAR1
+echo -ne "$($printBRed '		1nibi = 1000000unibi')"
+read -r -p "  Введите колличество монет unibi:  " VAR2
+nibid tx staking delegate "VAR1" "$VAR2"unibi --from wallet --chain-id nibiru-testnet-2 --gas-prices 0.1unibi --gas-adjustment 1.5 --gas auto -y
+echo
+mainmenu
+}
+
+DelegateYourself(){
+clear && printLogo && printnibiru
+echo
+echo -ne "$(printBRed '		1nibi = 1000000unibi')"
+read -r -p "  Введите колличество монет unibi:  " VAR2
+nibid tx staking delegate $(nibid keys show wallet --bech val -a) "$VAR2"unibi --from wallet --chain-id nibiru-testnet-2 --gas-prices 0.1unibi --gas-adjustment 1.5 --gas auto -y 
+echo
+mainmenu
+}
+
+
+CreateValidator(){
+clear && printLogo && printnibiru
+echo
 nibid tx staking create-validator --amount 1000000unibi --commission-max-change-rate "0.1" --commission-max-rate "0.20" --commission-rate "0.1" --min-self-delegation "1" --pubkey=$(nibid tendermint show-validator) --moniker="$MONIKER" --chain-id nibiru-testnet-2 --gas-prices 0.025unibi --from wallet
 echo
 echo -ne "$(printBRed 'Вы должны позаботится забэкапить priv_validator_key.json.
@@ -152,7 +184,7 @@ submenu
 }
 
 back(){
-source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/nodes/nibiru/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/main.sh)
 }
 
 submenu(){
