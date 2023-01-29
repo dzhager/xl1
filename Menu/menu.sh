@@ -64,7 +64,6 @@ defund(){
 clear
 printLogo
 printComing
-               echo "        $(printBYellow '             Coming soon !!!')"
 mainmenu
 }
 

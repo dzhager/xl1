@@ -141,7 +141,7 @@ printRed  =======================
 
 function printComing {
 echo -ne "$(printCyanBlink '                  =====================')
-$(printRed  ' ================')$(printCyanBlink ' = ')$(printBYellow 'Coming soon !!!')$(printCyanBlink ' = ')
+$(printRed  ' ================')$(printCyanBlink ' = ')$(printBYellow ' Coming soon !!!')$(printCyanBlink '  = ')$(printRed  '================') 
 $(printCyanBlink '                  =====================')"
 }
 
