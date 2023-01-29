@@ -86,6 +86,7 @@ mainmenu() {
 
 WalletBalance(){
 clear && printLogo && printnibiru
+echo
 nibid q bank balances $(nibid keys show wallet -a)
 mainmenu
 }
