@@ -52,7 +52,11 @@ mainmenu() { echo -ne "
 }
 
 celestia(){
-source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/nodes/celestia/main.sh)
+clear
+printLogo
+printComing
+mainmenu
+#source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/nodes/celestia/main.sh)
 }
 
 nibiru(){
