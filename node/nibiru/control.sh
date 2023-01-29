@@ -141,7 +141,7 @@ read -r -p "  Введите валопер адресс:  " VAR1
 echo -ne "$(printBRed ' 1nibi = 1000000unibi')"
 echo
 read -r -p "  Введите колличество монет unibi:  " VAR2
-nibid tx staking delegate "VAR1" "$VAR2"unibi --from wallet --chain-id nibiru-testnet-2 --gas-prices 0.1unibi --gas-adjustment 1.5 --gas auto -y
+nibid tx staking delegate "$VAR1" "$VAR2"unibi --from wallet --chain-id nibiru-testnet-2 --gas-prices 0.1unibi --gas-adjustment 1.5 --gas auto -y
 echo
 mainmenu
 }
