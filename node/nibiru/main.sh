@@ -56,12 +56,7 @@ source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/
 }
 
 update(){
-clear
-printLogo
-echo
-echo $(printBYellow "Coming soon !!!")
-mainmenu
-#source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/nodes/nibiru/update.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/update.sh)
 }
 
 delet(){
