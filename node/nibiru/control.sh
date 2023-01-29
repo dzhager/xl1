@@ -63,6 +63,13 @@ mainmenu() {
 		back
 		;;
 		
+		10)
+		clear
+		printLogo
+		printnibiru
+		Send
+		;;
+		
 		0)
 		echo $(printBCyan '"Bye bye."')
 		exit 
@@ -76,12 +83,7 @@ mainmenu() {
 		mainmenu
 		;;
 		
-		10)
-		clear
-		printLogo
-		printnibiru
-		Send
-		;;
+
 	esac
 }
 
