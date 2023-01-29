@@ -206,7 +206,7 @@ echo -ne "
 		*)
 		source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/logo.sh)
 		printnibiru
-		echo $(printBRed 'Неверный запрс !!!')
+		echo $(printBRed 'Неверный запрос !!!')
 		submenu
 		;;
 	esac
