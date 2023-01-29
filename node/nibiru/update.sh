@@ -11,6 +11,7 @@ if [[ "$var3" == "$var4" ]]; then
  mainmenu
 else
  	uptade
+ 	submenu
 fi
 
 
