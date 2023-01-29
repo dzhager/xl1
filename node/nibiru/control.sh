@@ -111,9 +111,10 @@ mainmenu
 AddWallet(){
 clear && printLogo && printnibiru
 nibid keys add wallet
-printRed         ============================================
-echo $(printBRed '== ОБЯЗАТЕЛЬНО СОХРАНИТЕ МНЕМОНИК ФРАЗУ ==') $(printBRedBlink '!!!')
-printRed         ============================================
+echo
+echo -ne "$(printCyanBlink '       ============================================')
+$(printCyanBlink '       = ')$(printBRed 'ОБЯЗАТЕЛЬНО СОХРАНИТЕ МНЕМОНИК ФРАЗУ !!!')$(printCyanBlink ' = ')
+$(printCyanBlink '       ============================================')"
 mainmenu
 }
 
