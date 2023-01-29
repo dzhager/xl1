@@ -71,7 +71,7 @@ shardeum(){
 #source <(curl -s  )
 clear
 printLogo
-               echo "        $(printBYellow '             Coming soon !!!')"
+printComing
 mainmenu
 }
 
