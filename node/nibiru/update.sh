@@ -37,3 +37,15 @@ mainmenu(){
 			;;
 	esac
 }
+
+submenu(){
+	echo -ne "
+	$(printBGreen '	Обновление завершено!')
+	$(printBCyan '	Для возврата нажмите Enter:')  "
+		read -r ans
+		case $ans in
+			*)
+			source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/main.sh)
+			;;
+	esac
+}
