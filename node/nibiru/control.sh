@@ -5,7 +5,6 @@
 printLogo
 printnibiru
 echo
-
 mainmenu() {
 	echo -ne "
 	    $(printBCyan ' -->') $(printBYellow    '1)') Проверить баланс
@@ -89,8 +88,6 @@ mainmenu() {
 		echo $(printRed 'Неверный запрос !')
 		mainmenu
 		;;
-		
-
 	esac
 }
 
@@ -203,6 +200,5 @@ $(printYellow    'Для того что бы остановить журнал 
 		;;
 	esac
 }
-
 
 mainmenu
