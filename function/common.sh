@@ -140,9 +140,9 @@ printRed  =======================
 # }
 
 function printComing {
-$(printCyanBlink '                  =====================')
+echo -ne "$(printCyanBlink '                  =====================')
 $(printRed  ' ================')$(printCyanBlink ' = ')$(printBYellow 'Coming soon !!!')$(printCyanBlink ' = ')$(printRed  '================') 
-$(printCyanBlink '                  =====================')
+$(printCyanBlink '                  =====================')"
 }
 
 function printLogo {

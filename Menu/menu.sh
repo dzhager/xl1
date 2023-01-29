@@ -63,6 +63,7 @@ defund(){
 #source <(curl -s  )
 clear
 printLogo
+printComing
                echo "        $(printBYellow '             Coming soon !!!')"
 mainmenu
 }
