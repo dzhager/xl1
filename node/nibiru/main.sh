@@ -64,7 +64,8 @@ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru
 }
 
 back(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/Menu/menu.sh)
+./x-l1bra
+#source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/Menu/menu.sh)
 }
 
 mainmenu
