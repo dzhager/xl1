@@ -10,12 +10,12 @@ if [[ "$var3" == "$var4" ]]; then
  echo -ne "$(printBGreen '	У вас уже установлена последняя версия!')"
  mainmenu
 else
- 	uptade
+ 	update
  	submenu
 fi
 
 
-uptade(){
+update(){
 sudo systemctl stop celestia-appd
 
 # set necessary vars

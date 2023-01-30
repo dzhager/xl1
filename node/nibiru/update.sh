@@ -10,12 +10,12 @@ if [[ "$var3" == "$var4" ]]; then
  echo -ne "$(printBGreen '	У вас уже установлена последняя версия!')"
  mainmenu
 else
- 	uptade
+ 	update
  	submenu
 fi
 
 
-uptade(){
+update(){
 cd $HOME
 rm -rf nibiru
 git clone https://github.com/NibiruChain/nibiru.git
