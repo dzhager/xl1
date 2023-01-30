@@ -65,7 +65,7 @@ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celest
 }
 
 back(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/Menu/menu.sh)
+./x-l1bra
 }
 
 mainmenu
