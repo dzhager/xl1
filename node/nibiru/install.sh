@@ -30,9 +30,7 @@ mainmenu() {
 		*)
 		clear
 		printLogo
-		printRed  ====================
-		echo $(printRed '==') $(printBBlue 'NIBIRU') $(printRed '==') $(printYellow '****') $(printRed '==')
-		printRed  ====================
+		printnibiru
 		echo $(printRed 'Неверный запрос !')
         	mainmenu
         	;;
@@ -197,6 +195,7 @@ echo -ne "
 		subsubmenu
 		;;
 		2)
+		echo
 		nibid status 2>&1 | jq .SyncInfo
 		submenu
 		;;
@@ -204,9 +203,10 @@ echo -ne "
 		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/logo.sh)
 		;;
 		*)
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/logo.sh)
+		printLogo
 		printnibiru
-		echo $(printBRed 'Неверный запрос !!!')
+		echo
+		echo $(printBRed '	Неверный запрос !!!')
 		submenu
 		;;
 	esac
