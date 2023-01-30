@@ -7,16 +7,16 @@ printcelestia
 echo
 mainmenu() {
 	echo -ne "
-	    $(printBCyan ' -->') $(printBYellow    '1)') Проверить баланс wallet
-	    $(printBCyan ' -->') $(printBYellow    '2)') Проверить баланс orchestrator
-	    $(printBCyan ' -->') $(printBYellow    '3)') Отправить монеты
-	    $(printBCyan ' -->') $(printBYellow    '4)') Показать адрес кошелька
-	    $(printBCyan ' -->') $(printBYellow    '5)') Добавить кошелек wallet
-	    $(printBCyan ' -->') $(printBYellow    '6)') Добавить кошелек orchestrator
-	    $(printBCyan ' -->') $(printBYellow    '7)') Восстановить кошелек
+	    $(printBCyan ' -->') $(printBYellow    '1)')  Проверить баланс wallet
+	    $(printBCyan ' -->') $(printBYellow    '2)')  Проверить баланс orchestrator
+	    $(printBCyan ' -->') $(printBYellow    '3)')  Отправить монеты
+	    $(printBCyan ' -->') $(printBYellow    '4)')  Показать адрес кошелька
+	    $(printBCyan ' -->') $(printBYellow    '5)')  Добавить кошелек wallet
+	    $(printBCyan ' -->') $(printBYellow    '6)')  Добавить кошелек orchestrator
+	    $(printBCyan ' -->') $(printBYellow    '7)')  Восстановить кошелек
 	
-	    $(printBCyan ' -->') $(printBYellow    '8)') Делегировать
-	    $(printBCyan ' -->') $(printBYellow    '9)') Делегировать самому себе
+	    $(printBCyan ' -->') $(printBYellow    '8)')  Делегировать
+	    $(printBCyan ' -->') $(printBYellow    '9)')  Делегировать самому себе
 	    $(printBCyan ' -->') $(printBYellow    '10)') Создать валидатора
 	    $(printBCyan ' -->') $(printBYellow    '11)') Узнать информацию о валидаторе
 	    
@@ -24,7 +24,7 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '13)') Просмотреть логи
 	
 	    $(printBBlue ' <--') $(printBBlue    '14) Вернутся назад')
-		 $(printBRed    '0) Выйти')
+		 $(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
 	read -r ans
@@ -94,16 +94,23 @@ mainmenu() {
 		clear
 		printLogo
 		printcelestia
-		echo $(printRed 'Неверный запрос !')
+		echo $(printRed '	Неверный запрос !')
 		mainmenu
 		;;
 	esac
 }
-
+#--1
 WalletBalance(){
 clear && printLogo && printcelestia
 echo
 celestia-appd q bank balances $(celestia-appd keys show wallet -a)
+mainmenu
+}
+
+OrchestratorWallet(){
+clear && printLogo && printcelestia
+echo
+celestia-appd q bank balances $(celestia-appd keys show orchestrator -a)
 mainmenu
 }
 
@@ -116,6 +123,7 @@ mainmenu
 
 AddWallet(){
 clear && printLogo && printcelestia
+echo
 celestia-appd keys add wallet
 echo
 echo -ne "$(printCyanBlink '       ============================================')
@@ -124,9 +132,23 @@ $(printCyanBlink '       ============================================')"
 mainmenu
 }
 
-Send(){
-read -r -p "  Введите адрес кошелька:  " VAR1
+AddWalletOrchestrator(){
+clear && printLogo && printcelestia
 echo
+celestia-appd keys add orchestrator
+echo
+echo -ne "$(printCyanBlink '       ============================================')
+$(printCyanBlink '       = ')$(printBRed 'ОБЯЗАТЕЛЬНО СОХРАНИТЕ МНЕМОНИК ФРАЗУ !!!')$(printCyanBlink ' = ')
+$(printCyanBlink '       ============================================')"
+mainmenu
+}
+
+
+
+Send(){
+clear && printLogo && printcelestia
+echo
+read -r -p "  Введите адрес кошелька:  " VAR1
 echo -ne "(printBRed ' 1tia = 1000000utia')"
 read -r -p "  Введите количество монет utia:  " VAR2
 celestia-appd tx bank send wallet "$VAR1" "$VAR2"utia --from wallet --chain-id mocha --gas-prices 0.1utia --gas-adjustment 1.5 --gas auto -y 
@@ -196,7 +218,7 @@ submenu
 }
 
 back(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/main.sh)
 }
 
 submenu(){
