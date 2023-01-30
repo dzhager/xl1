@@ -35,7 +35,7 @@ read -r ans
 		back
 		;;
 		0)
-		echo $(printBCyan '"Bye bye."')
+		echo $(printBCyan '	"Bye bye."')
 		rm x-l1bra
 		exit
 		;;
@@ -44,7 +44,9 @@ read -r ans
 		printLogo
 		printnibiru
 		echo
-		echo $(printRed 'Неверный запрос !')
+		echo
+		echo $(printRed '	Неверный запрос !')
+		mainmenu
 		;;
 	esac
 }
@@ -67,7 +69,6 @@ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru
 
 back(){
 ./x-l1bra
-#source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/Menu/menu.sh)
 }
 
 mainmenu

@@ -44,7 +44,8 @@ read -r ans
 		printLogo
 		printcelestia
 		echo
-		echo $(printRed 'Неверный запрос !')
+		echo
+		echo $(printRed '	Неверный запрос !')
 		;;
 	esac
 }
