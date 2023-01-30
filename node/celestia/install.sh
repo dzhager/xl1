@@ -31,6 +31,7 @@ mainmenu() {
 		clear
 		printLogo
 		printcelestia
+		echo
 		echo $(printRed 'Неверный запрос !')
         	mainmenu
         	;;

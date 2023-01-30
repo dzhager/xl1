@@ -31,6 +31,7 @@ mainmenu() {
 		clear
 		printLogo
 		printnibiru
+		echo
 		echo $(printRed 'Неверный запрос !')
         	mainmenu
         	;;

@@ -43,6 +43,7 @@ read -r ans
 		clear
 		printLogo
 		printnibiru
+		echo
 		echo $(printRed 'Неверный запрос !')
 		;;
 	esac
