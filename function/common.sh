@@ -123,14 +123,14 @@ function addToPath {
 
 function printnibiru {
 echo -ne "$(printCyan '                  =====================')
-$(printRed  ' ================')$(printCyan ' =      ')$(printBMagenta 'NIBIRU')$(printCyan '       = ')$(printRed  '================') 
+$(printRed  ' ================')$(printCyan ' =      ')$(printBBlue 'NIBIRU')$(printCyan '       = ')$(printRed  '================') 
 $(printCyan '                  =====================')"
 }
 
 function printcelestia {
-printRed  =======================
-echo $(printRed '==') $(printBMagenta 'CELESTIA') $(printRed '==') $(printBYellow '*****') $(printRed '==')
-printRed  =======================
+echo -ne "$(printCyan '                  =====================')
+$(printRed  ' ================')$(printCyan ' =      ')$(printBMagenta 'CELESTIA')$(printCyan '       = ')$(printRed  '================') 
+$(printCyan '                  =====================')"
 }
 
 # function printComing {

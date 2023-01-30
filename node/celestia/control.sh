@@ -7,21 +7,23 @@ printcelestia
 echo
 mainmenu() {
 	echo -ne "
-	    $(printBCyan ' -->') $(printBYellow    '1)') Проверить баланс
-	    $(printBCyan ' -->') $(printBYellow    '2)') Отправить монеты
-	    $(printBCyan ' -->') $(printBYellow    '3)') Показать адрес кошелька
-	    $(printBCyan ' -->') $(printBYellow    '4)') Добавить кошелек wallet
-	    $(printBCyan ' -->') $(printBYellow    '5)') Восстановить кошелек
+	    $(printBCyan ' -->') $(printBYellow    '1)') Проверить баланс wallet
+	    $(printBCyan ' -->') $(printBYellow    '2)') Проверить баланс orchestrator
+	    $(printBCyan ' -->') $(printBYellow    '3)') Отправить монеты
+	    $(printBCyan ' -->') $(printBYellow    '4)') Показать адрес кошелька
+	    $(printBCyan ' -->') $(printBYellow    '5)') Добавить кошелек wallet
+	    $(printBCyan ' -->') $(printBYellow    '6)') Добавить кошелек orchestrator
+	    $(printBCyan ' -->') $(printBYellow    '7)') Восстановить кошелек
 	
-	    $(printBCyan ' -->') $(printBYellow    '6)') Делегировать
-	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать самому себе
-	    $(printBCyan ' -->') $(printBYellow    '8)') Создать валидатора
-	    $(printBCyan ' -->') $(printBYellow    '9)') Узнать информацию о валидаторе
+	    $(printBCyan ' -->') $(printBYellow    '8)') Делегировать
+	    $(printBCyan ' -->') $(printBYellow    '9)') Делегировать самому себе
+	    $(printBCyan ' -->') $(printBYellow    '10)') Создать валидатора
+	    $(printBCyan ' -->') $(printBYellow    '11)') Узнать информацию о валидаторе
 	    
-	    $(printBCyan ' -->') $(printBYellow    '10)') Проверить синхронизацию
-	    $(printBCyan ' -->') $(printBYellow    '11)') Просмотреть логи
+	    $(printBCyan ' -->') $(printBYellow    '12)') Проверить синхронизацию
+	    $(printBCyan ' -->') $(printBYellow    '13)') Просмотреть логи
 	
-	    $(printBBlue ' <--') $(printBBlue    '12) Вернутся назад')
+	    $(printBBlue ' <--') $(printBBlue    '14) Вернутся назад')
 		 $(printBRed    '0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
