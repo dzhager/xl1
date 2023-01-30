@@ -32,7 +32,8 @@ mainmenu() {
 		printLogo
 		printcelestia
 		echo
-		echo $(printRed 'Неверный запрос !')
+		echo
+		echo $(printRed '	Неверный запрос !')
         	mainmenu
         	;;
     esac

@@ -96,6 +96,7 @@ mainmenu() {
 		printLogo
 		printcelestia
 		echo
+		echo
 		echo $(printRed '	Неверный запрос !')
 		mainmenu
 		;;
