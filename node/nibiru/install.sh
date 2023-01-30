@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #X-l1bra
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/common.sh)
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
 printLogo
 printnibiru
 echo -ne "
@@ -41,7 +41,7 @@ mainmenu() {
 
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/main.sh)
 }
 yes(){
 clear
@@ -80,7 +80,7 @@ printGreen "Готово!" && sleep 1
 
 
 printYellow "4. Устанавливаем go........" && sleep 1
-	source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/scripts/go_1.19.4.sh)
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/scripts/go_1.19.4.sh)
 printGreen "Готово!" && sleep 1
 
 
@@ -201,10 +201,10 @@ echo -ne "
 		submenu
 		;;
 		3)
-		source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/logo.sh)
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/logo.sh)
 		;;
 		*)
-		source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/logo.sh)
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/logo.sh)
 		printnibiru
 		echo $(printBRed 'Неверный запрос !!!')
 		submenu

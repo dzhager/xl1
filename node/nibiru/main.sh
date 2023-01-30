@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/common.sh)
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
 printLogo
 printnibiru
 mainmenu() { echo -ne "
@@ -48,23 +48,23 @@ read -r ans
 }
 
 install(){
-source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/install.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/install.sh)
 }
 
 control(){
-source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/control.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/control.sh)
 }
 
 update(){
-source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/update.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/update.sh)
 }
 
 delet(){
-source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/delet.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/delet.sh)
 }
 
 back(){
-source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/Menu/menu.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/Menu/menu.sh)
 }
 
 mainmenu

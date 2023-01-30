@@ -1,5 +1,5 @@
 #! /bin/bash
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/common.sh)
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
 printLogo
 printnibiru
 echo
@@ -34,7 +34,7 @@ mainmenu(){
 		read -r ans
 		case $ans in
 			*)
-			source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/main.sh)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/main.sh)
 			;;
 	esac
 }
@@ -46,7 +46,7 @@ submenu(){
 		read -r ans
 		case $ans in
 			*)
-			source <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/node/nibiru/main.sh)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/main.sh)
 			;;
 	esac
 }
