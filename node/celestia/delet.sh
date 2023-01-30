@@ -47,7 +47,7 @@ printcelestia
 echo -ne "	
 
 $(printBYellow 'Удаляем.....!')"
-#systemctl stop celestia-appd.service && rm -rf /etc/systemd/system/celestia-appd.service && rm -rf celestia-app && rm -rf .celestia-app
+systemctl stop celestia-appd.service && rm -rf /etc/systemd/system/celestia-appd.service && rm -rf celestia-app && rm -rf .celestia-app
 submenu
 }
 
