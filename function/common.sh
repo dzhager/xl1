@@ -129,7 +129,7 @@ $(printCyan '                  =====================')"
 
 function printcelestia {
 echo -ne "$(printCyan '                  =====================')
-$(printRed  ' ================')$(printCyan ' =      ')$(printBMagenta 'CELESTIA')$(printCyan '       = ')$(printRed  '================') 
+$(printRed  ' ================')$(printCyan ' =     ')$(printBMagenta 'CELESTIA')$(printCyan '      = ')$(printRed  '================') 
 $(printCyan '                  =====================')"
 }
 
