@@ -36,6 +36,7 @@ read -r ans
 		;;
 		0)
 		echo $(printBCyan '"Bye bye."')
+		rm x-l1bra
 		exit
 		;;
 		*)
