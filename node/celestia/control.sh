@@ -34,47 +34,54 @@ mainmenu() {
 		;;
 		
 		2)
-		Send
+		OrchestratorWallet
 		;;
 		
 		3)
-		ShowWallet
+		Send
 		;;
 		
 		4)
-		AddWallet
-		
+		ShowWallet
 		;;
 		
 		5)
-		RecoveryWallet
+		AddWallet
 		;;
 		
 		6)
-		Delegate
+		AddWalletOrchestrator
 		;;
 		
 		7)
-		DelegateYourself
+		RecoveryWallet
 		;;
 		
 		8)
-		CreateValidator
+		Delegate
 		;;
 		
 		9)
-		InfoValidator
+		DelegateYourself
 		;;
 		
 		10)
-		synced
+		CreateValidator
 		;;
 		
 		11)
-		logs
+		InfoValidator
 		;;
 		
 		12)
+		synced
+		;;
+		
+		13)
+		logs
+		;;
+		
+		14)
 		back
 		;;
 		
@@ -86,7 +93,7 @@ mainmenu() {
 		*)
 		clear
 		printLogo
-		printnibiru
+		printcelestia
 		echo $(printRed 'Неверный запрос !')
 		mainmenu
 		;;
@@ -94,22 +101,22 @@ mainmenu() {
 }
 
 WalletBalance(){
-clear && printLogo && printnibiru
+clear && printLogo && printcelestia
 echo
-nibid q bank balances $(nibid keys show wallet -a)
+celestia-appd q bank balances $(celestia-appd keys show wallet -a)
 mainmenu
 }
 
 ShowWallet(){
-clear && printLogo && printnibiru
+clear && printLogo && printcelestia
 echo
-nibid keys list
+celestia-appd keys list
 mainmenu
 }
 
 AddWallet(){
-clear && printLogo && printnibiru
-nibid keys add wallet
+clear && printLogo && printcelestia
+celestia-appd keys add wallet
 echo
 echo -ne "$(printCyanBlink '       ============================================')
 $(printCyanBlink '       = ')$(printBRed 'ОБЯЗАТЕЛЬНО СОХРАНИТЕ МНЕМОНИК ФРАЗУ !!!')$(printCyanBlink ' = ')
@@ -127,14 +134,14 @@ mainmenu
 }
 
 RecoveryWallet(){
-clear && printLogo && printnibiru
+clear && printLogo && printcelestia
 echo
 nibid keys add wallet --recover
 mainmenu
 }
 
 Delegate(){
-clear && printLogo && printnibiru
+clear && printLogo && printcelestia
 echo
 read -r -p " Введите валопер адрес:  " VAR1
 echo -ne "$(printBRed ' 1nibi = 1000000unibi')"
@@ -146,7 +153,7 @@ mainmenu
 }
 
 DelegateYourself(){
-clear && printLogo && printnibiru
+clear && printLogo && printcelestia
 echo
 echo -ne "$(printBRed ' 1nibi = 1000000unibi')"
 echo
@@ -158,7 +165,7 @@ mainmenu
 
 
 CreateValidator(){
-clear && printLogo && printnibiru
+clear && printLogo && printcelestia
 echo
 read -r -p "  Введите имя валидатора:  " VAR1
 nibid tx staking create-validator --amount 1000000unibi --commission-max-change-rate "0.1" --commission-max-rate "0.20" --commission-rate "0.1" --min-self-delegation "1" --pubkey=$(nibid tendermint show-validator) --moniker="$VAR1" --chain-id nibiru-testnet-2 --gas-prices 0.025unibi --from wallet
@@ -171,13 +178,13 @@ mainmenu
 }
 
 InfoValidator(){
-clear && printLogo && printnibiru
+clear && printLogo && printcelestia
 nibid q staking validator $(nibid keys show wallet --bech val -a)
 mainmenu
 }
 
 synced(){
-clear && printLogo && printnibiru
+clear && printLogo && printcelestia
 nibid status 2>&1 | jq .SyncInfo
 mainmenu
 }
