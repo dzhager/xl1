@@ -1,8 +1,7 @@
 #! /bin/bash
 
 #X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/plnine/x-l1bra/main/scripts/common.sh)
-clear
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
 printLogo
 printcelestia
 echo -ne "
