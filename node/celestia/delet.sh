@@ -27,10 +27,10 @@ mainmenu() {
 		clear
 		printLogo
 		printcelestia
-		echo -ne "
-		
-		    $(printRed '	Неверный запрос !')
-		    "
+		echo
+		echo
+		echo    -ne "$(printRed '		   Неверный запрос !')"
+		echo
 		mainmenu
 		;;
 	esac

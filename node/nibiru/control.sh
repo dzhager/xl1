@@ -22,7 +22,7 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '11)') Просмотреть логи
 	
 	    $(printBBlue ' <--') $(printBBlue    '12) Вернутся назад')
-		 $(printBRed    '0) Выйти')
+		 $(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
 	read -r ans
@@ -88,7 +88,8 @@ mainmenu() {
 		printnibiru
 		echo
 		echo
-		echo $(printRed '	Неверный запрос !')
+		echo    -ne "$(printRed '		   Неверный запрос !')"
+		echo
 		mainmenu
 		;;
 	esac

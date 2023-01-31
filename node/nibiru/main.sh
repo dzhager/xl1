@@ -15,7 +15,7 @@ mainmenu() { echo -ne "
 		$(printBBlue ' <-- 5) Назад')
 		$(printBRed        '     0) Выход')
 
- 	Введите цифру: "
+	$(printCyan 'Введите цифру:')  "
 
 read -r ans
 	case $ans in
@@ -45,7 +45,8 @@ read -r ans
 		printnibiru
 		echo
 		echo
-		echo $(printRed '	Неверный запрос !')
+		echo    -ne "$(printRed '		   Неверный запрос !')"
+		echo
 		mainmenu
 		;;
 	esac

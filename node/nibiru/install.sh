@@ -33,8 +33,9 @@ mainmenu() {
 		printnibiru
 		echo
 		echo
-		echo $(printRed '	Неверный запрос !')
-        	mainmenu
+		echo    -ne "$(printRed '		   Неверный запрос !')"
+		echo
+		mainmenu
         	;;
     esac
 }

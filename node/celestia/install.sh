@@ -33,8 +33,9 @@ mainmenu() {
 		printcelestia
 		echo
 		echo
-		echo $(printRed '	Неверный запрос !')
-        	mainmenu
+		echo    -ne "$(printRed '		   Неверный запрос !')"
+		echo
+		mainmenu
         	;;
     esac
 }
@@ -181,9 +182,14 @@ $(printGreen    'Установка завершена.')
 		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/main.sh)
 		;;
 		*)
+		clear
+		printLogo
+		printcelestia
 		echo
-		echo $(redprint '	Неверный запрс !!!')
-		submenu
+		echo
+		echo    -ne "$(printRed '		   Неверный запрос !')"
+		echo
+		mainmenu
 		;;
 	esac
 }

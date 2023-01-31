@@ -27,9 +27,10 @@ mainmenu() {
 		clear
 		printLogo
 		printnibiru
-		echo -ne "
-		
-		    $(printRed 'Неверный запрос !')"
+		echo
+		echo
+		echo    -ne "$(printRed '		   Неверный запрос !')"
+		echo
 		mainmenu
 		;;
 	esac
