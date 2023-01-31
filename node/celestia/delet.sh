@@ -8,7 +8,7 @@ printcelestia
 mainmenu() {
     echo -ne "
     
-	  $(printBRed    'Вы действительно хотите удалить Nibiru ') $(printBRedBlink '!!!')
+	  $(printBRed    'Вы действительно хотите удалить Celestia ') $(printBRedBlink '!!!')
 	  
 		$(printRed   '1) Да')
 		$(printGreen '2) Нет')
