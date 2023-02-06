@@ -124,25 +124,25 @@ function addToPath {
 
 #NIBIRU
 
-	function printnibiru {
-	echo -ne "$(printCyan '                  =====================')
-	$(printRed  ' ================')$(printCyan ' =      ')$(printBBlue 'NIBIRU')$(printCyan '       = ')$(printRed  '================') 
-	$(printCyan '                  =====================')"
-	}
+function printnibiru {
+echo -ne "$(printCyan '                  =====================')
+$(printRed  ' ================')$(printCyan ' =      ')$(printBBlue 'NIBIRU')$(printCyan '       = ')$(printRed  '================') 
+$(printCyan '                  =====================')"
+}
 
 #CELESTIA
-	function printcelestia {
-	echo -ne "$(printCyan '                  =====================')
-	$(printRed  ' ================')$(printCyan ' =     ')$(printBMagenta 'CELESTIA')$(printCyan '      = ')$(printRed  '================') 
-	$(printCyan '                  =====================')"
-	}
+function printcelestia {
+echo -ne "$(printCyan '                  =====================')
+$(printRed  ' ================')$(printCyan ' =     ')$(printBMagenta 'CELESTIA')$(printCyan '      = ')$(printRed  '================') 
+$(printCyan '                  =====================')"
+}
 
 #SHARDIUM
-	function printshardium {
-	echo -ne "$(printCyan '                          =====================')
-	$(printRed  ' ================')$(printCyan ' =     ')$(printBYellow 'SHARDIUM')$(printCyan '      = ')$(printRed  '================') 
-	$(printCyan '                  =====================')"
-	}
+function printshardium {
+echo -ne "$(printCyan '                          =====================')
+$(printRed  ' ================')$(printCyan ' =     ')$(printBYellow 'SHARDIUM')$(printCyan '      = ')$(printRed  '================') 
+$(printCyan '                  =====================')"
+}
 
 
 # function printComing {
