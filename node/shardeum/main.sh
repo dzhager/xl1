@@ -4,15 +4,15 @@
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
 printLogo
 printshardium
+
 mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBCyan    '1) Управление')
 
 		$(printBCyan ' -->') $(printBGreen    '2) Установить')
-		$(printBCyan ' -->') $(printBYellow    '3) Обновить')
-		$(printBCyan ' -->') $(printBRed    '4) Удалить')
+		$(printBCyan ' -->') $(printBRed    '3) Удалить')
 
-		$(printBBlue ' <-- 5) Назад')
+		$(printBBlue ' <-- 4) Назад')
 		$(printBRed        '     0) Выход')
 
  	Введите цифру: "
@@ -22,16 +22,13 @@ read -r ans
 		1)
 		control
 		;;
-		3)
-		update
-		;;
 		2)
 		install
 		;;
-		4)
+		3)
 		delet
 		;;
-		5)
+		4)
 		back
 		;;
 		0)
@@ -42,7 +39,7 @@ read -r ans
 		*)
 		clear
 		printLogo
-		printcelestia
+		printshardium
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
