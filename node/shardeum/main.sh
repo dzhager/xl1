@@ -60,9 +60,6 @@ control(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/control.sh)
 }
 
-update(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/update.sh)
-}
 
 delet(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/delet.sh)
