@@ -140,7 +140,7 @@ function addToPath {
 #SHARDIUM
 	function printshardium {
 	echo -ne "$(printCyan '                  =====================')
-	$(printRed  ' ================')$(printCyan ' =     ')$(printBMagenta 'SHARDIUM')$(printCyan '      = ')$(printRed  '================') 
+	$(printRed  ' ================')$(printCyan ' =     ')$(printBYellow 'SHARDIUM')$(printCyan '      = ')$(printRed  '================') 
 	$(printCyan '                  =====================')"
 	}
 

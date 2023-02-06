@@ -3,7 +3,7 @@
 #X-l1bra  
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
 printLogo
-printcelestia
+printshardium
 mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBCyan    '1) Управление')
