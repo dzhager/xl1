@@ -7,12 +7,10 @@ printshardium
 
 mainmenu() { echo -ne "
 
-		$(printBCyan ' -->') $(printBCyan    '1) Управление')
+		$(printBCyan ' -->') $(printBGreen    '1) Установить')
+		$(printBCyan ' -->') $(printBRed    '2) Удалить')
 
-		$(printBCyan ' -->') $(printBGreen    '2) Установить')
-		$(printBCyan ' -->') $(printBRed    '3) Удалить')
-
-		$(printBBlue ' <-- 4) Назад')
+		$(printBBlue ' <-- 3) Назад')
 		$(printBRed        '     0) Выход')
 
  	Введите цифру: "
@@ -20,15 +18,12 @@ mainmenu() { echo -ne "
 read -r ans
 	case $ans in
 		1)
-		control
-		;;
-		2)
 		install
 		;;
-		3)
+		2)
 		delet
 		;;
-		4)
+		3)
 		back
 		;;
 		0)
@@ -51,10 +46,6 @@ read -r ans
 
 install(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/install.sh)
-}
-
-control(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/control.sh)
 }
 
 
