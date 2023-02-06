@@ -87,3 +87,4 @@ cd .shardeum
 ./shell.sh
 }
 
+mainmenu
