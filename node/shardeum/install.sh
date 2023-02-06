@@ -1,9 +1,11 @@
 #!/bin/bash
 
 #X-l1bra
+
+#ШАПКА
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
 printLogo
-printnibiru
+printshardium
 echo -ne "
 	$(printGreen  '-----------------------------------------')
 	  $(printYellow 'Минимальные требования к оборудованию.')
@@ -42,7 +44,7 @@ mainmenu() {
 
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/main.sh)
 }
 yes(){
 clear
@@ -50,7 +52,7 @@ printLogo
 printnibiru
 echo
 echo
-read -r -p "  Введите имя ноды:  " MONIKER
+read -r -p "  Введите имя ноды:  " MONIKER 
 
 
 printBCyan "Пожалуйста подождите........" && sleep 1

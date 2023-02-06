@@ -139,7 +139,7 @@ $(printCyan '                  =====================')"
 
 #SHARDIUM
 function printshardium {
-echo -ne "$(printCyan '                          =====================')
+echo -ne "$(printCyan '                  =====================')
 $(printRed  ' ================')$(printCyan ' =     ')$(printBYellow 'SHARDIUM')$(printCyan '      = ')$(printRed  '================') 
 $(printCyan '                  =====================')"
 }
