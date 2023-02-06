@@ -145,12 +145,6 @@ $(printCyan '                  =====================')"
 }
 
 
-# function printComing {
-# printCyanBlink  =====================
-# echo $(printCyanBlink '==') $(printBYellow 'Coming soon !!!') $(printCyanBlink '==')
-# printCyanBlink  =====================
-# }
-
 function printComing {
 echo -ne "$(printCyanBlink '                  =====================')
 $(printRed  ' ================')$(printCyanBlink ' = ')$(printBYellow ' Coming soon !!!')$(printCyanBlink '  = ')$(printRed  '================') 
