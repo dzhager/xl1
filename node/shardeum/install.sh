@@ -51,8 +51,7 @@ clear
 printLogo
 printshardium
 echo
-echo
-read -r -p "  Введите имя ноды:  " MONIKER 
+
 
 
 printBCyan "Пожалуйста подождите........" && sleep 1
