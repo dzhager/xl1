@@ -121,17 +121,29 @@ function addToPath {
 	printBGreenBlink () { printf "${BLINK}${BGREEN}%s${RESET}\n" "$1"; }
 	printBTYellow () { printf "${TBYELLOW}%s${RESET}\n" "$1"; }
 
-function printnibiru {
-echo -ne "$(printCyan '                  =====================')
-$(printRed  ' ================')$(printCyan ' =      ')$(printBBlue 'NIBIRU')$(printCyan '       = ')$(printRed  '================') 
-$(printCyan '                  =====================')"
-}
 
-function printcelestia {
-echo -ne "$(printCyan '                  =====================')
-$(printRed  ' ================')$(printCyan ' =     ')$(printBMagenta 'CELESTIA')$(printCyan '      = ')$(printRed  '================') 
-$(printCyan '                  =====================')"
-}
+#NIBIRU
+
+	function printnibiru {
+	echo -ne "$(printCyan '                  =====================')
+	$(printRed  ' ================')$(printCyan ' =      ')$(printBBlue 'NIBIRU')$(printCyan '       = ')$(printRed  '================') 
+	$(printCyan '                  =====================')"
+	}
+
+#CELESTIA
+	function printcelestia {
+	echo -ne "$(printCyan '                  =====================')
+	$(printRed  ' ================')$(printCyan ' =     ')$(printBMagenta 'CELESTIA')$(printCyan '      = ')$(printRed  '================') 
+	$(printCyan '                  =====================')"
+	}
+
+#SHARDIUM
+	function printshardium {
+	echo -ne "$(printCyan '                  =====================')
+	$(printRed  ' ================')$(printCyan ' =     ')$(printBMagenta 'SHARDIUM')$(printCyan '      = ')$(printRed  '================') 
+	$(printCyan '                  =====================')"
+	}
+
 
 # function printComing {
 # printCyanBlink  =====================
