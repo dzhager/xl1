@@ -91,6 +91,8 @@ operator-cli gui start
 
 operator-cli start
 
+exit
+
 
 printRed  =============================================================================== 
 	echo -e "X-l1bra:                   ${CYAN} https://t.me/xl1bra ${NC}"
