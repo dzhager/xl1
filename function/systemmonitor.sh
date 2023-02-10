@@ -13,11 +13,11 @@ echo
 # fi
 
 if ! [ -x "$(command -v btop)" ]; then
-  sudo apt update && sudo apt install snapd -y < "/dev/null"
-  snap install btop
   btop
 
 else
+  sudo apt update && sudo apt install snapd -y < "/dev/null"
+  snap install btop
   btop
 fi
 
