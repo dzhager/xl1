@@ -71,7 +71,7 @@ tar \
 wget \
 jq \
 git \
-libpq-dev \
+libpq-dev 
 printGreen "Готово!" && sleep 1
 
 
