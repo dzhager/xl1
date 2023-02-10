@@ -1,7 +1,7 @@
 #!/bin/bash
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
 printLogo
-echo
+echo "Запуск"
 
 sudo apt update > /dev/null 2>&1
 sudo apt install snapd -y  > /dev/null 2>&1
