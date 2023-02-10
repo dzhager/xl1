@@ -41,7 +41,7 @@ echo
 #  	submenu
 # fi
 
-if ! [ -x "$(command -v btop)" ]; then
+if ! [ -x "$(command btop -v)" ]; then
   sudo apt update && sudo apt install snapd -y < "/dev/null"
   snap install btop
 fi
