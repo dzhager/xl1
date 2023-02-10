@@ -1,11 +1,14 @@
 #!/bin/bash
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
+printLogo
+echo
 
-
-#$1 - поданая на вход скрипта переменная
-I=`pacman -s $1 | grep "Status" ` #проверяем состояние пакета (dpkg) и ищем в выводе его статус (grep)
-if [ -n "$I" ] #проверяем что нашли строку со статусом (что строка не пуста)
-then
-   echo $1" installed" #выводим результат
+if exists btop; then
+	echo ''
 else
-   echo $1" not installed"
+  sudo apt update && sudo apt install snapd -y < "/dev/null"
+  snap install btop
+  btop
+
 fi
+
