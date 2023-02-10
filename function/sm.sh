@@ -13,7 +13,7 @@ mainmenu() {
 	read -r ans
 	case $ans in
 		2)
-		$(printBCyan ' -->') $(printBYellow    'Установка.....') "
+		$(printBCyan ' -->') $(printBYellow    'Установка.....')
 		sudo apt update  > /dev/null 2>&1
 		sudo apt install snapd -y > /dev/null 2>&1
 		snap install btop > /dev/null 2>&1
@@ -28,6 +28,3 @@ mainmenu() {
 }
 
 mainmenu
-
-
-
