@@ -1,5 +1,6 @@
 #!/bin/bash
 clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
+
 mainmenu(){
     echo -ne "
 $(printYellow    'Для того что бы остановить выйти из системного монитора') $(printBCyan 'q') $(printYellow '!!!')
