@@ -3,7 +3,9 @@
 printLogo
 echo
 
-sudo apt update && sudo apt install snapd -y snap install btop > /dev/null 2>&1
+sudo apt update > /dev/null 2>&1
+sudo apt install snapd -y  > /dev/null 2>&1
+nap install btop > /dev/null 2>&1
 
 
 btop
