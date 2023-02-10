@@ -3,9 +3,8 @@
 printLogo
 echo "Запуск"
 
-sudo apt update > /dev/null 2>&1
 sudo apt install snapd -y  > /dev/null 2>&1
-nap install btop > /dev/null 2>&1
+snap install btop > /dev/null 2>&1
 
 
 btop
