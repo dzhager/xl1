@@ -4,7 +4,7 @@ printLogo
 echo
 
 if exists btop; then
-	echo ''
+	btop
 else
   sudo apt update && sudo apt install snapd -y < "/dev/null"
   snap install btop
