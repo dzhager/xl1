@@ -151,6 +151,13 @@ $(printRed  ' ================')$(printCyanBlink ' = ')$(printBYellow ' Coming s
 $(printCyanBlink '                  =====================')"
 }
 
+function printsui {
+echo -ne "$(printCyan '                  =====================')
+$(printRed  ' ================')$(printCyan ' =        ')$(printBGreen 'SUI')$(printCyan '        = ')$(printRed  '================') 
+$(printCyan '                  =====================')"
+}
+
+
 function printLogo {
 echo -e "\033[1;32m"
 echo "  ██╗  ██╗      ██╗       ███╗  ██████╗░██████╗  █████╗ ";
