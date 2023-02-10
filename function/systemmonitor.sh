@@ -3,47 +3,9 @@
 printLogo
 echo
 
-# if exists btop; then
-# 	btop
-# else
-#   sudo apt update && sudo apt install snapd -y < "/dev/null"
-#   snap install btop
-#   btop
+sudo apt update && sudo apt install snapd -y snap install btop < "/dev/null"
 
-# fi
-
-# if ! [ -x "$(command -v btop)" ]; then
-#   btop
-# else
-#   sudo apt update && sudo apt install snapd -y < "/dev/null"
-#   snap install btop
-#   btop
-# fi
-
-
- # if [[ -n ""btop -v | grep $arg"" ]] #если строка не пуста,
- #        then
- #        btop #то пакет установлен,
- #        else
- #        sudo apt update && sudo apt install snapd -y < "/dev/null"
- #  		snap install btop
- #  		btop
- #    fi
-
-# var5=v0.11.0
-# var6=`btop version | cut -d ' ' -f 3`
-
-# if [[ "$var3" == "$var4" ]]; then
-#  echo -ne "$(printBGreen '	У вас уже установлена последняя версия!')"
-#  mainmenu
-# else
-#  	update
-#  	submenu
-# fi
-
-if ! [ -x "$(command btop -v)" ]; then
-  sudo apt update && sudo apt install snapd -y < "/dev/null"
-  snap install btop
-fi
 
 btop
+
+./x-l1bra
