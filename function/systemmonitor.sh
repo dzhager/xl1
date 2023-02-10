@@ -21,7 +21,7 @@ echo
 # fi
 
 
- if [ -n ""btop -l | grep $arg"" ] #если строка не пуста,
+ if [[ -n ""btop -l | grep $arg"" ]] #если строка не пуста,
         then
         btop #то пакет установлен,
         else
