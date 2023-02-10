@@ -27,7 +27,7 @@ mainmenu() {
 		*)
 		clear
 		printLogo
-		printcelestia
+		printsui
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -38,115 +38,134 @@ mainmenu() {
 }
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/sui/main.sh)
 }
 
 yes(){
 clear
 printLogo
-printcelestia
+printsui
 echo
 echo
-read -r -p "Enter node moniker:" MONIKER
-
 
 printBCyan "Пожалуйста подождите........" && sleep 1
 printYellow "1. Oбновляем наш сервер........" && sleep 1
-	sudo apt update > /dev/null 2>&1
+	sudo apt update && sudo apt upgrade -y > /dev/null 2>&1
 printGreen "Готово!" && sleep 1
 
 
 printYellow "2. Устанавливаем дополнительные пакеты........" && sleep 1
-	sudo apt install -y make clang pkg-config libssl-dev build-essential git gcc lz4 chrony unzip curl jq ncdu htop net-tools lsof fail2ban wget -y > /dev/null 2>&1
+sudo apt-get update \
+&& sudo apt-get install -y --no-install-recommends \
+tzdata \
+ca-certificates \
+build-essential \
+libssl-dev \
+libclang-dev \
+pkg-config \
+openssl \
+protobuf-compiler \
+cmake \
+curl \
+tar \
+wget \
+jq \
+git \
+libpq-dev \
 printGreen "Готово!" && sleep 1
 
 
-printYellow "3. Задаем переменные........" && sleep 1
-CHAIN_ID="mocha"
-CHAIN_DENOM="utia"
-BINARY_NAME="celestia-appd"
-BINARY_VERSION_TAG="v0.11.0"
-IDENTITY="8F3C23EC3306B513"
-echo -e "Node moniker:       ${CYAN}$MONIKER${NC}"
-echo -e "Chain id:           ${CYAN}$CHAIN_ID${NC}"
-echo -e "Chain demon:        ${CYAN}$CHAIN_DENOM${NC}"
-echo -e "Binary version tag: ${CYAN}$BINARY_VERSION_TAG${NC}"
-echo -e "IDENTITY:           ${CYAN}$IDENTITY${NC}"
+printYellow "3. Устанавливаем Rust........" && sleep 1
+	echo
+	sudo curl https://sh.rustup.rs -sSf | sh -s -- -y
+	source $HOME/.cargo/env
+	rustc --version
 printGreen "Готово!" && sleep 1
 
 
-printYellow "4. Устанавливаем go........" && sleep 1
-	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/scripts/go_1.19.4.sh)
-echo "$(go version)"
+printYellow "4. Клонируем GitHub SUI репозиторий........" && sleep 1
+	cd $HOME
+	git clone https://github.com/MystenLabs/sui.git
+	cd sui
+	git remote add upstream https://github.com/MystenLabs/sui
+	git fetch upstream
+	git checkout -B testnet --track upstream/testnet
 printGreen "Готово!" && sleep 1
 
 
-printYellow "5. Скачиваем и устанавливаем бинарник........"
-	cd $HOME || return
-	rm -rf celestia-app
-	git clone https://github.com/celestiaorg/celestia-app.git
-	cd celestia-app || return
-	git checkout v0.11.0
-	make install
-	celestia-appd version # 0.11.0
+printYellow "5. Создаём каталог для базы данных SUI и генезиса........"
+mkdir $HOME/.sui
+wget -O $HOME/.sui/genesis.blob  https://github.com/MystenLabs/sui-genesis/raw/main/testnet/genesis.blob
+cp $HOME/sui/crates/sui-config/data/fullnode-template.yaml $HOME/.sui/fullnode.yaml
+sed -i.bak "s|db-path:.*|db-path: \"$HOME\/.sui\/db\"| ; s|genesis-file-location:.*|genesis-file-location: \"$HOME\/.sui\/genesis.blob\"| ; s|127.0.0.1|0.0.0.0|" $HOME/.sui/fullnode.yaml
 printGreen "Готово!" && sleep 1
 
 
-printYellow "6. Инициализируем ноду........" && sleep 1
-	celestia-appd config keyring-backend test
-	celestia-appd config chain-id $CHAIN_ID
-	celestia-appd init "$MONIKER" --chain-id $CHAIN_ID
-	curl -s https://raw.githubusercontent.com/celestiaorg/networks/master/mocha/genesis.json > $HOME/.celestia-app/config/genesis.json
-	curl -s https://snapshots3-testnet.nodejumper.io/celestia-testnet/addrbook.json > $HOME/.celestia-app/config/addrbook.json
+printYellow "7. Добавляем сиды........" && sleep 1
+sudo tee -a $HOME/.sui/fullnode.yaml  >/dev/null <<EOF
+
+p2p-config:
+  seed-peers:
+   - address: "/ip4/65.109.32.171/udp/8084"
+   - address: "/ip4/65.108.44.149/udp/8084"
+   - address: "/ip4/95.214.54.28/udp/8080"
+   - address: "/ip4/136.243.40.38/udp/8080"
+   - address: "/ip4/84.46.255.11/udp/8084"
+   - address: "/ip4/135.181.6.243/udp/8088"
+EOF
+
+printGreen "Готово!" && sleep 1
+
+printYellow "5. Создаём двоичные файлы SUI........."
+cargo build --release --bin sui-node
+mv ~/sui/target/release/sui-node /usr/local/bin/
+sui-node -V
+cd $HOME/sui
+git fetch upstream
+git checkout -B testnet --track upstream/testnet
+cargo build  -p sui --release
+mv ~/sui/target/release/sui /usr/local/bin/
 printGreen "Готово!" && sleep 1
 
 
-printYellow "7. Добавляем сиды и пиры........" && sleep 1
-SEEDS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mocha/seeds.txt | tr -d '\n')
-PEERS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mocha/peers.txt | tr -d '\n')
-	sed -i 's|^seeds *=.*|seeds = "'$SEEDS'"|; s|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.celestia-app/config/config.toml
-printGreen "Готово!" && sleep 1
-
-printYellow "8. Настраиваем прунинг........" && sleep 1
-PRUNING_INTERVAL=$(shuf -n1 -e 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97)
-	sed -i 's|^pruning *=.*|pruning = "custom"|g' $HOME/.celestia-app/config/app.toml
-	sed -i 's|^pruning-keep-recent  *=.*|pruning-keep-recent = "100"|g' $HOME/.celestia-app/config/app.toml
-	sed -i 's|^pruning-interval *=.*|pruning-interval = "'$PRUNING_INTERVAL'"|g' $HOME/.celestia-app/config/app.toml
-	sed -i 's|^snapshot-interval *=.*|snapshot-interval = 2000|g' $HOME/.celestia-app/config/app.toml
-	sed -i 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0.0001utia"|g' $HOME/.celestia-app/config/app.toml
-	sed -i 's|^prometheus *=.*|prometheus = true|' $HOME/.celestia-app/config/config.toml
-printGreen "Готово!" && sleep 1
 
 
 printYellow "Cоздаем сервис файл........"
-sudo tee /etc/systemd/system/celestia-appd.service > /dev/null << EOF
-[Unit]
-Description=Celestia Validator Node
-After=network-online.target
+
+echo "[Unit]
+Description=Sui Node
+After=network.target
+
 [Service]
 User=$USER
-ExecStart=$(which celestia-appd) start
+Type=simple
+ExecStart=/usr/local/bin/sui-node --config-path $HOME/.sui/fullnode.yaml
 Restart=on-failure
-RestartSec=10
-LimitNOFILE=10000
+LimitNOFILE=65535
+
 [Install]
-WantedBy=multi-user.target
+WantedBy=multi-user.target" > $HOME/suid.service
+
+mv $HOME/suid.service /etc/systemd/system/
+
+sudo tee <<EOF >/dev/null /etc/systemd/journald.conf
+Storage=persistent
 EOF
+
 printGreen "Готово!" && sleep 1
 
 
-printYellow "11. Подгружаем последний снапшот........"
-celestia-appd tendermint unsafe-reset-all --home $HOME/.celestia-app --keep-addr-book
-SNAP_NAME=$(curl -s https://snapshots3-testnet.nodejumper.io/celestia-testnet/ | egrep -o ">mocha.*\.tar.lz4" | tr -d ">")
-curl https://snapshots3-testnet.nodejumper.io/celestia-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.celestia-app
-printGreen "Готово."
+
+
 
 printYellow "11. Запускаем ноду........" && sleep 2
+sudo systemctl restart systemd-journald
 sudo systemctl daemon-reload
-sudo systemctl enable celestia-appd
-sudo systemctl start celestia-appd
+sudo systemctl enable suid
+sudo systemctl restart suid
 
 printGreen "Готово!"
+
 printBCyan "УСТАНОВКА ЗАВЕРШЕНА"
 
 printRed  =============================================================================== 
@@ -162,26 +181,20 @@ submenu(){
 echo -ne "
 $(printGreen    'Установка завершена.')
 		1) Просмотреть логи
-		2) Проверить синхронизацию
-		3) В меню
+		2) В меню
 Нажмите Enter:  "
 	read -r ans
 	case $ans in
 		1) 
 		subsubmenu
 		;;
-		2)
-		echo
-		curl -s localhost:26657/status
-		submenu
-		;;
-		3) 
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/main.sh)
+		2) 
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/sui/main.sh)
 		;;
 		*)
 		clear
 		printLogo
-		printcelestia
+		printsui
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -198,7 +211,7 @@ subsubmenu(){
 		read -r ans
 		case $ans in
 			*)
-		sudo journalctl -u celestia-appd -f --no-hostname -o cat
+		journalctl -u suid -f
 		submenu
 		;;
 	esac

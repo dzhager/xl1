@@ -47,6 +47,7 @@ printsui
 echo -ne "	
 
 $(printBYellow 'Удаляем.....!')"
+echo
 sudo systemctl stop suid && sudo systemctl disable suid && rm -rf $HOME/.sui && rm -rf $HOME/sui && rm -rf /var/sui && sudo rm -f /usr/bin/{sui,sui-node,sui-faucet} && sudo rm -f /usr/local/bin/{sui,sui-node,sui-faucet} && sudo rm /etc/systemd/system/suid.service && systemctl daemon-reload
 submenu
 }
