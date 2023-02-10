@@ -45,7 +45,7 @@ read -r ans
 		*)
 		clear
 		printLogo
-		printnibiru
+		printsui
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
