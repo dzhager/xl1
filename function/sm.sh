@@ -27,4 +27,11 @@ mainmenu() {
     esac
 }
 
+<<<<<<< HEAD
 mainmenu
+=======
+
+mainmenu
+
+
+>>>>>>> 60964fcb6faa3fb74fa874807960708c86c963ed
