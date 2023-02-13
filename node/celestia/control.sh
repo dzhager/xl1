@@ -14,16 +14,17 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '5)')  Добавить кошелек wallet
 	    $(printBCyan ' -->') $(printBYellow    '6)')  Добавить кошелек orchestrator
 	    $(printBCyan ' -->') $(printBYellow    '7)')  Восстановить кошелек
+	    $(printBCyan ' -->') $(printBYellow    '8)')  Восстановить кошелек orchestrator
 	
-	    $(printBCyan ' -->') $(printBYellow    '8)')  Делегировать
-	    $(printBCyan ' -->') $(printBYellow    '9)')  Делегировать самому себе
-	    $(printBCyan ' -->') $(printBYellow    '10)') Создать валидатора
-	    $(printBCyan ' -->') $(printBYellow    '11)') Узнать информацию о валидаторе
+	    $(printBCyan ' -->') $(printBYellow    '9)')  Делегировать
+	    $(printBCyan ' -->') $(printBYellow    '10)') Делегировать самому себе
+	    $(printBCyan ' -->') $(printBYellow    '11)') Создать валидатора
+	    $(printBCyan ' -->') $(printBYellow    '12)') Узнать информацию о валидаторе
 	    
-	    $(printBCyan ' -->') $(printBYellow    '12)') Проверить синхронизацию
-	    $(printBCyan ' -->') $(printBYellow    '13)') Просмотреть логи
+	    $(printBCyan ' -->') $(printBYellow    '13)') Проверить синхронизацию
+	    $(printBCyan ' -->') $(printBYellow    '14)') Просмотреть логи
 	
-	    $(printBBlue ' <--') $(printBBlue    '14) Вернутся назад')
+	    $(printBBlue ' <--') $(printBBlue    '15) Вернутся назад')
 		 $(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
@@ -56,32 +57,36 @@ mainmenu() {
 		7)
 		RecoveryWallet
 		;;
-		
+
 		8)
+		RecoveryOrchestrator
+		;;
+
+		9)
 		Delegate
 		;;
 		
-		9)
+		10)
 		DelegateYourself
 		;;
 		
-		10)
+		11)
 		CreateValidator
 		;;
 		
-		11)
+		12)
 		InfoValidator
 		;;
 		
-		12)
+		13)
 		synced
 		;;
 		
-		13)
+		14)
 		logs
 		;;
 		
-		14)
+		15)
 		back
 		;;
 		
@@ -156,6 +161,13 @@ read -r -p "  Введите адрес кошелька:  " VAR1
 echo -ne "(printBRed ' 1tia = 1000000utia')"
 read -r -p "  Введите количество монет utia:  " VAR2
 celestia-appd tx bank send wallet "$VAR1" "$VAR2"utia --from wallet --chain-id mocha --gas-prices 0.1utia --gas-adjustment 1.5 --gas auto -y 
+mainmenu
+}
+
+RecoveryOrchestrator(){
+clear && printLogo && printcelestia
+echo
+celestia-appd keys add orchestrator --recover
 mainmenu
 }
 
