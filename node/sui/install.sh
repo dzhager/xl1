@@ -55,8 +55,7 @@ printGreen "Готово!" && sleep 1
 
 
 printYellow "2. Устанавливаем дополнительные пакеты........" && sleep 1
-sudo apt-get update \
-&& sudo apt-get install -y --no-install-recommends \
+sudo apt-get install -y --no-install-recommends \
 tzdata \
 ca-certificates \
 build-essential \
