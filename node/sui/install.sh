@@ -115,7 +115,7 @@ EOF
 
 printGreen "Готово!" && sleep 1
 
-printYellow "5. Создаём двоичные файлы SUI........."
+printYellow "8. Создаём двоичные файлы SUI........."
 cargo build --release --bin sui-node
 mv ~/sui/target/release/sui-node /usr/local/bin/
 sui-node -V
@@ -129,7 +129,7 @@ printGreen "Готово!" && sleep 1
 
 
 
-printYellow "Cоздаем сервис файл........"
+printYellow "9. Cоздаем сервис файл........"
 
 echo "[Unit]
 Description=Sui Node
@@ -157,7 +157,7 @@ printGreen "Готово!" && sleep 1
 
 
 
-printYellow "11. Запускаем ноду........" && sleep 2
+printYellow "10. Запускаем ноду........" && sleep 2
 sudo systemctl restart systemd-journald
 sudo systemctl daemon-reload
 sudo systemctl enable suid
