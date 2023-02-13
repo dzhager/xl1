@@ -173,14 +173,17 @@ $(printGreen    'Установка завершена.')
 		1) 
 		subsubmenu
 		;;
+
 		2)
 		echo
 		curl -s localhost:26657/status
 		submenu
 		;;
+
 		3) 
 		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/main.sh)
 		;;
+
 		*)
 		clear
 		printLogo
@@ -202,7 +205,7 @@ subsubmenu(){
 		case $ans in
 			*)
 		sudo journalctl -u celestia-appd -f --no-hostname -o cat
-		submenu
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/main.sh)
 		;;
 	esac
 }
