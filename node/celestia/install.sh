@@ -121,7 +121,7 @@ PRUNING_INTERVAL=$(shuf -n1 -e 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 7
 printGreen "Готово!" && sleep 1
 
 
-printYellow "Cоздаем сервис файл........"
+printYellow "9. Cоздаем сервис файл........"
 sudo tee /etc/systemd/system/celestia-appd.service > /dev/null << EOF
 [Unit]
 Description=Celestia Validator Node
@@ -138,13 +138,13 @@ EOF
 printGreen "Готово!" && sleep 1
 
 
-printYellow "11. Подгружаем последний снапшот........"
-celestia-appd tendermint unsafe-reset-all --home $HOME/.celestia-app --keep-addr-book
-SNAP_NAME=$(curl -s https://snapshots3-testnet.nodejumper.io/celestia-testnet/ | egrep -o ">mocha.*\.tar.lz4" | tr -d ">")
-curl https://snapshots3-testnet.nodejumper.io/celestia-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.celestia-app
-printGreen "Готово."
+#printYellow "11. Подгружаем последний снапшот........"
+#celestia-appd tendermint unsafe-reset-all --home $HOME/.celestia-app --keep-addr-book
+#SNAP_NAME=$(curl -s https://snapshots3-testnet.nodejumper.io/celestia-testnet/ | egrep -o ">mocha.*\.tar.lz4" | tr -d ">")
+#curl https://snapshots3-testnet.nodejumper.io/celestia-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf - -C $HOME/.celestia-app
+#printGreen "Готово."
 
-printYellow "11. Запускаем ноду........" && sleep 2
+printYellow "10. Запускаем ноду........" && sleep 2
 sudo systemctl daemon-reload
 sudo systemctl enable celestia-appd
 sudo systemctl start celestia-appd
