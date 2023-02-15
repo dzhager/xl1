@@ -79,11 +79,11 @@ mainmenu() {
 		;;
 		
 		13)
-		synced
+		logs
 		;;
 		
 		14)
-		logs
+		synced
 		;;
 		
 		15)

@@ -213,7 +213,7 @@ $(printGreen    'Установка завершена.')
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
 		echo
-		mainmenu
+		submenu
 		;;
 	esac
 }
