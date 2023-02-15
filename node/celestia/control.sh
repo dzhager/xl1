@@ -22,7 +22,7 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '12)') Узнать информацию о валидаторе
 	    
 	    $(printBCyan ' -->') $(printBYellow    '13)') Проверить синхронизацию
-	    $(printBCyan ' -->') $(printBYellow    '14)') Просмотреть логи
+	    $(printBCyan ' -->') $(printBYellow    '14)') Просмотреть статус сервиса
 	
 	    $(printBBlue ' <--') $(printBBlue    '15) Вернутся назад')
 		 $(printBRed    ' 0) Выйти')
@@ -225,7 +225,7 @@ mainmenu
 
 synced(){
 clear && printLogo && printcelestia
-curl -s localhost:26657/status
+sudo systemctl status celestia-appd
 mainmenu
 }
 
