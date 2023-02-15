@@ -47,14 +47,7 @@ printcelestia
 echo -ne "	
 
 $(printBYellow 'Удаляем.....!')"
-cd $HOME
-sudo systemctl stop celestia-appd
-sudo systemctl disable celestia-appd
-sudo rm /etc/systemd/system/celestia-appd.service
-sudo systemctl daemon-reload
-rm -f $(which celestia-appd)
-rm -rf $HOME/.celestia-app
-rm -rf $HOME/celestia-app
+systemctl stop celestia-appd.service && rm -rf /etc/systemd/system/celestia-appd.service && rm -rf celestia-app && rm -rf .celestia-app
 submenu
 }
 
