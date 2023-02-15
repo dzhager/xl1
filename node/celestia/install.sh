@@ -100,7 +100,7 @@ printYellow "5. Скачиваем и устанавливаем бинарни�
 	sudo ln -s $HOME/.celestia-app/cosmovisor/current/bin/celestia-appd /usr/local/bin/celestia-appd
 printGreen "Готово!" && sleep 1
 
-printYellow "Устанавливаем cosmovisor и создаем сервис........"
+printYellow "6. Устанавливаем cosmovisor и создаем сервис........"
 	go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.4.0
 	sudo tee /etc/systemd/system/celestia-appd.service > /dev/null << EOF
 	[Unit]
@@ -127,7 +127,7 @@ sudo systemctl enable celestia-appd
 printGreen "Готово!" && sleep 1
 
 
-printYellow "6. Инициализируем ноду........" && sleep 1
+printYellow "7. Инициализируем ноду........" && sleep 1
 celestia-appd config chain-id mocha
 celestia-appd config keyring-backend test
 celestia-appd config node tcp://localhost:20657
@@ -137,12 +137,12 @@ curl -Ls https://snapshots.kjnodes.com/celestia-testnet/addrbook.json > $HOME/.c
 printGreen "Готово!" && sleep 1
 
 
-printYellow "7. Добавляем сиды и пиры........" && sleep 1
+printYellow "8. Добавляем сиды и пиры........" && sleep 1
 sed -i -e "s|^seeds *=.*|seeds = \"3f472746f46493309650e5a033076689996c8881@celestia-testnet.rpc.kjnodes.com:20659\"|" $HOME/.celestia-app/config/config.toml
 sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.005utia\"|" $HOME/.celestia-app/config/app.toml
 printGreen "Готово!" && sleep 1
 
-printYellow "8. Настраиваем прунинг........" && sleep 1
+printYellow "9. Настраиваем прунинг........" && sleep 1
 sed -i \
   -e 's|^pruning *=.*|pruning = "custom"|' \
   -e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "100"|' \
@@ -164,7 +164,7 @@ printGreen "Готово."
 
 
 
-printYellow "10. Запускаем ноду........" && sleep 2
+printYellow "12. Запускаем ноду........" && sleep 2
 sudo systemctl daemon-reload
 sudo systemctl enable celestia-appd
 sudo systemctl start celestia-appd
