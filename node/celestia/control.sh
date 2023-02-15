@@ -21,7 +21,7 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '11)') Создать валидатора
 	    $(printBCyan ' -->') $(printBYellow    '12)') Узнать информацию о валидаторе
 	    
-	    $(printBCyan ' -->') $(printBYellow    '13)') Проверить синхронизацию
+	    $(printBCyan ' -->') $(printBYellow    '13)') Просмотреть логи
 	    $(printBCyan ' -->') $(printBYellow    '14)') Просмотреть статус сервиса
 	
 	    $(printBBlue ' <--') $(printBBlue    '15) Вернутся назад')
