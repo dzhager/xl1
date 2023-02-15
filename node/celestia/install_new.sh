@@ -165,7 +165,6 @@ printGreen "Готово."
 
 
 printYellow "10. Запускаем ноду........" && sleep 2
-sudo systemctl start celestia-appd && sudo 
 sudo systemctl daemon-reload
 sudo systemctl enable celestia-appd
 sudo systemctl start celestia-appd
@@ -186,7 +185,7 @@ submenu(){
 echo -ne "
 $(printGreen    'Установка завершена.')
 		1) Просмотреть логи
-		2) Проверить синхронизацию
+		2) Проверить статус сервиса
 		3) В меню
 Нажмите Enter:  "
 	read -r ans
@@ -197,7 +196,8 @@ $(printGreen    'Установка завершена.')
 
 		2)
 		echo
-		curl -s localhost:26657/status
+		echo
+		sudo systemctl status celestia-appd
 		submenu
 		;;
 
