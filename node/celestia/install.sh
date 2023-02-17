@@ -55,7 +55,7 @@ read -r -p "Enter node moniker:" MONIKER
 
 printBCyan "Пожалуйста подождите........" && sleep 1
 printYellow "1. Oбновляем наш сервер........" && sleep 1
-	sudo apt update && sudo apt upgrade > /dev/null 2>&1
+	sudo apt update > /dev/null 2>&1
 printGreen "Готово!" && sleep 1
 
 
