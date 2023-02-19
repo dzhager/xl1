@@ -18,10 +18,11 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '8)') Создать валидатора
 	    $(printBCyan ' -->') $(printBYellow    '9)') Узнать информацию о валидаторе
 	    
-	    $(printBCyan ' -->') $(printBYellow    '10)') Проверить синхронизацию
-	    $(printBCyan ' -->') $(printBYellow    '11)') Просмотреть логи
+	    $(printBCyan ' -->') $(printBYellow    '10)') Загрузить последний снапшот
+	    $(printBCyan ' -->') $(printBYellow    '11)') Проверить синхронизацию
+	    $(printBCyan ' -->') $(printBYellow    '12)') Просмотреть логи
 	
-	    $(printBBlue ' <--') $(printBBlue    '12) Вернутся назад')
+	    $(printBBlue ' <--') $(printBBlue    '13) Вернутся назад')
 		 $(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
@@ -65,14 +66,18 @@ mainmenu() {
 		;;
 		
 		10)
+		snapshot
+		;;
+
+		11)
 		synced
 		;;
 		
-		11)
+		12)
 		logs
 		;;
 		
-		12)
+		13)
 		back
 		;;
 		
@@ -178,6 +183,14 @@ nibid q staking validator $(nibid keys show wallet --bech val -a)
 mainmenu
 }
 
+
+snapshot(){
+	clear && printLogo && printnibiru
+	echo
+	subsubmenu
+}
+
+
 synced(){
 clear && printLogo && printnibiru
 nibid status 2>&1 | jq .SyncInfo
@@ -204,6 +217,54 @@ $(printYellow    'Для того что бы остановить журнал 
 		mainmenu
 		;;
 	esac
+}
+
+subsubmenu() {
+	echo -ne "
+	Снимки позволяют новому узлу присоединиться к сети, восстанавливая состояние приложения из файла резервной копии.  
+	Снапшот содержит сжатую копию каталога данных цепочки.  
+	Чтобы файлы резервных копий были как можно меньше, сервер моментальных снимков периодически синхронизируется.
+	$(printCyan	'Вы действительно хотите обновить каталог данных цепочки') $(printCyanBlink '???')
+	$(printGreen	' 1) Да')
+	$(printRed	' 2) Нет')
+	$(printCyan	'Введите цифру:') "
+	read -r ans
+	case $ans in
+		1)
+		yes
+		;;
+		2)
+		no
+		;;
+		*)
+		clear
+		printLogo
+		printnibiru
+		echo
+		echo
+		echo    -ne "$(printRed '		   Неверный запрос !')"
+		echo
+		mainmenu
+        ;;
+    esac
+}
+
+
+no(){
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/control.sh)
+}
+yes(){
+clear
+printLogo
+printnibiru
+echo
+echo
+cp $HOME/.nibid/data/priv_validator_state.json $HOME/.nibid/priv_validator_state.json.backup
+	rm -rf $HOME/.nibid/data
+	curl -L https://snapshots.kjnodes.com/nibiru-testnet/snapshot_latest.tar.lz4 | tar -Ilz4 -xf - -C $HOME/.nibid
+	mv $HOME/.nibid/priv_validator_state.json.backup $HOME/.nibid/data/priv_validator_state.json
+	sudo systemctl start nibid
+mainmenu
 }
 
 mainmenu
