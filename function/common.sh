@@ -147,7 +147,7 @@ $(printCyan '                  =====================')"
 #DeFund
 function printdefund {
 echo -ne "$(printCyan '                  =====================')
-$(printRed  ' ================')$(printCyan ' =     ')$(printBYellow 'DeFund')$(printCyan '      = ')$(printRed  '================') 
+$(printRed  ' ================')$(printCyan ' =       ')$(printBYellow 'DeFund')$(printCyan '      = ')$(printRed  '================') 
 $(printCyan '                  =====================')"
 }
 
