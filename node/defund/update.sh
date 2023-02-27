@@ -3,7 +3,7 @@
 printLogo
 printdefund
 echo
-var3=v0.2.4
+var3=0.2.4
 var4=`defundd version | cut -d ' ' -f 3`
 
 if [[ "$var3" == "$var4" ]]; then
