@@ -144,6 +144,12 @@ $(printRed  ' ================')$(printCyan ' =     ')$(printBYellow 'SHARDIUM')
 $(printCyan '                  =====================')"
 }
 
+#DeFund
+function printdefund {
+echo -ne "$(printCyan '                  =====================')
+$(printRed  ' ================')$(printCyan ' =     ')$(printBYellow 'DeFund')$(printCyan '      = ')$(printRed  '================') 
+$(printCyan '                  =====================')"
+}
 
 function printComing {
 echo -ne "$(printCyanBlink '                  =====================')
