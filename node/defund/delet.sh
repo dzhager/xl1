@@ -9,9 +9,9 @@ mainmenu() {
     echo -ne "
       $(printBYellow    'Пожалуйста, прежде чем перейти к следующему шагу! ')
       $(printBRed    'Все данные цепочки будут потеряны! ')
-      $(printBRed    'Убедитесь, что вы поддержали свой priv_validator_key.json! ')
+      $(printBRed    'Убедитесь, что вы сохранили свой priv_validator_key.json! ')
 
-	  $(printBRed    'Вы действительно хотите удалить Nibiru ') $(printBRedBlink '!!!')
+	  $(printBRed    'Вы действительно хотите удалить DeFund ') $(printBRedBlink '!!!')
 	  
 		$(printRed   '1) Да')
 		$(printGreen '2) Нет')
