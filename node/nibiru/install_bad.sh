@@ -7,7 +7,10 @@ printnibiru
 echo -ne "
 	$(printGreen  '-----------------------------------------')
 	  $(printYellow 'Минимальные требования к оборудованию.')
-		     $(printBCyan '4CPU 16RAM 1000GB')
+		     $(printBCyan '4CPU 8RAM 200GB')
+	$(printGreen  '-----------------------------------------')
+	$(printYellow 'Рекомендуемые требования к оборудованию.')
+		     $(printBCyan '8CPU 15RAM 400GB')
 	$(printGreen  '-----------------------------------------')"
 echo
 mainmenu() {
@@ -52,7 +55,7 @@ read -r -p "  Введите имя ноды:  " MONIKER
 
 printBCyan "Пожалуйста подождите........" && sleep 1
 printYellow "1. Oбновляем наш сервер........" && sleep 1
-	sudo apt update && sudo apt upgrade --yes > /dev/null 2>&1
+	sudo apt update > /dev/null 2>&1
 printGreen "Готово!" && sleep 1
 
 
@@ -61,51 +64,45 @@ printYellow "2. Устанавливаем дополнительные паке
 printGreen "Готово!" && sleep 1
 
 
-# printYellow "3. Задаем переменные........" && sleep 1
-# #	MONIKER=X-l1bra
- 	CHAIN_ID="nibiru-itn-1"
-# 	CHAIN_DENOM="unibi"
-# 	BINARY_NAME="nibid"
-# 	BINARY_VERSION_TAG="v0.16.3"
- 	IDENTITY="8F3C23EC3306B513"
-# 	source $HOME/.bash_profile > /dev/null 2>&1
- 	echo -e "Node moniker:       ${CYAN}$MONIKER${NC}"
- 	echo -e "Chain id:           ${CYAN}$CHAIN_ID${NC}"
-# 	echo -e "Chain demon:        ${CYAN}$CHAIN_DENOM${NC}"
-# 	echo -e "Binary version tag: ${CYAN}$BINARY_VERSION_TAG${NC}"
- 	echo -e "IDENTITY:           ${CYAN}$IDENTITY${NC}"
-# printGreen "Готово!" && sleep 1
+printYellow "3. Задаем переменные........" && sleep 1
+#	MONIKER=X-l1bra
+	CHAIN_ID="nibiru-testnet-2"
+	CHAIN_DENOM="unibi"
+	BINARY_NAME="nibid"
+	BINARY_VERSION_TAG="v0.16.3"
+	IDENTITY="8F3C23EC3306B513"
+	source $HOME/.bash_profile > /dev/null 2>&1
+	echo -e "Node moniker:       ${CYAN}$MONIKER${NC}"
+	echo -e "Chain id:           ${CYAN}$CHAIN_ID${NC}"
+	echo -e "Chain demon:        ${CYAN}$CHAIN_DENOM${NC}"
+	echo -e "Binary version tag: ${CYAN}$BINARY_VERSION_TAG${NC}"
+	echo -e "IDENTITY:           ${CYAN}$IDENTITY${NC}"
+printGreen "Готово!" && sleep 1
 
 
 printYellow "4. Устанавливаем go........" && sleep 1
-	sudo rm -rf /usr/local/go
-	curl -Ls https://go.dev/dl/go1.19.6.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
-	eval $(echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/golang.sh)
-	eval $(echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile)
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/scripts/go_1.19.4.sh)
 printGreen "Готово!" && sleep 1
 
 
 printYellow "5. Скачиваем и устанавливаем бинарник........"
-cd $HOME
-rm -rf nibiru
-git clone https://github.com/NibiruChain/nibiru.git
-cd nibiru
-git checkout v0.19.2
-make build
-mkdir -p $HOME/.nibid/cosmovisor/genesis/bin
-mv build/nibid $HOME/.nibid/cosmovisor/genesis/bin/
-rm -rf build
-ln -s $HOME/.nibid/cosmovisor/genesis $HOME/.nibid/cosmovisor/current
-sudo ln -s $HOME/.nibid/cosmovisor/current/bin/nibid /usr/local/bin/nibid
+	cd $HOME
+	rm -rf nibiru
+	git clone https://github.com/NibiruChain/nibiru.git
+	cd nibiru
+	git checkout v0.16.3
+	make build
+	mkdir -p $HOME/.nibid/cosmovisor/genesis/bin
+	mv build/nibid $HOME/.nibid/cosmovisor/genesis/bin/
+	rm -rf build
 printGreen "Готово!" && sleep 1
 
 printYellow "Устанавливаем cosmovisor и создаем сервис........"
-go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.4.0
+	go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.4.0
 sudo tee /etc/systemd/system/nibid.service > /dev/null << EOF
 [Unit]
 Description=nibiru-testnet node service
 After=network-online.target
-
 [Service]
 User=$USER
 ExecStart=$(which cosmovisor) run start
@@ -115,59 +112,60 @@ LimitNOFILE=65535
 Environment="DAEMON_HOME=$HOME/.nibid"
 Environment="DAEMON_NAME=nibid"
 Environment="UNSAFE_SKIP_BACKUP=true"
-Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:$HOME/.nibid/cosmovisor/current/bin"
-
 [Install]
 WantedBy=multi-user.target
 EOF
-sudo systemctl daemon-reload
-sudo systemctl enable nibid
+	sudo systemctl daemon-reload
+	sudo systemctl enable nibid
+	ln -s $HOME/.nibid/cosmovisor/genesis $HOME/.nibid/cosmovisor/current
+	sudo ln -s $HOME/.nibid/cosmovisor/current/bin/nibid /usr/local/bin/nibid
 printGreen "Готово!" && sleep 1
 
 
 printYellow "6. Инициализируем ноду........" && sleep 1
-nibid config chain-id nibiru-itn-1
+nibid config chain-id nibiru-testnet-2
 nibid config keyring-backend test
 nibid config node tcp://localhost:39657
-nibid init $MONIKER --chain-id nibiru-itn-1
-
+nibid init $MONIKER --chain-id nibiru-testnet-2
 printGreen "Готово!" && sleep 1
 
 
 printYellow "7. Добавляем сиды и пиры........" && sleep 1
-curl -Ls https://snapshots.kjnodes.com/nibiru-testnet/genesis.json > $HOME/.nibid/config/genesis.json
-curl -Ls https://snapshots.kjnodes.com/nibiru-testnet/addrbook.json > $HOME/.nibid/config/addrbook.json
-sed -i -e "s|^seeds *=.*|seeds = \"3f472746f46493309650e5a033076689996c8881@nibiru-testnet.rpc.kjnodes.com:39659\"|" $HOME/.nibid/config/config.toml
-
+	curl -Ls https://snapshots.kjnodes.com/nibiru-testnet/genesis.json > $HOME/.nibid/config/genesis.json
+	curl -Ls https://snapshots.kjnodes.com/nibiru-testnet/addrbook.json > $HOME/.nibid/config/addrbook.json
+	sed -i -e "s|^seeds *=.*|seeds = \"3f472746f46493309650e5a033076689996c8881@nibiru-testnet.rpc.kjnodes.com:39659\"|" $HOME/.nibid/config/config.toml
 printGreen "Готово!" && sleep 1
 
 
 printYellow "8. Настраиваем прунинг........" && sleep 1
-sed -i \
-  -e 's|^pruning *=.*|pruning = "custom"|' \
-  -e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "100"|' \
-  -e 's|^pruning-keep-every *=.*|pruning-keep-every = "0"|' \
-  -e 's|^pruning-interval *=.*|pruning-interval = "19"|' \
-  $HOME/.nibid/config/app.toml
+	pruning="custom"
+	pruning_keep_recent="1000"
+	pruning_interval="10"
+	sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.nibid/config/app.toml
+	sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.nibid/config/app.toml
+	sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.nibid/config/app.toml
 printGreen "Готово!" && sleep 1
 
 
 printYellow "9. Задаем минимальную цену за gas........" && sleep 1
-sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.025unibi\"|" $HOME/.nibid/config/app.toml
+	sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.025unibi\"|" $HOME/.nibid/config/app.toml
 printGreen "Готово!" && sleep 1
 
 
+printYellow "10. Выключаем индексацию........" && sleep 1
+indexer="null"
+sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.nibid/config/config.toml
+printGreen "Готово!" && sleep 1
+
 
 printYellow "10. Устанавливаем кастомные порты........"
-sed -i -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:39658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:39657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:39060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:39656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":39660\"%" $HOME/.nibid/config/config.toml
-sed -i -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:39317\"%; s%^address = \":8080\"%address = \":39080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:39090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:39091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:39545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:39546\"%" $HOME/.nibid/config/app.toml
-
+	sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:39658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:39657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:39060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:39656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":39660\"%" $HOME/.nibid/config/config.toml
+	sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:39317\"%; s%^address = \":8080\"%address = \":39080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:39090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:39091\"%; s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:39545\"%; s%^ws-address = \"0.0.0.0:8546\"%ws-address = \"0.0.0.0:39546\"%" $HOME/.nibid/config/app.toml
 printGreen "Готово." && sleep 1
 
 
 printYellow "11. Подгружаем последний снапшот........"
-curl -L https://snapshots.kjnodes.com/nibiru-testnet/snapshot_latest.tar.lz4 | tar -Ilz4 -xf - -C $HOME/.nibid
-[[ -f $HOME/.nibid/data/upgrade-info.json ]] && cp $HOME/.nibid/data/upgrade-info.json $HOME/.nibid/cosmovisor/genesis/upgrade-info.json
+curl -L https://snapshots.kjnodes.com/nibiru-testnet/snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.nibid
 printGreen "Готово."
 
 
