@@ -200,7 +200,7 @@ echo -ne "
 		submenu
 		;;
 		3)
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/main.sh)
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/quasar/main.sh)
 		;;
 		*)
 		printLogo
