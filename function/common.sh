@@ -123,7 +123,6 @@ function addToPath {
 
 
 #NIBIRU
-
 function printnibiru {
 echo -ne "$(printCyan '                  =====================')
 $(printRed  ' ================')$(printCyan ' =      ')$(printBBlue 'NIBIRU')$(printCyan '       = ')$(printRed  '================') 
@@ -162,6 +161,14 @@ echo -ne "$(printCyan '                  =====================')
 $(printRed  ' ================')$(printCyan ' =        ')$(printBGreen 'SUI')$(printCyan '        = ')$(printRed  '================') 
 $(printCyan '                  =====================')"
 }
+
+function printquasar {
+echo -ne "$(printCyan '                  =====================')
+$(printRed  ' ================')$(printCyan ' =      ')$(printBRed 'QUASAR')$(printCyan '       = ')$(printRed  '================') 
+$(printCyan '                  =====================')"
+}
+
+
 
 
 function printLogo {
