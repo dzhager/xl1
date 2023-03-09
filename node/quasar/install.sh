@@ -64,10 +64,6 @@ printGreen "Готово!" && sleep 1
 
 # printYellow "3. Задаем переменные........" && sleep 1
 # #	MONIKER=X-l1bra
- 	CHAIN_ID="nibiru-itn-1"
-# 	CHAIN_DENOM="unibi"
-# 	BINARY_NAME="nibid"
-# 	BINARY_VERSION_TAG="v0.16.3"
  	IDENTITY="8F3C23EC3306B513"
 # 	source $HOME/.bash_profile > /dev/null 2>&1
  	echo -e "Node moniker:       ${CYAN}$MONIKER${NC}"
