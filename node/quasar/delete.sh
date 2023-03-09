@@ -8,7 +8,7 @@ printquasar
 mainmenu() {
     echo -ne "
     
-	  $(printBRed    'Вы действительно хотите удалить Nibiru ') $(printBRedBlink '!!!')
+	  $(printBRed    'Вы действительно хотите удалить Quasar ') $(printBRedBlink '!!!')
 	  
 		$(printRed   '1) Да')
 		$(printGreen '2) Нет')
@@ -59,7 +59,7 @@ submenu
 
 submenu(){
 	echo -ne "
-	$(printBGreen    'Nibiru полностью удалена с вашего сервера ')$(printBGreenBlink '!!!')
+	$(printBGreen    'Quasar полностью удален с вашего сервера ')$(printBGreenBlink '!!!')
 	
 	Нажмите Enter:  "
 	read -r ans
