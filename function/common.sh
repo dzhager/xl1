@@ -164,7 +164,7 @@ $(printCyan '                  =====================')"
 
 function printquasar {
 echo -ne "$(printCyan '                  =====================')
-$(printRed  ' ================')$(printCyan ' =      ')$(printBRed 'QUASAR')$(printCyan '       = ')$(printRed  '================') 
+$(printRed  ' ================')$(printCyan ' =       ')$(printBRed 'QUASAR')$(printCyan '      = ')$(printRed  '================') 
 $(printCyan '                  =====================')"
 }
 
