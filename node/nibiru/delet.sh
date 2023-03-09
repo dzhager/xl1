@@ -47,7 +47,14 @@ printnibiru
 echo -ne "	
 
 $(printBYellow 'Удаляем.....!')"
-systemctl stop nibid.service && rm -rf /etc/systemd/system/nibid.service && rm -rf /usr/bin/nibid && rm -rf nibiru && rm -rf .nibid
+cd $HOME
+sudo systemctl stop nibid
+sudo systemctl disable nibid
+sudo rm /etc/systemd/system/nibid.service
+sudo systemctl daemon-reload
+rm -f $(which nibid)
+rm -rf $HOME/.nibid
+rm -rf $HOME/nibiru
 submenu
 }
 
