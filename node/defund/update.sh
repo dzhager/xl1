@@ -11,7 +11,6 @@ if [[ "$var3" == "$var4" ]]; then
  mainmenu
 else
  	update
- 	submenu
 fi
 
 
@@ -30,6 +29,7 @@ make build
 mkdir -p $HOME/.defund/cosmovisor/upgrades/v0.2.5/bin
 mv build/defundd $HOME/.defund/cosmovisor/upgrades/v0.2.5/bin/
 rm -rf build
+submenu
 }
 
 mainmenu(){
