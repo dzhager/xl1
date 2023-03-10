@@ -3,7 +3,7 @@
 printLogo
 printnibiru
 echo
-var3=v0.16.3
+var3=v0.19.2
 var4=`nibid version | cut -d ' ' -f 3`
 
 if [[ "$var3" == "$var4" ]]; then
@@ -19,7 +19,7 @@ cd $HOME
 rm -rf nibiru
 git clone https://github.com/NibiruChain/nibiru.git
 cd nibiru
-git checkout v0.16.3
+git checkout v0.19.2
 make build
 mkdir -p $HOME/.nibid/cosmovisor/genesis/bin
 mv build/nibid $HOME/.nibid/cosmovisor/genesis/bin/
