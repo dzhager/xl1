@@ -11,7 +11,6 @@ if [[ "$var3" == "$var4" ]]; then
  mainmenu
 else
  	update
- 	submenu
 fi
 
 
@@ -26,6 +25,7 @@ mkdir -p $HOME/.nibid/cosmovisor/genesis/bin
 mv build/nibid $HOME/.nibid/cosmovisor/genesis/bin/
 rm -rf build
 sudo systemctl restart nibid
+submenu
 }
 
 mainmenu(){
