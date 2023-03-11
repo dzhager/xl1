@@ -11,20 +11,21 @@ if [[ "$var3" == "$var4" ]]; then
  mainmenu
 else
  # update
-cd $HOME
-rm -rf defund
-git clone https://github.com/defund-labs/defund.git
-cd defund
-git checkout v0.2.5
+ submenu
+# cd $HOME
+# rm -rf defund
+# git clone https://github.com/defund-labs/defund.git
+# cd defund
+# git checkout v0.2.5
 
-# Build binaries
-make build
+# # Build binaries
+# make build
 
-# Prepare binaries for Cosmovisor
-mkdir -p $HOME/.defund/cosmovisor/upgrades/v0.2.5/bin
-mv build/defundd $HOME/.defund/cosmovisor/upgrades/v0.2.5/bin/
-rm -rf build
-submenu
+# # Prepare binaries for Cosmovisor
+# mkdir -p $HOME/.defund/cosmovisor/upgrades/v0.2.5/bin
+# mv build/defundd $HOME/.defund/cosmovisor/upgrades/v0.2.5/bin/
+# rm -rf build
+# submenu
 fi
 
 
