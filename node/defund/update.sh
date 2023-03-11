@@ -10,7 +10,7 @@ if [[ "$var3" == "$var4" ]]; then
  echo -ne "$(printBGreen '	У вас уже установлена последняя версия!')"
  mainmenu
 else
- 	update
+ update
 fi
 
 
