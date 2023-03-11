@@ -47,7 +47,7 @@ fi
 # submenu
 # }
 
-mainmenu() {
+mainmenu(){
 	echo -ne "
 	$(printBCyan '	Для возврата нажмите Enter:')  "
 		read -r ans
@@ -58,7 +58,7 @@ mainmenu() {
 	esac
 }
 
-submenu() {
+submenu(){
 	echo -ne "
 	$(printBGreen '	Обновление завершено!')
 	$(printBCyan '	Для возврата нажмите Enter:')  "
