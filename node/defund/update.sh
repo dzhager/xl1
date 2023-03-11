@@ -11,7 +11,7 @@ if [[ "$var3" == "$var4" ]]; then
  mainmenu
 else
  # update
- mainmenu
+submenu
 # cd $HOME
 # rm -rf defund
 # git clone https://github.com/defund-labs/defund.git
