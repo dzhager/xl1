@@ -18,12 +18,13 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '8)') Создать валидатора
 	    $(printBCyan ' -->') $(printBYellow    '9)') Узнать информацию о валидаторе
 	    $(printBCyan ' -->') $(printBYellow    '10)') Статус валидатора
+	    $(printBCyan ' -->') $(printBYellow    '11)') Резервная копия валидатор
 	    
-	    $(printBCyan ' -->') $(printBYellow    '11)') Загрузить последний снапшот
-	    $(printBCyan ' -->') $(printBYellow    '12)') Проверить синхронизацию
-	    $(printBCyan ' -->') $(printBYellow    '13)') Просмотреть логи
+	    $(printBCyan ' -->') $(printBYellow    '12)') Загрузить последний снапшот
+	    $(printBCyan ' -->') $(printBYellow    '13)') Проверить синхронизацию
+	    $(printBCyan ' -->') $(printBYellow    '14)') Просмотреть логи
 	
-	    $(printBBlue ' <--') $(printBBlue    '14) Вернутся назад')
+	    $(printBBlue ' <--') $(printBBlue    '15) Вернутся назад')
 		 $(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
@@ -71,18 +72,22 @@ mainmenu() {
 		;;
 
 		11)
-		snapshot
+		backup
 		;;
 
 		12)
+		snapshot
+		;;
+
+		13)
 		synced
 		;;
 		
-		13)
+		14)
 		logs
 		;;
 		
-		14)
+		15)
 		back
 		;;
 		
@@ -198,6 +203,9 @@ defundd q staking validator $(defundd keys show wallet --bech val -a)
 mainmenu
 }
 
+backup(){
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/backup.sh)
+}
 
 snapshot(){
 	clear && printLogo && printdefund
