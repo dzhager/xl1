@@ -45,8 +45,8 @@ read -r ans
 
 backup(){
 	mkdir $HOME/backups_defund
-	cp $HOME.defund/data/priv_validator_state.json $HOME/backups_defund/priv_validator_state.json.backup
-	cp $HOME.defund/config/priv_validator_key.json $HOME/backups_defund/priv_validator_key.json.backup
+	cp $HOME/.defund/data/priv_validator_state.json $HOME/backups_defund/priv_validator_state.json.backup
+	cp $HOME/.defund/config/priv_validator_key.json $HOME/backups_defund/priv_validator_key.json.backup
 	clear && printLogo && printdefund
 	echo -ne "
 		Валидатор сохранен!
