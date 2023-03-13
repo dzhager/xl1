@@ -16,7 +16,7 @@ mainmenu(){
 		 
 	$(printCyan 'Введите цифру:')  "
 
-	read -r ans
+read -r ans
 	case $ans in
 		1)
 		backup
