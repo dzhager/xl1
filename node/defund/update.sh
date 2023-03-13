@@ -12,6 +12,7 @@ if [[ "$var3" == "$var4" ]]; then
 else
 	# update
 	# submenu
+systemctl stop defundd.service
 cd $HOME
 rm -rf defund
 git clone https://github.com/defund-labs/defund.git
@@ -25,6 +26,7 @@ make build
 mkdir -p $HOME/.defund/cosmovisor/upgrades/v0.2.5/bin
 mv build/defundd $HOME/.defund/cosmovisor/upgrades/v0.2.5/bin/
 rm -rf build
+systemctl start defundd.service
 mainmenu
 fi
 
