@@ -51,6 +51,7 @@ backup(){
 	echo -ne "
 		Валидатор сохранен!
 		Резервная копия находится в папке backups_defund "
+	echo
 	mainmenu 
 }
 
@@ -63,6 +64,7 @@ again(){
 	echo -ne "
 		Валидатор востановлен! 
 	"
+	echo
 	mainmenu
 }
 
