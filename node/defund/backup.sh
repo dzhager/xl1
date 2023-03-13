@@ -50,8 +50,7 @@ backup(){
 	clear && printLogo && printdefund
 	echo -ne "
 		Валидатор сохранен!
-		Резервная копия находится в папке backups_defund 
-	"
+		Резервная копия находится в папке backups_defund "
 	mainmenu 
 }
 
@@ -70,3 +69,5 @@ again(){
 back(){
 	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/control.sh)
 }
+
+mainmenu
