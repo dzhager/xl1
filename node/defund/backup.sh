@@ -29,6 +29,12 @@ read -r ans
 		3)
 		back
 		;;
+
+		0)
+		echo $(printBCyan '	"Bye bye."')
+		rm x-l1bra
+		exit
+		;;
 		
 		*)
 		clear
@@ -71,5 +77,6 @@ again(){
 back(){
 	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/control.sh)
 }
+
 
 mainmenu
