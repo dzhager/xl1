@@ -49,6 +49,7 @@ fi
 
 mainmenu(){
 	echo -ne "
+	$(printBGreen '	Обновление завершено!')
 	$(printBCyan '	Для возврата нажмите Enter:')  "
 		read -r ans
 		case $ans in
