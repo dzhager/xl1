@@ -57,8 +57,8 @@ backup(){
 
 again(){
 	systemctl stop defundd.service
-	cp $HOME/backups_defund/priv_validator_state.json.backup $HOME.defund/data/priv_validator_state.json
-	cp $HOME/backups_defund/priv_validator_key.json.backup $HOME.defund/config/priv_validator_key.json
+	cp $HOME/backups_defund/priv_validator_state.json.backup $HOME/.defund/data/priv_validator_state.json
+	cp $HOME/backups_defund/priv_validator_key.json.backup $HOME/.defund/config/priv_validator_key.json
 	systemctl start defundd.service
 	clear && printLogo && printdefund
 	echo -ne "
