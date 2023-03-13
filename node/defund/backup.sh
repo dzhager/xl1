@@ -6,7 +6,7 @@ printLogo
 printdefund
 echo
 
-mainmenu() {
+mainmenu(){
 	echo -ne "
 	    $(printBCyan ' -->') $(printBYellow    '1)') Сохранить валидатора
 	    $(printBCyan ' -->') $(printBYellow    '2)') Восстановить валидатора
@@ -15,6 +15,7 @@ mainmenu() {
 		 $(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
+
 	read -r ans
 	case $ans in
 		1)
@@ -64,4 +65,8 @@ again(){
 		Валидатор востановлен! 
 	"
 	mainmenu
+}
+
+back(){
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/control.sh)
 }
