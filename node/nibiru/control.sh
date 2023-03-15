@@ -168,7 +168,7 @@ CreateValidator(){
 clear && printLogo && printnibiru
 echo
 read -r -p "  Введите имя валидатора:  " VAR1
-nibid tx staking create-validator --amount 1000000unibi --pubkey $(nibid tendermint show-validator) --moniker="$VAR1" --identity=8F3C23EC3306B513 --chain-id nibiru-itn-1 --commission-rate "0.05" --commission-max-rate "0.20" --commission-max-change-rate "0.01" --min-self-delegation "1" --from wallet --gas-adjustment "1.4" --gas auto --gas-prices 0.025unibi
+nibid tx staking create-validator --amount 1000000unibi --pubkey $(nibid tendermint show-validator) --moniker="$VAR1" --chain-id nibiru-itn-1 --commission-rate "0.05" --commission-max-rate "0.20" --commission-max-change-rate "0.01" --min-self-delegation "1" --from wallet --gas-adjustment "1.4" --gas auto --gas-prices 0.025unibi
 echo
 echo -ne "$(printBRed 'Вы должны позаботится забэкапить priv_validator_key.json.
 Без него вы не сможете восстановить валидатора.

@@ -169,7 +169,7 @@ CreateValidator(){
 clear && printLogo && printquasar
 echo
 read -r -p "  Введите имя валидатора:  " VAR1
-quasard tx staking create-validator --amount=1000000uqsr --pubkey=$(quasard tendermint show-validator) --moniker="$VAR1" --identity=8F3C23EC3306B513 --chain-id=qsr-questnet-04 --commission-rate=0.05 --commission-max-rate=0.20 --commission-max-change-rate=0.01 --min-self-delegation=1 --from=wallet --gas-adjustment=1.4 --gas=auto --gas-prices=0uqsr 
+quasard tx staking create-validator --amount=1000000uqsr --pubkey=$(quasard tendermint show-validator) --moniker="$VAR1" --chain-id=qsr-questnet-04 --commission-rate=0.05 --commission-max-rate=0.20 --commission-max-change-rate=0.01 --min-self-delegation=1 --from=wallet --gas-adjustment=1.4 --gas=auto --gas-prices=0uqsr 
 echo
 echo -ne "$(printBRed 'Вы должны позаботится забэкапить priv_validator_key.json.
 Без него вы не сможете восстановить валидатора.')"
