@@ -64,7 +64,7 @@ printGreen "Готово!" && sleep 1
 
 # printYellow "3. Задаем переменные........" && sleep 1
 # #	MONIKER=X-l1bra
- 	IDENTITY="8F3C23EC3306B513"
+# 	IDENTITY="8F3C23EC3306B513"
 # 	source $HOME/.bash_profile > /dev/null 2>&1
  	echo -e "Node moniker:       ${CYAN}$MONIKER${NC}"
  	echo -e "Chain id:           ${CYAN}$CHAIN_ID${NC}"

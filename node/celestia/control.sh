@@ -208,7 +208,7 @@ echo
 read -r -p "  Введите имя валидатора:  " VAR1
 read -r -p "  Введите Orchestrator адрес:  " VAR3
 read -r -p "  Введите eth адрес:  " VAR2
-celestia-appd tx staking create-validator --amount=1000000utia --pubkey=$(celestia-appd tendermint show-validator) --moniker="$VAR1" --identity=8F3C23EC3306B513 --chain-id=mocha --commission-rate=0.1 --commission-max-rate=0.2 --commission-max-change-rate=0.05 --min-self-delegation=1 --from=wallet --evm-address="$VAR2" --orchestrator-address="$VAR3" --gas=auto --gas-adjustment=1.5 --fees=1500utia
+celestia-appd tx staking create-validator --amount=1000000utia --pubkey=$(celestia-appd tendermint show-validator) --moniker="$VAR1" --chain-id=mocha --commission-rate=0.1 --commission-max-rate=0.2 --commission-max-change-rate=0.05 --min-self-delegation=1 --from=wallet --evm-address="$VAR2" --orchestrator-address="$VAR3" --gas=auto --gas-adjustment=1.5 --fees=1500utia
 echo
 echo -ne "$(printBRed 'Вы должны позаботится забэкапить priv_validator_key.json.
 Без него вы не сможете восстановить валидатора.

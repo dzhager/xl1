@@ -69,12 +69,12 @@ CHAIN_ID="mocha"
 CHAIN_DENOM="utia"
 BINARY_NAME="celestia-appd"
 BINARY_VERSION_TAG="v0.11.0"
-IDENTITY="8F3C23EC3306B513"
+#IDENTITY="8F3C23EC3306B513"
 echo -e "Node moniker:       ${CYAN}$MONIKER${NC}"
 echo -e "Chain id:           ${CYAN}$CHAIN_ID${NC}"
 echo -e "Chain demon:        ${CYAN}$CHAIN_DENOM${NC}"
 echo -e "Binary version tag: ${CYAN}$BINARY_VERSION_TAG${NC}"
-echo -e "IDENTITY:           ${CYAN}$IDENTITY${NC}"
+#echo -e "IDENTITY:           ${CYAN}$IDENTITY${NC}"
 printGreen "Готово!" && sleep 1
 
 

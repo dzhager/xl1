@@ -67,7 +67,7 @@ printGreen "Готово!" && sleep 1
 # 	CHAIN_DENOM="unibi"
 # 	BINARY_NAME="nibid"
 # 	BINARY_VERSION_TAG="v0.16.3"
- 	IDENTITY="8F3C23EC3306B513"
+# 	IDENTITY="8F3C23EC3306B513"
 # 	source $HOME/.bash_profile > /dev/null 2>&1
  	echo -e "Node moniker:       ${CYAN}$MONIKER${NC}"
  	echo -e "Chain id:           ${CYAN}$CHAIN_ID${NC}"
