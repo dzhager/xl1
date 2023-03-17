@@ -136,6 +136,13 @@ $(printRed  ' ================')$(printCyan ' =     ')$(printBMagenta 'CELESTIA'
 $(printCyan '                  =====================')"
 }
 
+#SEI
+function printsui {
+echo -ne "$(printCyan '                  =====================')
+$(printRed  ' ================')$(printCyan ' =        ')$(printBMagenta 'SEI')$(printCyan '        = ')$(printRed  '================') 
+$(printCyan '                  =====================')"
+}
+
 #SHARDIUM
 function printshardium {
 echo -ne "$(printCyan '                  =====================')
