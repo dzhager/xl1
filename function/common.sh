@@ -137,7 +137,7 @@ $(printCyan '                  =====================')"
 }
 
 #SEI
-function printsui {
+function printsei {
 echo -ne "$(printCyan '                  =====================')
 $(printRed  ' ================')$(printCyan ' =        ')$(printBMagenta 'SEI')$(printCyan '        = ')$(printRed  '================') 
 $(printCyan '                  =====================')"
