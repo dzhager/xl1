@@ -15,7 +15,7 @@ echo -ne "
 
 	    $(printBCyan ' -->') $(printBYellow    '4)') Создать кошелек wallet
 	    $(printBCyan ' -->') $(printBYellow    '5)') Восстановить кошелек
-	    $(printBCyan ' -->') $(printBYellow    '4)') Удалить кошелек wallet
+	    $(printBCyan ' -->') $(printBYellow    '6)') Удалить кошелек wallet
 
 	    $(printBBlue ' <--') $(printBBlue    '7) Вернутся назад')
 		$(printBRed    ' 0) Выйти')
@@ -86,7 +86,7 @@ mainmenu
 }
 
 AddWallet(){
-clear && printLogo && printquasar
+clear && printLogo && printsei
 echo
 seid keys add wallet
 echo
@@ -99,17 +99,32 @@ mainmenu
 Send(){
 read -r -p "  Введите адрес кошелька:  " VAR1
 echo
-echo -ne "(printBRed ' 1uqs = 1000000uqsr')"
-read -r -p "  Введите количество монет uqsr:  " VAR2
-quasard tx bank send wallet "$VAR1" "$VAR2"uqsr --from wallet --chain-id qsr-questnet-04
+echo -ne "(printBRed ' 1sei = 1000000usei')"
+read -r -p "  Введите количество монет usei:  " VAR2
+seid tx bank send wallet "$VAR1" "$VAR2"usei --from wallet --chain-id atlantic-2 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001usei -y
 mainmenu
 }
+
+DeleteWallet(){
+	clear && printLogo && printsei
+	echo
+	seid keys delete wallet
+	echo
+echo -ne "$(printCyan '       Кошелек удален!')
+"
+mainmenu
+}
+
 
 RecoveryWallet(){
 clear && printLogo && printsei
 echo
 seid keys add wallet --recover
 mainmenu
+}
+
+back(){
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/sei/main.sh)
 }
 
 mainmenu
