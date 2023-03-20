@@ -14,7 +14,7 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '5)') Восстановить кошелек
 
 	    $(printBCyan ' -->') $(printBYellow    '6)') Делегировать для x-l1bra
-	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать
+	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать кому-то
 	    $(printBCyan ' -->') $(printBYellow    '8)') Делегировать самому себе
 
 	    $(printBCyan ' -->') $(printBYellow    '9)') Создать валидатора

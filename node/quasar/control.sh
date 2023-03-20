@@ -13,7 +13,7 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '4)') Добавить кошелек wallet
 	    $(printBCyan ' -->') $(printBYellow    '5)') Восстановить кошелек
 	
-		$(printBCyan ' -->') $(printBYellow    '6)') Делегировать для x-l1bra
+	    $(printBCyan ' -->') $(printBYellow    '6)') Делегировать для x-l1bra
 	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать кому-то
 	    $(printBCyan ' -->') $(printBYellow    '8)') Делегировать самому себе
 
@@ -153,7 +153,7 @@ DelegateXl1bra(){
 	echo -ne "$(printBRed ' 1uqs = 1000000uqsr')"
 	echo
 	read -r -p "  Введите количество монет uqsr:  " VAR2
-	quasard tx staking delegate nibivaloper15wvn7z5dyuffs3pv9cnkv69gqtza6ktuprpegn "$VAR2"uqsr --from wallet --chain-id qsr-questnet-04 --gas-adjustment 1.4 --gas auto --gas-prices 0uqsr -y
+	quasard tx staking delegate quasarvaloper1wdmmmtnwnpej6g6gpvg8fd53j0jpf9zys83m62 "$VAR2"uqsr --from wallet --chain-id qsr-questnet-04 --gas-adjustment 1.4 --gas auto --gas-prices 0uqsr -y
 	echo
 	mainmenu
 }
