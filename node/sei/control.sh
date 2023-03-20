@@ -13,7 +13,6 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '4)') Добавить кошелек wallet
 	    $(printBCyan ' -->') $(printBYellow    '5)') Восстановить кошелек
 	
-		$(printBCyan ' -->') $(printBYellow    '6)') Делегировать на x-l1bra
 	    $(printBCyan ' -->') $(printBYellow    '6)') Делегировать кому-то
 	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать самому себе
 	    $(printBCyan ' -->') $(printBYellow    '8)') Создать валидатора
@@ -49,7 +48,7 @@ mainmenu() {
 		5)
 		RecoveryWallet
 		;;
-		
+
 		6)
 		Delegate
 		;;
@@ -104,21 +103,21 @@ mainmenu() {
 WalletBalance(){
 clear && printLogo && printsei
 echo
-quasard q bank balances $(quasard keys show wallet -a)
+seid q bank balances $(seid keys show wallet -a)
 mainmenu
 }
 
 ShowWallet(){
 clear && printLogo && printsei
 echo
-quasard keys list
+seid keys list
 mainmenu
 }
 
 AddWallet(){
 clear && printLogo && printsei
 echo
-quasard keys add wallet
+seid keys add wallet
 echo
 echo -ne "$(printCyanBlink '       ============================================')
 $(printCyanBlink '       = ')$(printBRed 'ОБЯЗАТЕЛЬНО СОХРАНИТЕ МНЕМОНИК ФРАЗУ !!!')$(printCyanBlink ' = ')
@@ -131,14 +130,14 @@ read -r -p "  Введите адрес кошелька:  " VAR1
 echo
 echo -ne "(printBRed ' 1uqs = 1000000uqsr')"
 read -r -p "  Введите количество монет uqsr:  " VAR2
-quasard tx bank send wallet "$VAR1" "$VAR2"uqsr --from wallet --chain-id qsr-questnet-04
+seid tx bank send wallet "$VAR1" "$VAR2"usei --from wallet --chain-id atlantic-2 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001usei -y
 mainmenu
 }
 
 RecoveryWallet(){
 clear && printLogo && printsei
 echo
-quasard keys add wallet --recover
+seid keys add wallet --recover
 mainmenu
 }
 
@@ -146,10 +145,10 @@ Delegate(){
 clear && printLogo && printsei
 echo
 read -r -p " Введите валопер адрес:  " VAR1
-echo -ne "$(printBRed ' 1uqs = 1000000uqsr')"
+echo -ne "$(printBRed ' 1sei = 1000000usei')"
 echo
-read -r -p "  Введите количество монет uqsr:  " VAR2
-quasard tx staking delegate "$VAR1" "$VAR2"uqsr --from wallet --chain-id qsr-questnet-04 --gas-adjustment 1.4 --gas auto --gas-prices 0uqsr -y
+read -r -p "  Введите количество монет usei:  " VAR2
+seid tx staking delegate "$VAR1" "$VAR2"usei --from wallet --chain-id atlantic-2 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001usei -y
 echo
 mainmenu
 }
@@ -157,10 +156,10 @@ mainmenu
 DelegateYourself(){
 clear && printLogo && printsei
 echo
-echo -ne "$(printBRed ' 1uqs = 1000000uqsr')"
+echo -ne "$(printBRed ' 1sei = 1000000usei')"
 echo
 read -r -p "  Введите количество монет uqsr:  " VAR2
-quasard tx staking delegate $(quasard keys show wallet --bech val -a) "$VAR2"uqsr --from wallet --chain-id qsr-questnet-04 --gas-adjustment 1.4 --gas auto --gas-prices 0uqsr -y
+seid tx staking delegate $(seid keys show wallet --bech val -a) "$VAR2"usei --from wallet --chain-id atlantic-2 --gas-adjustment 1.4 --gas auto --gas-prices 0.0001usei -y
 echo
 mainmenu
 }
@@ -170,7 +169,7 @@ CreateValidator(){
 clear && printLogo && printsei
 echo
 read -r -p "  Введите имя валидатора:  " VAR1
-quasard tx staking create-validator --amount=1000000uqsr --pubkey=$(quasard tendermint show-validator) --moniker="$VAR1" --chain-id=qsr-questnet-04 --commission-rate=0.05 --commission-max-rate=0.20 --commission-max-change-rate=0.01 --min-self-delegation=1 --from=wallet --gas-adjustment=1.4 --gas=auto --gas-prices=0uqsr 
+seid tx staking create-validator --amount 1000000usei --pubkey $(seid tendermint show-validator) --moniker="$VAR1" --chain-id atlantic-2 --commission-rate 0.05 --commission-max-rate 0.20 --commission-max-change-rate 0.01 --min-self-delegation 1 --from wallet --gas-adjustment 1.4 --gas auto --gas-prices 0.0001usei
 echo
 echo -ne "$(printBRed 'Вы должны позаботится забэкапить priv_validator_key.json.
 Без него вы не сможете восстановить валидатора.')"
@@ -180,7 +179,7 @@ mainmenu
 
 InfoValidator(){
 clear && printLogo && printsei
-quasard q staking validator $(quasard keys show wallet --bech val -a)
+seid q staking validator $(seid keys show wallet --bech val -a)
 mainmenu
 }
 
@@ -194,7 +193,7 @@ snapshot(){
 
 synced(){
 clear && printLogo && printsei
-quasard status 2>&1 | jq .SyncInfo
+seid status 2>&1 | jq .ValidatorInfo
 mainmenu
 }
 
@@ -203,7 +202,7 @@ submenu
 }
 
 back(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/quasar/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/sei/main.sh)
 }
 
 submenu(){
@@ -240,7 +239,7 @@ subsubmenu() {
 		*)
 		clear
 		printLogo
-		printquasar
+		printsei
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -260,12 +259,12 @@ printLogo
 printsei
 echo
 echo
-sudo systemctl stop quasard
-cp $HOME/.quasarnode/data/priv_validator_state.json $HOME/.quasarnode/priv_validator_state.json.backup
-rm -rf $HOME/.quasarnode/data
-curl -L https://snapshots.kjnodes.com/quasar-testnet/snapshot_latest.tar.lz4 | tar -Ilz4 -xf - -C $HOME/.quasarnode
-mv $HOME/.quasarnode/priv_validator_state.json.backup $HOME/.quasarnode/data/priv_validator_state.json
-sudo systemctl start quasard
+sudo systemctl stop seid
+cp $HOME/.sei/data/priv_validator_state.json $HOME/.sei/priv_validator_state.json.backup
+rm -rf $HOME/.sei/data
+curl -L https://snapshots.kjnodes.com/sei-testnet/snapshot_latest.tar.lz4 | tar -Ilz4 -xf - -C $HOME/.sei
+mv $HOME/.sei/priv_validator_state.json.backup $HOME/.sei/data/priv_validator_state.json
+sudo systemctl start seid
 mainmenu
 }
 

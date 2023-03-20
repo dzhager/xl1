@@ -8,7 +8,7 @@ printsei
 mainmenu() {
     echo -ne "
     
-	  $(printBRed    'Вы действительно хотите удалить Quasar ') $(printBRedBlink '!!!')
+	  $(printBRed    'Вы действительно хотите удалить Sei ') $(printBRedBlink '!!!')
 	  
 		$(printRed   '1) Да')
 		$(printGreen '2) Нет')
@@ -37,7 +37,7 @@ mainmenu() {
 }
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/quasar/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/sei/main.sh)
 }
 
 yes(){
