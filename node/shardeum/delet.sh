@@ -47,8 +47,11 @@ printshardium
 echo -ne "	
 
 $(printBYellow 'Удаляем.....!')"
-cd $HOME
+cd ~/.shardeum
+./cleanup.sh
+cd ~/
 rm -rf .shardeum
+rm installer.sh
 submenu
 }
 
