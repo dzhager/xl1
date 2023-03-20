@@ -12,17 +12,19 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '3)') Показать адрес кошелька
 	    $(printBCyan ' -->') $(printBYellow    '4)') Добавить кошелек wallet
 	    $(printBCyan ' -->') $(printBYellow    '5)') Восстановить кошелек
-	
-	    $(printBCyan ' -->') $(printBYellow    '6)') Делегировать
-	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать самому себе
-	    $(printBCyan ' -->') $(printBYellow    '8)') Создать валидатора
-	    $(printBCyan ' -->') $(printBYellow    '9)') Узнать информацию о валидаторе
+
+	    $(printBCyan ' -->') $(printBYellow    '6)') Делегировать для x-l1bra
+	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать
+	    $(printBCyan ' -->') $(printBYellow    '8)') Делегировать самому себе
+
+	    $(printBCyan ' -->') $(printBYellow    '9)') Создать валидатора
+	    $(printBCyan ' -->') $(printBYellow    '10)') Узнать информацию о валидаторе
 	    
-	    $(printBCyan ' -->') $(printBYellow    '10)') Загрузить последний снапшот
-	    $(printBCyan ' -->') $(printBYellow    '11)') Проверить синхронизацию
-	    $(printBCyan ' -->') $(printBYellow    '12)') Просмотреть логи
+	    $(printBCyan ' -->') $(printBYellow    '11)') Загрузить последний снапшот
+	    $(printBCyan ' -->') $(printBYellow    '12)') Проверить синхронизацию
+	    $(printBCyan ' -->') $(printBYellow    '13)') Просмотреть логи
 	
-	    $(printBBlue ' <--') $(printBBlue    '13) Вернутся назад')
+	    $(printBBlue ' <--') $(printBBlue    '14) Вернутся назад')
 		 $(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
@@ -48,36 +50,40 @@ mainmenu() {
 		5)
 		RecoveryWallet
 		;;
-		
+
 		6)
+		DelegateXl1bra
+		;;
+
+		7)
 		Delegate
 		;;
 		
-		7)
+		8)
 		DelegateYourself
 		;;
 		
-		8)
+		9)
 		CreateValidator
 		;;
 		
-		9)
+		10)
 		InfoValidator
 		;;
 		
-		10)
+		11)
 		snapshot
 		;;
 
-		11)
+		12)
 		synced
 		;;
 		
-		12)
+		13)
 		logs
 		;;
 		
-		13)
+		14)
 		back
 		;;
 		
