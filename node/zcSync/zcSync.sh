@@ -160,18 +160,18 @@ createSmart(){
 	sudo apt update && sudo apt upgrade && sudo apt install -y curl nano
 	curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 	sudo apt install -y nodejs
-	mkdir greeter-example && cd greeter-example
+	mkdir $HOME/greeter-example && cd greeter-example
 	apt install cmdtest -y
 	npm init --y
 	npm install --save-dev hardhat
 	npm install -g npm@9.6.0
 	npx hardhat
-	mkdir greeter && cd greeter
+	mkdir $HOME/greeter-example/greeter && cd $HOME/greeter-example/greeter
 	npm init -y
 	npm add -D typescript ts-node @types/node ethers@^5.7.2 zksync-web3@^0.13.1 @ethersproject/hash @ethersproject/web hardhat @matterlabs/hardhat-zksync-solc @matterlabs/hardhat-zksync-deploy
 
 
-cat << EOF  > hardhat.config.ts
+cat << EOF  > $HOME/greeter-example/greeter/hardhat.config.ts
 import "@matterlabs/hardhat-zksync-deploy";
 import "@matterlabs/hardhat-zksync-solc";
 
@@ -195,9 +195,9 @@ module.exports = {
 };
 EOF
 
-mkdir contracts && mkdir deploy
+mkdir $HOME/greeter-example/greeter/contracts && mkdir $HOME/greeter-example/greeter/deploy
 
-cat << EOF  > contracts/Greeter.sol
+cat << EOF  > $HOME/greeter-example/greeter/contracts/Greeter.sol
 //SPDX-License-Identifier: Unlicensed
 pragma solidity ^0.8.0;
 
@@ -222,7 +222,7 @@ npx hardhat compile
 
 read -r -p "  Введите закрытый ключ Metamask: " VAR1
 
-cat << EOF  > nano deploy/deploy.ts
+cat << EOF  > $HOME/greeter-example/greeter/deploy/deploy.ts
 import { utils, Wallet } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
