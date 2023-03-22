@@ -155,7 +155,7 @@ echo
 cd $HOME
 mainmenu
 }
-
+#X-l1bra
 createSmart(){
 	echo
 	cd $HOME
