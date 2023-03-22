@@ -51,7 +51,7 @@ read -r ans
 		printzcsync
 		echo
 		echo
-		echo    -ne "$(printRed '		   Неверный запрос !')"
+		echo    -ne "$(printBRed '		   Неверный запрос !')"
 		echo
 		mainmenu
 		;;
@@ -64,7 +64,7 @@ delet(){
 		echo
 		rm -rf $HOME/greeter-example
 		echo
-		echo -ne "		$(printCyan	'zcSync удален!')"
+		echo -ne "		$(printBRed	'	  zcSync удален!')"
 		echo
 		mainmenu
 }
@@ -284,9 +284,9 @@ EOF
 cd $HOME
 echo
 echo -ne "
-$(printCyan	'							Смартконтракт готов!')
+$(printBCyan	'							Смартконтракт готов!')
 
-$(printCyan	'		Далее необходима сделать деплой контракта!')
+$(printBCyan	'		Далее необходима сделать деплой контракта!')
 "
 
 mainmenu
