@@ -64,7 +64,7 @@ delet(){
 		echo
 		rm -rf $HOME/greeter-example
 		echo
-		echo -ne "		zcSync удален!"
+		echo -ne "		$(printCyan	'zcSync удален!')"
 		echo
 		mainmenu
 }
@@ -149,7 +149,8 @@ export default async function (hre: HardhatRuntimeEnvironment) {
 }
 EOF
 echo
-echo -ne " Закрытый ключ Metamask изменен!"
+echo -ne " 
+$(printCyan	'		Закрытый ключ Metamask изменен!')"
 echo
 cd $HOME
 mainmenu
