@@ -72,7 +72,7 @@ delet(){
 }
 
 back(){
-
+./x-l1bra
 }
 
 deploy(){
@@ -90,7 +90,7 @@ updateSmart(){
 	rm deploy.ts
 	read -r -p "  Введите закрытый ключ Metamask: " VAR1
 
-cat << EOF > nano deploy/deploy.ts
+cat << EOF > nano deploy.ts
 import { utils, Wallet } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
@@ -150,6 +150,7 @@ EOF
 echo
 echo -ne " Закрытый ключ Metamask изменен!"
 echo
+cd $HOME
 mainmenu
 }
 
@@ -278,7 +279,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   }
 }
 EOF
-
+cd $HOME
 }
 
 mainmenu
