@@ -60,13 +60,11 @@ read -r ans
 }
 
 delet(){
-	clear
-		printLogo
-		printzcsync
+	clear && printLogo && printzcsync
 		echo
 		rm -rf $HOME/greeter-example
 		echo
-		echo -ne "zcSync удален!"
+		echo -ne "		zcSync удален!"
 		echo
 		mainmenu
 }
@@ -79,12 +77,15 @@ deploy(){
 	clear && printLogo && printzcsync
 	echo
 	echo 
+	cd $HOME/greeter-example/greeter/deploy/
 	npx hardhat deploy-zksync
+	cd $HOME
 	echo
 	mainmenu
 }
 
 updateSmart(){
+	clear && printLogo && printzcsync
 	echo
 	cd $HOME/greeter-example/greeter/deploy/
 	rm deploy.ts
@@ -280,6 +281,13 @@ export default async function (hre: HardhatRuntimeEnvironment) {
 }
 EOF
 cd $HOME
+echo
+echo -ne "
+$(printCyan	'							Смартконтракт готов!')
+
+$(printCyan	'		Далее необходима сделать деплой контракта!')
+"
+
 mainmenu
 }
 
