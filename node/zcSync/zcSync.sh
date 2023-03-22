@@ -280,6 +280,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
 }
 EOF
 cd $HOME
+mainmenu
 }
 
 mainmenu
