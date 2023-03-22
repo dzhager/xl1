@@ -284,7 +284,7 @@ EOF
 cd $HOME
 echo
 echo -ne "
-$(printBCyan	'							Смартконтракт готов!')
+$(printBCyan	'		Смартконтракт готов!')
 
 $(printBCyan	'		Далее необходима сделать деплой контракта!')
 "
