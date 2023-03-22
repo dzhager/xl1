@@ -175,7 +175,11 @@ $(printRed  ' ================')$(printCyan ' =       ')$(printBRed 'QUASAR')$(p
 $(printCyan '                  =====================')"
 }
 
-
+function printzcsync {
+echo -ne "$(printCyan '                  =====================')
+$(printRed  ' ================')$(printCyan ' =       ')$(printBMagenta 'ZCSYNC')$(printCyan '      = ')$(printRed  '================') 
+$(printCyan '                  =====================')"
+}
 
 
 function printLogo {
