@@ -91,7 +91,7 @@ updateSmart(){
 	rm deploy.ts
 	read -r -p "  Введите закрытый ключ Metamask: " VAR1
 
-cat << EOF > nano deploy.ts
+cat << EOF > $HOME/greeter-example/greeter/deploy/deploy.ts
 import { utils, Wallet } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
