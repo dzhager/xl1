@@ -222,7 +222,7 @@ npx hardhat compile
 
 read -r -p "  Введите закрытый ключ Metamask: " VAR1
 
-cat << EOF > nano deploy/deploy.ts
+cat << EOF  > nano deploy/deploy.ts
 import { utils, Wallet } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
