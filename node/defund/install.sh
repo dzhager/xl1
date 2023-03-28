@@ -77,7 +77,7 @@ printYellow "4. Скачиваем и устанавливаем бинарни�
 	rm -rf defund
 	git clone https://github.com/defund-labs/defund.git
 	cd defund
-	git checkout v0.2.5
+	git checkout v0.2.6
 	make build
 	mkdir -p $HOME/.defund/cosmovisor/genesis/bin
 	mv build/defundd $HOME/.defund/cosmovisor/genesis/bin/
@@ -110,10 +110,10 @@ printGreen "Готово!" && sleep 1
 
 
 printYellow "6. Инициализируем ноду........" && sleep 1
-defundd config chain-id defund-private-4
+defundd config chain-id orbit-alpha-1
 defundd config keyring-backend test
 defundd config node tcp://localhost:40657
-defundd init $MONIKER --chain-id defund-private-4
+defundd init $MONIKER --chain-id orbit-alpha-1
 printGreen "Готово!" && sleep 1
 
 
@@ -122,16 +122,17 @@ curl -Ls https://snapshots.kjnodes.com/defund-testnet/genesis.json > $HOME/.defu
 curl -Ls https://snapshots.kjnodes.com/defund-testnet/addrbook.json > $HOME/.defund/config/addrbook.json
 sed -i -e "s|^seeds *=.*|seeds = \"3f472746f46493309650e5a033076689996c8881@defund-testnet.rpc.kjnodes.com:40659\"|" $HOME/.defund/config/config.toml
 sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0ufetf\"|" $HOME/.defund/config/app.toml
+
 printGreen "Готово!" && sleep 1
 
 
 printYellow "8. Настраиваем прунинг........" && sleep 1
-	sed -i \
--e 's|^pruning *=.*|pruning = "custom"|' \
--e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "100"|' \
--e 's|^pruning-keep-every *=.*|pruning-keep-every = "0"|' \
--e 's|^pruning-interval *=.*|pruning-interval = "19"|' \
-$HOME/.defund/config/app.toml
+sed -i \
+  -e 's|^pruning *=.*|pruning = "custom"|' \
+  -e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "100"|' \
+  -e 's|^pruning-keep-every *=.*|pruning-keep-every = "0"|' \
+  -e 's|^pruning-interval *=.*|pruning-interval = "19"|' \
+  $HOME/.defund/config/app.toml
 printGreen "Готово!" && sleep 1
 
 

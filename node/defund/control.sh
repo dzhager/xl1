@@ -18,7 +18,7 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '8)') Создать валидатора
 	    $(printBCyan ' -->') $(printBYellow    '9)') Узнать информацию о валидаторе
 	    $(printBCyan ' -->') $(printBYellow    '10)') Статус валидатора
-	    $(printBCyan ' -->') $(printBYellow    '11)') Резервная копия валидатор
+	    $(printBCyan ' -->') $(printBYellow    '11)') Резервная копия валидатора
 	    
 	    $(printBCyan ' -->') $(printBYellow    '12)') Загрузить последний снапшот
 	    $(printBCyan ' -->') $(printBYellow    '13)') Проверить синхронизацию
