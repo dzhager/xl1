@@ -1,15 +1,15 @@
 #!/bin/bash
 
-clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh) && printLogo && printdefund && echo && printaleo
+clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh) && printLogo && echo && printaleo
 
 
 #-------------------Системные требовани
-echo -ne "
+	echo -ne "
 	$(printGreen  '-----------------------------------------')
 	  $(printYellow 'Минимальные требования к оборудованию.')
 		     $(printBCyan '4CPU 16RAM 1000GB')
 	$(printGreen  '-----------------------------------------')"
-echo
+	echo
 
 #-------------------Вы действительно хотите начать установку
 	mainmenu() {
@@ -40,7 +40,7 @@ echo
 #-------------------Функция меню
 	#-------------------Нет
 	no(){
-	#source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/main.sh)
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/main.sh)
 	}
 	#-------------------Да
 	yes(){
@@ -98,5 +98,8 @@ echo
 	RECORD="$VAR3"
 
 	snarkos developer deploy "${APPNAME}.aleo" --private-key "${PRIVATEKEY}" --query "https://vm.aleo.org/api" --path "./${APPNAME}/build/" --broadcast "https://vm.aleo.org/api/testnet3/transaction/broadcast" --fee 600000 --record "${RECORD}" &&
+
+	mainmenu
+	}
 
 	mainmenu
