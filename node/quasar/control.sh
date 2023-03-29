@@ -20,7 +20,7 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '9)') Создать валидатора
 	    $(printBCyan ' -->') $(printBYellow    '10)') Узнать информацию о валидаторе
 	    
-	    $(printBCyan ' -->') $(printBYellow    '11)') Загрузить последний снапшот
+	    $(printBCyan ' -->') $(printBYellow    '11)') Почистить кэш
 	    $(printBCyan ' -->') $(printBYellow    '12)') Проверить синхронизацию
 	    $(printBCyan ' -->') $(printBYellow    '13)') Просмотреть логи
 	
