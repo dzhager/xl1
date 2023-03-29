@@ -7,7 +7,7 @@ clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/fu
 	echo -ne "
 	$(printGreen  '-----------------------------------------')
 	  $(printYellow 'Минимальные требования к оборудованию.')
-		     $(printBCyan '4CPU 16RAM 1000GB')
+		     $(printBCyan '16CPU 16RAM 128GB')
 	$(printGreen  '-----------------------------------------')"
 	echo
 
@@ -62,20 +62,21 @@ clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/fu
 		sudo apt install curl git jq lz4 build-essential screen -y &&
 	printGreen "Готово!" && sleep 1
 
-#-------------------ЗАПУСК СКРИТА С https://sh.rustup.rs
+#-------------------УСТАНОВКА snarkOS
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh &&
 	git clone https://github.com/AleoHQ/snarkOS.git --depth 1 &&
 	cd snarkOS &&
 	./build_ubuntu.sh &&
 	source $HOME/.cargo/env &&
 	cargo install --path . &&
+
 #-------------------Настраиваем язык Leo
 	cd &&
 	git clone https://github.com/AleoHQ/leo &&
 	cd leo &&
 	cargo install --path . &&
 	leo &&
-	
+
 #-------------------РАЗВОРАЧИВАЕМ ТЕСТОВОЕ ПРИЛОЖЕНИЕ
 
 	cd $HOME && mkdir demo_deploy_Leo_app && cd demo_deploy_Leo_app &&
