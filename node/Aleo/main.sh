@@ -1,9 +1,7 @@
 #!/bin/bash
 
 #X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printdefund	
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh) && printLogo && printaleo
 
 #-------------------МЕНЮ
 	mainmenu() { echo -ne "
@@ -47,7 +45,7 @@ printdefund
 		*)
 		clear
 		printLogo
-		printdefund
+		printaleo
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -57,20 +55,21 @@ printdefund
 	esac
 }
 
-install(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/Aleo/install.sh)
-}
+#-------------------ФУНКЦИИ
+	install(){
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/Aleo/install.sh)
+	}
 
-installMore(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/control.sh)
-}
+	installMore(){
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/control.sh)
+	}
 
-delet(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/delet.sh)
-}
+	delet(){
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/delet.sh)
+	}
 
-back(){
-./x-l1bra
-}
+	back(){
+	./x-l1bra
+
 
 mainmenu
