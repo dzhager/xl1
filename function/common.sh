@@ -157,6 +157,13 @@ $(printRed  ' ================')$(printCyan ' =       ')$(printBYellow 'DeFund')
 $(printCyan '                  =====================')"
 }
 
+#Aleo
+function printaleo {
+echo -ne "$(printCyan '                  =====================')
+$(printRed  ' ================')$(printCyan ' = ')$(printBGreen 'Aleo Testnet III')$(printCyan '  = ')$(printRed  '================') 
+$(printCyan '                  =====================') "
+}
+
 function printComing {
 echo -ne "$(printCyanBlink '                  =====================')
 $(printRed  ' ================')$(printCyanBlink ' = ')$(printBYellow ' Coming soon !!!')$(printCyanBlink '  = ')$(printRed  '================') 
