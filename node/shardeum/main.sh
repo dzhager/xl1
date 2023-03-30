@@ -8,9 +8,10 @@ printshardium
 mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBGreen    '1) Установить')
-		$(printBCyan ' -->') $(printBRed    '2) Удалить')
+		$(printBCyan ' -->') $(printBYellow    '2) Обновит на 1.1.6')
+		$(printBCyan ' -->') $(printBRed    '3) Удалить')
 
-		$(printBBlue ' <-- 3) Назад')
+		$(printBBlue ' <-- 4) Назад')
 		$(printBRed        '     0) Выход')
 
  	Введите цифру: "
@@ -21,9 +22,12 @@ read -r ans
 		install
 		;;
 		2)
-		delet
+		update
 		;;
 		3)
+		delet
+		;;
+		4)
 		back
 		;;
 		0)
@@ -56,5 +60,30 @@ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/sharde
 back(){
 ./x-l1bra
 }
+
+#--------------ОБНОВЛЕНИЕ 1.1.6
+update(){
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
+	printLogo
+	printshardium
+	cd $HOME
+	curl -O https://gitlab.com/shardeum/validator/dashboard/-/raw/main/installer.sh && chmod +x installer.sh && ./installer.sh
+	echo -ne "
+			    $(printBGreen    'Обновление завершено!')
+			    Далее нужно выполнить команды по очереди:
+			    
+			    $(printBGreen 'cd .shardeum && ./shell.sh')
+			    
+			    $(printBGreen 'operator-cli gui start')
+			    
+			    $(printBGreen 'operator-cli start')
+
+			    Проверить работу ноды можно командой:
+			    $(printBGreen 'pm2 list')"
+
+	mainmenu
+
+}
+
 
 mainmenu
