@@ -72,14 +72,14 @@ update(){
 			    $(printBGreen    'Обновление завершено!')
 			    Далее нужно выполнить команды по очереди:
 			    
-			    $(printBGreen 'cd .shardeum && ./shell.sh')
+			    $(printBYellow 'cd .shardeum && ./shell.sh')
 			    
-			    $(printBGreen 'operator-cli gui start')
+			    $(printBYellow 'operator-cli gui start')
 			    
-			    $(printBGreen 'operator-cli start')
+			    $(printBYellow 'operator-cli start')
 
 			    Проверить работу ноды можно командой:
-			    $(printBGreen 'pm2 list')"
+			    $(printBYellow 'pm2 list')"
 
 	mainmenu
 
