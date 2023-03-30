@@ -70,7 +70,7 @@ update(){
 	curl -O https://gitlab.com/shardeum/validator/dashboard/-/raw/main/installer.sh && chmod +x installer.sh && ./installer.sh
 	echo -ne "
 			    $(printBGreen    'Обновление завершено!')
-			    Далее нужно выполнить команды по очереди:
+			    Далее нужно выйти из скрипта и выполнить команды по очереди:
 			    
 			    $(printBYellow 'cd .shardeum && ./shell.sh')
 			    
