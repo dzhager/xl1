@@ -13,7 +13,7 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '4)') Добавить кошелек wallet
 	    $(printBCyan ' -->') $(printBYellow    '5)') Восстановить кошелек
 
-$(printBCyan ' -->') $(printBYellow    '6)') Проголосовать!
+		$(printBCyan ' -->') $(printBYellow    '6)') Проголосовать!
 	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать для x-l1bra
 	    $(printBCyan ' -->') $(printBYellow    '8)') Делегировать кому-то
 	    $(printBCyan ' -->') $(printBYellow    '9)') Делегировать самому себе
