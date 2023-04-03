@@ -13,18 +13,19 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '4)') Добавить кошелек wallet
 	    $(printBCyan ' -->') $(printBYellow    '5)') Восстановить кошелек
 
-	    $(printBCyan ' -->') $(printBYellow    '6)') Делегировать для x-l1bra
-	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать кому-то
-	    $(printBCyan ' -->') $(printBYellow    '8)') Делегировать самому себе
+		$(printBCyan ' -->') $(printBYellow    '6)') Проголосовать!
+	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать для x-l1bra
+	    $(printBCyan ' -->') $(printBYellow    '8)') Делегировать кому-то
+	    $(printBCyan ' -->') $(printBYellow    '9)') Делегировать самому себе
 
-	    $(printBCyan ' -->') $(printBYellow    '9)') Создать валидатора
-	    $(printBCyan ' -->') $(printBYellow    '10)') Узнать информацию о валидаторе
+	    $(printBCyan ' -->') $(printBYellow    '10)') Создать валидатора
+	    $(printBCyan ' -->') $(printBYellow    '11)') Узнать информацию о валидаторе
 	    
-	    $(printBCyan ' -->') $(printBYellow    '11)') Почистить кэш
-	    $(printBCyan ' -->') $(printBYellow    '12)') Проверить синхронизацию
-	    $(printBCyan ' -->') $(printBYellow    '13)') Просмотреть логи
+	    $(printBCyan ' -->') $(printBYellow    '12)') Почистить кэш
+	    $(printBCyan ' -->') $(printBYellow    '13)') Проверить синхронизацию
+	    $(printBCyan ' -->') $(printBYellow    '14)') Просмотреть логи
 	
-	    $(printBBlue ' <--') $(printBBlue    '14) Вернутся назад')
+	    $(printBBlue ' <--') $(printBBlue    '15) Вернутся назад')
 		 $(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
@@ -52,38 +53,42 @@ mainmenu() {
 		;;
 
 		6)
-		DelegateXl1bra
+		voit
 		;;
 
 		7)
+		DelegateXl1bra
+		;;
+
+		8)
 		Delegate
 		;;
 		
-		8)
+		9)
 		DelegateYourself
 		;;
 		
-		9)
+		10)
 		CreateValidator
 		;;
 		
-		10)
+		11)
 		InfoValidator
 		;;
 		
-		11)
+		12)
 		snapshot
 		;;
 
-		12)
+		13)
 		synced
 		;;
 		
-		13)
+		14)
 		logs
 		;;
 		
-		14)
+		15)
 		back
 		;;
 		
@@ -105,6 +110,17 @@ mainmenu() {
 		;;
 	esac
 }
+
+
+voit(){
+	clear && printLogo && printnibiru
+echo
+
+nibid tx gov vote 8 yes --from wallet --chain-id nibiru-itn-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.025unibi -y
+mainmenu
+}
+
+
 
 WalletBalance(){
 clear && printLogo && printnibiru
