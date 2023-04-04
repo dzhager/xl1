@@ -13,13 +13,13 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '4)') Добавить кошелек wallet
 	    $(printBCyan ' -->') $(printBYellow    '5)') Восстановить кошелек
 
-		$(printBCyan ' -->') $(printBYellow    '6)') Проголосовать!
-	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать для x-l1bra
-	    $(printBCyan ' -->') $(printBYellow    '8)') Делегировать кому-то
-	    $(printBCyan ' -->') $(printBYellow    '9)') Делегировать самому себе
+	    $(printBCyan ' -->') $(printBYellow    '6)') Делегировать для x-l1bra
+	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать кому-то
+	    $(printBCyan ' -->') $(printBYellow    '8)') Делегировать самому себе
 
-	    $(printBCyan ' -->') $(printBYellow    '10)') Создать валидатора
-	    $(printBCyan ' -->') $(printBYellow    '11)') Узнать информацию о валидаторе
+	    $(printBCyan ' -->') $(printBYellow    '9)') Создать валидатора
+	    $(printBCyan ' -->') $(printBYellow    '10)') Узнать информацию о валидаторе
+	    $(printBCyan ' -->') $(printBYellow    '11)') Резервная копия валидатора
 	    
 	    $(printBCyan ' -->') $(printBYellow    '12)') Почистить кэш
 	    $(printBCyan ' -->') $(printBYellow    '13)') Проверить синхронизацию
@@ -53,29 +53,30 @@ mainmenu() {
 		;;
 
 		6)
-		voit
-		;;
-
-		7)
 		DelegateXl1bra
 		;;
 
-		8)
+		7)
 		Delegate
 		;;
 		
-		9)
+		8)
 		DelegateYourself
 		;;
 		
-		10)
+		9)
 		CreateValidator
 		;;
 		
-		11)
+		10)
 		InfoValidator
 		;;
 		
+		11)
+		backup
+		;;
+
+
 		12)
 		snapshot
 		;;
@@ -120,7 +121,9 @@ nibid tx gov vote 8 yes --from wallet --chain-id nibiru-itn-1 --gas-adjustment 1
 mainmenu
 }
 
-
+backup(){
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/backup.sh)
+}
 
 WalletBalance(){
 clear && printLogo && printnibiru
