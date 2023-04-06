@@ -16,16 +16,17 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '6)') Делегировать для x-l1bra
 	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать кому-то
 	    $(printBCyan ' -->') $(printBYellow    '8)') Делегировать самому себе
+	    $(printBCyan ' -->') $(printBYellow    '9)') Проверить ключ валидатора
 
-	    $(printBCyan ' -->') $(printBYellow    '9)') Создать валидатора
-	    $(printBCyan ' -->') $(printBYellow    '10)') Узнать информацию о валидаторе
-	    $(printBCyan ' -->') $(printBYellow    '11)') Резервная копия валидатора
+	    $(printBCyan ' -->') $(printBYellow    '10)') Создать валидатора
+	    $(printBCyan ' -->') $(printBYellow    '11)') Узнать информацию о валидаторе
+	    $(printBCyan ' -->') $(printBYellow    '12)') Резервная копия валидатора
 	    
-	    $(printBCyan ' -->') $(printBYellow    '12)') Почистить кэш
-	    $(printBCyan ' -->') $(printBYellow    '13)') Проверить синхронизацию
-	    $(printBCyan ' -->') $(printBYellow    '14)') Просмотреть логи
+	    $(printBCyan ' -->') $(printBYellow    '13)') Почистить кэш
+	    $(printBCyan ' -->') $(printBYellow    '14)') Проверить синхронизацию
+	    $(printBCyan ' -->') $(printBYellow    '15)') Просмотреть логи
 	
-	    $(printBBlue ' <--') $(printBBlue    '15) Вернутся назад')
+	    $(printBBlue ' <--') $(printBBlue    '16) Вернутся назад')
 		 $(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
@@ -65,31 +66,35 @@ mainmenu() {
 		;;
 		
 		9)
+		ValidatorСorrect
+		;;
+
+		10)
 		CreateValidator
 		;;
 		
-		10)
+		11)
 		InfoValidator
 		;;
 		
-		11)
+		12)
 		backup
 		;;
 
 
-		12)
+		13)
 		snapshot
 		;;
 
-		13)
+		14)
 		synced
 		;;
 		
-		14)
+		15)
 		logs
 		;;
 		
-		15)
+		16)
 		back
 		;;
 		
@@ -120,6 +125,16 @@ echo
 nibid tx gov vote 8 yes --from wallet --chain-id nibiru-itn-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.025unibi -y
 mainmenu
 }
+
+ValidatorСorrect(){
+	clear && printLogo && printnibiru
+	echo
+	[[ $(nibid q staking validator $(nibid keys show wallet --bech val -a) -oj | jq -r .consensus_pubkey.key) = $(nibid status | jq -r .ValidatorInfo.PubKey.value) ]] && echo -e "\n\e[1m\e[32mTrue\e[0m\n" || echo -e "\n\e[1m\e[31mFalse\e[0m\n"
+	mainmenu
+}
+
+
+
 
 backup(){
 	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/backup.sh)
