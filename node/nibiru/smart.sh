@@ -24,7 +24,7 @@ read -r -p "  Введите имя символа:  " var2
 
 read -r -p "  Введите адрес вашего кошелька:  " var3
 
-INIT={"name":"$var1","symbol":"$var2","decimals":6,"initial_balances":[{"address":"$var3","amount":"2000000"}],"mint":{"minter":"$var3"},"marketing":{}}
+INIT={"name":$var1,"symbol":$var2,"decimals":6,"initial_balances":[{"address":$var3,"amount":"2000000"}],"mint":{"minter":$var3},"marketing":{}}
 
 nibid tx wasm instantiate $id $INIT --from wallet --label "my cw20_base" --gas-adjustment 1.2 --gas auto  --fees 73794unibi --no-admin -y &&
 
@@ -32,10 +32,10 @@ CONTRACT=$(nibid query wasm list-contract-by-code $id --output json | jq -r '.co
 
 read -r -p "  Введите адрес кошелька для отправки токенов:  " var4
 
-TRANSFER='{"transfer":{"recipient":"$var4","amount":"50"}}'
+TRANSFER={"transfer":{"recipient":"$var4","amount":"50"}}
 
 nibid tx wasm execute $CONTRACT $TRANSFER --gas-adjustment 1.2 --gas auto --fees 4000unibi --from wallet -y
 
-BALANCE_QUERY='{"balance": {"address": "$var4"}}'
+BALANCE_QUERY={"balance": {"address": "$var4"}}
 
 nibid query wasm contract-state smart $CONTRACT "$BALANCE_QUERY" --output json
