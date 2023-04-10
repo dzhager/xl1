@@ -12,6 +12,8 @@ git clone https://github.com/NibiruChain/cw-nibiru
 
 nibid tx wasm store $HOME/cw-nibiru/artifacts-cw-plus/cw20_base.wasm --from wallet --gas-adjustment 1.2 --gas auto  --fees 80000unibi  -y
 
+read -r -p "  Введите ваш txhash:  " txhash
+
 nibid q tx $txhash -o json |  jq -r '.raw_log'
 
 read -r -p "  Введите ваш code_id:  " id
