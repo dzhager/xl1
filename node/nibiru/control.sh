@@ -17,16 +17,17 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать кому-то
 	    $(printBCyan ' -->') $(printBYellow    '8)') Делегировать самому себе
 	    $(printBCyan ' -->') $(printBYellow    '9)') Проверить ключ валидатора
+	    $(printBCyan ' -->') $(printBYellow    '10)') Выйти из тюрьмы
 
-	    $(printBCyan ' -->') $(printBYellow    '10)') Создать валидатора
-	    $(printBCyan ' -->') $(printBYellow    '11)') Узнать информацию о валидаторе
-	    $(printBCyan ' -->') $(printBYellow    '12)') Резервная копия валидатора
+	    $(printBCyan ' -->') $(printBYellow    '11)') Создать валидатора
+	    $(printBCyan ' -->') $(printBYellow    '12)') Узнать информацию о валидаторе
+	    $(printBCyan ' -->') $(printBYellow    '13)') Резервная копия валидатора
 	    
-	    $(printBCyan ' -->') $(printBYellow    '13)') Почистить кэш
-	    $(printBCyan ' -->') $(printBYellow    '14)') Проверить синхронизацию
-	    $(printBCyan ' -->') $(printBYellow    '15)') Просмотреть логи
+	    $(printBCyan ' -->') $(printBYellow    '14)') Почистить кэш
+	    $(printBCyan ' -->') $(printBYellow    '15)') Проверить синхронизацию
+	    $(printBCyan ' -->') $(printBYellow    '16)') Просмотреть логи
 	
-	    $(printBBlue ' <--') $(printBBlue    '16) Вернутся назад')
+	    $(printBBlue ' <--') $(printBBlue    '17) Вернутся назад')
 		 $(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
@@ -70,31 +71,35 @@ mainmenu() {
 		;;
 
 		10)
+		jail
+		;;
+
+		11)
 		CreateValidator
 		;;
 		
-		11)
+		12)
 		InfoValidator
 		;;
 		
-		12)
+		13)
 		backup
 		;;
 
 
-		13)
+		14)
 		snapshot
 		;;
 
-		14)
+		15)
 		synced
 		;;
 		
-		15)
+		16)
 		logs
 		;;
 		
-		16)
+		17)
 		back
 		;;
 		
@@ -133,7 +138,12 @@ ValidatorСorrect(){
 	mainmenu
 }
 
-
+jail(){
+	clear && printLogo && printnibiru
+	echo
+	nibid tx slashing unjail --from wallet --chain-id nibiru-itn-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.025unibi -y
+	mainmenu
+}
 
 
 backup(){
