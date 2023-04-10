@@ -10,23 +10,23 @@ printnibiru
 
 git clone https://github.com/NibiruChain/cw-nibiru
 
-nibid tx wasm store $HOME/cw-nibiru/artifacts-cw-plus/cw20_base.wasm --from wallet --gas-adjustment 1.2 --gas auto  --fees 80000unibi  -y
+nibid tx wasm store $HOME/cw-nibiru/artifacts-cw-plus/cw20_base.wasm --from wallet --gas-adjustment 1.2 --gas auto  --fees 80000unibi  -y &&
 
 read -r -p "  Введите ваш txhash:  " txhash
 
-nibid q tx $txhash -o json |  jq -r '.raw_log'
+nibid q tx $txhash -o json |  jq -r '.raw_log' &&
 
 read -r -p "  Введите ваш code_id:  " id
 
-#read -r -p "  Введите ваше имя токена:  " var1
+read -r -p "  Введите ваше имя токена:  " var1
 
-#read -r -p "  Введите имя символа:  " var2
+read -r -p "  Введите имя символа:  " var2
 
 read -r -p "  Введите адрес вашего кошелька:  " var3
 
-INIT='{"name":"test","symbol":"test","decimals":6,"initial_balances":[{"address":"$var3","amount":"2000000"}],"mint":{"minter":"$var3"},"marketing":{}}'
+INIT={"name":"$var1","symbol":"$var2","decimals":6,"initial_balances":[{"address":"$var3","amount":"2000000"}],"mint":{"minter":"$var3"},"marketing":{}}
 
-nibid tx wasm instantiate $id $INIT --from wallet --label "my cw20_base" --gas-adjustment 1.2 --gas auto  --fees 73794unibi --no-admin -y
+nibid tx wasm instantiate $id $INIT --from wallet --label "my cw20_base" --gas-adjustment 1.2 --gas auto  --fees 73794unibi --no-admin -y &&
 
 CONTRACT=$(nibid query wasm list-contract-by-code $id --output json | jq -r '.contracts[-1]')
 
