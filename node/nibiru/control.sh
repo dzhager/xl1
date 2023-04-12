@@ -22,12 +22,13 @@ mainmenu() {
 	    $(printBCyan ' -->') $(printBYellow    '11)') Создать валидатора
 	    $(printBCyan ' -->') $(printBYellow    '12)') Узнать информацию о валидаторе
 	    $(printBCyan ' -->') $(printBYellow    '13)') Резервная копия валидатора
-	    
-	    $(printBCyan ' -->') $(printBYellow    '14)') Почистить кэш
-	    $(printBCyan ' -->') $(printBYellow    '15)') Проверить синхронизацию
-	    $(printBCyan ' -->') $(printBYellow    '16)') Просмотреть логи
+
+	    $(printBCyan ' -->') $(printBYellow    '14)') Подключиться к RPC x-l1bra
+	    $(printBCyan ' -->') $(printBYellow    '15)') Почистить кэш
+	    $(printBCyan ' -->') $(printBYellow    '16)') Проверить синхронизацию
+	    $(printBCyan ' -->') $(printBYellow    '17)') Просмотреть логи
 	
-	    $(printBBlue ' <--') $(printBBlue    '17) Вернутся назад')
+	    $(printBBlue ' <--') $(printBBlue    '18) Вернутся назад')
 		 $(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
@@ -86,20 +87,23 @@ mainmenu() {
 		backup
 		;;
 
-
 		14)
-		snapshot
+		rpc
 		;;
 
 		15)
+		snapshot
+		;;
+
+		16)
 		synced
 		;;
 		
-		16)
+		17)
 		logs
 		;;
 		
-		17)
+		18)
 		back
 		;;
 		
@@ -172,6 +176,16 @@ echo -ne "$(printCyanBlink '       ============================================'
 $(printCyanBlink '       = ')$(printBRed 'ОБЯЗАТЕЛЬНО СОХРАНИТЕ МНЕМОНИК ФРАЗУ !!!')$(printCyanBlink ' = ')
 $(printCyanBlink '       ============================================')"
 mainmenu
+}
+
+rpc(){
+	clear && printLogo && printnibiru
+	nibid config node http://212.23.222.91:39657 && systemctl restart nibid.service
+	echo
+	echo -ne "
+	Вы успешно поключились к RPC серверу x-l1bra"
+	echo
+	mainmenu
 }
 
 Send(){
