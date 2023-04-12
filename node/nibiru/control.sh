@@ -178,6 +178,8 @@ $(printCyanBlink '       ============================================')"
 mainmenu
 }
 
+
+
 rpc(){
 	clear && printLogo && printnibiru
 	nibid config node http://212.23.222.91:39657 && systemctl restart nibid.service
