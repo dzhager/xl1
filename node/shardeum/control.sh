@@ -154,7 +154,7 @@ privkey(){
 	echo -ne "
 $(printCyan 'Вставте приватный ключ Metamask') "
 	read -r PRIV_KEY
-	source ~/.bashrc
+	echo "export PRIV_KEY="$PRIV_KEY"" >> ~/.bash_profile && source ~/.bash_profile
 	echo
 	mainmenu
 }
@@ -164,7 +164,7 @@ metamask(){
 	echo -ne "
 $(printCyan 'Вставте адрес Metamask') "
 	read -r METAMASK
-	source ~/.bashrc
+	echo "export METAMASK="$METAMASK"" >> ~/.bash_profile && source ~/.bash_profile
 	echo
 	mainmenu
 }
