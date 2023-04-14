@@ -10,6 +10,7 @@ mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBGreen    '2) Установить')
 		$(printBCyan ' -->') $(printBYellow   '3) Обновить на 1.1.7')
+		
 		$(printBCyan ' -->') $(printBRed    '4) Удалить')
 
 		$(printBBlue ' <-- 5) Назад')
