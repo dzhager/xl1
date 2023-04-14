@@ -13,7 +13,7 @@ mainmenu() {
 		$(printBCyan ' -->') $(printBYellow    '3)') Stake Info
 
 		$(printBGreen 'Validator')
-		$(printBCyan ' -->') $(printBYellow    '4)') Vakidator status
+		$(printBCyan ' -->') $(printBYellow    '4)') Validator status
 		$(printBCyan ' -->') $(printBYellow    '5)') pm2 list
 		$(printBCyan ' -->') $(printBYellow    '6)') Version info
 
