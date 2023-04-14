@@ -21,7 +21,11 @@ mainmenu() {
 		$(printBCyan ' -->') $(printBYellow    '7)') Ввести адрес Metamask		
 		$(printBCyan ' -->') $(printBYellow    '8)') Ввести закрытый ключ Metamask
 
-		$(printBBlue ' <--') $(printBBlue    '9) Вернутся назад')
+		$(printBGreen 'System')
+		$(printBCyan ' -->') $(printBYellow    '9)') Operator GUI start
+		$(printBCyan ' -->') $(printBYellow    '10)') Operator CLI start
+
+		$(printBBlue ' <--') $(printBBlue    '11) Вернутся назад')
 		 $(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
@@ -60,6 +64,14 @@ mainmenu() {
 		;;
 
 		9)
+		guistart
+		;;
+
+		10)
+		clistart
+		;;
+
+		11)
 		back
 		;;
 		
@@ -153,7 +165,21 @@ metamask(){
 	mainmenu
 }
 
+guistart(){
+	clear && printLogo && printshardium
+	echo
+	docker exec -i shardeum-dashboard /bin/bash -c "operator-cli gui start"
+	echo
+	mainmenu
+}
 
+clistart(){
+	clear && printLogo && printshardium
+	echo
+	docker exec -i shardeum-dashboard /bin/bash -c "operator-cli start"
+	echo
+	mainmenu
+}
 
 back(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/main.sh)
