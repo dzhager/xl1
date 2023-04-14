@@ -149,7 +149,8 @@ version(){
 
 privkey(){
 	clear && printLogo && printshardium
-	echo
+	echo -ne "
+		Вставте приватный ключ Metamask"
 	read -r PRIV_KEY
 	source ~/.bashrc
 	echo
@@ -158,7 +159,8 @@ privkey(){
 
 metamask(){
 	clear && printLogo && printshardium
-	echo
+	echo -ne "
+		Вставте адрес Metamask"
 	read -r METAMASK
 	source ~/.bashrc
 	echo
