@@ -6,10 +6,11 @@ printLogo
 printshardium
 
 mainmenu() { echo -ne "
+		$(printBCyan ' -->') $(printBGreen    '1) Управление')
 
-		$(printBCyan ' -->') $(printBGreen    '1) Установить')
-		$(printBCyan ' -->') $(printBYellow    '2) Обновить на 1.1.7')
-		$(printBCyan ' -->') $(printBRed    '3) Удалить')
+		$(printBCyan ' -->') $(printBGreen    '2) Установить')
+		$(printBCyan ' -->') $(printBYellow   '3) Обновить на 1.1.7')
+		$(printBCyan ' -->') $(printBRed    '4) Удалить')
 
 		$(printBBlue ' <-- 4) Назад')
 		$(printBRed        '     0) Выход')
@@ -52,6 +53,9 @@ install(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/install.sh)
 }
 
+control(){
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/control.sh)
+}
 
 delet(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/delet.sh)
