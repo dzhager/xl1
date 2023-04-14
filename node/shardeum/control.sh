@@ -98,7 +98,7 @@ mainmenu() {
 stake(){
 	clear && printLogo && printshardium
 	echo
-	read -r -p "  Введите количество монет SHM:  " VAR2
+	read -r -p "  $(printCyan 'Введите количество монет SHM :')  " VAR2
 	echo
 	docker exec -i shardeum-dashboard /bin/bash -c "export PRIV_KEY="$PRIV_KEY" && env && operator-cli stake "$VAR2""
 	echo
@@ -108,8 +108,8 @@ stake(){
 unstake(){
 	clear && printLogo && printshardium
 	echo
-	read -r -p " Вы можете вывести все монеты со стейка просто нажав Enter или
-		 введите нужное количество монет SHM:  " VAR1
+	read -r -p " $(printBYellow 'Вы можете вывести все монеты со стейка просто нажав Enter или
+		 введите нужное количество монет SHM:')  " VAR1
 	echo
 	docker exec -i shardeum-dashboard /bin/bash -c "export PRIV_KEY="$PRIV_KEY" && env && operator-cli unstake "$VAR1""
 	echo
@@ -150,7 +150,7 @@ version(){
 privkey(){
 	clear && printLogo && printshardium
 	echo -ne "
-		Вставте приватный ключ Metamask"
+		$(printCyan 'Вставте приватный ключ Metamask') "
 	read -r PRIV_KEY
 	source ~/.bashrc
 	echo
@@ -160,7 +160,7 @@ privkey(){
 metamask(){
 	clear && printLogo && printshardium
 	echo -ne "
-		Вставте адрес Metamask"
+		$(printCyan 'Вставте адрес Metamask') "
 	read -r METAMASK
 	source ~/.bashrc
 	echo
