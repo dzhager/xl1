@@ -12,7 +12,7 @@ mainmenu() { echo -ne "
 		$(printBCyan ' -->') $(printBYellow   '3) Обновить на 1.1.7')
 		$(printBCyan ' -->') $(printBRed    '4) Удалить')
 
-		$(printBBlue ' <-- 4) Назад')
+		$(printBBlue ' <-- 5) Назад')
 		$(printBRed        '     0) Выход')
 
  	Введите цифру: "
@@ -20,15 +20,19 @@ mainmenu() { echo -ne "
 read -r ans
 	case $ans in
 		1)
+		control
+		;;
+
+		2)
 		install
 		;;
-		2)
+		3)
 		update
 		;;
-		3)
+		4)
 		delet
 		;;
-		4)
+		5)
 		back
 		;;
 		0)
