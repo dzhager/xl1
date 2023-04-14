@@ -8,7 +8,7 @@ printshardium
 mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBGreen    '1) Установить')
-		$(printBCyan ' -->') $(printBYellow    '2) Обновит на 1.1.6')
+		$(printBCyan ' -->') $(printBYellow    '2) Обновить на 1.1.7')
 		$(printBCyan ' -->') $(printBRed    '3) Удалить')
 
 		$(printBBlue ' <-- 4) Назад')
