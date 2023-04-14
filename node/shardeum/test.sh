@@ -9,7 +9,7 @@ printshardium
 echo
 
 
-trap 'source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/control.sh)'2 20
+trap 'source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/control.sh)' 2 20
 
 mainmenu() {
 	echo -ne "
