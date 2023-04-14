@@ -10,7 +10,7 @@ mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBGreen    '2) Установить')
 		$(printBCyan ' -->') $(printBYellow   '3) Обновить на 1.1.7')
-		
+
 		$(printBCyan ' -->') $(printBRed    '4) Удалить')
 
 		$(printBBlue ' <-- 5) Назад')
@@ -27,15 +27,19 @@ read -r ans
 		2)
 		install
 		;;
+
 		3)
 		update
 		;;
+
 		4)
 		delet
 		;;
+
 		5)
 		back
 		;;
+		
 		0)
 		echo $(printBCyan '"Bye bye."')
 		rm x-l1bra
