@@ -13,9 +13,9 @@ mainmenu() {
 		$(printBCyan ' -->') $(printBYellow    '3)') Stake Info
 
 		$(printBGreen 'Validator')
-		$(printBCyan ' -->') $(printBYellow    '4)') Проверить статус
+		$(printBCyan ' -->') $(printBYellow    '4)') Vakidator status
 		$(printBCyan ' -->') $(printBYellow    '5)') pm2 list
-		$(printBCyan ' -->') $(printBYellow    '6)') Просмотр версии
+		$(printBCyan ' -->') $(printBYellow    '6)') Version info
 
 		$(printBGreen 'Connect Wallet')
 		$(printBCyan ' -->') $(printBYellow    '7)') Ввести адрес Metamask		
@@ -40,7 +40,23 @@ mainmenu() {
 		;;
 		
 		4)
-		stakeinfo
+		status
+		;;
+
+		5)
+		pm2
+		;;
+
+		6)
+		version
+		;;
+
+		7)
+		metamask
+		;;
+
+		8)
+		privkey
 		;;
 
 		9)
@@ -87,7 +103,37 @@ unstake(){
 	echo
 	mainmenu
 }
+stakeinfo(){
+	clear && printLogo && printshardium
+	echo
+	docker exec -i shardeum-dashboard /bin/bash -c "operator-cli stake_info "$METAMASK""
+	echo
+	mainmenu
+}
 
+status(){
+	clear && printLogo && printshardium
+	echo
+	docker exec -i shardeum-dashboard /bin/bash -c "operator-cli status"
+	echo
+	mainmenu
+}
+
+pm2(){
+	clear && printLogo && printshardium
+	echo
+	docker exec -i shardeum-dashboard /bin/bash -c "pm2 ls"
+	echo
+	mainmenu
+}
+
+version(){
+	clear && printLogo && printshardium
+	echo
+	docker exec -i shardeum-dashboard /bin/bash -c "operator-cli version"
+	echo
+	mainmenu
+}
 
 privkey(){
 	clear && printLogo && printshardium
@@ -113,18 +159,5 @@ back(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/main.sh)
 }
 
-submenu(){
-    echo -ne "
-$(printYellow    'Для того что бы остановить журнал логов надо нажать') $(printBCyan 'CTRL+Z') $(printYellow '!!!')
-
-Для продолжения нажмите Enter:  "
-	read -r ans
-	case $ans in
-		*)
-		sudo journalctl -u nibid -f --no-hostname -o cat
-		mainmenu
-		;;
-	esac
-}
 
 mainmenu
