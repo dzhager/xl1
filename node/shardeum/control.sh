@@ -101,7 +101,7 @@ stake(){
 	read -r -p "  
 $(printCyan 'Введите количество монет SHM :')  " VAR2
 	echo
-	docker exec -i shardeum-dashboard /bin/bash -c "export PRIV_KEY="$PRIV_KEY" && env && operator-cli stake "$VAR2""
+	docker exec -i shardeum-dashboard /bin/bash -c "export PRIV_KEY="$PRIV_KEY" && operator-cli stake "$VAR2""
 	echo
 	mainmenu
 }
@@ -113,7 +113,7 @@ unstake(){
 $(printBYellow 'Вы можете вывести все монеты со стейка просто нажав Enter или
 		 введите нужное количество монет SHM:')  " VAR1
 	echo
-	docker exec -i shardeum-dashboard /bin/bash -c "export PRIV_KEY="$PRIV_KEY" && env && operator-cli unstake "$VAR1""
+	docker exec -i shardeum-dashboard /bin/bash -c "export PRIV_KEY="$PRIV_KEY" && operator-cli unstake "$VAR1""
 	echo
 	mainmenu
 }
