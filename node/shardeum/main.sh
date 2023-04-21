@@ -9,7 +9,7 @@ mainmenu() { echo -ne "
 		$(printBCyan ' -->') $(printBGreen    '1) Управление')
 
 		$(printBCyan ' -->') $(printBGreen    '2) Установить')
-		$(printBCyan ' -->') $(printBYellow   '3) Обновить на 1.1.7')
+		$(printBCyan ' -->') $(printBYellow   '3) Обновить на 1.1.8')
 
 		$(printBCyan ' -->') $(printBRed    '4) Удалить')
 
