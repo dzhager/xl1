@@ -4,12 +4,12 @@
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
 printLogo
 printshardium
-
+#$(printBCyan ' -->') $(printBYellow   '3) Обновить на 1.1.8')
 mainmenu() { echo -ne "
 		$(printBCyan ' -->') $(printBGreen    '1) Управление')
 
 		$(printBCyan ' -->') $(printBGreen    '2) Установить')
-		$(printBCyan ' -->') $(printBYellow   '3) Обновить на 1.1.8')
+		
 
 		$(printBCyan ' -->') $(printBRed    '4) Удалить')
 
