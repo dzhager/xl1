@@ -129,6 +129,13 @@ $(printRed  ' ================')$(printCyan ' =      ')$(printBBlue 'NIBIRU')$(p
 $(printCyan '                  =====================')"
 }
 
+#STARKNET
+function printstarknet {
+echo -ne "$(printCyan '                  =====================')
+$(printRed  ' ================')$(printCyan ' =     ')$(printBGreen 'STARKNET')$(printCyan '      = ')$(printRed  '================') 
+$(printCyan '                  =====================')"
+}
+
 #CELESTIA
 function printcelestia {
 echo -ne "$(printCyan '                  =====================')
