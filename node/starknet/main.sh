@@ -6,12 +6,14 @@ printLogo
 printstarknet
 mainmenu() { echo -ne "
 
-		$(printBCyan ' -->') $(printBGreen    '1) Просмотр логов')
+		$(printBCyan ' -->') $(printBMagenta    '1) Просмотр логов')
 
 		$(printBCyan ' -->') $(printBGreen    '2) Установить')
+		
 		$(printBCyan ' -->') $(printBRed    '3) Удалить')
 
 		$(printBBlue ' <-- 4) Назад')
+
 		$(printBRed        '     0) Выход')
 
 	$(printCyan 'Введите цифру:')  "

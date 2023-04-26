@@ -49,7 +49,9 @@ printstarknet
 echo -ne "	
 
 $(printBYellow 'Удаляем.....!')"
+echo
 cd $HOME
+echo
 sudo systemctl stop starknetd.service
 sudo systemctl disable starknetd.service
 sudo rm /etc/systemd/system/starknetd.service
