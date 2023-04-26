@@ -9,7 +9,7 @@ mainmenu() { echo -ne "
 		$(printBCyan ' -->') $(printBMagenta    '1) Просмотр логов')
 
 		$(printBCyan ' -->') $(printBGreen    '2) Установить')
-		
+
 		$(printBCyan ' -->') $(printBRed    '3) Удалить')
 
 		$(printBBlue ' <-- 4) Назад')
@@ -56,7 +56,7 @@ read -r ans
 }
 
 logs(){
-	journalctl -u starknetd -f
+	journalctl -u starknetd -f -o cat
 	mainmenu
 }
 
