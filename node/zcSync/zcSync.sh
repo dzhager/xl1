@@ -99,7 +99,7 @@ import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
 
 // An example of a deploy script that will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
-  console.log(\`Running deploy script for the Greeter contract\`);
+  console.log(`Running deploy script for the Greeter contract`);
 
   // Initialize the wallet.
   const wallet = new Wallet("$VAR1");
@@ -108,31 +108,22 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   const deployer = new Deployer(hre, wallet);
   const artifact = await deployer.loadArtifact("Greeter");
 
-  // Deposit some funds to L2 in order to be able to perform L2 transactions.
-  const depositAmount = ethers.utils.parseEther("0.001");
-  const depositHandle = await deployer.zkWallet.deposit({
-    to: deployer.zkWallet.address,
-    token: utils.ETH_ADDRESS,
-    amount: depositAmount,
-  });
-  // Wait until the deposit is processed on zkSync
-  await depositHandle.wait();
-
-  // Deploy this contract. The returned object will be of a \`Contract\` type, similarly to ones in \`ethers\`.
-  // \`greeting\` is an argument for contract constructor.
+  // Deploy this contract. The returned object will be of a `Contract` type, similarly to ones in `ethers`.
+  // `greeting` is an argument for contract constructor.
   const greeting = "Hi there!";
   const greeterContract = await deployer.deploy(artifact, [greeting]);
+  console.log(greeterContract.interface.encodeDeploy([greeting]));
 
   // Show the contract info.
   const contractAddress = greeterContract.address;
-  console.log(\`\${artifact.contractName} was deployed to \${contractAddress}\`);
+  console.log(`${artifact.contractName} was deployed to ${contractAddress}`);
 
   // Call the deployed contract.
   const greetingFromContract = await greeterContract.greet();
   if (greetingFromContract == greeting) {
-    console.log(\`Contract greets us with \${greeting}!\`);
+    console.log(`Contract greets us with ${greeting}!`);
   } else {
-    console.error(\`Contract said something unexpected: \${greetingFromContract}\`);
+    console.error(`Contract said something unexpected: ${greetingFromContract}`);
   }
 
   // Edit the greeting of the contract
@@ -142,9 +133,9 @@ export default async function (hre: HardhatRuntimeEnvironment) {
 
   const newGreetingFromContract = await greeterContract.greet();
   if (newGreetingFromContract == newGreeting) {
-    console.log(\`Contract greets us with \${newGreeting}!\`);
+    console.log(`Contract greets us with ${newGreeting}!`);
   } else {
-    console.error(\`Contract said something unexpected: \${newGreetingFromContract}\`);
+    console.error(`Contract said something unexpected: ${newGreetingFromContract}`);
   }
 }
 EOF
@@ -159,7 +150,7 @@ mainmenu
 createSmart(){
 	echo
 	cd $HOME
-	sudo apt update && sudo apt upgrade -y && sudo apt install curl nano -y
+	sudo apt update && sudo apt upgrade -y && sudo apt install curl nano  -y
 	curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 	sudo apt install -y nodejs
 	mkdir $HOME/greeter-example && cd greeter-example
@@ -170,29 +161,28 @@ createSmart(){
 	npx hardhat
 	mkdir $HOME/greeter-example/greeter && cd $HOME/greeter-example/greeter
 	npm init -y
-	npm add -D typescript ts-node @types/node ethers@^5.7.2 zksync-web3@^0.13.1 @ethersproject/hash @ethersproject/web hardhat @matterlabs/hardhat-zksync-solc @matterlabs/hardhat-zksync-deploy
+npm add -D typescript ts-node @types/node ethers@^5.7.2 zksync-web3 @ethersproject/hash @ethersproject/web hardhat @matterlabs/hardhat-zksync-solc @matterlabs/hardhat-zksync-deploy
 
 
 cat << EOF  > $HOME/greeter-example/greeter/hardhat.config.ts
 import "@matterlabs/hardhat-zksync-deploy";
 import "@matterlabs/hardhat-zksync-solc";
-
 module.exports = {
   zksolc: {
-    version: "1.3.5",
+    version: "1.3.7",
     compilerSource: "binary",
-    settings: {}, 
+    settings: {},
   },
-  defaultNetwork: "zkTestnet",
+  defaultNetwork: "zkMainnet",
   networks: {
-    zkTestnet: {
-      url: "https://zksync2-testnet.zksync.dev", // URL of the zkSync network RPC
-      ethNetwork: "goerli", // Can also be the RPC URL of the Ethereum network (e.g. \`https://goerli.infura.io/v3/<API_KEY>\`)
+    zkMainnet: {
+      url: "https://mainnet.era.zksync.io", 
+      ethNetwork: "https://eth.llamarpc.com", 
       zksync: true,
     },
   },
   solidity: {
-    version: "0.8.17",
+    version: "0.8.19",
   },
 };
 EOF
@@ -232,7 +222,7 @@ import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
 
 // An example of a deploy script that will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
-  console.log(\`Running deploy script for the Greeter contract\`);
+  console.log(`Running deploy script for the Greeter contract`);
 
   // Initialize the wallet.
   const wallet = new Wallet("$VAR1");
@@ -241,31 +231,22 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   const deployer = new Deployer(hre, wallet);
   const artifact = await deployer.loadArtifact("Greeter");
 
-  // Deposit some funds to L2 in order to be able to perform L2 transactions.
-  const depositAmount = ethers.utils.parseEther("0.001");
-  const depositHandle = await deployer.zkWallet.deposit({
-    to: deployer.zkWallet.address,
-    token: utils.ETH_ADDRESS,
-    amount: depositAmount,
-  });
-  // Wait until the deposit is processed on zkSync
-  await depositHandle.wait();
-
-  // Deploy this contract. The returned object will be of a \`Contract\` type, similarly to ones in \`ethers\`.
-  // \`greeting\` is an argument for contract constructor.
+  // Deploy this contract. The returned object will be of a `Contract` type, similarly to ones in `ethers`.
+  // `greeting` is an argument for contract constructor.
   const greeting = "Hi there!";
   const greeterContract = await deployer.deploy(artifact, [greeting]);
+  console.log(greeterContract.interface.encodeDeploy([greeting]));
 
   // Show the contract info.
   const contractAddress = greeterContract.address;
-  console.log(\`\${artifact.contractName} was deployed to \${contractAddress}\`);
+  console.log(`${artifact.contractName} was deployed to ${contractAddress}`);
 
   // Call the deployed contract.
   const greetingFromContract = await greeterContract.greet();
   if (greetingFromContract == greeting) {
-    console.log(\`Contract greets us with \${greeting}!\`);
+    console.log(`Contract greets us with ${greeting}!`);
   } else {
-    console.error(\`Contract said something unexpected: \${greetingFromContract}\`);
+    console.error(`Contract said something unexpected: ${greetingFromContract}`);
   }
 
   // Edit the greeting of the contract
@@ -275,9 +256,9 @@ export default async function (hre: HardhatRuntimeEnvironment) {
 
   const newGreetingFromContract = await greeterContract.greet();
   if (newGreetingFromContract == newGreeting) {
-    console.log(\`Contract greets us with \${newGreeting}!\`);
+    console.log(`Contract greets us with ${newGreeting}!`);
   } else {
-    console.error(\`Contract said something unexpected: \${newGreetingFromContract}\`);
+    console.error(`Contract said something unexpected: ${newGreetingFromContract}`);
   }
 }
 EOF
