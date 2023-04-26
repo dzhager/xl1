@@ -130,6 +130,7 @@ printYellow "9. Запускаем ноду........" && sleep 2
 sudo systemctl daemon-reload
 sudo systemctl enable starknetd
 sudo systemctl start starknetd 
+cd $HOME
 printGreen "Готово!"
 
 printRed  =============================================================================== 
