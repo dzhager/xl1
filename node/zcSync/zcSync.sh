@@ -159,7 +159,7 @@ mainmenu
 createSmart(){
 	echo
 	cd $HOME
-	sudo apt update && sudo apt upgrade && sudo apt install -y curl nano
+	sudo apt update && sudo apt upgrade -y && sudo apt install curl nano -y
 	curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 	sudo apt install -y nodejs
 	mkdir $HOME/greeter-example && cd greeter-example
