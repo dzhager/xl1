@@ -8,7 +8,7 @@
 
 		$(printBCyan ' -->') $(printBCyan    '1) Создать смартконтракт')
 		$(printBCyan ' -->') $(printBCyan    '2) Сделать деплой контракта')
-		$(printBCyan ' -->') $(printBGreen   '3) Оновить закрытый ключ Metamask')
+		$(printBCyan ' -->') $(printBGreen   '3) Обновить закрытый ключ Metamask')
 		$(printBCyan ' -->') $(printBRed     '4) Удалить')
 
 		$(printBBlue ' <-- 5) Назад')
