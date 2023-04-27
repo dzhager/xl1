@@ -122,6 +122,13 @@ function addToPath {
 	printBTYellow () { printf "${TBYELLOW}%s${RESET}\n" "$1"; }
 
 
+
+5ireChain() {
+	echo -ne "$(printCyan '                  =====================')
+	$(printRed  ' ================')$(printCyan ' =     ')$(printBRed '5ireChain')$(printCyan '      = ')$(printRed  '================') 
+	$(printCyan '                  =====================')"
+}
+
 #NIBIRU
 function printnibiru {
 echo -ne "$(printCyan '                  =====================')
