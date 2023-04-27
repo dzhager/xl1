@@ -139,6 +139,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   }
 }
 EOF
+
 echo
 echo -ne " 
 $(printCyan	'		Закрытый ключ Metamask изменен!')"
