@@ -122,14 +122,14 @@ function addToPath {
 	printBTYellow () { printf "${TBYELLOW}%s${RESET}\n" "$1"; }
 
 
-printelixir(){
+function printelixir(){
 	echo -ne "$(printCyan '                  =====================')
 $(printRed  ' ================')$(printCyan ' =      ')$(printBBlue 'ELIXIR')$(printCyan '       = ')$(printRed  '================') 
 $(printCyan '                  =====================')"
 }
 
 
-5ireChain(){
+function 5ireChain(){
 	echo -ne "$(printCyan '                  =====================')
 	$(printRed  ' ================')$(printCyan ' =     ')$(printBRed '5ireChain')$(printCyan '      = ')$(printRed  '================') 
 	$(printCyan '                  =====================')"
