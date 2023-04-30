@@ -58,3 +58,5 @@
     printYellow "5. Установка валидатора ........" && sleep 1
 	    curl -O https://files.elixir.finance/Dockerfile && docker build . -f Dockerfile -t elixir-validator
     printGreen "Готово!" && sleep 1
+mainmenu
+    }
