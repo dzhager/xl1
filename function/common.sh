@@ -129,7 +129,7 @@ $(printCyan '                  =====================')"
 }
 
 
-5ireChain() {
+5ireChain(){
 	echo -ne "$(printCyan '                  =====================')
 	$(printRed  ' ================')$(printCyan ' =     ')$(printBRed '5ireChain')$(printCyan '      = ')$(printRed  '================') 
 	$(printCyan '                  =====================')"
