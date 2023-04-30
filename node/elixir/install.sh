@@ -35,7 +35,7 @@
     }
 ###############     ВОЗВРАТ В МЕНЮ
     no(){
-    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/main.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/main.sh)
     }
 ###############     ПРОЦЕС УСТАНОВКИ
     yes(){
@@ -56,8 +56,42 @@
     printGreen "Готово!" && sleep 1
 
     printYellow "5. Установка валидатора ........" && sleep 1
-	    curl -O https://files.elixir.finance/Dockerfile && docker build . -f Dockerfile -t elixir-validator
-    printGreen "Готово!" && sleep 1
 
+
+
+	    curl -O https://files.elixir.finance/Dockerfile && docker build . -f Dockerfile -t elixir-validator
+
+read -r -p " Введите имя валидатора:  " VALIDATOR_NAME
+read -r -p " Введите адрес Metamask:  " METAMASK_ADDRESS
+read -r -p " Введите приватный ключ Metamask:  " PRIVATE_KEY_ELIXIR
+
+cat << EOF > $HOME/Dockerfile
+FROM elixirprotocol/validator:testnet-2
+
+ENV ADDRESS=$METAMASK_ADDRESS
+ENV PRIVATE_KEY=$PRIVATE_KEY_ELIXIR
+ENV VALIDATOR_NAME=$VALIDATOR_NAME
+EOF
+    printGreen "Готово!" && sleep 1
+    printYellow "6. Запуск валидатора ........" && sleep 1
+        docker run -d --restart unless-stopped --name ev elixir-validator
+    printGreen "Готово!" && sleep 1
+      
+    submenu
     }
+
+
+submenu(){
+echo -ne "
+	$(printBGreen    'УСТАНОВКА ЗАВЕРШЕНА........') $(printBGreenBlink '!!!')
+	
+	$(printBCyan 'Нажмите Enter:')  "
+	read -r ans
+	case $ans in
+	    *)
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/main.sh)
+		;;
+	esac
+}
+
 mainmenu

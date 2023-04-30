@@ -6,13 +6,11 @@ printLogo
 printelixir
 mainmenu() { echo -ne "
 
-		$(printBCyan ' -->') $(printBCyan    '1) Управление')
+		$(printBCyan ' -->') $(printBGreen    '1) Установить')
+		$(printBCyan ' -->') $(printBYellow    '2) Обновить')
+		$(printBCyan ' -->') $(printBRed    '3) Удалить')
 
-		$(printBCyan ' -->') $(printBGreen    '2) Установить')
-		$(printBCyan ' -->') $(printBYellow    '3) Обновить')
-		$(printBCyan ' -->') $(printBRed    '4) Удалить')
-
-		$(printBBlue ' <-- 5) Назад')
+		$(printBBlue ' <-- 4) Назад')
 		$(printBRed        '     0) Выход')
 
 	$(printCyan 'Введите цифру:')  "
@@ -20,18 +18,15 @@ mainmenu() { echo -ne "
 read -r ans
 	case $ans in
 		1)
-		control
-		;;
-		3)
-		update
-		;;
-		2)
 		install
 		;;
-		4)
+		2)
+		update
+		;;
+		3)
 		delet
 		;;
-		5)
+		4)
 		back
 		;;
 		0)
@@ -56,9 +51,9 @@ install(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/install.sh)
 }
 
-control(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/control.sh)
-}
+# control(){
+# source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/control.sh)
+# }
 
 update(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/update.sh)
