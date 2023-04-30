@@ -59,7 +59,7 @@
 
 
 
-	    curl -O https://files.elixir.finance/Dockerfile && docker build . -f Dockerfile -t elixir-validator
+	    # curl -O https://files.elixir.finance/Dockerfile && 
 
 read -r -p " Введите имя валидатора:  " VALIDATOR_NAME
 read -r -p " Введите адрес Metamask:  " METAMASK_ADDRESS
@@ -72,6 +72,7 @@ ENV ADDRESS=$METAMASK_ADDRESS
 ENV PRIVATE_KEY=$PRIVATE_KEY_ELIXIR
 ENV VALIDATOR_NAME=$VALIDATOR_NAME
 EOF
+docker build . -f Dockerfile -t elixir-validator
     printGreen "Готово!" && sleep 1
     printYellow "6. Запуск валидатора ........" && sleep 1
         docker run -d --restart unless-stopped --name ev elixir-validator
