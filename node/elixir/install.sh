@@ -37,7 +37,7 @@
     no(){
     source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/main.sh)
     }
-###############     НАЧАЛО УСТАНОВКИ
+###############     ПРОЦЕС УСТАНОВКИ
     yes(){
     clear && printLogo && printelixir && echo
 
@@ -60,3 +60,4 @@
     printGreen "Готово!" && sleep 1
 mainmenu
     }
+mainmenu
