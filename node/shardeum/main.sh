@@ -10,10 +10,11 @@ mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBGreen    '2) Установить')
 		$(printBCyan ' -->') $(printBYellow   '3) Обновить')
+		$(printBCyan ' -->') $(printBYellow   '4) Обновить CLI/GUI')
 
-		$(printBCyan ' -->') $(printBRed    '4) Удалить')
+		$(printBCyan ' -->') $(printBRed    '5) Удалить')
 
-		$(printBBlue ' <-- 5) Назад')
+		$(printBBlue ' <-- 6) Назад')
 		$(printBRed        '     0) Выход')
 
  	Введите цифру: "
@@ -33,10 +34,14 @@ read -r ans
 		;;
 
 		4)
-		delet
+		updatecli
 		;;
 
 		5)
+		delet
+		;;
+
+		6)
 		back
 		;;
 		
@@ -73,6 +78,12 @@ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/sharde
 back(){
 ./x-l1bra
 }
+
+updatecli(){
+	docker exec -i shardeum-dashboard /bin/bash -c "operator-cli update"
+	mainmenu
+}
+
 
 #--------------ОБНОВЛЕНИЕ 1.1.6
 update(){
