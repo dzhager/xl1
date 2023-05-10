@@ -1,3 +1,4 @@
+#!/bin/bash
 # function printLogo {
 #   bash <(curl -s https://raw.githubusercontent.com/dzhager/xl1/main/function/logo.sh)
 # }
@@ -173,7 +174,7 @@ $(printCyan '                  =====================')"
 #SHARDIUM
 function printshardium {
 echo -ne "$(printCyan '                  =====================')
-$(printRed  ' ================')$(printCyan ' =     ')$(printBYellow 'SHARDEUM')$(printCyan '      = ')$(printRed  '================') 
+$(printRed  ' ================')$(printCyan ' =     ')$(printBYellow 'SHARDIUM')$(printCyan '      = ')$(printRed  '================') 
 $(printCyan '                  =====================')"
 }
 
