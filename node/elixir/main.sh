@@ -56,7 +56,6 @@ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir
 # }
 
 update(){
-	mainmenu
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/update.sh)
 }
 
