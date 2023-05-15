@@ -18,7 +18,7 @@ mainmenu(){
 		read -r ans
 		case $ans in
 			*)
-			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node//main.sh)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/main.sh)
 			;;
 	esac
 }
