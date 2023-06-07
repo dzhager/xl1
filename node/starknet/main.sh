@@ -9,10 +9,11 @@ mainmenu() { echo -ne "
 		$(printBCyan ' -->') $(printBMagenta    '1) Просмотр логов')
 
 		$(printBCyan ' -->') $(printBGreen    '2) Установить')
+		$(printBCyan ' -->') $(printBGreen    '3) Обновить')
 
-		$(printBCyan ' -->') $(printBRed    '3) Удалить')
+		$(printBCyan ' -->') $(printBRed    '4) Удалить')
 
-		$(printBBlue ' <-- 4) Назад')
+		$(printBBlue ' <-- 5) Назад')
 
 		$(printBRed        '     0) Выход')
 
@@ -29,10 +30,14 @@ read -r ans
 		;;
 
 		3)
-		delet
+		update
 		;;
 
 		4)
+		delet
+		;;
+
+		5)
 		back
 		;;
 
@@ -64,6 +69,26 @@ install(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/starknet/install.sh)
 }
 
+update(){
+rustup update stable
+sudo systemctl stop starknetd
+cd pathfinder
+git fetch
+git checkout v0.5.6
+cargo build --release --bin pathfinder
+cd py
+source .venv/bin/activate
+PIP_REQUIRE_VIRTUALENV=true pip install --upgrade pip
+PIP_REQUIRE_VIRTUALENV=true pip install -e .[dev]
+cd
+sudo systemctl start starknetd
+
+echo -ne "$(printBCyan ' Обновление завершено, идет сборка файлов и синхронизация ноды.
+	Процесс может занимать около 15 мин. ') "
+
+mainmenu
+
+}
 
 delet(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/starknet/delet.sh)
