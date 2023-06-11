@@ -131,9 +131,9 @@ $(printCyan '                  =====================')"
 
 
 function print5ireChain(){
-	echo -ne "$(printCyan '                         =====================')
-	$(printRed  ' ================')$(printCyan ' =     ')$(printBRed '5ireChain')$(printCyan '     = ')$(printRed  '================') 
-	$(printCyan '                  =====================')"
+echo -ne "$(printCyan '                         =====================')
+$(printRed  ' ================')$(printCyan ' =     ')$(printBRed '5ireChain')$(printCyan '     = ')$(printRed  '================') 
+$(printCyan '                  =====================')"
 }
 
 #VENOM
