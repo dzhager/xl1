@@ -1,9 +1,7 @@
 #! /bin/bash
 
 #X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-5ireChain
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh) && printLogo && print5ireChain
 mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBMagenta    '1) Просмотр логов')
@@ -56,7 +54,7 @@ read -r ans
 }
 
 logs(){
-	journalctl -u starknetd -f -o cat
+	docker logs happy_gauss -f -n 100
 	mainmenu
 }
 

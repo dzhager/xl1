@@ -45,7 +45,7 @@ no(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/starknet/main.sh)
 }
 yes(){
-	clear && printLogo && 5ireChain && echo
+	clear && printLogo && print5ireChain && echo
 
 printBCyan "Пожалуйста подождите........" && sleep 1
 printYellow "1. Oбновляем наш сервер........" && sleep 1
@@ -68,7 +68,7 @@ docker pull 5irechain/5ire-thunder-node:0.12
 
 
 printYellow "4. Запускаем 5ireChain........" && sleep 1
-docker run -d -p 30333:30333 5irechain/5ire-thunder-node:0.12 --port 30333 --no-telemetry --name 5ire-thunder-validator --base-path /5ire/data --keystore-path /5ire/data --node-key-file /5ire/secrets/node.key --chain /5ire/thunder-chain-spec.json --bootnodes /ip4/3.128.99.18/tcp/30333/p2p/12D3KooWSTawLxMkCoRMyzALFegVwp7YsNVJqh8D2p7pVJDqQLhm --validator
+sudo docker run -d -p 30333:30333 5irechain/5ire-thunder-node:0.12 --port 30333 --no-telemetry --name 5ire-thunder-validator --base-path /5ire/data --keystore-path /5ire/data --node-key-file /5ire/secrets/node.key --chain /5ire/thunder-chain-spec.json --bootnodes /ip4/3.128.99.18/tcp/30333/p2p/12D3KooWSTawLxMkCoRMyzALFegVwp7YsNVJqh8D2p7pVJDqQLhm --validator
 printGreen "Готово!" && sleep 1
 
 
