@@ -121,3 +121,9 @@
 	printBGreenBlink () { printf "${BLINK}${BGREEN}%s${RESET}\n" "$1"; }
 	printBTYellow () { printf "${TBYELLOW}%s${RESET}\n" "$1"; }
 #------------------------------------------------------------------#
+
+	function print5ireChain(){
+		echo "$(printCyan '                  =====================')"
+		echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBRed '5ireChain')$(printCyan '     = ')$(printRed  '================')"
+		echo "$(printCyan '                  =====================')"
+	}
