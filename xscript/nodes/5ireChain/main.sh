@@ -2,12 +2,17 @@
 
 #Script written by DZHAGERR for X-libra
 #-----------------------------Подгрузка общих функций и цвета-----------------------------#
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && print5ireChain
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo #&& print5ireChain
 #-----------------------------------------------------------------------------------------#
+
+
+
+
+
+echo "$(printBCyan ' -->') $(printBMagenta    '1) Просмотр логов')"
 
 mainmenu() { echo -ne "
 
-		$(printBCyan ' -->') $(printBMagenta    '1) Просмотр логов')
 
 		$(printBCyan ' -->') $(printBGreen    '2) Установить')
 
