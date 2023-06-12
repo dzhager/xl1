@@ -2,7 +2,7 @@
 
 #Script written by DZHAGERR for X-libra
 #-----------------------------Подгрузка общих функций и цвета-----------------------------#
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printLogo && print5ireChain
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && print5ireChain
 #-----------------------------------------------------------------------------------------#
 
 mainmenu() { echo -ne "
