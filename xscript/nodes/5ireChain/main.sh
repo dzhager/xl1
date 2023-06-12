@@ -1,82 +1,67 @@
 #!/bin/bash
 
 #Script written by DZHAGERR for X-libra
+
 #-----------------------------Подгрузка общих функций и цвета-----------------------------#
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && print5ireChain
 #-----------------------------------------------------------------------------------------#
 
-
-
-
-
-echo "$(printBCyan ' -->') $(printBMagenta    '1) Просмотр логов')"
-
-mainmenu() { echo -ne "
-
-
-		$(printBCyan ' -->') $(printBGreen    '2) Установить')
-
-		$(printBCyan ' -->') $(printBRed    '3) Удалить')
-
-		$(printBBlue ' <-- 4) Назад')
-
-		$(printBRed        '     0) Выход')
-
-	$(printCyan 'Введите цифру:')  "
-
-read -r ans
-	case $ans in
-		1)
-		logs
-		;;
-
-		2)
-		install
-		;;
-
-		3)
-		delet
-		;;
-
-		4)
-		back
-		;;
-
-		0)
-		echo $(printBCyan '	"Bye bye."')
-		rm x-l1bra
-		exit
-		;;
-
-		*)
-		clear
-		printLogo
-		printstarknet
+#-------------------------------------Основное меню---------------------------------------#
+	mainmenu() {
 		echo
+		echo "$(printBCyan '		-->') $(printBGreen '1) Установить')"
 		echo
-		echo    -ne "$(printRed '		   Неверный запрос !')"
+		echo "$(printBCyan '		-->') $(printBRed '2) Удалить')"
 		echo
-		mainmenu
-		;;
-	esac
-}
+		echo "$(printBYellow '		<-- 3) Назад')"
+		echo
+		echo "$(printBRed '	            0)') $(printBRed 'Выход')"
+		echo
+		echo -ne "$(printBCyan ' Введите цифру: --> ')"
 
-logs(){
-	docker logs happy_gauss -f -n 100
+	#-------------------------Свойства меню-------------------------№
+		read -r ans
+			case $ans in
+			#------------------------------#
+				1)
+				install
+				;;
+			#------------------------------#
+				3)
+				delet
+				;;
+			#------------------------------#
+				3)
+				back
+				;;
+			#------------------------------#
+				0)
+				echo $(printBCyan '	"Bye bye."') && exit
+				;;
+			#------------------------------#
+				*)
+				clear && printlogo && print5ireChain && echo && echo "$(printRedBlink '		   Неверный запрос !')"	 && mainmenu
+				;;
+			#------------------------------#	
+			esac
+	}
+#-----------------------------------------------------------------------------------------#
+
+
+#-------------------------------------Функции меню----------------------------------------#
+
+	install(){
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/5ireChain/install.sh)
+	}
+
+
+	delet(){
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/5ireChain/delet.sh)
+	}
+
+	back(){
+		./x-l1bra
+	}
+
 	mainmenu
-}
-
-install(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/5ireChain/install.sh)
-}
-
-
-delet(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/5ireChain/delet.sh)
-}
-
-back(){
-./x-l1bra
-}
-
-mainmenu
+#-----------------------------------------------------------------------------------------#
