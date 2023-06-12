@@ -122,9 +122,12 @@
 	printBTYellow () { printf "${TBYELLOW}%s${RESET}\n" "$1"; }
 #------------------------------------------------------------------#
 
-	function print5ireChain {
-		echo "$(printCyan '                  =====================')"
-		echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBRed '5ireChain')$(printCyan '     = ')$(printRed  '================')"
-		echo "$(printCyan '                  =====================')"
-	}
+#--------------------НАЗВАНИЯ ПРОЕКТОВ ДЛЯ ШАПКИ-------------------#
 
+	#-------------------------5ireChain----------------------------#
+		function print5ireChain {
+			echo "$(printCyan '                  =====================')"
+			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBRed '5ireChain')$(printCyan '     = ')$(printRed  '================')"
+			echo "$(printCyan '                  =====================')"
+		}
+	#--------------------------------------------------------------#
