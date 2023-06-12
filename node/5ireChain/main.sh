@@ -1,6 +1,8 @@
-#! /bin/bash
+#!/bin/bash
 
-#X-l1bra  
+#Script written by DZHAGERR for X-libra
+
+
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh) && printLogo && print5ireChain
 mainmenu() { echo -ne "
 
