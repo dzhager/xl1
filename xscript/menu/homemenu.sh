@@ -65,9 +65,17 @@ echo " $(printCyanBlink '                 =====================')"
 #-----------------------------------------------------------------------------------------#
 
 #-------------------------------------Функции меню----------------------------------------#
-node(){
-	
-}
+	node(){
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
+	}
+
+	smartcontract(){
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menusmart.sh)
+	}
+
+	systemmonitor(){
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menusmart.sh)
+	}
 
 mainmenu
 
