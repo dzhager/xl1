@@ -39,7 +39,7 @@ echo " $(printCyanBlink '                 =====================')"
 				;;
 			#-------------------#
 				3)
-				systemmonitor
+				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/sm.sh)
 				;;
 			#-------------------#
 				4)
