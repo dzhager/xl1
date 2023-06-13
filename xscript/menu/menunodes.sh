@@ -17,25 +17,26 @@ $(printCyanBlink '                  =====================')"
 
 #-----------------------------Основное меню-----------------------------------------#
 
-mainmenu() { echo -ne "
-
- 		     $(printBCyan 'Выберите ноду !')
-
-		$(printBCyan ' -->') $(printBYellow    '1)') Nibiru $(printBTYellow '****')
-		$(printBCyan ' -->') $(printBYellow    '2)') DeFund $(printBTYellow '***')
-		$(printBCyan ' -->') $(printBYellow    '3)') Shardeum $(printBTYellow '*****')
-		$(printBCyan ' -->') $(printBYellow    '4)') Starknet $(printBTYellow '****')
-		$(printBCyan ' -->') $(printBYellow    '5)') 5ireChain $(printBTYellow '*****')
-		$(printBCyan ' -->') $(printBYellow    '6)') Elixir $(printBTYellow '****')
+mainmenu() { 
+	echo
+	echo "$(printBCyan '		    Выберите ноду !')"
+	echo
+	echo "$(printBCyan '		-->') $(printBYellow    '1)') Nibiru $(printBTYellow '****')"
+	echo "$(printBCyan '		-->') $(printBYellow    '2)') DeFund $(printBTYellow '***')"
+	echo "$(printBCyan '		-->') $(printBYellow    '3)') Shardeum $(printBTYellow '*****')"
+	echo "$(printBCyan '		-->') $(printBYellow    '4)') Starknet $(printBTYellow '****')"
+	echo "$(printBCyan '		-->') $(printBYellow    '5)') 5ireChain $(printBTYellow '*****')"
+	echo "$(printBCyan '		-->') $(printBYellow    '6)') Elixir $(printBTYellow '****')"
 		
-		$(printBCyan ' -->') $(printBYellow    '7)') $(printBYellow 'Архив')
-		$(printBCyan ' -->') $(printBYellow    '8)') $(printBCyan 'Системный монитор')
+	echo "$(printBCyan '		-->') $(printBYellow    '7)') $(printBYellow 'Архив')"
+	echo "$(printBCyan '		-->') $(printBYellow    '8)') $(printBCyan 'Системный монитор')"
 
-		$(printBRed        '     0) Выход')
+	echo "$(printBRed        '     0) Выход')"
 
-	Введите цифру:  "
-	read -r ans
-	case $ans in
+	echo -ne "Введите цифру:  "
+		
+		read -r ans
+			case $ans in
 	#-------------------#
 		1)
 		nibiru
@@ -55,10 +56,7 @@ mainmenu() { echo -ne "
 		;;
 	#-------------------#
 		5)
-		clear
-		printLogo
-		printComing
-		mainmenu
+		clear && printLogo && printComing && mainmenu
 		;;
 	#-------------------#
 		6)
@@ -74,12 +72,11 @@ mainmenu() { echo -ne "
 		;;
 	#-------------------#
 		0)
-		echo $(printBCyan '	"Bye bye."')
-		exit
+		echo $(printBCyan '	"Bye bye."') && exit
 		;;
 	#-------------------#
 		*)
-		clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh) && printLogo
+		clear && printLogo
 echo -ne "$(printCyanBlink '                  =====================')
 $(printRed  ' ================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================') 
 $(printCyanBlink '                  =====================')"
@@ -188,4 +185,3 @@ $(printCyanBlink '                  =====================')"
 
 
 mainmenu
-

@@ -10,7 +10,6 @@
 	mainmenu() {
 		echo
 		echo "$(printBCyan '		-->') $(printBGreen '1) Установить')"
-		echo
 		echo "$(printBCyan '		-->') $(printBRed '2) Удалить')"
 		echo
 		echo "$(printBYellow '		<-- 3) Назад')"
