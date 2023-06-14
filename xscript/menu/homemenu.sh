@@ -16,12 +16,11 @@ echo " $(printCyanBlink '                 =====================')"
 #-----------------------------Основное меню-----------------------------------------#
 	mainmenu() { 
 		echo
-		echo "$(printBCyan '              -->') $(printBYellow    '1)')  Ноды"
-		echo "$(printBCyan '              -->') $(printBYellow    '2)')  Смартконтракты"
+		echo "$(printBCyan '              -->') $(printBGreen    '1)')  Ноды"
+		echo "$(printBCyan '              -->') $(printBGreen    '2)')  Смартконтракты"
 		echo
-		echo "$(printBCyan '              -->') $(printBYellow    '3)')  Системный монитор"
-		echo
-		echo "$(printBCyan '              -->') $(printBYellow    '4)')  Система"
+		echo "$(printBCyan '              -->') $(printBYellow    '3)')  Показать IP сервера"
+		echo "$(printBCyan '              -->') $(printBYellow    '4)')  Системный монитор"
 		echo
 		echo "$(printBRed        '                  0)  Выход')"
 		echo
@@ -31,19 +30,19 @@ echo " $(printCyanBlink '                 =====================')"
 			case $ans in
 			#-------------------#
 				1)
-				node
+				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
 				;;
 			#-------------------#
 				2)
-				smartcontract
+				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menusmart.sh)
 				;;
 			#-------------------#
 				3)
-				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/sm.sh)
+				curl ifconfig.co && mainmenu
 				;;
 			#-------------------#
 				4)
-				system
+				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/sm.sh)
 				;;
 			#-------------------#
 				0)
@@ -63,19 +62,6 @@ echo " $(printCyanBlink '                 =====================')"
 	#---------------------------------------------------------------#
 
 #-----------------------------------------------------------------------------------------#
-
-#-------------------------------------Функции меню----------------------------------------#
-	node(){
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
-	}
-
-	smartcontract(){
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menusmart.sh)
-	}
-
-	systemmonitor(){
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menusmart.sh)
-	}
 
 mainmenu
 
