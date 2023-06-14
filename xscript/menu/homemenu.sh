@@ -16,13 +16,13 @@ echo " $(printCyanBlink '                 =====================')"
 #-----------------------------Основное меню-----------------------------------------#
 	mainmenu() { 
 		echo
-		echo "$(printBCyan '              -->') $(printBYellow    '1)') $(printBBlue 'Ноды')"
-		echo "$(printBCyan '              -->') $(printBYellow    '2)') $(printBMagenta 'Смартконтракты')"
+		echo "$(printBCyan '              -->') $(printBYellow    '1)') Ноды"
+		echo "$(printBCyan '              -->') $(printBYellow    '2)') Смартконтракты"
 		echo
-		echo "$(printBCyan '              -->') $(printBYellow   '3)') $(printBYellow 'Новости')"
+		echo "$(printBCyan '              -->') $(printBYellow   '3)') Новости"
 		echo
-		echo "$(printBCyan '              -->') $(printBYellow    '4)') $(printBYellow 'Показать IP сервера')"
-		echo "$(printBCyan '              -->') $(printBYellow    '5)') $(printBYellow 'Системный монитор')"
+		echo "$(printBCyan '              -->') $(printBYellow    '4)') Показать IP сервера"
+		echo "$(printBCyan '              -->') $(printBYellow    '5)') Системный монитор"
 		echo
 		echo "$(printBRed        '                  0)  Выход')"
 		echo
@@ -40,7 +40,7 @@ echo " $(printCyanBlink '                 =====================')"
 				;;
 			#-------------------#
 				3)
-				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/sm.sh)
+				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/updates.sh)
 				;;
 			#-------------------#
 				4)
@@ -50,12 +50,12 @@ echo " $(printCyanBlink '                 =====================')"
 				echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================')"
 				echo " $(printCyanBlink '                 =====================')"
 				echo
-				echo " $(printBYellow              "                    $IP")"
+				echo " $(printBYellow              "                     $IP")"
 				mainmenu
 				;;
 			#-------------------#
 				5)
-				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/updates.sh)
+				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/sm.sh)
 				;;
 			#-------------------#	
 				0)
