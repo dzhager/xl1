@@ -151,7 +151,7 @@ jail(){
 
 
 backup(){
-	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/backup.sh)
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/nibiru/backup.sh)
 }
 
 WalletBalance(){
