@@ -8,9 +8,9 @@
 
 
 #-----------------------------Шапка скрипта-----------------------------------------#
-echo -ne "$(printCyanBlink '                  =====================')
-$(printRed  ' ================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================') 
-$(printCyanBlink '                  =====================')"
+echo -ne "$(printBCyan '                  =====================')
+$(printRed  ' ================')$(printBCyan ' = ')$(printBMagenta '      Ноды       ')$(printBCyan ' = ')$(printRed  '================') 
+$(printBCyan '                  =====================')"
 #-----------------------------------------------------------------------------------#
 
 
@@ -19,21 +19,19 @@ $(printCyanBlink '                  =====================')"
 
 mainmenu() { 
 	echo
-	echo "$(printBCyan '		    Выберите ноду !')"
 	echo
-	echo "$(printBCyan '		-->') $(printBYellow    '1)') Nibiru $(printBTYellow '****')"
-	echo "$(printBCyan '		-->') $(printBYellow    '2)') DeFund $(printBTYellow '***')"
-	echo "$(printBCyan '		-->') $(printBYellow    '3)') Shardeum $(printBTYellow '*****')"
-	echo "$(printBCyan '		-->') $(printBYellow    '4)') Starknet $(printBTYellow '****')"
-	echo "$(printBCyan '		-->') $(printBYellow    '5)') 5ireChain $(printBTYellow '*****')"
-	echo "$(printBCyan '		-->') $(printBYellow    '6)') Elixir $(printBTYellow '****')"
-		
-	echo "$(printBCyan '		-->') $(printBYellow    '7)') $(printBYellow 'Архив')"
-	echo "$(printBCyan '		-->') $(printBYellow    '8)') $(printBCyan 'Системный монитор')"
-
-	echo "$(printBRed        '     0) Выход')"
-
-	echo -ne "Введите цифру:  "
+	echo "$(printBCyan '		-->') $(printBYellow    ' 1)') Nibiru $(printBTYellow '****')"
+	echo "$(printBCyan '		-->') $(printBYellow    ' 2)') DeFund $(printBTYellow '***')"
+	echo "$(printBCyan '		-->') $(printBYellow    ' 3)') Shardeum $(printBTYellow '*****')"
+	echo "$(printBCyan '		-->') $(printBYellow    ' 4)') Starknet $(printBTYellow '****')"
+	echo "$(printBCyan '		-->') $(printBYellow    ' 5)') 5ireChain $(printBTYellow '*****')"
+	echo "$(printBCyan '		-->') $(printBYellow    ' 6)') Elixir $(printBTYellow '****')"
+	echo
+	echo "$(printBCyan '		-->') $(printBYellow    ' 7)') $(printBYellow 'Архив')"
+	echo
+	echo "$(printBRed        '                     0) Выход')"
+	echo
+	echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
 		
 		read -r ans
 			case $ans in
@@ -77,9 +75,9 @@ mainmenu() {
 	#-------------------#
 		*)
 		clear && printLogo
-echo -ne "$(printCyanBlink '                  =====================')
-$(printRed  ' ================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================') 
-$(printCyanBlink '                  =====================')"
+		echo " $(printCyanBlink '                 =====================')"
+		echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBRed 'Неверный запрос! ')$(printCyanBlink ' = ')$(printRed  '================')"
+		echo " $(printCyanBlink '                 =====================')"
 		mainmenu
 		;;
 	#-------------------#
@@ -91,10 +89,6 @@ $(printCyanBlink '                  =====================')"
 ########################################
 #--------------------------Ссылки на меню управления нодой	   #
 ########################################
-	elixir(){
-		
-	}
-
 	starknet(){
 		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/starknet/main.sh)
 	}
