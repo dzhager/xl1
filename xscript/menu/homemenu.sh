@@ -38,7 +38,7 @@ echo " $(printCyanBlink '                 =====================')"
 				;;
 			#-------------------#
 				3)
-				curl ifconfig.co && mainmenu
+				clear && printLogo && echo && curl ifconfig.co && mainmenu
 				;;
 			#-------------------#
 				4)

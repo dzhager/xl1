@@ -92,7 +92,7 @@ $(printCyanBlink '                  =====================')"
 #--------------------------Ссылки на меню управления нодой	   #
 ########################################
 	elixir(){
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/main.sh)
+		
 	}
 
 	starknet(){
