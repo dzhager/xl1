@@ -8,14 +8,14 @@
 
 #-------------------------------------Основное меню---------------------------------------#
 	mainmenu() { 
-		echo "$(printBCyan '                     -->') $(printBCyan    '1) Управление')"
-
-		echo "$(printBCyan ' -->') $(printBGreen    '2) Установить')"
-		echo "$(printBCyan ' -->') $(printBRed    '4) Удалить')"
-		echo "$(printBCyan ' -->') $(printBYellow    '3) Обновить')"
-
-		echo "$(printBBlue ' <-- 5) Назад')"
-		echo "$(printBRed        '     0) Выход')"
+		echo "$(printBCyan '               -->') $(printBCyan    '1) Управление')"
+		echo
+		echo "$(printBCyan '               -->') $(printBGreen    '2) Установить')"
+		echo "$(printBCyan '               -->') $(printBYellow    '3) Обновить')"
+		echo "$(printBCyan '               -->') $(printBRed    '4) Удалить')"
+		echo
+		echo "$(printBBlue '               <-- 5) Назад')"
+		echo "$(printBRed                      '     0) Выход')"
 
 		echo -ne "$(printBCyan ' Введите цифру: --> ')"
 	#-------------------------Свойства меню-------------------------#	
