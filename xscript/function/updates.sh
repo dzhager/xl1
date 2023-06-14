@@ -6,24 +6,23 @@
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh) && printLogo
 #-----------------------------------------------------------------------------------------#
 
-
 #-----------------------------Шапка скрипта-----------------------------------------#
-echo " $(printCyanBlink '                 =====================')"
-echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBGreen 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================')"
-echo " $(printCyanBlink '                 =====================')"
+echo " $(printBMagenta '=|    Дата    |========================================')"
 #-----------------------------------------------------------------------------------#
+
+echo " $(printBMagenta '=')""$(printBYellow '| 18.06.2023 |') Добавлена установка ноды Sei"
+echo " $(printBMagenta '=')""$(printBYellow '| 17.06.2023 |') Обновлено меню скрипта"
+echo " $(printBMagenta '=')""$(printBYellow '| 17.06.2023 |') Добалена нода 5ireChain"
+echo " $(printBMagenta '=')""$(printBYellow '|            |')"
+echo " $(printBMagenta '=')""$(printBYellow '|            |')"
+echo " $(printBMagenta '=')""$(printBYellow '|            |')$(printBMagenta '========================================')"
+
 
 #-----------------------------Основное меню-----------------------------------------#
 	mainmenu() { 
 		echo
-		echo "$(printBCyan '              -->') $(printBYellow    '1)') $(printBBlue 'Ноды')"
-		echo "$(printBCyan '              -->') $(printBYellow    '2)') $(printBMagenta 'Смартконтракты')"
-		echo
-		echo "$(printBCyan '              -->') $(printBYellow   '3)') $(printBYellow 'Новости')"
-		echo
-		echo "$(printBCyan '              -->') $(printBYellow    '4)') $(printBYellow 'Показать IP сервера')"
-		echo "$(printBCyan '              -->') $(printBYellow    '5)') $(printBYellow 'Системный монитор')"
-		echo
+		echo "$(printBCyan '              <--') $(printBGreen    '1)')  Назад"
+
 		echo "$(printBRed        '                  0)  Выход')"
 		echo
 		echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
@@ -40,24 +39,13 @@ echo " $(printCyanBlink '                 =====================')"
 				;;
 			#-------------------#
 				3)
-				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/sm.sh)
+				clear && printLogo && echo && curl ifconfig.co && mainmenu
 				;;
 			#-------------------#
 				4)
-				IP=$(curl ifconfig.co)
-				clear && printLogo
-				echo " $(printCyanBlink '                 =====================')"
-				echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================')"
-				echo " $(printCyanBlink '                 =====================')"
-				echo
-				echo " $(printBYellow              "                    $IP")"
-				mainmenu
+				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/sm.sh)
 				;;
 			#-------------------#
-				5)
-				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/updates.sh)
-				;;
-			#-------------------#	
 				0)
 				echo $(printBCyan '	"Bye bye."') && exit
 				;;
@@ -77,4 +65,3 @@ echo " $(printCyanBlink '                 =====================')"
 #-----------------------------------------------------------------------------------------#
 
 mainmenu
-
