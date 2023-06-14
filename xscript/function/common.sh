@@ -142,7 +142,7 @@
 	#---------------------------NIBIRU-----------------------------#
 		function printNibiru {
 			echo "$(printCyan '                  =====================')"
-			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBBlue '  NIBIRU')$(printCyan '      = ')$(printRed  '================')"
+			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBBlue ' NIBIRU')$(printCyan '       = ')$(printRed  '================')"
 			echo "$(printCyan '                  =====================')"
 		}
 	#--------------------------------------------------------------#
