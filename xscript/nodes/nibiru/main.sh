@@ -8,7 +8,7 @@
 
 #-------------------------------------Основное меню---------------------------------------#
 	mainmenu() { 
-		echo "$(printBCyan ' -->') $(printBCyan    '1) Управление')"
+		echo "$(printBCyan '                     -->') $(printBCyan    '1) Управление')"
 
 		echo "$(printBCyan ' -->') $(printBGreen    '2) Установить')"
 		echo "$(printBCyan ' -->') $(printBRed    '4) Удалить')"
@@ -17,42 +17,42 @@
 		echo "$(printBBlue ' <-- 5) Назад')"
 		echo "$(printBRed        '     0) Выход')"
 
-	$(printCyan 'Введите цифру:')  "
-
-read -r ans
-	case $ans in
-		1)
-		control
-		;;
-		3)
-		update
-		;;
-		2)
-		install
-		;;
-		4)
-		delet
-		;;
-		5)
-		back
-		;;
-		0)
-		echo $(printBCyan '	"Bye bye."')
-		rm x-l1bra
-		exit
-		;;
-		*)
-		clear
-		printLogo
-		printnibiru
-		echo
-		echo
-		echo    -ne "$(printRed '		   Неверный запрос !')"
-		echo
-		mainmenu
-		;;
-	esac
-}
+		echo -ne "$(printBCyan ' Введите цифру: --> ')"
+	#-------------------------Свойства меню-------------------------#	
+		read -r ans
+			case $ans in
+				1)
+				control
+				;;
+				3)
+				update
+				;;
+				2)
+				install
+				;;
+				4)
+				delet
+				;;
+				5)
+				back
+				;;
+				0)
+				echo $(printBCyan '	"Bye bye."')
+				rm x-l1bra
+				exit
+				;;
+				*)
+				clear
+				printLogo
+				printnibiru
+				echo
+				echo
+				echo    -ne "$(printRed '		   Неверный запрос !')"
+				echo
+				mainmenu
+				;;
+			esac
+				}
 
 install(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/install.sh)
