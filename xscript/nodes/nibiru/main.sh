@@ -8,33 +8,35 @@
 
 #-------------------------------------Основное меню---------------------------------------#
 	mainmenu() { 
-		echo "$(printBCyan '               -->') $(printBCyan    '1) Управление')"
 		echo
-		echo "$(printBCyan '               -->') $(printBGreen    '2) Установить')"
-		echo "$(printBCyan '               -->') $(printBYellow    '3) Обновить')"
-		echo "$(printBCyan '               -->') $(printBRed    '4) Удалить')"
+		echo "$(printBCyan '               --> ') $(printBCyan    '1) Управление')"
 		echo
-		echo "$(printBBlue '               <-- 5) Назад')"
-		echo "$(printBRed                      '     0) Выход')"
-
+		echo "$(printBCyan '               --> ') $(printBGreen    '2) Установить')"
+		echo "$(printBCyan '               --> ') $(printBYellow    '3) Обновить')"
+		echo "$(printBCyan '               --> ') $(printBRed    '4) Удалить')"
+		echo
+		echo "$(printBBlue '               <--  5) Назад')"
+		echo
+		echo "$(printBRed       '                    0) Выход')"
+		echo
 		echo -ne "$(printBCyan ' Введите цифру: --> ')"
 	#-------------------------Свойства меню-------------------------#	
 		read -r ans
 			case $ans in
 				1)
-				control
+				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/control.sh)
 				;;
 				3)
-				update
+				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/update.sh)
 				;;
 				2)
-				install
+				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/install.sh)
 				;;
 				4)
-				delet
+				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/delet.sh)
 				;;
 				5)
-				back
+				./x-l1bra
 				;;
 				0)
 				echo $(printBCyan '	"Bye bye."')
@@ -53,25 +55,5 @@
 				;;
 			esac
 				}
-
-install(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/install.sh)
-}
-
-control(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/control.sh)
-}
-
-update(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/update.sh)
-}
-
-delet(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/delet.sh)
-}
-
-back(){
-./x-l1bra
-}
-
+				
 mainmenu
