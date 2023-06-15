@@ -11,15 +11,14 @@
 
     mainmenu() {
         echo
-        echo "$(printBCyan '            -->') $(printBYellow '1)') $(printBGreen    'Установить')"
+        echo "$(printBCyan '            -->') $(printBYellow '1)') $(printBGreen    'Настроить прокси')"
         echo
         echo "$(printBCyan '            -->') $(printBYellow '2)') Просмотреть адрес прокси"
         echo "$(printBCyan '            -->') $(printBYellow '3)') Просмотреть статус"
-        echo "$(printBCyan '            -->') $(printBYellow '4)') Изменить логин-пароль"
         echo
-        echo "$(printBCyan '            -->') $(printBYellow '5)') Помощь"
+        echo "$(printBCyan '            -->') $(printBYellow '4)') Помощь"
         echo
-        echo "$(printBCyan '            -->') $(printBRed     '6) Удалить')"
+        echo "$(printBCyan '            -->') $(printBRed     '5) Удалить прокси')"
         echo 
         echo "$(printBBlue '            <-- 7) Назад')"
         echo
@@ -41,16 +40,12 @@
 			3)
 			status
 			;;
-		#---------------------------------------#
-			4)
-			passwd
-			;;
         #---------------------------------------#
-            5)
+            4)
 			help
 			;;
 		#---------------------------------------#
-			6)
+			5)
 			delet
 			;;
 		#---------------------------------------#	
@@ -86,7 +81,12 @@ adress(){
 }
 
 delet(){
-	sudo apt
+	systemctl stop danted.service
+	sudo rm /etc/danted.conf
+	sudo apt remove dante-server
+	echo "$(printBYellow ' ============================================================')"
+	echo " $(printBRad              "  Прокси удален!)"
+    echo "$(printBYellow ' ============================================================')"	
 }
 
 
@@ -111,7 +111,8 @@ install(){
 
 echo "$(printBYellow 'Идет установка Dante...')"
 
-sudo apt update && sudo apt install dante-server
+sudo apt update > /dev/null 2>&1
+sudo apt install dante-server > /dev/null 2>&1
 sudo rm /etc/danted.conf
 cat << EOF  > /etc/danted.conf
 logoutput: syslog
