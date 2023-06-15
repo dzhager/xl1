@@ -24,6 +24,7 @@ echo " $(printCyanBlink '                 =====================')"
 		echo "$(printBCyan '              -->') $(printBYellow    '4)') Показать IP сервера"
 		echo "$(printBCyan '              -->') $(printBYellow    '5)') Системный монитор"
 		echo
+		echo "$(printBCyan '              -->') $(printBYellow    '5)') Прокси"
 		echo "$(printBRed        '                  0)  Выход')"
 		echo
 		echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
