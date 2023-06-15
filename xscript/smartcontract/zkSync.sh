@@ -15,7 +15,7 @@
 		echo "$(printBCyan '            -->') $(printBRed     '4) Удалить')"
 		echo 
 		echo "$(printBBlue '            <-- 5) Назад')"
-		echo "$(printBRed        '                0) Выход')"
+		echo "$(printBRed        '                0) Выход')" 
 	
 
 	#-------------------------Свойства меню-------------------------#
