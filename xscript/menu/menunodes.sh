@@ -3,14 +3,14 @@
 #Script written by DZHAGERR for X-libra
 
 #-----------------------------Подгрузка общих функций и цвета-----------------------------#
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh) && printLogo
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo
 #-----------------------------------------------------------------------------------------#
 
 
 #-----------------------------Шапка скрипта-----------------------------------------#
-echo -ne "$(printBCyan '                  =====================')
-$(printRed  ' ================')$(printBCyan ' = ')$(printBMagenta '      Ноды       ')$(printBCyan ' = ')$(printRed  '================') 
-$(printBCyan '                  =====================')"
+echo " $(printCyanBlink '                 =====================')"
+echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBGreen '     Ноды     ')$(printCyanBlink ' = ')$(printRed  '================')"
+echo " $(printCyanBlink '                 =====================')"
 #-----------------------------------------------------------------------------------#
 
 
