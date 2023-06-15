@@ -85,7 +85,7 @@ delet(){
 	sudo rm /etc/danted.conf
 	sudo apt remove dante-server
 	echo "$(printBYellow ' ============================================================')"
-	echo " $(printBRad              "  Прокси удален!)"
+	echo " $(printBRad   '           "  Прокси удален!')"
     echo "$(printBYellow ' ============================================================')"
 	mainmenu
 }
@@ -110,7 +110,7 @@ sudo systemctl restart danted
 
 install(){
 
-echo "$(printBYellow 'Идет установка Dante...')"
+echo "$(printBYellowBlink 'Настройка!...')"
 
 sudo apt update > /dev/null 2>&1
 sudo apt install dante-server > /dev/null 2>&1
@@ -152,7 +152,7 @@ sudo passwd $USERNAME
 
 sudo systemctl restart danted.service
 echo
-echo "$(printBGreen ' Ваш прокси настроен!')"
+echo "$(printBGreen 'Прокси запущен!')"
 mainmenu
 }
 
