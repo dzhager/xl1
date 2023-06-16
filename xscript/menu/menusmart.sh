@@ -30,7 +30,7 @@ mainmenu() {
 			case $ans in
 	#-------------------#
 		1)
-		ZkSync
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/smartcontract/zkSync.sh)
 		;;
 		2)
 		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)

@@ -100,7 +100,8 @@ status(){
     clear && printLogo && echo
 	echo "$(printBYellow 'Для возврата, нажмите Q')"
 	echo
-	systemctl status danted.service && mainmenu
+	systemctl status danted.service
+	mainmenu
 }
 
 passwd(){
