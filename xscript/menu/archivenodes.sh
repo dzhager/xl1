@@ -7,51 +7,51 @@
 #-----------------------------------------------------------------------------------------#
 
 #-----------------------------Шапка скрипта-----------------------------------------#
-echo " $(printCyanBlink '                 =====================')"
-echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBYellow '   Архив   ')$(printCyanBlink ' = ')$(printRed  '================')"
-echo " $(printCyanBlink '                 =====================')"
+	echo " $(printBCyan '                 =====================')"
+	echo " $(printRed  '================')$(printBCyan ' = ')$(printBYellow '      Архив      ')$(printBCyan ' = ')$(printRed  '================')"
+	echo " $(printBCyan '                 =====================')"
 #-----------------------------------------------------------------------------------#
+
+#-----------------------------Основное меню-----------------------------------------#
     mainmenu(){
-        echo "$(printBCyan '       -->') $(printBYellow    '1)') Celestia $(printBTYellow '****')"
-        echo "$(printBCyan '       -->') $(printBYellow    '2)') Quasar $(printBTYellow '****')"
-        echo "$(printBCyan '       -->') $(printBYellow    '3)') SUI $(printBTYellow '*****')"
+		echo
+        echo "$(printBCyan '                --> ') $(printBYellow    '1)') Celestia $(printBTYellow '****')"
+        echo "$(printBCyan '                --> ') $(printBYellow    '2)') Quasar $(printBTYellow '****')"
+        echo "$(printBCyan '                --> ') $(printBYellow    '3)') SUI $(printBTYellow '*****')"
         echo
-	    echo "$(printBCyan '       <--') $(printBYellow    ' 4)') $(printBBlue 'Назад')"
-        echo
-       	echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
-}
-
-
+	    echo "$(printBCyan '                <--') $(printBYellow    ' 4)') $(printBBlue 'Назад')"
+		echo "$(printBRed        '                     0) Выход')"
+		echo
+    	echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
+		
+	#-------------------------Свойства меню-------------------------#
 	read -r ans
-	case $ans in
+		case $ans in
+			1)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/main.sh)
+			;;
 
-		1)
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/main.sh)
-		;;
+			2)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/quasar/main.sh)
+			;;
 
-		2)
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/quasar/main.sh)
-		;;
+			3)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/sui/main.sh)
+			;;
 
-		3)
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/sui/main.sh)
-		;;
+			4)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
+			;;
 
-		4)
-		clear && printLogo 
-echo -ne "$(printCyanBlink '                  =====================')
-$(printRed  ' ================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================') 
-$(printCyanBlink '                  =====================')"
-		mainmenu
-		;;
-
-		*)
-		clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-		printLogo
-echo -ne "$(printCyanBlink '                  =====================')
-$(printRed  ' ================')$(printCyanBlink ' = ')$(printBYellow '      Архив')$(printCyanBlink '       = ')$(printRed  '================') 
-$(printCyanBlink '                  =====================')"
-		archive
-		;;
-	esac
+			*)
+			clear && printLogo
+			echo " $(printCyanBlink '                 =====================')"
+			echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBRed 'Неверный запрос! ')$(printCyanBlink ' = ')$(printRed  '================')"
+			echo " $(printCyanBlink '                 =====================')"
+			mainmenu
+			;;
+		esac
 }
+#-----------------------------------------------------------------------------------#
+
+mainmenu
