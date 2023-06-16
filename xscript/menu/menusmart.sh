@@ -14,18 +14,18 @@ echo " $(printCyanBlink '                 =====================')"
 #-----------------------------------------------------------------------------------#
 
 #-----------------------------Основное меню-----------------------------------------#
-
 mainmenu() { 
 	echo
 	echo
 	echo "$(printBCyan '		-->') $(printBYellow    ' 1)') ZkSync $(printBTYellow '****')"
 	echo
-	echo "$(printBCyan '		<--') $(printBBlue    ' 2)') $(printBYellow 'Назад')"
+	echo "$(printBCyan '		<--') $(printBYellow    ' 2)') $(printBBlue 'Назад')"
 	echo
 	echo "$(printBRed        '                     0) Выход')"
 	echo
 	echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
-		
+
+	#-------------------------Свойства меню-------------------------#
 		read -r ans
 			case $ans in
 	#-------------------#
