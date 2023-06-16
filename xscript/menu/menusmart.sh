@@ -20,7 +20,7 @@ mainmenu() {
 	echo
 	echo "$(printBCyan '		-->') $(printBYellow    ' 1)') ZkSync $(printBTYellow '****')"
 	echo
-	echo "$(printBCyan '		-->') $(printBYellow    ' 7)') $(printBYellow 'Архив')"
+	echo "$(printBCyan '		<--') $(printBBlue    ' 2)') $(printBYellow 'Назад')"
 	echo
 	echo "$(printBRed        '                     0) Выход')"
 	echo
@@ -51,3 +51,4 @@ mainmenu() {
 
 	esac
 }
+mainmenu

@@ -25,25 +25,26 @@ echo " $(printCyanBlink '                 =====================')"
 		echo "$(printBCyan '              -->') $(printBYellow    '5)') Системный монитор"
 		echo
 		echo "$(printBCyan '              -->') $(printBYellow    '6)') Прокси"
+		echo
 		echo "$(printBRed        '                  0)  Выход')"
 		echo
 		echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
 	#-------------------------Свойства меню-------------------------#
 		read -r ans
 			case $ans in
-			#-------------------#
+			#---------Ноды----------#
 				1)
 				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
 				;;
-			#-------------------#
+			#--------Смартконтракты-----------#
 				2)
 				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menusmart.sh)
 				;;
-			#-------------------#
+			#---------Новости----------#
 				3)
 				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/updates.sh)
 				;;
-			#-------------------#
+			#---------Показать IP сервера----------#
 				4)
 				IP=$(curl ifconfig.co)
 				clear && printLogo
@@ -54,19 +55,19 @@ echo " $(printCyanBlink '                 =====================')"
 				echo " $(printBYellow              "                     $IP")"
 				mainmenu
 				;;
-			#-------------------#
+			#--------Системный монитор-----------#
 				5)
 				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/sm.sh)
 				;;
-			#-------------------#	
+			#--------Прокси-----------#	
 				6)
 				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/proxy.sh)
 				;;
-			#-------------------#	
+			#--------Выход-----------#
 				0)
 				echo $(printBCyan '	"Bye bye."') && exit
 				;;
-			#-------------------#
+			#--------Неверный запрос!-----------#
 				*)
 				clear && printLogo
 				echo " $(printCyanBlink '                 =====================')"
