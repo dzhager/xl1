@@ -128,6 +128,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
 }
 EOF
 }
+
 deploy(){
 	clear && printlogo && printZcsync
 	echo
