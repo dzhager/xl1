@@ -15,7 +15,6 @@ echo " $(printBCyan '                 =====================')"
 #-----------------------------Основное меню-----------------------------------------#
 	mainmenu() { 
 		echo
-		echo
 		echo "$(printBCyan '		-->') $(printBYellow    ' 1)') Nibiru $(printBTYellow '****')"
 		echo "$(printBCyan '		-->') $(printBYellow    ' 2)') DeFund $(printBTYellow '***')"
 		echo "$(printBCyan '		-->') $(printBYellow    ' 3)') Shardeum $(printBTYellow '*****')"
@@ -26,11 +25,10 @@ echo " $(printBCyan '                 =====================')"
 		echo "$(printBCyan '		-->') $(printBYellow    ' 7)') $(printBYellow 'Архив')"
 		echo
 		echo "$(printBCyan '		<--') $(printBBlue    ' 8)') $(printBYellow 'Назад')"
-		echo
 		echo "$(printBRed        '                     0) Выход')"
 		echo
 		echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
-			
+	#-------------------------Свойства меню-------------------------#
 			read -r ans
 				case $ans in
 		#-------------------#
@@ -59,7 +57,7 @@ echo " $(printBCyan '                 =====================')"
 			;;
 		#-------------------#
 			7)
-			archive
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/archivenodes.sh)
 			;;
 		#-------------------#
 			8)
@@ -80,12 +78,6 @@ echo " $(printBCyan '                 =====================')"
 		#-------------------#
 
 		esac
-	}
+		}
 #-----------------------------------------------------------------------------------#
-
-########################################
-#  		    	Архив нод	 		   #
-########################################
-	
-
 mainmenu
