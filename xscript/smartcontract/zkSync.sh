@@ -15,6 +15,7 @@
 		echo "$(printBCyan '            -->') $(printBRed     '4) Удалить')"
 		echo 
 		echo "$(printBBlue '            <-- 5) Назад')"
+    echo
 		echo "$(printBRed        '                0) Выход')" 
 	
 
@@ -139,7 +140,7 @@ deploy(){
 }
 
 back(){
-./x-l1bra
+ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menusmart.sh)
 }
 
 delet(){
