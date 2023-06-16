@@ -125,6 +125,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   console.log(`${contractFullyQualifedName} verified! VerificationId: ${verificationId}`)
 }
 
+EOF
 
 deploy(){
 	clear && printlogo && printZcsync
@@ -275,6 +276,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
 }
 
 EOF
+
 cd $HOME
 echo
 echo -ne "
