@@ -118,7 +118,7 @@ sudo systemctl restart danted
 
 install(){
 
-echo "$(printBYellowBlink 'Настройка!...')"
+echo "$(printYellowBlink 'Настройка!...')"
 
 sudo apt update > /dev/null 2>&1
 sudo apt install dante-server > /dev/null 2>&1
