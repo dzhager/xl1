@@ -33,7 +33,7 @@ mainmenu() {
 		ZkSync
 		;;
 		2)
-		archive
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)
 		;;
 	#-------------------#
 		0)
