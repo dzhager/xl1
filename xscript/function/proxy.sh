@@ -90,7 +90,7 @@ delet(){
 	sudo rm /etc/danted.conf
 	sudo apt remove dante-server
 	echo "$(printBYellow ' ============================================================')"
-	echo " $(printBRad   '           "  Прокси удален!')"
+	echo " $(printBRed   '                 Прокси удален!')"
     echo "$(printBYellow ' ============================================================')"
 	mainmenu
 }
