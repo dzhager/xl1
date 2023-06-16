@@ -10,13 +10,14 @@
 echo " $(printBMagenta '=|    Дата    |========================================')"
 #-----------------------------------------------------------------------------------#
 
-echo " $(printBMagenta '=')""$(printBYellow '| 18.06.2023 |') Добавлена установка ноды Sei"
-echo " $(printBMagenta '=')""$(printBYellow '| 17.06.2023 |') Обновлено меню скрипта"
-echo " $(printBMagenta '=')""$(printBYellow '| 17.06.2023 |') Добалена нода 5ireChain"
-echo " $(printBMagenta '=')""$(printBYellow '|            |')"
-echo " $(printBMagenta '=')""$(printBYellow '|            |')"
-echo " $(printBMagenta '=')""$(printBYellow '|            |')$(printBMagenta '========================================')"
-
+#-----------------------------Лента новостей-----------------------------------------#
+	echo " $(printBMagenta '=')""$(printBYellow '| 18.06.2023 |') Добавлена установка ноды Sei"
+	echo " $(printBMagenta '=')""$(printBYellow '| 17.06.2023 |') Обновлено меню скрипта"
+	echo " $(printBMagenta '=')""$(printBYellow '| 17.06.2023 |') Добалена нода 5ireChain"
+	echo " $(printBMagenta '=')""$(printBYellow '|            |')"
+	echo " $(printBMagenta '=')""$(printBYellow '|            |')"
+	echo " $(printBMagenta '=')""$(printBYellow '|            |')$(printBMagenta '========================================')"
+#-----------------------------------------------------------------------------------#
 
 #-----------------------------Основное меню-----------------------------------------#
 	mainmenu() { 
@@ -29,27 +30,15 @@ echo " $(printBMagenta '=')""$(printBYellow '|            |')$(printBMagenta '==
 	#-------------------------Свойства меню-------------------------#
 		read -r ans
 			case $ans in
-			#-------------------#
+			#----------Назад---------#
 				1)
 				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
 				;;
-			#-------------------#
-				2)
-				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menusmart.sh)
-				;;
-			#-------------------#
-				3)
-				clear && printLogo && echo && curl ifconfig.co && mainmenu
-				;;
-			#-------------------#
-				4)
-				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/sm.sh)
-				;;
-			#-------------------#
+			#----------Выход---------#
 				0)
 				echo $(printBCyan '	"Bye bye."') && exit
 				;;
-			#-------------------#
+			#----------Неверный запрос---------#
 				*)
 				clear && printLogo
 				echo " $(printCyanBlink '                 =====================')"
@@ -60,8 +49,5 @@ echo " $(printBMagenta '=')""$(printBYellow '|            |')$(printBMagenta '==
 			#-------------------#
 		esac
 		}
-	#---------------------------------------------------------------#
-
 #-----------------------------------------------------------------------------------------#
-
 mainmenu
