@@ -16,7 +16,6 @@ echo " $(printCyanBlink '                 =====================')"
 #-----------------------------Основное меню-----------------------------------------#
 mainmenu() { 
 	echo
-	echo
 	echo "$(printBCyan '		-->') $(printBYellow    ' 1)') ZkSync $(printBTYellow '****')"
 	echo
 	echo "$(printBCyan '		<--') $(printBYellow    ' 2)') $(printBBlue 'Назад')"
