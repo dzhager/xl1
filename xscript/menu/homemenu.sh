@@ -24,7 +24,7 @@ echo " $(printCyanBlink '                 =====================')"
 		echo "$(printBCyan '              -->') $(printBYellow    '4)') Показать IP сервера"
 		echo "$(printBCyan '              -->') $(printBYellow    '5)') Системный монитор"
 		echo
-		echo "$(printBCyan '              -->') $(printBYellow    '5)') Прокси"
+		echo "$(printBCyan '              -->') $(printBYellow    '6)') Прокси"
 		echo "$(printBRed        '                  0)  Выход')"
 		echo
 		echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
@@ -57,6 +57,10 @@ echo " $(printCyanBlink '                 =====================')"
 			#-------------------#
 				5)
 				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/sm.sh)
+				;;
+			#-------------------#	
+				6)
+				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/proxy.sh)
 				;;
 			#-------------------#	
 				0)
