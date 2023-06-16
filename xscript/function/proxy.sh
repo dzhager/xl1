@@ -7,22 +7,21 @@
 #-----------------------------------------------------------------------------------------#
 #-----------------------------Шапка скрипта-----------------------------------------#
 echo " $(printCyanBlink '                 =====================')"
-echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBGreen 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================')"
+echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBYellow '     Прокси      ')$(printCyanBlink ' = ')$(printRed  '================')"
 echo " $(printCyanBlink '                 =====================')"
 #-----------------------------------------------------------------------------------#
+
 #-------------------------------------Основное меню---------------------------------------#
-
-
     mainmenu() {
         echo
-        echo "$(printBCyan '            -->') $(printBYellow '1)') $(printBGreen    'Настроить прокси')"
+        echo "$(printBCyan '            -->') $(printBYellow '1)') $(printBGreen    'Настроить')"
         echo
         echo "$(printBCyan '            -->') $(printBYellow '2)') Просмотреть адрес прокси"
         echo "$(printBCyan '            -->') $(printBYellow '3)') Просмотреть статус"
         echo
         echo "$(printBCyan '            -->') $(printBYellow '4)') Помощь"
         echo
-        echo "$(printBCyan '            -->') $(printBRed     '5) Удалить прокси')"
+        echo "$(printBCyan '            -->') $(printBRed     '5) Удалить')"
         echo 
         echo "$(printBBlue '            <-- 7) Назад')"
         echo
@@ -42,7 +41,6 @@ echo " $(printCyanBlink '                 =====================')"
 			;;
         #---------------------------------------#    
 			3)
-
 			status
 			;;
         #---------------------------------------#
@@ -55,7 +53,7 @@ echo " $(printCyanBlink '                 =====================')"
 			;;
 		#---------------------------------------#	
 			7)
-			back
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)
 			;;
 		#---------------------------------------#
 			0)
@@ -74,6 +72,8 @@ echo " $(printCyanBlink '                 =====================')"
 		#---------------------------------------#
 			esac
 }
+
+
 
 adress(){
     IP=$(curl ifconfig.co)
