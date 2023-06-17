@@ -103,14 +103,13 @@ status(){
 }
 
 passwd(){
-
-echo "$(printBGreen ' Введите имя пользователя для подключения к прокси')"
-echo -ne "$(printBGreen ' Ввод:') $(printYellowBlink '-->') "
-read -r USERNAME
-sudo useradd -r -s /bin/false $USERNAME
-echo "$(printBGreen ' Введите пароль для подключения к прокси')"
-sudo passwd $USERNAME
-sudo systemctl restart danted
+	echo "$(printBGreen ' Введите имя пользователя для подключения к прокси')"
+	echo -ne "$(printBGreen ' Ввод:') $(printYellowBlink '-->') "
+	read -r USERNAME
+	sudo useradd -r -s /bin/false $USERNAME
+	echo "$(printBGreen ' Введите пароль для подключения к прокси')"
+	sudo passwd $USERNAME
+	sudo systemctl restart danted
 
 }
 
