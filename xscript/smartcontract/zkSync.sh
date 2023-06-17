@@ -16,7 +16,6 @@
 		echo "$(printBCyan '            -->') $(printBRed     '4) Удалить')"
 		echo 
 		echo "$(printBBlue '            <-- 5) Назад')"
-    echo
 		echo "$(printBRed        '                0) Выход')" 
 	#-------------------------Свойства меню-------------------------#
 		read -r ans
