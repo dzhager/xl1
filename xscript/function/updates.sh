@@ -32,7 +32,7 @@ echo " $(printBMagenta '=|    Дата    |=====================================
 			case $ans in
 			#----------Назад---------#
 				1)
-				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
+				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)
 				;;
 			#----------Выход---------#
 				0)
