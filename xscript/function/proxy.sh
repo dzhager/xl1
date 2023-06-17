@@ -62,7 +62,7 @@ echo " $(printBCyan '                 =====================')"
 			;;
 		#---------------------------------------#	
 			*)
-			clear && printLogo && echo
+			clear && printlogo && echo
             echo "$(printBYellow ' ============================================================')"
 			echo    "$(printBRed '		           Неверный запрос !')"
             echo "$(printBYellow ' ============================================================')"
@@ -77,7 +77,7 @@ echo " $(printBCyan '                 =====================')"
 
 adress(){
     IP=$(curl ifconfig.co)
-    clear && printLogo
+    clear && printlogo
     echo
     echo "$(printBYellow ' ============================================================')"
 	echo " $(printBYellow              "                   $IP":1080)"
@@ -166,7 +166,7 @@ mainmenu
 }
 
 help(){
-clear && printLogo
+clear && printlogo
     echo "$(printBYellow ' =============================================================')"
     echo "  Dante - прокси-сервер SOCKS5 с открытым исходным кодом."
     echo "  SOCKS - менее распространенный протокол, но он более эффект"
