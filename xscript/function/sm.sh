@@ -10,10 +10,8 @@
     then
         echo "$(printBYellow    '     Подождите, идет первоначальная установка!')"
         sudo apt-get update
-        sudo apt-get install 
-        snapd -y 
-        snap install btop 
-        btop
+        sudo apt-get install snapd -y 
+        snap install btop && btop
     else
         btop
     fi
