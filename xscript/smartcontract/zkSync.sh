@@ -17,6 +17,8 @@
 		echo 
 		echo "$(printBBlue '            <-- 5) Назад')"
 		echo "$(printBRed        '                0) Выход')" 
+    echo
+ 		echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
 	#-------------------------Свойства меню-------------------------#
 		read -r ans
 			case $ans in
@@ -47,11 +49,10 @@
 			;;
 		#---------------------------------------#	
 			*)
-			clear && printlogo && printzcsync
-			echo
-			echo
-			echo    -ne "$(printBRed '		   Неверный запрос !')"
-			echo
+			clear && printlogo
+			echo " $(printCyanBlink '                 =====================')"
+			echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBRed 'Неверный запрос! ')$(printCyanBlink ' = ')$(printRed  '================')"
+			echo " $(printCyanBlink '                 =====================')"
 			mainmenu
 			;;
 		#---------------------------------------#
