@@ -137,7 +137,7 @@ deploy(){
 }
 
 back(){
- 
+  source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menusmart.sh)
 }
 
 delet(){
