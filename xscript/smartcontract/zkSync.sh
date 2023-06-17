@@ -59,13 +59,11 @@
 			esac
 }
 
-
 updateSmart(){
-	clear && printlogo && printZcsync
-	echo
+	clear && printlogo && printZcsync && echo
 	rm -rf \$HOME/greeter-example/artifacts-zk && rm -rf \$HOME/greeter-example/cache-zk
 	cd $HOME/greeter-example/greeter/deploy/ && rm deploy.ts
-read -r -p "  Введите закрытый ключ Metamask: " VAR1
+  read -r -p "  Введите закрытый ключ Metamask: " VAR1
 
 cat << EOF  > $HOME/greeter-example/greeter/deploy/deploy.ts
 import { Wallet, utils } from "zksync-web3";
@@ -143,8 +141,7 @@ back(){
 }
 
 delet(){
-	clear && printlogo && printZcsync
-		echo
+	clear && printlogo && printZcsync && echo
 		rm -rf $HOME/greeter-example
 		echo
 		echo -ne "		$(printBRed	'	  zcSync удален!')"

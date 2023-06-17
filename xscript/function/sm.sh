@@ -3,7 +3,7 @@
 #Script written by DZHAGERR for X-libra
 
 #-----------------------------Подгрузка общих функций и цвета-----------------------------#
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printLogo
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo
 #-----------------------------------------------------------------------------------------#
 
     if [ $(dpkg-query -W -f='${Status}' snapd 2>/dev/null | grep -c "ok installed") -eq 0 ];
