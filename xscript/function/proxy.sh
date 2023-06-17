@@ -97,7 +97,7 @@ delet(){
 
 
 status(){
-    clear && printLogo && echo
+    clear && printlogo && echo
 	echo "$(printBYellow 'Для возврата, нажмите Q')"
 	echo
 	systemctl status danted.service
