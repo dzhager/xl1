@@ -1,9 +1,10 @@
 #!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printcelestia
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printCelestia
+#-----------------------------------------------------------------------------------------#
 echo
 mainmenu() {
 	echo -ne "
