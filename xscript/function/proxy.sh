@@ -158,7 +158,7 @@ read -r USERNAME
 sudo useradd -r -s /bin/false $USERNAME
 echo "$(printBGreen ' Введите пароль для подключения к прокси')"
 sudo passwd $USERNAME
-
+sudo systemctl enable danted.service
 sudo systemctl restart danted.service
 echo
 echo "$(printBGreen 'Прокси запущен!')"
