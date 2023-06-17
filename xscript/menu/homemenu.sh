@@ -21,7 +21,7 @@
 		echo
 		echo "$(printBCyan '              -->') $(printBYellow   '3)') Новости"
 		echo
-		echo "$(printBCyan '              -->') $(printBYellow    '4)') Показать IP сервера"
+		echo 	"$(printBCyan '              -->') $(printBYellow    '4)') Показать IP сервера"
 		echo "$(printBCyan '              -->') $(printBYellow    '5)') Системный монитор"
 		echo
 		echo "$(printBCyan '              -->') $(printBYellow    '6)') Прокси"
@@ -47,7 +47,7 @@
 			#---------Показать IP сервера----------#
 				4)
 				IP=$(curl ifconfig.co)
-				clear && printLogo
+				clear && printlogo
 				echo " $(printCyanBlink '                 =====================')"
 				echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================')"
 				echo " $(printCyanBlink '                 =====================')"

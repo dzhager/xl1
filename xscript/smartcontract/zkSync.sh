@@ -39,7 +39,7 @@
 			;;
 		#---------------------------------------#	
 			5)
-			back
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menusmart.sh)
 			;;
 		#---------------------------------------#
 			0)
@@ -137,7 +137,7 @@ deploy(){
 }
 
 back(){
- source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menusmart.sh)
+ 
 }
 
 delet(){
@@ -267,7 +267,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
     address: contractAddress,
     contract: contractFullyQualifedName,
     constructorArguments: [greeting],
-    bytecode: artifact.bytecode,
+    bytecode: artifact.bytecode,v
   });
   console.log(`${contractFullyQualifedName} verified! VerificationId: ${verificationId}`)
 }
