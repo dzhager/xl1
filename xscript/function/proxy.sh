@@ -73,8 +73,6 @@ echo " $(printBCyan '                 =====================')"
 			esac
 }
 
-
-
 adress(){
     IP=$(curl ifconfig.co)
     clear && printlogo
