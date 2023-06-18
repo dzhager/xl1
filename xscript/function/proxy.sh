@@ -22,8 +22,7 @@ echo " $(printBCyan '                 =====================')"
         echo "$(printBCyan '            -->') $(printBYellow '4)') Помощь"
         echo
         echo "$(printBCyan '            -->') $(printBRed     '5) Удалить')"
-        echo 
-        echo "$(printBBlue '            <-- 7) Назад')"
+        echo "$(printBBlue '            <-- 6) Назад')"
         echo
         echo "$(printBRed        '                0) Выход')"
         echo
@@ -52,7 +51,7 @@ echo " $(printBCyan '                 =====================')"
 			delet
 			;;
 		#---------------------------------------#	
-			7)
+			6)
 			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)
 			;;
 		#---------------------------------------#
