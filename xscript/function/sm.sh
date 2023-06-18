@@ -11,7 +11,7 @@
 # Проверка наличия установленного пакета btop через snap
 if ! snap list | grep -q btop; then
     echo "Установка пакета btop..."
-    sudo apt install snapd
+    sudo apt install snapd -y
     sudo snap install btop
     echo "Пакет btop установлен."
 fi
