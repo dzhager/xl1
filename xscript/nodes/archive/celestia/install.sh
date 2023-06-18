@@ -32,7 +32,7 @@ mainmenu() {
 		*)
 		clear
 		printLogo
-		printcelestia
+		printCelestia
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -49,7 +49,7 @@ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nod
 yes(){
 clear
 printLogo
-printcelestia
+printCelestia
 echo
 echo
 read -r -p "Enter node moniker:" MONIKER
@@ -210,7 +210,7 @@ $(printGreen    'Установка завершена.')
 		*)
 		clear
 		printLogo
-		printcelestia
+		printCelestia
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
