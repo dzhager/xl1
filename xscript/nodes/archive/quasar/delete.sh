@@ -1,9 +1,10 @@
-#! /bin/bash
+#!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printquasar
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printQuasar
+#-----------------------------------------------------------------------------------------#
 
 mainmenu() {
     echo -ne "
@@ -26,7 +27,7 @@ mainmenu() {
 		*)
 		clear
 		printLogo
-		printquasar
+		printQuasar
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -37,13 +38,13 @@ mainmenu() {
 }
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/quasar/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/quasar/main.sh)
 }
 
 yes(){
 clear
 printLogo
-printquasar
+printQuasar
 echo -ne "	
 
 $(printBYellow 'Удаляем.....!')"
@@ -65,7 +66,7 @@ submenu(){
 	read -r ans
 	case $ans in
 		*)
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/quasar/main.sh)
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/quasar/main.sh)
 		;;
 	esac
 }

@@ -1,9 +1,10 @@
-#! /bin/bash
+#!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printquasar
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printQuasar
+#-----------------------------------------------------------------------------------------#
 mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBCyan    '1) Управление')
@@ -38,7 +39,7 @@ read -r ans
 		*)
 		clear
 		printLogo
-		printquasar
+		printQuasar
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -49,23 +50,23 @@ read -r ans
 }
 
 install(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/quasar/install.sh)
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/quasar/install.sh)
 }
 
 control(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/quasar/control.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/quasar/control.sh)
 }
 
 update(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/quasar/update.sh)
+ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/quasar/update.sh)
 }
 
 delet(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/quasar/delete.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/quasar/delete.sh)
 }
 
 back(){
-./x-l1bra
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
 }
 
 mainmenu

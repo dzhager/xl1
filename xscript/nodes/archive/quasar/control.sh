@@ -1,9 +1,11 @@
 #!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printquasar
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printQuasar
+#-----------------------------------------------------------------------------------------#
+
 echo
 mainmenu() {
 	echo -ne "
@@ -96,7 +98,7 @@ mainmenu() {
 		*)
 		clear
 		printLogo
-		printquasar
+		printQuasar
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -107,21 +109,21 @@ mainmenu() {
 }
 
 WalletBalance(){
-clear && printLogo && printquasar
+clear && printLogo && printQuasar
 echo
 quasard q bank balances $(quasard keys show wallet -a)
 mainmenu
 }
 
 ShowWallet(){
-clear && printLogo && printquasar
+clear && printLogo && printQuasar
 echo
 quasard keys list
 mainmenu
 }
 
 AddWallet(){
-clear && printLogo && printquasar
+clear && printLogo && printQuasar
 echo
 quasard keys add wallet
 echo
@@ -141,14 +143,14 @@ mainmenu
 }
 
 RecoveryWallet(){
-clear && printLogo && printquasar
+clear && printLogo && printQuasar
 echo
 quasard keys add wallet --recover
 mainmenu
 }
 
 DelegateXl1bra(){
-	clear && printLogo && printquasar
+	clear && printLogo && printQuasar
 	echo
 	echo -ne "$(printBRed ' 1uqs = 1000000uqsr')"
 	echo
@@ -159,7 +161,7 @@ DelegateXl1bra(){
 }
 
 Delegate(){
-clear && printLogo && printquasar
+clear && printLogo && printQuasar
 echo
 read -r -p " Введите валопер адрес:  " VAR1
 echo -ne "$(printBRed ' 1uqs = 1000000uqsr')"
@@ -171,7 +173,7 @@ mainmenu
 }
 
 DelegateYourself(){
-clear && printLogo && printquasar
+clear && printLogo && printQuasar
 echo
 echo -ne "$(printBRed ' 1uqs = 1000000uqsr')"
 echo
@@ -183,7 +185,7 @@ mainmenu
 
 
 CreateValidator(){
-clear && printLogo && printquasar
+clear && printLogo && printQuasar
 echo
 read -r -p "  Введите имя валидатора:  " VAR1
 quasard tx staking create-validator --amount=1000000uqsr --pubkey=$(quasard tendermint show-validator) --moniker="$VAR1" --chain-id=qsr-questnet-04 --commission-rate=0.05 --commission-max-rate=0.20 --commission-max-change-rate=0.01 --min-self-delegation=1 --from=wallet --gas-adjustment=1.4 --gas=auto --gas-prices=0uqsr 
@@ -195,21 +197,21 @@ mainmenu
 }
 
 InfoValidator(){
-clear && printLogo && printquasar
+clear && printLogo && printQuasar
 quasard q staking validator $(quasard keys show wallet --bech val -a)
 mainmenu
 }
 
 
 snapshot(){
-	clear && printLogo && printquasar
+	clear && printLogo && printQuasar
 	echo
 	subsubmenu
 }
 
 
 synced(){
-clear && printLogo && printquasar
+clear && printLogo && printQuasar
 quasard status 2>&1 | jq .SyncInfo
 mainmenu
 }
@@ -219,7 +221,7 @@ submenu
 }
 
 back(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/quasar/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/quasar/main.sh)
 }
 
 submenu(){
@@ -256,7 +258,7 @@ subsubmenu() {
 		*)
 		clear
 		printLogo
-		printquasar
+		printQuasar
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -268,12 +270,13 @@ subsubmenu() {
 
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/quasar/control.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/quasar/control.sh)
 }
+
 yes(){
 clear
 printLogo
-printquasar
+printQuasar
 echo
 echo
 sudo systemctl stop quasard
