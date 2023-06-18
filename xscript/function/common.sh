@@ -166,7 +166,7 @@
 	#---------------------------Celestia-----------------------------#
 		function printCelestia {
 			echo "$(printCyan '                  =====================')"
-			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBMagenta ' Celestia')$(printCyan '       = ')$(printRed  '================')"
+			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBMagenta ' Celestia')$(printCyan '     = ')$(printRed  '================')"
 			echo "$(printCyan '                  =====================')"
 		}
 	#--------------------------------------------------------------#	
