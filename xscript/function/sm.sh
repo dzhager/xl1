@@ -15,6 +15,7 @@ mainmenu() {
 	$(printCyan	'Введите цифру:') "
 	read -r ans
 	case $ans in
+    
 		2)
 		echo -ne "
 		$(printBCyan ' -->') $(printBYellow    'Установка.....') "
@@ -23,9 +24,11 @@ mainmenu() {
 		snap install btop > /dev/null 2>&1
 		btop
 		;;
+
 		*)
 		btop
         ;;
+
     esac
 }
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)
