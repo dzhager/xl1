@@ -100,7 +100,7 @@ mainmenu() {
 		*)
 		clear
 		printLogo
-		printcelestia
+		printCelestia
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -111,28 +111,28 @@ mainmenu() {
 }
 #--1
 WalletBalance(){
-clear && printLogo && printcelestia
+clear && printLogo && printCelestia
 echo
 celestia-appd q bank balances $(celestia-appd keys show wallet -a)
 mainmenu
 }
 
 OrchestratorWallet(){
-clear && printLogo && printcelestia
+clear && printLogo && printCelestia
 echo
 celestia-appd q bank balances $(celestia-appd keys show orchestrator -a)
 mainmenu
 }
 
 ShowWallet(){
-clear && printLogo && printcelestia
+clear && printLogo && printCelestia
 echo
 celestia-appd keys list
 mainmenu
 }
 
 AddWallet(){
-clear && printLogo && printcelestia
+clear && printLogo && printCelestia
 echo
 celestia-appd keys add wallet
 echo
@@ -143,7 +143,7 @@ mainmenu
 }
 
 AddWalletOrchestrator(){
-clear && printLogo && printcelestia
+clear && printLogo && printCelestia
 echo
 celestia-appd keys add orchestrator
 echo
@@ -156,7 +156,7 @@ mainmenu
 
 
 Send(){
-clear && printLogo && printcelestia
+clear && printLogo && printCelestia
 echo
 read -r -p "  Введите адрес кошелька:  " VAR1
 echo -ne "(printBRed ' 1tia = 1000000utia')"
@@ -166,21 +166,21 @@ mainmenu
 }
 
 RecoveryOrchestrator(){
-clear && printLogo && printcelestia
+clear && printLogo && printCelestia
 echo
 celestia-appd keys add orchestrator --recover
 mainmenu
 }
 
 RecoveryWallet(){
-clear && printLogo && printcelestia
+clear && printLogo && printCelestia
 echo
 celestia-appd keys add wallet --recover
 mainmenu
 }
 
 Delegate(){
-clear && printLogo && printcelestia
+clear && printLogo && printCelestia
 echo
 read -r -p " Введите валопер адрес:  " VAR1
 echo -ne "$(printBRed ' 1tia = 1000000utia')"
@@ -192,7 +192,7 @@ mainmenu
 }
 
 DelegateYourself(){
-clear && printLogo && printcelestia
+clear && printLogo && printCelestia
 echo
 echo -ne "$(printBRed ' 1tia = 1000000utia')"
 echo
@@ -204,7 +204,7 @@ mainmenu
 
 
 CreateValidator(){
-clear && printLogo && printcelestia
+clear && printLogo && printCelestia
 echo
 read -r -p "  Введите имя валидатора:  " VAR1
 read -r -p "  Введите Orchestrator адрес:  " VAR3
@@ -219,13 +219,13 @@ mainmenu
 }
 
 InfoValidator(){
-clear && printLogo && printcelestia
+clear && printLogo && printCelestia
 celestia-appd q staking validator $(celestia-appd keys show wallet --bech val -a)
 mainmenu
 }
 
 synced(){
-clear && printLogo && printcelestia
+clear && printLogo && printCelestia
 celestia-appd status 2>&1 | jq .SyncInfo
 mainmenu
 }

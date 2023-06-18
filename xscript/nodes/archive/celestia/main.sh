@@ -3,9 +3,9 @@
 #Script written by DZHAGERR for X-libra
 
 #-----------------------------Подгрузка общих функций и цвета-----------------------------#
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printcelestia
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printCelestia
 #-----------------------------------------------------------------------------------------#
-printcelestia
+printCelestia
 mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBCyan    '1) Управление')
@@ -44,7 +44,7 @@ read -r ans
 		*)
 		clear
 		printLogo
-		printcelestia
+		printCelestia
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
