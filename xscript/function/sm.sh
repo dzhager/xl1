@@ -6,16 +6,7 @@
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo
 #-----------------------------------------------------------------------------------------#
 
-    # if [ $(dpkg-query -W -f='${Status}' snapd 2>/dev/null | grep -c "ok installed") -eq 0 ];
-    # then
-    #     echo "$(printBYellow    '     Подождите, идет первоначальная установка!')"
-    #     sudo apt update  > /dev/null 2>&1 && sudo apt install snapd -y && snap install btop 
-	# 	btop
-    # else
-    #     btop
-    # fi
-
-
+#-----------------------------Основное меню-----------------------------------------#
 mainmenu() {
 	echo -ne "
 	$(printYellow    'Для того что бы выйти из системного монитора нажмите') $(printBRed 'q') $(printYellow '!!!')
@@ -42,3 +33,12 @@ mainmenu() {
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)
 
 mainmenu
+
+    # if [ $(dpkg-query -W -f='${Status}' snapd 2>/dev/null | grep -c "ok installed") -eq 0 ];
+    # then
+    #     echo "$(printBYellow    '     Подождите, идет первоначальная установка!')"
+    #     sudo apt update  > /dev/null 2>&1 && sudo apt install snapd -y && snap install btop 
+	# 	btop
+    # else
+    #     btop
+    # fi
