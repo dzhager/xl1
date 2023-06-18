@@ -121,6 +121,7 @@ echo "$(printYellowBlink 'Настройка!...')"
 sudo apt update > /dev/null 2>&1
 sudo apt install dante-server > /dev/null 2>&1
 sudo rm /etc/danted.conf
+interface=$(ip -o -4 route show to default | awk '{print $5}')
 cat << EOF  > /etc/danted.conf
 logoutput: syslog
 user.privileged: root
@@ -130,7 +131,7 @@ user.unprivileged: nobody
 internal: 0.0.0.0 port=1080
 
 # The proxying network interface or address.
-external: eth0
+external: "$interface"
 
 # socks-rules determine what is proxied through the external interface.
 socksmethod: username
