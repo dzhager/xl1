@@ -5,7 +5,6 @@
 #-----------------------------Подгрузка общих функций и цвета-----------------------------#
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printCelestia
 #-----------------------------------------------------------------------------------------#
-printCelestia
 mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBCyan    '1) Управление')
