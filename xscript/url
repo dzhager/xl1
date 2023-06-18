@@ -1,0 +1,29 @@
+
+#-----------------------Function-----------------------#
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/proxy.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/sm.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/updates.sh)
+#------------------------------------------------------#
+
+
+#-----------------------Menu---------------------------#
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menusmart.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/archivenodes.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/archivesmart.sh)
+#------------------------------------------------------#
+
+#-----------------------NODES--------------------------#
+#------------------------------------------------------#
+
+
+#-----------------------NODES ARCHIVE------------------#
+    #-----------------------Celestia--------------------------#
+        source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/celestia/main.sh)
+        source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/celestia/control.sh)
+        source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/celestia/install.sh)
+        source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/celestia/update.sh)
+        source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/celestia/delet.sh)
+    #---------------------------------------------------------#

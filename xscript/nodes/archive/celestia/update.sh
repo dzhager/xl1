@@ -1,5 +1,10 @@
 #! /bin/bash
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/main.sh)
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printCelestia
+#-----------------------------------------------------------------------------------------#
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/celestia/main.sh)
+
 # printLogo
 # printnibiru
 # echo

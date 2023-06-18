@@ -28,7 +28,7 @@
 	read -r ans
 		case $ans in
 			1)
-			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/main.sh)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/celestia/main.sh)
 			;;
 
 			2)

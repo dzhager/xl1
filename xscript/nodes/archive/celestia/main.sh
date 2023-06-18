@@ -55,23 +55,23 @@ read -r ans
 }
 
 install(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/install.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/celestia/install.sh)
 }
 
 control(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/control.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/celestia/control.sh)
 }
 
 update(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/update.sh)
+        source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/celestia/update.sh)
 }
 
 delet(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/celestia/delet.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/celestia/delet.sh)
 }
 
 back(){
-./x-l1bra
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/archivenodes.sh)
 }
 
 mainmenu
