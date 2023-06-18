@@ -15,7 +15,7 @@ mainmenu() {
 	$(printCyan	'Введите цифру:') "
 	read -r ans
 	case $ans in
-    
+
 		2)
 		echo -ne "
 		$(printBCyan ' -->') $(printBYellow    'Установка.....') "
@@ -31,9 +31,10 @@ mainmenu() {
 
     esac
 }
+mainmenu
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)
 
-mainmenu
+
 
     # if [ $(dpkg-query -W -f='${Status}' snapd 2>/dev/null | grep -c "ok installed") -eq 0 ];
     # then
