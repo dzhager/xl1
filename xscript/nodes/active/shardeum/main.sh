@@ -54,7 +54,7 @@ read -r ans
 		;;
 		*)
 		clear
-		printLogo
+		printlogo
 		printshardium
 		echo
 		echo
@@ -66,19 +66,19 @@ read -r ans
 }
 
 install(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/install.sh)
+ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/install.sh)
 }
 
 control(){
-	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/control.sh)
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/control.sh)
 }
 
 delet(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/delet.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/delet.sh)
 }
 
 back(){
-./x-l1bra
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
 }
 
 updatecli(){
@@ -89,7 +89,7 @@ updatecli(){
 
 #--------------ОБНОВЛЕНИЕ 1.1.6
 update(){
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh)
 	printLogo
 	printshardium
 	cd $HOME

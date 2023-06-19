@@ -6,7 +6,6 @@
     source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/updates.sh)
 #------------------------------------------------------#
 
-
 #-----------------------Menu---------------------------#
     source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)
     source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
@@ -15,7 +14,7 @@
     source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/archivesmart.sh)
 #------------------------------------------------------#
 
-#-----------------------NODES--------------------------#
+#-----------------------NODES-----------------------------------------------------------------------------#
     #---------------------Nuburu-----------------------------#
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/main.sh)
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/control.sh)
@@ -25,9 +24,17 @@
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/delet.sh)
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/smart.sh)
     #---------------------------------------------------------#    
-#------------------------------------------------------#
 
-#-----------------------NODES ARCHIVE------------------#
+    #---------------------Shardeum-----------------------------#
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/main.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/control.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/install.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/delet.sh)
+    #---------------------------------------------------------# 
+
+#---------------------------------------------------------------------------------------------------------#
+
+#-----------------------NODES ARCHIVE---------------------------------------------------------------------#
     #-----------------------Celestia--------------------------#
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/celestia/main.sh)
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/celestia/control.sh)
@@ -51,7 +58,7 @@
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/sui/control.sh)
     #---------------------------------------------------------#
 
-    #---------------------Defund-----------------------------#
+    #---------------------Defund------------------------------#
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/main.sh)
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/control.sh)
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/install.sh)
@@ -59,3 +66,4 @@
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/delet.sh)
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/update.sh)
     #---------------------------------------------------------#
+#---------------------------------------------------------------------------------------------------------#

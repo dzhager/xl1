@@ -86,7 +86,7 @@ mainmenu() {
 		*)
 		clear
 		printlogo
-		printnibiru
+		printshardium
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -188,7 +188,7 @@ clistart(){
 }
 
 back(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/main.sh)
 }
 
 mainmenu
