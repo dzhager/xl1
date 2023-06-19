@@ -37,11 +37,11 @@ echo " $(printBCyan '                 =====================')"
 			;;
 		#-------------------#
 			2)
-			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/main.sh)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/main.sh)
 			;;
 		#-------------------#
 			3)
-			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/shardeum/main.sh)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/main.sh)
 			;;
 		#-------------------#
 			4)

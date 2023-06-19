@@ -198,7 +198,7 @@
 	#---------------------------DEFUND-----------------------------#
 			function printdefund {
 			echo "$(printCyan '                  =====================')"
-			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBYellow ' DEFUND  ')$(printCyan '     = ')$(printRed  '================')"
+			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBYellow 'DEFUND   ')$(printCyan '     = ')$(printRed  '================')"
 			echo "$(printCyan '                  =====================')"
 		}
 	#--------------------------------------------------------------#	
