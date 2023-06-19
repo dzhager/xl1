@@ -35,3 +35,10 @@
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/quasar/delete.sh)
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/quasar/update.sh)
         #---------------------------------------------------------#
+
+    #-----------------------SUI-------------------------------#
+        source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/sui/main.sh)
+        source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/sui/install.sh)        
+        source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/sui/delet.sh)
+        source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/sui/control.sh)
+    #---------------------------------------------------------#

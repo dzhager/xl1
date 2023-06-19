@@ -1,9 +1,10 @@
-#! /bin/bash
+#!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printsui
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printSui
+#-----------------------------------------------------------------------------------------#
 
 
 
@@ -40,8 +41,8 @@ read -r ans
 		;;
 		*)
 		clear
-		printLogo
-		printsui
+		printlogo
+		printSui
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -52,20 +53,20 @@ read -r ans
 }
 
 install(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/sui/install.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/sui/install.sh) 
 }
 
 control(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/sui/control.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/sui/control.sh)
 }
 
 
 delet(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/delet.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/sui/delet.sh)
 }
 
 back(){
-./x-l1bra
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/archivenodes.sh)
 }
 
 mainmenu

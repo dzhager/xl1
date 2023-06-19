@@ -1,9 +1,11 @@
-#! /bin/bash
+#!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printsui
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printSui
+#-----------------------------------------------------------------------------------------#
+
 echo -ne "
 	$(printGreen  '-----------------------------------------')
 	$(printYellow 'Рекомендуемые требования к оборудованию.')
@@ -26,8 +28,8 @@ mainmenu() {
 		;;
 		*)
 		clear
-		printLogo
-		printsui
+		printlogo
+		printSui
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -38,13 +40,13 @@ mainmenu() {
 }
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/sui/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/sui/main.sh)
 }
 
 yes(){
 clear
-printLogo
-printsui
+printlogo
+printSui
 echo
 echo
 
@@ -188,12 +190,12 @@ $(printGreen    'Установка завершена.')
 		subsubmenu
 		;;
 		2) 
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/sui/main.sh)
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/sui/main.sh)
 		;;
 		*)
 		clear
-		printLogo
-		printsui
+		printlogo
+		printSui
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
