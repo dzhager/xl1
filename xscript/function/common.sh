@@ -125,7 +125,7 @@
 	#-------------------------Coming soon--------------------------#
 		function printComing {
 			echo "$(printCyan '                  =====================')"
-			echo "$(printRed  ' ================')$(printCyan ' =')$(printBYellow 'Coming soon') $(printYellowBlink '!!!')$(printCyan '    = ')$(printRed  '================')"
+			echo "$(printRed  ' ================')$(printCyan ' =')$(printBYellow '  Coming soon') $(printYellowBlink '!!!')$(printCyan '  = ')$(printRed  '================')"
 			echo "$(printCyan '                  =====================')"
 		}
 	#--------------------------------------------------------------#
