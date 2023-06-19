@@ -190,7 +190,15 @@
 		#---------------------------Nibiru-----------------------------#
 			function printnibiru {
 			echo "$(printCyan '                  =====================')"
-			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBBlue '  NIBITU  ')$(printCyan '     = ')$(printRed  '================')"
+			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBBlue ' NIBITU  ')$(printCyan '     = ')$(printRed  '================')"
+			echo "$(printCyan '                  =====================')"
+		}
+	#----------------------------------------------------------------#
+
+		#---------------------------DEFUND-----------------------------#
+			function printdefund {
+			echo "$(printCyan '                  =====================')"
+			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBYellow ' DEFUND  ')$(printCyan '     = ')$(printRed  '================')"
 			echo "$(printCyan '                  =====================')"
 		}
 	#----------------------------------------------------------------#	
