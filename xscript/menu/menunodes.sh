@@ -53,7 +53,7 @@ echo " $(printBCyan '                 =====================')"
 			;;
 		#-------------------#
 			6)
-			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/main.sh)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/elixir/main.sh)
 			;;
 		#-------------------#
 			7)
