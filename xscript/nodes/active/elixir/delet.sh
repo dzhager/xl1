@@ -1,9 +1,11 @@
-#! /bin/bash
+#!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printelixir
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printelixir
+#-----------------------------------------------------------------------------------------#
+
 
 mainmenu() {
     echo -ne "
@@ -25,7 +27,7 @@ mainmenu() {
 
 		*)
 		clear
-		printLogo
+		printlogo
 		printelixir
 		echo
 		echo
@@ -37,12 +39,12 @@ mainmenu() {
 }
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/elixir/main.sh)
 }
 
 yes(){
 clear
-printLogo
+printlogo
 printelixir
 echo -ne "	
 
@@ -61,7 +63,7 @@ submenu(){
 	read -r ans
 	case $ans in
 		*)
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/main.sh)
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/elixir/main.sh)
 		;;
 	esac
 }

@@ -1,8 +1,11 @@
 #!/bin/bash
-###############          ШАПКА
-    clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh) && printLogo && printelixir
 
-###############         СИСТЕМНЫК ТРЕБОВОНИЯ
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printelixir
+#-----------------------------------------------------------------------------------------#
+
     echo -ne "
 	$(printGreen  '-----------------------------------------')
 	  $(printYellow 'Минимальные требования к оборудованию.')
@@ -25,7 +28,7 @@
 		        no
 		        ;;
 		        *)
-		        clear && printLogo && printshardium
+		        clear && printlogo && printshardium
 		        echo && echo 
 		        echo    -ne "$(printRed '		   Неверный запрос !')"
 		        echo
@@ -35,11 +38,11 @@
     }
 ###############     ВОЗВРАТ В МЕНЮ
     no(){
-    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/main.sh)
+    source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/elixir/main.sh)
     }
 ###############     ПРОЦЕС УСТАНОВКИ
     yes(){
-    clear && printLogo && printelixir && echo
+    clear && printlogo && printelixir && echo
 
     printBCyan "Пожалуйста подождите........" && sleep 1
     printYellow "1. Обновление менеджеров пакетов........" && sleep 1
@@ -90,7 +93,7 @@ echo -ne "
 	read -r ans
 	case $ans in
 	    *)
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/main.sh)
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/elixir/main.sh)
 		;;
 	esac
 }

@@ -1,9 +1,11 @@
-#! /bin/bash
+#!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printelixir
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printelixir
+#-----------------------------------------------------------------------------------------#
+
 mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBGreen    '1) Установить')
@@ -36,7 +38,7 @@ read -r ans
 		;;
 		*)
 		clear
-		printLogo
+		printlogo
 		printelixir
 		echo
 		echo
@@ -48,23 +50,23 @@ read -r ans
 }
 
 install(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/install.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/elixir/install.sh)
 }
 
 # control(){
-# source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/control.sh)
+# source <(curl -s )
 # }
 
 update(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/update.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/elixir/update.sh)
 }
 
 delet(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/elixir/delet.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/elixir/delet.sh)
 }
 
 back(){
-./x-l1bra
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
 }
 
 mainmenu
