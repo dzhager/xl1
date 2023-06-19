@@ -46,7 +46,7 @@
 				;;
 			#---------Показать IP сервера----------#
 				4)
-				ip_address=$(curl -s https://api.ipify.org)
+				ip_address=$(curl -s https://ifconfig.me)
 				clear && printlogo
 				echo " $(printCyanBlink '                 =====================')"
 				echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================')"
