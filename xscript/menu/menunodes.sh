@@ -33,7 +33,7 @@ echo " $(printBCyan '                 =====================')"
 				case $ans in
 		#-------------------#
 			1)
-			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/main.sh)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/main.sh)
 			;;
 		#-------------------#
 			2)
