@@ -50,3 +50,11 @@
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/delet.sh)
         source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/smart.sh)
     #---------------------------------------------------------#    
+
+    #---------------------Defund-----------------------------#
+    source <(curl -s )
+    source <(curl -s )
+    source <(curl -s )
+    source <(curl -s )
+    source <(curl -s )
+    #---------------------------------------------------------#
