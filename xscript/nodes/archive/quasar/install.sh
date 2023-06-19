@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 
 #Script written by DZHAGERR for X-libra
 

@@ -1,9 +1,10 @@
 #!/bin/bash
 
-#X-l1bra
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printnibiru
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printnibiru
+#-----------------------------------------------------------------------------------------#
 echo -ne "
 	$(printGreen  '-----------------------------------------')
 	  $(printYellow 'Минимальные требования к оборудованию.')
@@ -26,7 +27,7 @@ mainmenu() {
 		;;
 		*)
 		clear
-		printLogo
+		printlogo
 		printnibiru
 		echo
 		echo
@@ -39,11 +40,11 @@ mainmenu() {
 
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/main.sh)
 }
 yes(){
 clear
-printLogo
+printlogo
 printnibiru
 echo
 echo
@@ -205,10 +206,10 @@ echo -ne "
 		submenu
 		;;
 		3)
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/main.sh)
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/main.sh)
 		;;
 		*)
-		printLogo
+		printlogo
 		printnibiru
 		echo
 		echo $(printBRed '	Неверный запрос !!!')

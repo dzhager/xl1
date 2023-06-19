@@ -1,7 +1,10 @@
-#! /bin/bash
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printnibiru
+#!/bin/bash
+
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printnibiru
+#-----------------------------------------------------------------------------------------#
 echo
 var3=v0.19.2
 var4=`nibid version | cut -d ' ' -f 3`
@@ -34,7 +37,7 @@ mainmenu(){
 		read -r ans
 		case $ans in
 			*)
-			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/main.sh)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/main.sh)
 			;;
 	esac
 }
@@ -46,7 +49,7 @@ submenu(){
 		read -r ans
 		case $ans in
 			*)
-			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/main.sh)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/main.sh)
 			;;
 	esac
 }

@@ -1,9 +1,10 @@
 #!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printnibiru
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printnibiru
+#-----------------------------------------------------------------------------------------#
 echo
 mainmenu() {
 	echo -ne "
@@ -115,7 +116,7 @@ mainmenu() {
 		
 		*)
 		clear
-		printLogo
+		printlogo
 		printnibiru
 		echo
 		echo
@@ -128,7 +129,7 @@ mainmenu() {
 
 
 voit(){
-	clear && printLogo && printnibiru
+	clear && printlogo && printnibiru
 echo
 
 nibid tx gov vote 8 yes --from wallet --chain-id nibiru-itn-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.025unibi -y
@@ -136,14 +137,14 @@ mainmenu
 }
 
 ValidatorСorrect(){
-	clear && printLogo && printnibiru
+	clear && printlogo && printnibiru
 	echo
 	[[ $(nibid q staking validator $(nibid keys show wallet --bech val -a) -oj | jq -r .consensus_pubkey.key) = $(nibid status | jq -r .ValidatorInfo.PubKey.value) ]] && echo -e "\n\e[1m\e[32mTrue\e[0m\n" || echo -e "\n\e[1m\e[31mFalse\e[0m\n"
 	mainmenu
 }
 
 jail(){
-	clear && printLogo && printnibiru
+	clear && printlogo && printnibiru
 	echo
 	nibid tx slashing unjail --from wallet --chain-id nibiru-itn-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.025unibi -y
 	mainmenu
@@ -151,25 +152,25 @@ jail(){
 
 
 backup(){
-	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/backup.sh)
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/backup.sh)
 }
 
 WalletBalance(){
-clear && printLogo && printnibiru
+clear && printlogo && printnibiru
 echo
 nibid q bank balances $(nibid keys show wallet -a)
 mainmenu
 }
 
 ShowWallet(){
-clear && printLogo && printnibiru
+clear && printlogo && printnibiru
 echo
 nibid keys list
 mainmenu
 }
 
 AddWallet(){
-clear && printLogo && printnibiru
+clear && printlogo && printnibiru
 nibid keys add wallet
 echo
 echo -ne "$(printCyanBlink '       ============================================')
@@ -180,7 +181,7 @@ mainmenu
 
 
 rpc(){
-	clear && printLogo && printnibiru
+	clear && printlogo && printnibiru
 	nibid config node http://212.23.222.91:39657 && systemctl restart nibid.service
 	echo
 	echo -ne "
@@ -199,14 +200,14 @@ mainmenu
 }
 
 RecoveryWallet(){
-clear && printLogo && printnibiru
+clear && printlogo && printnibiru
 echo
 nibid keys add wallet --recover
 mainmenu
 }
 
 DelegateXl1bra(){
-	clear && printLogo && printnibiru
+	clear && printlogo && printnibiru
 	echo
 	echo -ne "$(printBRed ' 1nibi = 1000000unibi')"
 	echo
@@ -217,7 +218,7 @@ DelegateXl1bra(){
 }
 
 Delegate(){
-clear && printLogo && printnibiru
+clear && printlogo && printnibiru
 echo
 read -r -p " Введите валопер адрес:  " VAR1
 echo -ne "$(printBRed ' 1nibi = 1000000unibi')"
@@ -229,7 +230,7 @@ mainmenu
 }
 
 DelegateYourself(){
-clear && printLogo && printnibiru
+clear && printlogo && printnibiru
 echo
 echo -ne "$(printBRed ' 1nibi = 1000000unibi')"
 echo
@@ -241,7 +242,7 @@ mainmenu
 
 
 CreateValidator(){
-clear && printLogo && printnibiru
+clear && printlogo && printnibiru
 echo
 read -r -p "  Введите имя валидатора:  " VAR1
 nibid tx staking create-validator --amount 1000000unibi --pubkey $(nibid tendermint show-validator) --moniker="$VAR1" --chain-id nibiru-itn-1 --commission-rate "0.05" --commission-max-rate "0.20" --commission-max-change-rate "0.01" --min-self-delegation "1" --from wallet --gas-adjustment "1.4" --gas auto --gas-prices 0.025unibi
@@ -254,21 +255,21 @@ mainmenu
 }
 
 InfoValidator(){
-clear && printLogo && printnibiru
+clear && printlogo && printnibiru
 nibid q staking validator $(nibid keys show wallet --bech val -a)
 mainmenu
 }
 
 
 snapshot(){
-	clear && printLogo && printnibiru
+	clear && printlogo && printnibiru
 	echo
 	subsubmenu
 }
 
 
 synced(){
-clear && printLogo && printnibiru
+clear && printlogo && printnibiru
 nibid status 2>&1 | jq .SyncInfo
 mainmenu
 }
@@ -278,7 +279,7 @@ submenu
 }
 
 back(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/main.sh)
 }
 
 submenu(){
@@ -314,7 +315,7 @@ subsubmenu() {
 		;;
 		*)
 		clear
-		printLogo
+		printlogo
 		printnibiru
 		echo
 		echo
@@ -327,11 +328,11 @@ subsubmenu() {
 
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/control.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/control.sh)
 }
 yes(){
 clear
-printLogo
+printlogo
 printnibiru
 echo
 echo

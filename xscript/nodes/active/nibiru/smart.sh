@@ -1,11 +1,10 @@
 #!/bin/bash
 
-#! /bin/bash
+#Script written by DZHAGERR for X-libra
 
-#X-l1bra  
-clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printnibiru
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printnibiru
+#-----------------------------------------------------------------------------------------#
 
 
 git clone https://github.com/NibiruChain/cw-nibiru

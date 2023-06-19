@@ -1,9 +1,11 @@
 #!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printnibiru
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printnibiru
+#-----------------------------------------------------------------------------------------#
+
 echo
 
 mainmenu(){
@@ -38,7 +40,7 @@ read -r ans
 		
 		*)
 		clear
-		printLogo
+		printlogo
 		printnibiru
 		echo
 		echo
@@ -53,7 +55,7 @@ backup(){
 	mkdir $HOME/backups_nibiru
 	cp $HOME/.nibid/data/priv_validator_state.json $HOME/backups_nibiru/priv_validator_state.json.backup
 	cp $HOME/.nibid/config/priv_validator_key.json $HOME/backups_nibiru/priv_validator_key.json.backup
-	clear && printLogo && printnibiru
+	clear && printlogo && printnibiru
 	echo -ne "
 		Валидатор сохранен!
 		Резервная копия находится в папке backups_defund "
@@ -66,7 +68,7 @@ again(){
 	cp $HOME/backups_nibiru/priv_validator_state.json.backup $HOME/.nibid/data/priv_validator_state.json
 	cp $HOME/backups_nibiru/priv_validator_key.json.backup $HOME/.nibid/config/priv_validator_key.json
 	systemctl start nibid.service
-	clear && printLogo && printnibiru
+	clear && printlogo && printnibiru
 	echo -ne "
 		Валидатор востановлен! 
 	"
@@ -75,7 +77,7 @@ again(){
 }
 
 back(){
-	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/nibiru/control.sh)
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/nibiru/control.sh)
 }
 
 

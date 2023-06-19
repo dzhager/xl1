@@ -188,7 +188,7 @@
 	#----------------------------------------------------------------#
 
 		#---------------------------Nibiru-----------------------------#
-			function printSui {
+			function printnibiru {
 			echo "$(printCyan '                  =====================')"
 			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBBlue '  NIBITU  ')$(printCyan '     = ')$(printRed  '================')"
 			echo "$(printCyan '                  =====================')"
