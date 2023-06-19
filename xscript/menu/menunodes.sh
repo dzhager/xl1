@@ -16,7 +16,6 @@ echo " $(printBCyan '                 =====================')"
 	mainmenu() { 
 		echo
 		echo "$(printBCyan '		-->') $(printBYellow    ' 1)') Nibiru $(printBTYellow '****')"
-		echo "$(printBCyan '		-->') $(printBYellow    ' 2)') DeFund $(printBTYellow '***')"
 		echo "$(printBCyan '		-->') $(printBYellow    ' 3)') Shardeum $(printBTYellow '*****')"
 		echo "$(printBCyan '		-->') $(printBYellow    ' 4)') Starknet $(printBTYellow '****')"
 		echo "$(printBCyan '		-->') $(printBYellow    ' 5)') 5ireChain $(printBTYellow '*****')"
