@@ -49,7 +49,7 @@ echo " $(printBCyan '                 =====================')"
 			;;
 		#-------------------#
 			5)
-			clear && printLogo && printComing && mainmenu
+			clear && printlogo && printComing && mainmenu
 			;;
 		#-------------------#
 			6)
