@@ -126,7 +126,7 @@ EOF
 }
 
 deploy(){
-	clear && printlogo && printZcsync
+	clear && printlogo && printZksync
 	echo
 	echo 
 	cd $HOME/greeter-example/greeter/deploy/
@@ -141,7 +141,7 @@ back(){
 }
 
 delet(){
-	clear && printlogo && printZcsync && echo
+	clear && printlogo && printZksync && echo
 		rm -rf $HOME/greeter-example
 		echo
 		echo -ne "		$(printBRed	'	  zcSync удален!')"
