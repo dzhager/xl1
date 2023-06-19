@@ -16,14 +16,13 @@ echo " $(printBCyan '                 =====================')"
         echo
         echo "$(printBCyan '            -->') $(printBYellow '1)') $(printBGreen    'Настроить')"
         echo
-        echo "$(printBCyan '            -->') $(printBYellow '2)') Просмотреть адрес прокси"
-        echo "$(printBCyan '            -->') $(printBYellow '3)') Просмотреть статус"
+        echo "$(printBCyan '            -->') $(printBYellow '2)') Просмотреть статус"
         echo
-        echo "$(printBCyan '            -->') $(printBYellow '4)') Помощь"
+        echo "$(printBCyan '            -->') $(printBYellow '3)') Помощь"
         echo
-        echo "$(printBCyan '            -->') $(printBRed     '5) Удалить')"
-        echo "$(printBBlue '            <-- 6) Назад')"
-        echo
+        echo "$(printBCyan '            -->') $(printBRed     '4) Удалить')"
+		echo
+        echo "$(printBBlue '            <-- 5) Назад')"
         echo "$(printBRed        '                0) Выход')"
         echo
         echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
@@ -35,23 +34,19 @@ echo " $(printBCyan '                 =====================')"
 			install
 			;;
 		#---------------------------------------#
-            2)
-			adress
-			;;
-        #---------------------------------------#    
-			3)
+			2)
 			status
 			;;
         #---------------------------------------#
-            4)
+            3)
 			help
 			;;
 		#---------------------------------------#
-			5)
+			4)
 			delet
 			;;
 		#---------------------------------------#	
-			6)
+			5)
 			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)
 			;;
 		#---------------------------------------#
@@ -72,15 +67,6 @@ echo " $(printBCyan '                 =====================')"
 			esac
 }
 
-adress(){
-    IP=$(curl ifconfig.co)
-    clear && printlogo
-    echo
-    echo "$(printBYellow ' ============================================================')"
-	echo " $(printBYellow              "                   $IP":1080)"
-    echo "$(printBYellow ' ============================================================')"
-	mainmenu
-}
 
 delet(){
 	systemctl stop danted.service
