@@ -66,7 +66,7 @@ delet(){
 }
 
 back(){
-	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/archivenodes.sh)
 }
 
 mainmenu

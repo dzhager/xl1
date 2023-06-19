@@ -174,7 +174,7 @@
 	#---------------------------Quasar-----------------------------#
 			function printQuasar {
 			echo "$(printCyan '                  =====================')"
-			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBRed ' Quasar ')$(printCyan '     = ')$(printRed  '================')"
+			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBRed '  Quasar ')$(printCyan '     = ')$(printRed  '================')"
 			echo "$(printCyan '                  =====================')"
 		}
 	#----------------------------------------------------------------#
@@ -182,7 +182,7 @@
 		#---------------------------Quasar-----------------------------#
 			function printSui {
 			echo "$(printCyan '                  =====================')"
-			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBGreen ' SUI ')$(printCyan '     = ')$(printRed  '================')"
+			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBGreen '   SUI   ')$(printCyan '     = ')$(printRed  '================')"
 			echo "$(printCyan '                  =====================')"
 		}
 	#----------------------------------------------------------------#
