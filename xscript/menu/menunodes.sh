@@ -45,7 +45,7 @@ echo " $(printBCyan '                 =====================')"
 			;;
 		#-------------------#
 			4)
-			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/starknet/main.sh)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/starknet/main.sh)
 			;;
 		#-------------------#
 			5)

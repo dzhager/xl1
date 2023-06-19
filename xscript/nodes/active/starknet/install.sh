@@ -1,9 +1,10 @@
 #!/bin/bash
 
-#X-l1bra
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printstarknet
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printstarknet
+#-----------------------------------------------------------------------------------------#
 #СИСТЕМНЫЕ ТРЕБОВАНИЯ
 echo -ne "
 	$(printGreen  '-----------------------------------------')
@@ -31,7 +32,7 @@ mainmenu() {
 		;;
 		*)
 		clear
-		printLogo
+		printlogo
 		printstarknet
 		echo
 		echo
@@ -44,11 +45,11 @@ mainmenu() {
 
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/starknet/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/starknet/main.sh)
 }
 yes(){
 clear
-printLogo
+printlogo
 printstarknet
 echo
 
@@ -159,11 +160,11 @@ echo -ne "
 		;;
 
 		2)
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/starknet/main.sh)
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/starknet/main.sh)
 		;;
 		
 		*)
-		printLogo
+		printlogo
 		printstarknet
 		echo
 		echo $(printBRed '	Неверный запрос !!!')

@@ -1,9 +1,10 @@
-#! /bin/bash
+#!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printstarknet
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printstarknet
+#-----------------------------------------------------------------------------------------#
 mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBMagenta    '1) Просмотр логов')
@@ -49,7 +50,7 @@ read -r ans
 
 		*)
 		clear
-		printLogo
+		printlogo
 		printstarknet
 		echo
 		echo
@@ -66,7 +67,7 @@ logs(){
 }
 
 install(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/starknet/install.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/starknet/install.sh)
 }
 
 update(){
@@ -91,11 +92,11 @@ mainmenu
 }
 
 delet(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/starknet/delet.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/starknet/delet.sh)
 }
 
 back(){
-./x-l1bra
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
 }
 
 mainmenu
