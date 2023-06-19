@@ -166,7 +166,7 @@
 	#---------------------------Celestia-----------------------------#
 		function printCelestia {
 			echo "$(printCyan '                  =====================')"
-			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBMagenta ' Celestia')$(printCyan '     = ')$(printRed  '================')"
+			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBMagenta ' CELESTIA')$(printCyan '     = ')$(printRed  '================')"
 			echo "$(printCyan '                  =====================')"
 		}
 	#--------------------------------------------------------------#	
@@ -174,15 +174,23 @@
 	#---------------------------Quasar-----------------------------#
 			function printQuasar {
 			echo "$(printCyan '                  =====================')"
-			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBRed '  Quasar ')$(printCyan '     = ')$(printRed  '================')"
+			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBRed '  QUASAQ ')$(printCyan '     = ')$(printRed  '================')"
 			echo "$(printCyan '                  =====================')"
 		}
 	#----------------------------------------------------------------#
 
-		#---------------------------Quasar-----------------------------#
+		#---------------------------SUI-----------------------------#
 			function printSui {
 			echo "$(printCyan '                  =====================')"
 			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBGreen '   SUI   ')$(printCyan '     = ')$(printRed  '================')"
 			echo "$(printCyan '                  =====================')"
 		}
 	#----------------------------------------------------------------#
+
+		#---------------------------Nibiru-----------------------------#
+			function printSui {
+			echo "$(printCyan '                  =====================')"
+			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBBlue '  NIBITU  ')$(printCyan '     = ')$(printRed  '================')"
+			echo "$(printCyan '                  =====================')"
+		}
+	#----------------------------------------------------------------#	
