@@ -16,14 +16,14 @@ echo " $(printBCyan '                 =====================')"
 	mainmenu() { 
 		echo
 		echo "$(printBCyan '		-->') $(printBYellow    ' 1)') Nibiru $(printBTYellow '****')"
-		echo "$(printBCyan '		-->') $(printBYellow    ' 3)') Shardeum $(printBTYellow '*****')"
-		echo "$(printBCyan '		-->') $(printBYellow    ' 4)') Starknet $(printBTYellow '****')"
-		echo "$(printBCyan '		-->') $(printBYellow    ' 5)') 5ireChain $(printBTYellow '*****')"
-		echo "$(printBCyan '		-->') $(printBYellow    ' 6)') Elixir $(printBTYellow '****')"
+		echo "$(printBCyan '		-->') $(printBYellow    ' 2)') Shardeum $(printBTYellow '*****')"
+		echo "$(printBCyan '		-->') $(printBYellow    ' 3)') Starknet $(printBTYellow '****')"
+		echo "$(printBCyan '		-->') $(printBYellow    ' 4)') 5ireChain $(printBTYellow '*****')"
+		echo "$(printBCyan '		-->') $(printBYellow    ' 5)') Elixir $(printBTYellow '****')"
 		echo
-		echo "$(printBCyan '		-->') $(printBYellow    ' 7)') $(printBYellow 'Архив')"
+		echo "$(printBCyan '		-->') $(printBYellow    ' 6)') $(printBYellow 'Архив')"
 		echo
-		echo "$(printBCyan '		<--') $(printBBlue    ' 8)') $(printBYellow 'Назад')"
+		echo "$(printBCyan '		<--') $(printBBlue    ' 7)') $(printBYellow 'Назад')"
 		echo "$(printBRed        '                     0) Выход')"
 		echo
 		echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
@@ -36,30 +36,26 @@ echo " $(printBCyan '                 =====================')"
 			;;
 		#-------------------#
 			2)
-			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/main.sh)
-			;;
-		#-------------------#
-			3)
 			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/main.sh)
 			;;
 		#-------------------#
-			4)
+			3)
 			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/starknet/main.sh)
 			;;
 		#-------------------#
-			5)
+			4)
 			clear && printlogo && printComing && mainmenu
 			;;
 		#-------------------#
-			6)
+			5)
 			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/elixir/main.sh)
 			;;
 		#-------------------#
-			7)
+			6)
 			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/archivenodes.sh)
 			;;
 		#-------------------#
-			8)
+			7)
 			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)
 			;;
 		#-------------------#

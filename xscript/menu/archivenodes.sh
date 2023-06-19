@@ -18,8 +18,9 @@
         echo "$(printBCyan '                --> ') $(printBYellow    '1)') Celestia $(printBTYellow '****')"
         echo "$(printBCyan '                --> ') $(printBYellow    '2)') Quasar $(printBTYellow '****')"
         echo "$(printBCyan '                --> ') $(printBYellow    '3)') SUI $(printBTYellow '*****')"
+				echo "$(printBCyan '		-->') $(printBYellow    ' 4)') DeFund $(printBTYellow '***')"
         echo
-	    echo "$(printBCyan '                <--') $(printBYellow    ' 4)') $(printBBlue 'Назад')"
+	    echo "$(printBCyan '                <--') $(printBYellow    ' 5)') $(printBBlue 'Назад')"
 		echo "$(printBRed        '                     0) Выход')"
 		echo
     	echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
@@ -40,6 +41,10 @@
 			;;
 
 			4)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/main.sh)
+			;;
+
+			5)
 			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
 			;;
 
