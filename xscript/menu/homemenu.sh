@@ -46,13 +46,13 @@
 				;;
 			#---------Показать IP сервера----------#
 				4)
-				IP=$(curl ifconfig.co)
+				ip_address=$(curl -s https://api.ipify.org)
 				clear && printlogo
 				echo " $(printCyanBlink '                 =====================')"
 				echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBMagenta 'Добро пожаловать!')$(printCyanBlink ' = ')$(printRed  '================')"
 				echo " $(printCyanBlink '                 =====================')"
 				echo
-				echo " $(printBYellow              "                     $IP")"
+				echo " $(printBYellow              "                     $ip_address")"
 				mainmenu
 				;;
 			#--------Системный монитор-----------#
