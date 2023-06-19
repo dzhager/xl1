@@ -1,9 +1,11 @@
 #!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printdefund
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printdefund
+#-----------------------------------------------------------------------------------------#
+
 echo
 
 mainmenu(){
@@ -38,7 +40,7 @@ read -r ans
 		
 		*)
 		clear
-		printLogo
+		printlogo
 		printdefund
 		echo
 		echo
@@ -53,7 +55,7 @@ backup(){
 	mkdir $HOME/backups_defund
 	cp $HOME/.defund/data/priv_validator_state.json $HOME/backups_defund/priv_validator_state.json.backup
 	cp $HOME/.defund/config/priv_validator_key.json $HOME/backups_defund/priv_validator_key.json.backup
-	clear && printLogo && printdefund
+	clear && printlogo && printdefund
 	echo -ne "
 		Валидатор сохранен!
 		Резервная копия находится в папке backups_defund "
@@ -66,7 +68,7 @@ again(){
 	cp $HOME/backups_defund/priv_validator_state.json.backup $HOME/.defund/data/priv_validator_state.json
 	cp $HOME/backups_defund/priv_validator_key.json.backup $HOME/.defund/config/priv_validator_key.json
 	systemctl start defundd.service
-	clear && printLogo && printdefund
+	clear && printlogo && printdefund
 	echo -ne "
 		Валидатор востановлен! 
 	"
@@ -75,7 +77,7 @@ again(){
 }
 
 back(){
-	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/control.sh)
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/control.sh)
 }
 
 

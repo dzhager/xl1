@@ -1,9 +1,11 @@
 #!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printdefund
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printdefund
+#-----------------------------------------------------------------------------------------#
+
 echo
 mainmenu() {
 	echo -ne "
@@ -99,7 +101,7 @@ mainmenu() {
 		
 		*)
 		clear
-		printLogo
+		printlogo
 		printdefund
 		echo
 		echo
@@ -111,21 +113,21 @@ mainmenu() {
 }
 
 WalletBalance(){
-clear && printLogo && printdefund
+clear && printlogo && printdefund
 echo
 defundd q bank balances $(defundd keys show wallet -a)
 mainmenu
 }
 
 ShowWallet(){
-clear && printLogo && printdefund
+clear && printlogo && printdefund
 echo
 defundd keys list
 mainmenu
 }
 
 AddWallet(){
-clear && printLogo && printdefund
+clear && printlogo && printdefund
 defundd keys add wallet
 echo
 echo -ne "$(printCyanBlink '       ============================================')
@@ -144,14 +146,14 @@ mainmenu
 }
 
 RecoveryWallet(){
-clear && printLogo && printdefund
+clear && printlogo && printdefund
 echo
 defundd keys add wallet --recover
 mainmenu
 }
 
 Delegate(){
-clear && printLogo && printdefund
+clear && printlogo && printdefund
 echo
 read -r -p " Введите валопер адрес:  " VAR1
 echo -ne "$(printBRed ' 1fetf = 1000000ufetf')"
@@ -163,7 +165,7 @@ mainmenu
 }
 
 DelegateYourself(){
-clear && printLogo && printdefund
+clear && printlogo && printdefund
 echo
 echo -ne "$(printBRed ' 1fetf = 1000000ufetf')"
 echo
@@ -175,7 +177,7 @@ mainmenu
 
 
 CreateValidator(){
-clear && printLogo && printdefund
+clear && printlogo && printdefund
 echo
 read -r -p "  Введите имя валидатора:  " VAR1
 defundd tx staking create-validator --amount 1000000ufetf --pubkey $(defundd tendermint show-validator) --moniker="$VAR1" --chain-id orbit-alpha-1 --commission-rate 0.05 --commission-max-rate 0.20 --commission-max-change-rate 0.01 --min-self-delegation 1 --from wallet --gas-adjustment 1.4 --gas auto --gas-prices 0ufetf -y 
@@ -188,7 +190,7 @@ mainmenu
 }
 
 StatusValidator(){
-	clear && printLogo && printdefund
+	clear && printlogo && printdefund
 	echo
 	echo
 	defundd status 2>&1 | jq .ValidatorInfo
@@ -197,25 +199,25 @@ StatusValidator(){
 }
 
 InfoValidator(){
-clear && printLogo && printdefund
+clear && printlogo && printdefund
 echo
 defundd q staking validator $(defundd keys show wallet --bech val -a)
 mainmenu
 }
 
 backup(){
-	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/backup.sh)
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/backup.sh)
 }
 
 snapshot(){
-	clear && printLogo && printdefund
+	clear && printlogo && printdefund
 	echo
 	subsubmenu
 }
 
 
 synced(){
-clear && printLogo && printdefund
+clear && printlogo && printdefund
 defundd status 2>&1 | jq .SyncInfo
 mainmenu
 }
@@ -225,7 +227,7 @@ submenu
 }
 
 back(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/main.sh)
 }
 
 submenu(){
@@ -261,7 +263,7 @@ subsubmenu() {
 		;;
 		*)
 		clear
-		printLogo
+		printlogo
 		printdefund
 		echo
 		echo
@@ -274,11 +276,11 @@ subsubmenu() {
 
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/control.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/control.sh)
 }
 yes(){
 clear
-printLogo
+printlogo
 printdefund
 echo
 echo

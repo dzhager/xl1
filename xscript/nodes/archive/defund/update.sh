@@ -1,7 +1,10 @@
-#! /bin/bash
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printdefund
+#!/bin/bash
+
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printdefund
+#-----------------------------------------------------------------------------------------#
 echo
 var3=0.2.5
 var4=`defundd version | cut -d ' ' -f 3`
@@ -56,7 +59,7 @@ mainmenu(){
 		read -r ans
 		case $ans in
 			*)
-			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/main.sh)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/main.sh)
 			;;
 	esac
 }

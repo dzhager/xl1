@@ -1,9 +1,10 @@
-#! /bin/bash
+#!/bin/bash
 
-#X-l1bra  
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/function/common.sh)
-printLogo
-printdefund
+#Script written by DZHAGERR for X-libra
+
+#-----------------------------Подгрузка общих функций и цвета-----------------------------#
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printdefund
+#-----------------------------------------------------------------------------------------#
 
 mainmenu() {
     echo -ne "
@@ -28,7 +29,7 @@ mainmenu() {
 
 		*)
 		clear
-		printLogo
+		printlogo
 		printdefund
 		echo
 		echo
@@ -40,12 +41,12 @@ mainmenu() {
 }
 
 no(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/main.sh)
+source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/main.sh)
 }
 
 yes(){
 clear
-printLogo
+printlogo
 printdefund
 echo -ne "	
 
@@ -69,7 +70,7 @@ submenu(){
 	read -r ans
 	case $ans in
 		*)
-		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/node/defund/main.sh)
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/archive/defund/main.sh)
 		;;
 	esac
 }
