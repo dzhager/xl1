@@ -65,7 +65,9 @@ updateSmart(){
 	cd $HOME/greeter-example/greeter/deploy/ && rm deploy.ts
   read -r -p "  Введите закрытый ключ Metamask: " VAR1
 
-cat << EOF  > $HOME/greeter-example/greeter/deploy/deploy.ts
+FILE_PATH="$HOME/greeter-example/greeter/deploy/deploy.ts"
+
+cat << EOF > "$FILE_PATH"
 import { Wallet, utils } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
@@ -73,7 +75,7 @@ import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
 
 // An example of a deploy script that will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
-  console.log(`Running deploy script for the Greeter contract`);
+  console.log(\`Running deploy script for the Greeter contract\`);
 
   // Initialize the wallet.
   const wallet = new Wallet("$VAR1");
@@ -96,21 +98,21 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   // Wait until the deposit is processed on zkSync
   await depositHandle.wait();
 
-  // Deploy this contract. The returned object will be of a `Contract` type, similarly to ones in `ethers`.
-  // `greeting` is an argument for contract constructor.
+  // Deploy this contract. The returned object will be of a \`Contract\` type, similarly to ones in \`ethers\`.
+  // \`greeting\` is an argument for contract constructor.
   const parsedFee = ethers.utils.formatEther(deploymentFee.toString());
-  console.log(`The deployment is estimated to cost ${parsedFee} ETH`);
+  console.log(\`The deployment is estimated to cost \${parsedFee} ETH\`);
 
   const greeterContract = await deployer.deploy(artifact, [greeting]);
 
-  //obtain the Constructor Arguments
+  // Obtain the Constructor Arguments
   console.log("constructor args:" + greeterContract.interface.encodeDeploy([greeting]));
 
   // Show the contract info.
   const contractAddress = greeterContract.address;
-  console.log(`${artifact.contractName} was deployed to ${contractAddress}`);
+  console.log(\`\${artifact.contractName} was deployed to \${contractAddress}\`);
 
-  // Verify contract programmatically 
+  // Verify contract programmatically
   //
   // Contract MUST be fully qualified name (e.g. path/sourceName:contractName)
   const contractFullyQualifedName = "contracts/Greeter.sol:Greeter";
@@ -120,7 +122,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
     constructorArguments: [greeting],
     bytecode: artifact.bytecode,
   });
-  console.log(`${contractFullyQualifedName} verified! VerificationId: ${verificationId}`)
+  console.log(\`\${contractFullyQualifedName} verified! VerificationId: \${verificationId}\`);
 }
 EOF
 }
@@ -211,10 +213,12 @@ contract Greeter {
 EOF
 
 npx hardhat compile
+FILE_PATH="$HOME/greeter-example/greeter/deploy/deploy.ts"
 
 read -r -p "  Введите закрытый ключ Metamask: " VAR1
 
-cat << EOF  > $HOME/greeter-example/greeter/deploy/deploy.ts
+cat << EOF > "$FILE_PATH"
+
 import { Wallet, utils } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
@@ -222,7 +226,7 @@ import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
 
 // An example of a deploy script that will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
-  console.log(`Running deploy script for the Greeter contract`);
+  console.log(\`Running deploy script for the Greeter contract\`);
 
   // Initialize the wallet.
   const wallet = new Wallet("$VAR1");
@@ -245,21 +249,21 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   // Wait until the deposit is processed on zkSync
   await depositHandle.wait();
 
-  // Deploy this contract. The returned object will be of a `Contract` type, similarly to ones in `ethers`.
-  // `greeting` is an argument for contract constructor.
+  // Deploy this contract. The returned object will be of a \`Contract\` type, similarly to ones in \`ethers\`.
+  // \`greeting\` is an argument for contract constructor.
   const parsedFee = ethers.utils.formatEther(deploymentFee.toString());
-  console.log(`The deployment is estimated to cost ${parsedFee} ETH`);
+  console.log(\`The deployment is estimated to cost \${parsedFee} ETH\`);
 
   const greeterContract = await deployer.deploy(artifact, [greeting]);
 
-  //obtain the Constructor Arguments
+  // Obtain the Constructor Arguments
   console.log("constructor args:" + greeterContract.interface.encodeDeploy([greeting]));
 
   // Show the contract info.
   const contractAddress = greeterContract.address;
-  console.log(`${artifact.contractName} was deployed to ${contractAddress}`);
+  console.log(\`\${artifact.contractName} was deployed to \${contractAddress}\`);
 
-  // Verify contract programmatically 
+  // Verify contract programmatically
   //
   // Contract MUST be fully qualified name (e.g. path/sourceName:contractName)
   const contractFullyQualifedName = "contracts/Greeter.sol:Greeter";
@@ -267,11 +271,10 @@ export default async function (hre: HardhatRuntimeEnvironment) {
     address: contractAddress,
     contract: contractFullyQualifedName,
     constructorArguments: [greeting],
-    bytecode: artifact.bytecode,v
+    bytecode: artifact.bytecode,
   });
-  console.log(`${contractFullyQualifedName} verified! VerificationId: ${verificationId}`)
+  console.log(\`\${contractFullyQualifedName} verified! VerificationId: \${verificationId}\`);
 }
-
 EOF
 
 cd $HOME
