@@ -150,7 +150,7 @@ delet(){
 }
 
 createSmart(){
-		echo && cd $HOME && sudo apt update && sudo apt upgrade -y && sudo apt install curl nodejs cmdtest nano -y
+		echo && cd $HOME && sudo apt update && sudo apt upgrade -y && sudo apt install curl nodejs npm cmdtest nano -y
 		curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 		mkdir $HOME/greeter-example && cd greeter-example
 		npm init --y && npm install --save-dev hardhat && npm install -g npm@9.6.0 && npx hardhat
