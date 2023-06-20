@@ -14,16 +14,16 @@ echo " $(printBCyan '                 =====================')"
 #-------------------------------------Основное меню---------------------------------------#
     mainmenu() {
         echo
-        echo "$(printBCyan '            -->') $(printBYellow '1)') $(printBGreen    'Настроить')"
+        echo "$(printBCyan '            -->') $(printBYellow ' 1)') $(printBGreen    ' Настроить')"
         echo
-        echo "$(printBCyan '            -->') $(printBYellow '2)') Просмотреть статус"
+        echo "$(printBCyan '            -->') $(printBYellow ' 2)')  Просмотреть статус"
         echo
-        echo "$(printBCyan '            -->') $(printBYellow '3)') Помощь"
+        echo "$(printBCyan '            -->') $(printBYellow ' 3)')  Помощь"
         echo
-        echo "$(printBCyan '            -->') $(printBRed     '4) Удалить')"
+        echo "$(printBCyan '            -->') $(printBRed     ' 4)  Удалить')"
 		echo
-        echo "$(printBBlue '            <-- 5) Назад')"
-        echo "$(printBRed        '                0) Выход')"
+        echo "$(printBBlue '            <--  5)  Назад')"
+        echo "$(printBRed        '                 0)  Выход')"
         echo
         echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
 	#-------------------------Свойства меню-------------------------#
