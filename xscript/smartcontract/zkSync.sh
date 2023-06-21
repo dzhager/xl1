@@ -152,13 +152,17 @@ delet(){
 }
 
 createSmart(){
-		echo && cd $HOME && sudo apt update && sudo apt upgrade -y && sudo apt install curl nodejs npm cmdtest nano -y
-		curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-		mkdir $HOME/greeter-example && cd greeter-example
-		npm init --y && npm install --save-dev hardhat && npm install -g npm@9.6.0 && npx hardhat
-		mkdir $HOME/greeter-example/greeter && cd $HOME/greeter-example/greeter
-		npm add -D typescript ts-node ethers@^5.7.2 zksync-web3 hardhat @matterlabs/hardhat-zksync-solc @matterlabs/hardhat-zksync-deploy @matterlabs/hardhat-zksync-verify @nomiclabs/hardhat-etherscan
-
+echo && cd $HOME sudo apt update && sudo apt upgrade -y
+sudo apt install -y curl nano
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt install -y nodejs
+mkdir $HOME/greeter-example && cd greeter-example
+sudo apt install cmdtest
+npm init --y && npm install --save-dev hardhat && npm install -g npm@9.6.0
+npx hardhat
+mkdir $HOME/greeter-example/greeter && cd $HOME/greeter-example/greeter
+npm init -y
+npm add -D typescript ts-node ethers@^5.7.2 zksync-web3 hardhat @matterlabs/hardhat-zksync-solc @matterlabs/hardhat-zksync-deploy @matterlabs/hardhat-zksync-verify @nomiclabs/hardhat-etherscan
 
 cat << EOF  > $HOME/greeter-example/greeter/hardhat.config.ts
 import "@matterlabs/hardhat-zksync-deploy";
@@ -208,16 +212,13 @@ contract Greeter {
         greeting = _greeting;
     }
 }
-
 EOF
 
 npx hardhat compile
+
 FILE_PATH="$HOME/greeter-example/greeter/deploy/deploy.ts"
-
 read -r -p "  Введите закрытый ключ Metamask: " VAR1
-
 cat << EOF > "$FILE_PATH"
-
 import { Wallet, utils } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
@@ -285,20 +286,131 @@ $(printBCyan	'		Далее необходимо сделать деплой ко
 "
 
 mainmenu
-}
 
+}
 mainmenu
 
 
 
-curl -sLf -o /dev/null 'https://deb.nodesource.com/node_18.x/dists/focal/Release
-curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg >/dev/null
-sudo apt-get install -y nodejs
-sudo apt-get install gcc g++ make
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
-echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt-get install yarn
-mkdir greeter-example
-cd greeter-example
-yarn init -y
-yarn add -D typescript ts-node ethers@^5.7.2 zksync-web3 hardhat @matterlabs/hardhat-zksync-solc @matterlabs/hardhat-zksync-deploy @matterlabs/hardhat-zksync-verify @nomiclabs/hardhat-etherscan
+
+
+
+
+
+
+
+
+
+
+
+
+
+hardhat.config.ts
+import "@matterlabs/hardhat-zksync-deploy";
+import "@matterlabs/hardhat-zksync-solc";
+import "@matterlabs/hardhat-zksync-verify";
+
+module.exports = {
+  zksolc: {
+    version: "1.3.10",
+    compilerSource: "binary",
+    settings: {},
+  },
+  defaultNetwork: "zkSyncTestnet",
+
+  networks: {
+    zkSyncTestnet: {
+      url: "https://testnet.era.zksync.dev",
+      ethNetwork: "goerli", // RPC URL of the network (e.g. `https://goerli.infura.io/v3/<API_KEY>`)
+      zksync: true,
+      verifyURL: 'https://zksync2-testnet-explorer.zksync.dev/contract_verification'  // Verification endpoint
+    },
+  },
+  solidity: {
+    version: "0.8.8",
+  },
+};
+
+
+mkdir contracts deploy
+
+contracts/Greeter.sol  
+//SPDX-License-Identifier: Unlicense
+pragma solidity ^0.8.8;
+
+contract Greeter {
+    string private greeting;
+
+    constructor(string memory _greeting) {
+        greeting = _greeting;
+    }
+
+    function greet() public view returns (string memory) {
+        return greeting;
+    }
+
+    function setGreeting(string memory _greeting) public {
+        greeting = _greeting;
+    }
+}
+
+
+deploy/deploy.ts
+import { Wallet, utils } from "zksync-web3";
+import * as ethers from "ethers";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
+import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
+
+// An example of a deploy script that will deploy and call a simple contract.
+export default async function (hre: HardhatRuntimeEnvironment) {
+  console.log(`Running deploy script for the Greeter contract`);
+
+  // Initialize the wallet.
+  const wallet = new Wallet("<WALLET-PRIVATE-KEY>");
+
+  // Create deployer object and load the artifact of the contract you want to deploy.
+  const deployer = new Deployer(hre, wallet);
+  const artifact = await deployer.loadArtifact("Greeter");
+
+  // Estimate contract deployment fee
+  const greeting = "Hi there!";
+  const deploymentFee = await deployer.estimateDeployFee(artifact, [greeting]);
+
+  // OPTIONAL: Deposit funds to L2
+  // Comment this block if you already have funds on zkSync.
+  const depositHandle = await deployer.zkWallet.deposit({
+    to: deployer.zkWallet.address,
+    token: utils.ETH_ADDRESS,
+    amount: deploymentFee.mul(2),
+  });
+  // Wait until the deposit is processed on zkSync
+  await depositHandle.wait();
+
+  // Deploy this contract. The returned object will be of a `Contract` type, similarly to ones in `ethers`.
+  // `greeting` is an argument for contract constructor.
+  const parsedFee = ethers.utils.formatEther(deploymentFee.toString());
+  console.log(`The deployment is estimated to cost ${parsedFee} ETH`);
+
+  const greeterContract = await deployer.deploy(artifact, [greeting]);
+
+  //obtain the Constructor Arguments
+  console.log("constructor args:" + greeterContract.interface.encodeDeploy([greeting]));
+
+  // Show the contract info.
+  const contractAddress = greeterContract.address;
+  console.log(`${artifact.contractName} was deployed to ${contractAddress}`);
+
+  // Verify contract programmatically 
+  //
+  // Contract MUST be fully qualified name (e.g. path/sourceName:contractName)
+  const contractFullyQualifedName = "contracts/Greeter.sol:Greeter";
+  const verificationId = await hre.run("verify:verify", {
+    address: contractAddress,
+    contract: contractFullyQualifedName,
+    constructorArguments: [greeting],
+    bytecode: artifact.bytecode,
+  });
+  console.log(`${contractFullyQualifedName} verified! VerificationId: ${verificationId}`)
+}
+
+npx hardhat deploy-zksync
