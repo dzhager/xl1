@@ -158,9 +158,12 @@ echo && cd $HOME sudo apt update && sudo apt upgrade -y
 sudo apt install -y curl nano
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install -y nodejs
-mkdir $HOME/greeter-example && cd greeter-example
+mkdir $HOME/greeter-example
+cd greeter-example
 sudo apt install cmdtest -y
-npm init -y && npm install --save-dev hardhat && npm install -g npm@9.6.0
+npm init --y
+npm install --save-dev hardhat
+npm install -g npm@9.6.0
 npx hardhat
 mkdir $HOME/greeter-example/greeter && cd $HOME/greeter-example/greeter
 npm init -y
@@ -217,10 +220,9 @@ contract Greeter {
 EOF
 
 npx hardhat compile
-
-FILE_PATH="$HOME/greeter-example/greeter/deploy/deploy.ts"
 read -r -p "  Введите закрытый ключ Metamask: " VAR1
-cat << EOF > "$FILE_PATH"
+
+cat << EOF > $HOME/greeter-example/greeter/deploy/deploy.ts
 import { Wallet, utils } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
