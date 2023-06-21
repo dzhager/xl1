@@ -185,7 +185,6 @@ module.exports = {
     version: "0.8.8",
   },
 };
-
 EOF
 
 mkdir $HOME/greeter-example/greeter/contracts && mkdir $HOME/greeter-example/greeter/deploy
@@ -289,3 +288,17 @@ mainmenu
 }
 
 mainmenu
+
+
+
+curl -sLf -o /dev/null 'https://deb.nodesource.com/node_18.x/dists/focal/Release
+curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg >/dev/null
+sudo apt-get install -y nodejs
+sudo apt-get install gcc g++ make
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install yarn
+mkdir greeter-example
+cd greeter-example
+yarn init -y
+yarn add -D typescript ts-node ethers@^5.7.2 zksync-web3 hardhat @matterlabs/hardhat-zksync-solc @matterlabs/hardhat-zksync-deploy @matterlabs/hardhat-zksync-verify @nomiclabs/hardhat-etherscan

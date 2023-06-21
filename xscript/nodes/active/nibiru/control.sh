@@ -284,7 +284,7 @@ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nod
 
 submenu(){
     echo -ne "
-$(printYellow    'Для того что бы остановить журнал логов надо нажать') $(printBCyan 'CTRL+Z') $(printYellow '!!!')
+$(printYellow    'Для того что бы остановить журнал логов надо нажать') $(printBCyan 'CTRL+C') $(printYellow '!!!')
 
 Для продолжения нажмите Enter:  "
 	read -r ans
