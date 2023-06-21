@@ -60,7 +60,7 @@
 }
 
 updateSmart(){
-	clear && printlogo && printZcsync && echo
+	clear && printlogo && printZksync && echo
 	rm -rf \$HOME/greeter-example/artifacts-zk && rm -rf \$HOME/greeter-example/cache-zk
 	cd $HOME/greeter-example/greeter/deploy/ && rm deploy.ts
 read -r -p "  Введите закрытый ключ Metamask: " VAR1
