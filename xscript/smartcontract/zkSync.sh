@@ -160,7 +160,7 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install -y nodejs
 mkdir $HOME/greeter-example && cd greeter-example
 sudo apt install cmdtest -y
-npm init --y && npm install --save-dev hardhat && npm install -g npm@9.6.0
+npm init -y && npm install --save-dev hardhat && npm install -g npm@9.6.0
 npx hardhat
 mkdir $HOME/greeter-example/greeter && cd $HOME/greeter-example/greeter
 npm init -y
