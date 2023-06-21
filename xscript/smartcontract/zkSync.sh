@@ -63,10 +63,8 @@ updateSmart(){
 	clear && printlogo && printZcsync && echo
 	rm -rf \$HOME/greeter-example/artifacts-zk && rm -rf \$HOME/greeter-example/cache-zk
 	cd $HOME/greeter-example/greeter/deploy/ && rm deploy.ts
-  read -r -p "  Введите закрытый ключ Metamask: " VAR1
-
 FILE_PATH="$HOME/greeter-example/greeter/deploy/deploy.ts"
-
+read -r -p "  Введите закрытый ключ Metamask: " VAR1
 cat << EOF > "$FILE_PATH"
 import { Wallet, utils } from "zksync-web3";
 import * as ethers from "ethers";
