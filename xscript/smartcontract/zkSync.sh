@@ -125,7 +125,8 @@ export default async function (hre: HardhatRuntimeEnvironment) {
 EOF
 cd $HOME/greeter-example/greeter
 npx hardhat compile
-
+cd $HOME
+mainmenu
 }
 
 deploy(){
