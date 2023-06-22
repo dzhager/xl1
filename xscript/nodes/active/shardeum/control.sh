@@ -57,7 +57,7 @@ mainmenu() {
 		6)
 		version
 		;;
-		
+
 		7)
 		autostart
 		;;
@@ -106,6 +106,11 @@ autostart(){
 	cd $HOME
 wget -q -O autostart_shardeum.sh https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/autostart_shardeum.sh && chmod +x autostart_shardeum.sh
 screen -dmS autostart_shardeum bash autostart_shardeum.sh
+		printlogo && printshardium
+		echo
+echo "    Автостарт валидатора запущен в screen!"
+echo
+mainmenu
 }
 
 
