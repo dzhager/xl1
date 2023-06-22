@@ -102,7 +102,9 @@ mainmenu() {
 
 
 autostart(){
-screen -dmS auto_start_shardeum source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/autostart_shardeum.sh)
+	cd $HOME
+wget -q -O autostart_shardeum.sh https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/autostart_shardeum.sh && chmod +x autostart_shardeum.sh
+screen -dmS autostart_shardeum bash autostart_shardeum.sh
 }
 
 
