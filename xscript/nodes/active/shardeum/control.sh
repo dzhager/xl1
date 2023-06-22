@@ -18,6 +18,7 @@ mainmenu() {
 		$(printBCyan ' -->') $(printBYellow    '4)') Validator status
 		$(printBCyan ' -->') $(printBYellow    '5)') pm2 list
 		$(printBCyan ' -->') $(printBYellow    '6)') Version info
+		$(printBCyan ' -->') $(printBYellow    '7)') Autostart Validator
 
 		$(printBGreen 'Connect Wallet')
 		$(printBCyan ' -->') $(printBYellow    '7)') Ввести адрес Metamask		
@@ -95,6 +96,12 @@ mainmenu() {
 		;;
 	esac
 }
+
+
+autostart(){
+screen -dmS auto_start_shardeum source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/autostart_shardeum.sh)
+}
+
 
 
 stake(){
