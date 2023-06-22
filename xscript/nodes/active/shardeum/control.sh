@@ -21,14 +21,14 @@ mainmenu() {
 		$(printBCyan ' -->') $(printBYellow    '7)') Autostart Validator
 
 		$(printBGreen 'Connect Wallet')
-		$(printBCyan ' -->') $(printBYellow    '7)') Ввести адрес Metamask		
-		$(printBCyan ' -->') $(printBYellow    '8)') Ввести закрытый ключ Metamask
+		$(printBCyan ' -->') $(printBYellow    '8)') Ввести адрес Metamask		
+		$(printBCyan ' -->') $(printBYellow    '9)') Ввести закрытый ключ Metamask
 
 		$(printBGreen 'System')
-		$(printBCyan ' -->') $(printBYellow    '9)') Operator GUI start
-		$(printBCyan ' -->') $(printBYellow    '10)') Operator CLI start
+		$(printBCyan ' -->') $(printBYellow    '10)') Operator GUI start
+		$(printBCyan ' -->') $(printBYellow    '11)') Operator CLI start
 
-		$(printBBlue ' <--') $(printBBlue    '11) Вернутся назад')
+		$(printBBlue ' <--') $(printBBlue    '12) Вернутся назад')
 		 $(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
@@ -57,24 +57,27 @@ mainmenu() {
 		6)
 		version
 		;;
-
 		7)
-		metamask
+		autostart
 		;;
 
 		8)
-		privkey
+		metamask
 		;;
 
 		9)
-		guistart
+		privkey
 		;;
 
 		10)
-		clistart
+		guistart
 		;;
 
 		11)
+		clistart
+		;;
+
+		12)
 		back
 		;;
 		
