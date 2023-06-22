@@ -34,7 +34,7 @@ echo " $(printBMagenta '=|            |========================================'
 			case $ans in
 			#----------Назад---------#
 				1)
-				source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)
+				back
 				;;
 			#----------Выход---------#
 				0)
@@ -51,5 +51,9 @@ echo " $(printBMagenta '=|            |========================================'
 			#-------------------#
 		esac
 		}
+
+	back(){
+	./x-l1bra
+	}
 #-----------------------------------------------------------------------------------------#
 mainmenu

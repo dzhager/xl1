@@ -47,7 +47,7 @@ echo " $(printBCyan '                 =====================')"
 			;;
 		#---------------------------------------#	
 			5)
-			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/homemenu.sh)
+			back
 			;;
 		#---------------------------------------#
 			0)
@@ -67,6 +67,10 @@ echo " $(printBCyan '                 =====================')"
 			esac
 }
 
+
+back(){
+./x-l1bra
+}
 
 delet(){
 	systemctl stop danted.service

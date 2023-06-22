@@ -21,7 +21,7 @@
 		echo
 		echo "$(printBCyan '              -->') $(printBYellow   '3)') Новости"
 		echo
-		echo 	"$(printBCyan '              -->') $(printBYellow    '4)') Показать IP сервера"
+		echo "$(printBCyan '              -->') $(printBYellow    '4)') Показать IP сервера"
 		echo "$(printBCyan '              -->') $(printBYellow    '5)') Системный монитор"
 		echo
 		echo "$(printBCyan '              -->') $(printBYellow    '6)') Прокси"
