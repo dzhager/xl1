@@ -124,7 +124,15 @@ mainmenu() {
 #   mainmenu
 # }
 autostart() {
+	
   cd "$HOME"
+
+  if ! command -v screen &> /dev/null; then
+    echo "Установка пакета screen..."
+    sudo apt-get update
+    sudo apt-get install screen
+  fi
+
   curl -sS -o autostart_shardeum.sh https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/autostart_shardeum.sh && chmod +x autostart_shardeum.sh
   screen -dmS autostart_shardeum bash autostart_shardeum.sh
   printlogo
