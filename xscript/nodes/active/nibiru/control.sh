@@ -182,7 +182,7 @@ mainmenu
 
 rpc(){
 	clear && printlogo && printnibiru
-	nibid config node http://212.23.222.91:39657 && systemctl restart nibid.service
+	nibid config node http://185.16.39.206:39657 && systemctl restart nibid.service
 	echo
 	echo -ne "
 	Вы успешно поключились к RPC серверу x-l1bra"
