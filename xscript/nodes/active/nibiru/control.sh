@@ -212,7 +212,7 @@ DelegateXl1bra(){
 	echo -ne "$(printBRed ' 1nibi = 1000000unibi')"
 	echo
 	read -r -p "  Введите количество монет unibi:  " VAR2
-	nibid tx staking delegate nibivaloper15wvn7z5dyuffs3pv9cnkv69gqtza6ktuprpegn "$VAR2"unibi --from wallet --chain-id nibiru-itn-1 --gas-prices 0.1unibi --gas-adjustment 1.5 --gas auto -y
+	nibid tx staking delegate nibivaloper1fvmge2hjj8pfcksrek5r9nqh5dkxl0f7u88w4g "$VAR2"unibi --from wallet --chain-id nibiru-itn-1 --gas-prices 0.1unibi --gas-adjustment 1.5 --gas auto -y
 	echo
 	mainmenu
 }
