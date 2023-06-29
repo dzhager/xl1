@@ -90,7 +90,7 @@ updatecli(){
 #--------------ОБНОВЛЕНИЕ 1.1.6
 update(){
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh)
-	printLogo
+	printlogo
 	printshardium
 	cd $HOME
 	curl -O https://gitlab.com/shardeum/validator/dashboard/-/raw/main/installer.sh && chmod +x installer.sh && ./installer.sh
