@@ -11,6 +11,7 @@ echo " $(printBMagenta '=|    Дата    |=====================================
 #-----------------------------------------------------------------------------------#
 
 #-----------------------------Лента новостей-----------------------------------------#
+	echo " $(printBMagenta '=')""$(printBYellow '| 03.07.2023 |') Shardeum update Sphinx Validator 1.5.1 "
 	echo " $(printBMagenta '=')""$(printBYellow '| 29.06.2023 |') Starknet update validator v6.3."
 	echo " $(printBMagenta '=')""$(printBYellow '| 22.06.2023 |') Shardeum! Добавлен автоматический запуск валидатора."
 	echo " $(printBMagenta '=')""$(printBYellow '| 19.06.2023 |') Добавлен смартконтракт zkSync в раздел смартконтрактов."
