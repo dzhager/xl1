@@ -95,14 +95,7 @@ update(){
 	docker update --restart always shardeum-dashboard && docker start shardeum-dashboard && docker exec -i shardeum-dashboard /bin/bash -c "operator-cli gui start && operator-cli start" && docker exec -i shardeum-dashboard /bin/bash -c "pm2 list" && screen -ls
 	echo -ne "
 			    $(printBGreen    'Обновление завершено!')
-			    Далее нужно выйти из скрипта и выполнить команды по очереди:
 			    
-			    $(printBYellow 'cd .shardeum && ./shell.sh')
-			    
-			    $(printBYellow 'operator-cli gui start')
-			    
-			    $(printBYellow 'operator-cli start')
-
 			    Проверить работу ноды можно командой:
 			    $(printBYellow 'pm2 list')"
 
