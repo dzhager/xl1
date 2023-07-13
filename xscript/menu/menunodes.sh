@@ -64,7 +64,7 @@ echo " $(printBCyan '                 =====================')"
 			;;
 		#-------------------#
 			*)
-			clear && printLogo
+			clear && printlogo
 			echo " $(printCyanBlink '                 =====================')"
 			echo " $(printRed  '================')$(printCyanBlink ' = ')$(printBRed 'Неверный запрос! ')$(printCyanBlink ' = ')$(printRed  '================')"
 			echo " $(printCyanBlink '                 =====================')"

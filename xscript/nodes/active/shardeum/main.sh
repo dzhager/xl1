@@ -89,11 +89,10 @@ updatecli(){
 
 #--------------ОБНОВЛЕНИЕ 1.1.6
 update(){
-	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh)
-	printlogo
-	printshardium
+	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printshardium
 	cd $HOME
 	curl -O https://gitlab.com/shardeum/validator/dashboard/-/raw/main/installer.sh && chmod +x installer.sh && ./installer.sh
+	docker update --restart always shardeum-dashboard && docker start shardeum-dashboard && docker exec -i shardeum-dashboard /bin/bash -c "operator-cli gui start && operator-cli start" && docker exec -i shardeum-dashboard /bin/bash -c "pm2 list" && screen -ls
 	echo -ne "
 			    $(printBGreen    'Обновление завершено!')
 			    Далее нужно выйти из скрипта и выполнить команды по очереди:
