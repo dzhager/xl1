@@ -56,6 +56,7 @@ sudo systemctl disable starknetd.service
 sudo rm /etc/systemd/system/starknetd.service
 rm -rf /usr/local/bin/pathfinder
 rm -rf .cargo pathfinder .rustup
+sudo apt remove python3 -y
 submenu
 }
 
