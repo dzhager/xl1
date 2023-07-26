@@ -81,7 +81,7 @@ sudo update-alternatives --config python3
 printGreen "Готово!" && sleep 1
 
 printYellow "5. Клонируем репозиторий с github........" && sleep 1
-git clone --branch v0.5.6 https://github.com/eqlabs/pathfinder.git
+git clone --branch v0.6.7 https://github.com/eqlabs/pathfinder.git
 printGreen "Готово!" && sleep 1
 
 printYellow "6. Создаем виртуальную среду........" && sleep 1
