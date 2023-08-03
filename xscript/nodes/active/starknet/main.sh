@@ -75,7 +75,7 @@ rustup update stable
 sudo systemctl stop starknetd
 cd pathfinder
 git fetch
-git checkout v0.6.7
+git checkout v0.7.0
 cargo build --release --bin pathfinder
 cd py
 source .venv/bin/activate
