@@ -82,6 +82,7 @@ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/men
 }
 
 updatecli(){
+	
 	docker exec -i shardeum-dashboard /bin/bash -c "operator-cli update"
 	mainmenu
 }
@@ -91,6 +92,7 @@ updatecli(){
 update(){
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printshardium
 	cd $HOME
+	docker exec -i shardeum-dashboard /bin/bash -c "operator-cli stop"
 	curl -O https://gitlab.com/shardeum/validator/dashboard/-/raw/main/installer.sh && chmod +x installer.sh && ./installer.sh
 	docker update --restart always shardeum-dashboard && docker start shardeum-dashboard && docker exec -i shardeum-dashboard /bin/bash -c "operator-cli gui start && operator-cli start" && docker exec -i shardeum-dashboard /bin/bash -c "pm2 list" && screen -ls
 	echo -ne "
