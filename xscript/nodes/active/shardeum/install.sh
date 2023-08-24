@@ -69,25 +69,21 @@ printYellow "3. Устанавливаем докер........" && sleep 1
 	docker --version
 printGreen "Готово!" && sleep 1
 
-printYellow "3. Устанавливаем докер-компоновку........" && sleep 1
+printYellow "4. Устанавливаем докер-компоновку........" && sleep 1
 	sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 	sudo chmod +x /usr/local/bin/docker-compose
 	docker-compose --version
 printGreen "Готово!" && sleep 1
 
-printYellow "3. Установка валидатора ........" && sleep 1
+printYellow "5. Установка валидатора ........" && sleep 1
 	curl -O https://gitlab.com/shardeum/validator/dashboard/-/raw/main/installer.sh && chmod +x installer.sh && ./installer.sh
 printGreen "Готово!" && sleep 1
-echo
-echo
-	printBGreen "Установка завершена"
-echo	
+
+printYellow "6. Запуск валидатора ........" && sleep 1
 	docker update --restart always shardeum-dashboard && docker start shardeum-dashboard && docker exec -i shardeum-dashboard /bin/bash -c "operator-cli gui start && operator-cli start" && curl -sS -o autostart_shardeum.sh https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/autostart_shardeum.sh && chmod +x autostart_shardeum.sh && screen -dmS autostart_shardeum bash autostart_shardeum.sh && docker exec -i shardeum-dashboard /bin/bash -c "pm2 list"
-echo
-printBGreen "Установка завершена"
-
-echo
-
+	printBGreen "Установка завершена"
+printGreen "Готово!" && sleep 1
+mainmenu
 
 }
 
