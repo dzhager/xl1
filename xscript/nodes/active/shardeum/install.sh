@@ -82,7 +82,7 @@ echo
 echo
 	printBGreen "Установка завершена"
 echo	
-	mainmenu
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/main.sh)
 
 }
 
