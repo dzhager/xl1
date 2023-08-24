@@ -80,6 +80,8 @@ printYellow "3. Установка валидатора ........" && sleep 1
 printGreen "Готово!" && sleep 1
 
 
+
+
 cd
 
 cd .shardeum
