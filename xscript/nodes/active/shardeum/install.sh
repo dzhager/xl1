@@ -79,14 +79,14 @@ printYellow "3. Установка валидатора ........" && sleep 1
 	curl -O https://gitlab.com/shardeum/validator/dashboard/-/raw/main/installer.sh && chmod +x installer.sh && ./installer.sh
 printGreen "Готово!" && sleep 1
 
-
-
-
 cd
+	cd .shardeum
+	docker exec -i shardeum-dashboard /bin/bash -c "rm -rf cli gui"
+	docker exec -i shardeum-dashboard /bin/bash -c "sudo chown -R node /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share"
+	./entrypoint.sh
+	exit
+	mainmenu
 
-cd .shardeum
-
-./shell.sh
 }
 
 mainmenu
