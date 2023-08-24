@@ -61,7 +61,7 @@ printGreen "Готово!" && sleep 1
 
 
 printYellow "2. Устанавливаем дополнительные пакеты........" && sleep 1
-	sudo apt install curl npm -y
+	sudo apt install curl screen npm -y
 printGreen "Готово!" && sleep 1
 
 printYellow "3. Устанавливаем докер........" && sleep 1
