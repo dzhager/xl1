@@ -81,10 +81,22 @@ printGreen "Готово!" && sleep 1
 
 printYellow "6. Запуск валидатора ........" && sleep 1
 	docker update --restart always shardeum-dashboard && docker start shardeum-dashboard && docker exec -i shardeum-dashboard /bin/bash -c "operator-cli gui start && operator-cli start" && curl -sS -o autostart_shardeum.sh https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/shardeum/autostart_shardeum.sh && chmod +x autostart_shardeum.sh && screen -dmS autostart_shardeum bash autostart_shardeum.sh && docker exec -i shardeum-dashboard /bin/bash -c "pm2 list"
-	printBGreen "Установка завершена"
+	printBGreen ""
 printGreen "Готово!" && sleep 1
-mainmenu
+subnmenu
 
+}
+
+subnmenu() {
+	echo -ne "
+	$(printCyan	'Установка завершена') $(printCyanBlink '!!!')
+	$(printCyan	'Нажмите Enter:') "
+	read -r ans
+	case $ans in
+		*)
+		exit
+        ;;
+    esac
 }
 
 mainmenu
