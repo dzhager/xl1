@@ -11,12 +11,13 @@ mainmenu() { echo -ne "
 		$(printBCyan ' -->') $(printBGreen    '1) Управление')
 
 		$(printBCyan ' -->') $(printBGreen    '2) Установить')
-		$(printBCyan ' -->') $(printBYellow   '3) Обновить Validator')
-		$(printBCyan ' -->') $(printBYellow   '4) Обновить CLI/GUI')
+		$(printBCyan ' -->') $(printBGreen    '3) Исправить ошибку') $(printBYellow 'Command not found error')
+		$(printBCyan ' -->') $(printBYellow   '4) Обновить Validator')
+		$(printBCyan ' -->') $(printBYellow   '5) Обновить CLI/GUI')
 
-		$(printBCyan ' -->') $(printBRed    '5) Удалить')
+		$(printBCyan ' -->') $(printBRed    '6) Удалить')
 
-		$(printBBlue ' <-- 6) Назад')
+		$(printBBlue ' <-- 7) Назад')
 		$(printBRed        '     0) Выход')
 
  	Введите цифру: "
@@ -32,18 +33,22 @@ read -r ans
 		;;
 
 		3)
-		update
+		fixinstall
 		;;
 
 		4)
-		updatecli
+		update
 		;;
 
 		5)
-		delet
+		updatecli
 		;;
 
 		6)
+		delet
+		;;
+
+		7)
 		back
 		;;
 		
@@ -52,6 +57,7 @@ read -r ans
 		rm x-l1bra
 		exit
 		;;
+		
 		*)
 		clear
 		printlogo
@@ -104,6 +110,15 @@ update(){
 	mainmenu
 
 }
+
+fixinstall(){
+	cd
+	cd .shardeum
+	docker exec -i shardeum-dashboard /bin/bash -c "rm -rf cli gui"
+	docker exec -i shardeum-dashboard /bin/bash -c "sudo chown -R node /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share"
+	./entrypoint.sh
+}
+
 
 
 mainmenu
