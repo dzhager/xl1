@@ -65,7 +65,7 @@ printYellow "2. Устанавливаем дополнительные паке
 printGreen "Готово!" && sleep 1
 
 printYellow "3. Устанавливаем докер........" && sleep 1
-	sudo apt install docker -y
+	sudo apt install docker.io -y
 	docker --version
 printGreen "Готово!" && sleep 1
 
