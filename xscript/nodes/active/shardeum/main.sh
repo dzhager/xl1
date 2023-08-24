@@ -117,6 +117,7 @@ fixinstall(){
 	docker exec -i shardeum-dashboard /bin/bash -c "rm -rf cli gui"
 	docker exec -i shardeum-dashboard /bin/bash -c "sudo chown -R node /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share"
 	./entrypoint.sh
+	exit
 	mainmenu
 }
 
