@@ -11,13 +11,12 @@ mainmenu() { echo -ne "
 		$(printBCyan ' -->') $(printBGreen    '1) Управление')
 
 		$(printBCyan ' -->') $(printBGreen    '2) Установить')
-		$(printBCyan ' -->') $(printBGreen    '3) Исправить ошибку') $(printBYellow 'Command not found error')
-		$(printBCyan ' -->') $(printBYellow   '4) Обновить Validator')
-		$(printBCyan ' -->') $(printBYellow   '5) Обновить CLI/GUI')
+		$(printBCyan ' -->') $(printBYellow   '3) Обновить Validator')
+		$(printBCyan ' -->') $(printBYellow   '4) Обновить CLI/GUI')
 
-		$(printBCyan ' -->') $(printBRed    '6) Удалить')
+		$(printBCyan ' -->') $(printBRed    '5) Удалить')
 
-		$(printBBlue ' <-- 7) Назад')
+		$(printBBlue ' <-- 6) Назад')
 		$(printBRed        '     0) Выход')
 
  	Введите цифру: "
@@ -33,22 +32,18 @@ read -r ans
 		;;
 
 		3)
-		fixinstall
-		;;
-
-		4)
 		update
 		;;
 
-		5)
+		4)
 		updatecli
 		;;
 
-		6)
+		5)
 		delet
 		;;
 
-		7)
+		6)
 		back
 		;;
 		
@@ -111,14 +106,14 @@ update(){
 
 }
 
-fixinstall(){
-	cd
-    docker exec -i shardeum-dashboard /bin/bash -c "rm -rf cli gui"
-	docker exec -i shardeum-dashboard /bin/bash -c "sudo chown -R node /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share"
-	docker exec -i shardeum-dashboard /bin/bash -c "./entrypoint.sh"
-	exit
-	mainmenu
-}
+# fixinstall(){
+# 	cd
+#     docker exec -i shardeum-dashboard /bin/bash -c "rm -rf cli gui"
+# 	docker exec -i shardeum-dashboard /bin/bash -c "sudo chown -R node /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share"
+# 	docker exec -i shardeum-dashboard /bin/bash -c "./entrypoint.sh"
+# 	exit
+# 	mainmenu
+# }
 
 
 
