@@ -239,7 +239,7 @@
 	#---------------------------STARKNET----------------------------#
 		function printholograph {
 			echo "$(printCyan '                  =====================')"
-			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBGreen 'HOLOGRAPH ')$(printCyan '     = ')$(printRed  '================')"
+			echo "$(printRed  ' ================')$(printCyan ' =     ')$(printBGreen 'HOLOGRAPH ')$(printCyan '    = ')$(printRed  '================')"
 			echo "$(printCyan '                  =====================')"
 		}
 	#--------------------------------------------------------------#
