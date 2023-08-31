@@ -21,17 +21,21 @@ read -r ans
 		1)
 		faucet
 		;;
+		
 		2)
 		install
 		;;
+		
 		3)
 		back
 		;;
+		
 		0)
 		echo $(printBCyan '	"Bye bye."')
 		rm x-l1bra
 		exit
 		;;
+		
 		*)
 		clear && printlogo && printholograph
 		echo
