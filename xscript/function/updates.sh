@@ -11,6 +11,7 @@ echo " $(printBMagenta '=|    Дата    |=====================================
 #-----------------------------------------------------------------------------------#
 
 #-----------------------------Лента новостей-----------------------------------------#
+	echo " $(printBMagenta '=')""$(printBYellow '| 31.08.2023 |') Добавлена новая нода Holograph "
 	echo " $(printBMagenta '=')""$(printBYellow '| 13.07.2023 |') Shardeum update Sphinx Validator 1.5.2 "
 	echo " $(printBMagenta '=')""$(printBYellow '| 03.07.2023 |') Shardeum update Sphinx Validator 1.5.1 "
 	echo " $(printBMagenta '=')""$(printBYellow '| 29.06.2023 |') Starknet update validator v6.3."
