@@ -58,7 +58,7 @@ printGreen "Готово!" && sleep 1
 printYellow "2. Устанавливаем дополнительные пакеты........" && sleep 1
 	sudo apt install screen apt install make clang git pkg-config libssl-dev build-essential git gcc chrony curl jq ncdu bsdmainutils htop net-tools lsof fail2ban wget screen -y
 	curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
-	apt install -y nodejs
+	apt install nodejs -y
 printGreen "Готово!" && sleep 1
 
 printYellow "3. Устанавка Holograph cli........" && sleep 1

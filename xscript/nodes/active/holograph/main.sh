@@ -7,9 +7,11 @@
 #-----------------------------------------------------------------------------------------#
 mainmenu() { echo -ne "
 
-		$(printBCyan ' -->') $(printBGreen    '1) Установить')
+		$(printBCyan ' -->') $(printBGreen    '1) Faucet')
 
-		$(printBBlue ' <-- 2) Назад')
+		$(printBCyan ' -->') $(printBGreen    '2) Установить')
+
+		$(printBBlue ' <-- 3) Назад')
 		$(printBRed        '     0) Выход')
 
 	$(printCyan 'Введите цифру:')  "
@@ -17,9 +19,11 @@ mainmenu() { echo -ne "
 read -r ans
 	case $ans in
 		1)
+		faucet
+		2)
 		install
 		;;
-		2)
+		3)
 		back
 		;;
 		0)
@@ -36,6 +40,11 @@ read -r ans
 		mainmenu
 		;;
 	esac
+}
+
+faucet(){
+	holograph faucet
+	mainmenu
 }
 
 install(){
