@@ -80,7 +80,7 @@ subnmenu() {
 	read -r ans
 	case $ans in
 		*)
-		exit
+		source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/holograph/main.sh)exit
         ;;
     esac
 }
