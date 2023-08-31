@@ -9,7 +9,7 @@ mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBGreen    '1) Установить')
 
-		$(printBBlue ' <-- 3) Назад')
+		$(printBBlue ' <-- 2) Назад')
 		$(printBRed        '     0) Выход')
 
 	$(printCyan 'Введите цифру:')  "
@@ -17,12 +17,9 @@ mainmenu() { echo -ne "
 read -r ans
 	case $ans in
 		1)
-		control
-		;;
-		2)
 		install
 		;;
-		3)
+		2)
 		back
 		;;
 		0)
@@ -42,11 +39,11 @@ read -r ans
 }
 
 install(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/holograph/install.sh)
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/holograph/install.sh)
 }
 
 back(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/holograph/menunodes.sh)
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
 }
 
 mainmenu
