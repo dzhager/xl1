@@ -7,12 +7,9 @@
 #-----------------------------------------------------------------------------------------#
 mainmenu() { echo -ne "
 
-		$(printBCyan ' -->') $(printBCyan    '1) Управление')
+		$(printBCyan ' -->') $(printBGreen    '1) Установить')
 
-		$(printBCyan ' -->') $(printBGreen    '2) Установить')
-		$(printBCyan ' -->') $(printBRed    '3) Удалить')
-
-		$(printBBlue ' <-- 5) Назад')
+		$(printBBlue ' <-- 3) Назад')
 		$(printBRed        '     0) Выход')
 
 	$(printCyan 'Введите цифру:')  "
@@ -22,16 +19,10 @@ read -r ans
 		1)
 		control
 		;;
-		3)
-		update
-		;;
 		2)
 		install
 		;;
-		4)
-		delet
-		;;
-		5)
+		3)
 		back
 		;;
 		0)
@@ -40,9 +31,7 @@ read -r ans
 		exit
 		;;
 		*)
-		clear
-		printlogo
-		printnibiru
+		clear && printlogo && printholograph
 		echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
@@ -54,18 +43,6 @@ read -r ans
 
 install(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/holograph/install.sh)
-}
-
-control(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/holograph/control.sh)
-}
-
-update(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/holograph/update.sh)
-}
-
-delet(){
-source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/holograph/delet.sh)
 }
 
 back(){
