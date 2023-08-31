@@ -20,6 +20,7 @@ read -r ans
 	case $ans in
 		1)
 		faucet
+		;;
 		2)
 		install
 		;;
