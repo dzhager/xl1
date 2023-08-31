@@ -8,10 +8,12 @@
 mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBGreen    '1) Faucet')
+		
+		$(printBCyan ' -->') $(printBGreen    '2) Bonding')
+		
+		$(printBCyan ' -->') $(printBGreen    '3) Установить ноду')
 
-		$(printBCyan ' -->') $(printBGreen    '2) Установить')
-
-		$(printBBlue ' <-- 3) Назад')
+		$(printBBlue ' <-- 4) Назад')
 		$(printBRed        '     0) Выход')
 
 	$(printCyan 'Введите цифру:')  "
@@ -23,10 +25,14 @@ read -r ans
 		;;
 		
 		2)
-		install
+		bonding
 		;;
 		
 		3)
+		install
+		;;
+		
+		4)
 		back
 		;;
 		
@@ -52,6 +58,10 @@ faucet(){
 	holograph faucet
 	echo
 	mainmenu
+}
+
+bonding(){
+	holograph operator:bond
 }
 
 install(){
