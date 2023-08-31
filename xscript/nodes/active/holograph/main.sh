@@ -44,7 +44,9 @@ read -r ans
 }
 
 faucet(){
+	echo
 	holograph faucet
+	echo
 	mainmenu
 }
 
