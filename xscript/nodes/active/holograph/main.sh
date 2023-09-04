@@ -12,8 +12,9 @@ mainmenu() { echo -ne "
 		$(printBCyan ' -->') $(printBGreen    '2) Bonding')
 		
 		$(printBCyan ' -->') $(printBGreen    '3) Установить ноду')
+		$(printBCyan ' -->') $(printBGreen    '4) Удалить ноду')
 
-		$(printBBlue ' <-- 4) Назад')
+		$(printBBlue ' <-- 5) Назад')
 		$(printBRed        '     0) Выход')
 
 	$(printCyan 'Введите цифру:')  "
@@ -33,6 +34,10 @@ read -r ans
 		;;
 		
 		4)
+		delet
+		;;
+		
+		5)
 		back
 		;;
 		
@@ -51,6 +56,10 @@ read -r ans
 		mainmenu
 		;;
 	esac
+}
+
+delet(){
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/holograph/delet.sh)
 }
 
 faucet(){
