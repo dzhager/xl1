@@ -75,7 +75,7 @@ rustup update stable
 sudo systemctl stop starknetd
 cd pathfinder
 git fetch
-git checkout v0.7.2
+git checkout v0.8.0
 
 cargo build --release --bin pathfinder
 cd py
