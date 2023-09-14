@@ -6,7 +6,7 @@
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printnibiru
 #-----------------------------------------------------------------------------------------#
 echo
-var3=v0.19.2
+var3=v0.21.9
 var4=`nibid version | cut -d ' ' -f 3`
 
 if [[ "$var3" == "$var4" ]]; then
@@ -22,7 +22,7 @@ cd $HOME
 rm -rf nibiru
 git clone https://github.com/NibiruChain/nibiru.git
 cd nibiru
-git checkout v0.19.2
+git checkout v0.21.9
 make build
 mkdir -p $HOME/.nibid/cosmovisor/genesis/bin
 mv build/nibid $HOME/.nibid/cosmovisor/genesis/bin/
