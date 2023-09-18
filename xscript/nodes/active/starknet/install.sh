@@ -9,10 +9,10 @@
 echo -ne "
 	$(printGreen  '-----------------------------------------')
 	  $(printYellow 'Минимальные требования к оборудованию.')
-		     $(printBCyan '4CPU 4RAM 200GB')
+ 	$(printBCyan '| CPU: 2+ cores | RAM: 4 GB | Disk: 600 GB |')
 	$(printGreen  '-----------------------------------------')
 	  $(printYellow 'Рекомендуемые требования к оборудованию.')
-		     $(printBCyan '4CPU 4RAM 500GB+')
+ 	$(printBCyan '| CPU: 4+ cores | RAM: 16 GB+ | Disk 2 TB |')
 	$(printGreen  '-----------------------------------------')"
 echo
 
