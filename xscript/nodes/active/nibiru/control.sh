@@ -146,7 +146,7 @@ ValidatorСorrect(){
 jail(){
 	clear && printlogo && printnibiru
 	echo
-	nibid tx slashing unjail --from wallet --chain-id nibiru-itn-1 --gas-adjustment 1.4 --gas auto --gas-prices 0.025unibi -y
+	nibid tx slashing unjail --from wallet --chain-id nibiru-itn-2 --fees 5000unibi -y
 	mainmenu
 }
 
@@ -180,22 +180,22 @@ mainmenu
 }
 
 
-rpc(){
-	clear && printlogo && printnibiru
-	nibid config node http://185.16.39.206:39657 && systemctl restart nibid.service
-	echo
-	echo -ne "
-	Вы успешно поключились к RPC серверу x-l1bra"
-	echo
-	mainmenu
-}
+# rpc(){
+# 	clear && printlogo && printnibiru
+# 	nibid config node http://185.16.39.206:39657 && systemctl restart nibid.service
+# 	echo
+# 	echo -ne "
+# 	Вы успешно поключились к RPC серверу x-l1bra"
+# 	echo
+# 	mainmenu
+# }
 
 Send(){
 read -r -p "  Введите адрес кошелька:  " VAR1
 echo
 echo -ne "(printBRed ' 1nibi = 1000000unibi')"
 read -r -p "  Введите количество монет unibi:  " VAR2
-nibid tx bank send wallet "$VAR1" "$VAR2"unibi --from wallet --chain-id nibiru-itn-1 --gas-prices 0.1unibi --gas-adjustment 1.5 --gas auto -y
+nibid tx bank send wallet "$VAR1" "$VAR2"unibi --from wallet --chain-id nibiru-itn-2 --fees 5000unibi -y
 mainmenu
 }
 
@@ -212,7 +212,7 @@ DelegateXl1bra(){
 	echo -ne "$(printBRed ' 1nibi = 1000000unibi')"
 	echo
 	read -r -p "  Введите количество монет unibi:  " VAR2
-	nibid tx staking delegate nibivaloper1fvmge2hjj8pfcksrek5r9nqh5dkxl0f7u88w4g "$VAR2"unibi --from wallet --chain-id nibiru-itn-1 --gas-prices 0.1unibi --gas-adjustment 1.5 --gas auto -y
+	nibid tx staking delegate nibivaloper1fvmge2hjj8pfcksrek5r9nqh5dkxl0f7u88w4g "$VAR2"unibi --from wallet --chain-id nibiru-itn-2 --fees 5000unibi -y
 	echo
 	mainmenu
 }
@@ -224,7 +224,7 @@ read -r -p " Введите валопер адрес:  " VAR1
 echo -ne "$(printBRed ' 1nibi = 1000000unibi')"
 echo
 read -r -p "  Введите количество монет unibi:  " VAR2
-nibid tx staking delegate "$VAR1" "$VAR2"unibi --from wallet --chain-id nibiru-itn-1 --gas-prices 0.1unibi --gas-adjustment 1.5 --gas auto -y
+nibid tx staking delegate "$VAR1" "$VAR2"unibi --from wallet --chain-id nibiru-itn-2 --fees 5000unibi -y
 echo
 mainmenu
 }
@@ -235,7 +235,7 @@ echo
 echo -ne "$(printBRed ' 1nibi = 1000000unibi')"
 echo
 read -r -p "  Введите количество монет unibi:  " VAR2
-nibid tx staking delegate $(nibid keys show wallet --bech val -a) "$VAR2"unibi --from wallet --chain-id nibiru-itn-1 --gas-prices 0.1unibi --gas-adjustment 1.5 --gas auto -y 
+nibid tx staking delegate $(nibid keys show wallet --bech val -a) "$VAR2"unibi --from wallet --chain-id nibiru-itn-2 --fees 5000unibi -y
 echo
 mainmenu
 }
@@ -245,7 +245,7 @@ CreateValidator(){
 clear && printlogo && printnibiru
 echo
 read -r -p "  Введите имя валидатора:  " VAR1
-nibid tx staking create-validator --amount 1000000unibi --pubkey $(nibid tendermint show-validator) --moniker="$VAR1" --chain-id nibiru-itn-1 --commission-rate "0.05" --commission-max-rate "0.20" --commission-max-change-rate "0.01" --min-self-delegation "1" --from wallet --gas-adjustment "1.4" --gas auto --gas-prices 0.025unibi
+nibid tx staking create-validator --amount 1000000unibi --pubkey $(nibid tendermint show-validator) --moniker="$VAR1" --chain-id nibiru-itn-2 --commission-rate "0.05" --commission-max-rate "0.20" --commission-max-change-rate "0.01" --min-self-delegation "1" --from wallet --fees 5000unibi
 echo
 echo -ne "$(printBRed 'Вы должны позаботится забэкапить priv_validator_key.json.
 Без него вы не сможете восстановить валидатора.
