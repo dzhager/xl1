@@ -5,16 +5,16 @@
 #-----------------------------Подгрузка общих функций и цвета-----------------------------#
 	clear && source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/function/common.sh) && printlogo && printnibiru
 #-----------------------------------------------------------------------------------------#
-echo
-var3=v0.21.9
-var4=`nibid version | cut -d ' ' -f 3`
+# echo
+# var3=v0.21.9
+# var4=`nibid version | cut -d ' ' -f 3`
 
-if [[ "$var3" == "$var4" ]]; then
- echo -ne "$(printBGreen '	У вас уже установлена последняя версия!')"
- mainmenu
-else
- 	update
-fi
+# if [[ "$var3" == "$var4" ]]; then
+#  echo -ne "$(printBGreen '	У вас уже установлена последняя версия!')"
+#  mainmenu
+# else
+update
+# fi
 
 
 update(){
