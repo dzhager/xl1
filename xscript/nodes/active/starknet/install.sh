@@ -60,8 +60,7 @@ printGreen "Готово!" && sleep 1
 
 
 printYellow "2. Устанавливаем дополнительные пакеты........" && sleep 1
-sudo apt install curl git python3-pip build-essential libssl-dev libffi-dev python3-dev libgmp-dev  pkg-config  -y
-pip3 install fastecdsa
+sudo apt install curl git build-essential libssl-dev libffi-dev libgmp-dev  pkg-config  -y
 printGreen "Готово!" && sleep 1
 
 
@@ -72,35 +71,23 @@ source $HOME/.cargo/env
 rustup update stable
 printGreen "Готово!" && sleep 1
 
-printYellow "4. Устанавливаем Python........" && sleep 1
-sudo apt install python3.9 python3.9-venv python3.9-dev -y
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 2
-update-alternatives --list python3
-sudo update-alternatives --config python3
-printGreen "Готово!" && sleep 1
+# printYellow "4. Устанавливаем Python........" && sleep 1
+# sudo apt install python3.9 python3.9-venv python3.9-dev -y
+# sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
+# sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 2
+# update-alternatives --list python3
+# sudo update-alternatives --config python3
+# printGreen "Готово!" && sleep 1
 
 printYellow "5. Клонируем репозиторий с github........" && sleep 1
+cd pathfinder
 git clone --branch v0.8.2 https://github.com/eqlabs/pathfinder.git
-printGreen "Готово!" && sleep 1
-
-printYellow "6. Создаем виртуальную среду........" && sleep 1
-cd pathfinder/py
-python3 -m venv .venv
-source .venv/bin/activate
-
-
-PIP_REQUIRE_VIRTUALENV=true pip install --upgrade pip
-PIP_REQUIRE_VIRTUALENV=true pip install -e .[dev]
-
-pytest
-
 printGreen "Готово!" && sleep 1
 
 printYellow "7. Собираем ноду........" && sleep 1
 
+cd pathfinder
 cargo build --release --bin pathfinder
-
 printGreen "Готово!" && sleep 1
 
 printYellow "8. Создаем сервис файл и запускаем нодуу........" && sleep 1
@@ -118,14 +105,15 @@ After=network.target
 [Service]
 Type=simple
 User=root
-WorkingDirectory=/root/pathfinder/py
-ExecStart=/bin/bash -c 'source /root/pathfinder/py/.venv/bin/activate && /root/.cargo/bin/cargo run --release --bin pathfinder -- --ethereum.url https://eth-mainnet.alchemyapi.io/v2/"$API_KEY"'
+WorkingDirectory=/root/pathfinder
+ExecStart=/root/.cargo/bin/cargo run --release --bin pathfinder -- --ethereum.url https://eth-mainnet.alchemyapi.io/v2/"$API_KEY"'
 Restart=always
 RestartSec=10
 Environment=RUST_BACKTRACE=1
 [Install]
 WantedBy=multi-user.target
 EOF
+
 
 printYellow "9. Запускаем ноду........" && sleep 2
 sudo systemctl daemon-reload
