@@ -49,7 +49,7 @@ printholograph
 echo -ne "	
 
 $(printBYellow 'Удаляем.....!')"
-rm -rf .config
+rm -rf .config	
 submenu
 }
 
