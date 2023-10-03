@@ -64,7 +64,7 @@ printGreen "Готово!" && sleep 1
 
 # printYellow "3. Задаем переменные........" && sleep 1
 # #	MONIKER=X-l1bra
- 	CHAIN_ID="nibiru-itn-2"
+ 	CHAIN_ID="nibiru-itn-3"
 # 	CHAIN_DENOM="unibi"
 # 	BINARY_NAME="nibid"
 # 	BINARY_VERSION_TAG="v0.21.10"
