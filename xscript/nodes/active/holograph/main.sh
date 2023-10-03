@@ -32,7 +32,7 @@ read -r ans
 		;;
 		
 		3)
-		install
+		control
 		;;
 
 		4)
