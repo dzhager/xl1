@@ -8,13 +8,15 @@
 mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBGreen    '1) Faucet')
-		
+
 		$(printBCyan ' -->') $(printBGreen    '2) Bonding')
 		
-		$(printBCyan ' -->') $(printBGreen    '3) Установить ноду')
-		$(printBCyan ' -->') $(printBGreen    '4) Удалить ноду')
+		$(printBCyan ' -->') $(printBGreen    '3) Управление')
 
-		$(printBBlue ' <-- 5) Назад')
+		$(printBCyan ' -->') $(printBGreen    '4) Установить ноду')
+		$(printBCyan ' -->') $(printBGreen    '5) Удалить ноду')
+
+		$(printBBlue ' <-- 6) Назад')
 		$(printBRed        '     0) Выход')
 
 	$(printCyan 'Введите цифру:')  "
@@ -32,12 +34,16 @@ read -r ans
 		3)
 		install
 		;;
-		
+
 		4)
-		delet
+		install
 		;;
 		
 		5)
+		delet
+		;;
+		
+		6)
 		back
 		;;
 		
@@ -80,5 +86,11 @@ install(){
 back(){
 	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/menunodes.sh)
 }
+
+control(){
+	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/holograph/control.sh)
+}
+
+
 
 mainmenu
