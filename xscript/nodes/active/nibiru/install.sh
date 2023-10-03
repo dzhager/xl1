@@ -128,10 +128,10 @@ printGreen "Готово!" && sleep 1
 
 
 printYellow "6. Инициализируем ноду........" && sleep 1
-nibid config chain-id nibiru-itn-2
+nibid config chain-id nibiru-itn-3
 nibid config keyring-backend test
 nibid config node tcp://localhost:13957
-nibid init $MONIKER --chain-id nibiru-itn-2
+nibid init $MONIKER --chain-id nibiru-itn-3
 
 printGreen "Готово!" && sleep 1
 
