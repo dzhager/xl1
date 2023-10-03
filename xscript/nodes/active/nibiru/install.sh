@@ -67,7 +67,7 @@ printGreen "Готово!" && sleep 1
  	CHAIN_ID="nibiru-itn-2"
 # 	CHAIN_DENOM="unibi"
 # 	BINARY_NAME="nibid"
-# 	BINARY_VERSION_TAG="v0.16.3"
+# 	BINARY_VERSION_TAG="v0.21.10"
 # 	IDENTITY="8F3C23EC3306B513"
 # 	source $HOME/.bash_profile > /dev/null 2>&1
  	echo -e "Node moniker:       ${CYAN}$MONIKER${NC}"
@@ -91,7 +91,7 @@ cd $HOME
 rm -rf nibiru
 git clone https://github.com/NibiruChain/nibiru.git
 cd nibiru
-git checkout v0.21.9
+git checkout v0.21.10
 make build
 mkdir -p $HOME/.nibid/cosmovisor/genesis/bin
 mv build/nibid $HOME/.nibid/cosmovisor/genesis/bin/
@@ -101,7 +101,7 @@ sudo ln -s $HOME/.nibid/cosmovisor/current/bin/nibid /usr/local/bin/nibid -f
 printGreen "Готово!" && sleep 1
 
 printYellow "Устанавливаем cosmovisor и создаем сервис........"
-go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.4.0
+go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.5.0
 
 sudo tee /etc/systemd/system/nibid.service > /dev/null << EOF
 [Unit]
