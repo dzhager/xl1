@@ -53,12 +53,14 @@ read -r -p "  Введите имя ноды:  " MONIKER
 
 printBCyan "Пожалуйста подождите........" && sleep 1
 printYellow "1. Oбновляем наш сервер........" && sleep 1
-	sudo apt update && sudo apt upgrade --yes > /dev/null 2>&1
+sudo apt -q update
+sudo apt -qy install curl git jq lz4 build-essential
+sudo apt -qy upgrade
 printGreen "Готово!" && sleep 1
 
 
 printYellow "2. Устанавливаем дополнительные пакеты........" && sleep 1
-	sudo apt install curl git jq lz4 build-essential -y
+	sudo apt -qy install curl git jq lz4 build-essential
 printGreen "Готово!" && sleep 1
 
 
@@ -87,17 +89,20 @@ printGreen "Готово!" && sleep 1
 
 
 printYellow "5. Скачиваем и устанавливаем бинарник........"
-cd $HOME
-rm -rf nibiru
-git clone https://github.com/NibiruChain/nibiru.git
-cd nibiru
-git checkout v0.21.10
-make build
-mkdir -p $HOME/.nibid/cosmovisor/genesis/bin
-mv build/nibid $HOME/.nibid/cosmovisor/genesis/bin/
-rm -rf build
-sudo ln -s $HOME/.nibid/cosmovisor/genesis $HOME/.nibid/cosmovisor/current -f
-sudo ln -s $HOME/.nibid/cosmovisor/current/bin/nibid /usr/local/bin/nibid -f
+# Clone project repository
+	cd $HOME
+	rm -rf nibiru
+	git clone https://github.com/NibiruChain/nibiru.git
+	cd nibiru
+	git checkout v0.21.10
+# Build binaries
+	make build
+# Prepare binaries for Cosmovisor
+	mkdir -p $HOME/.nibid/cosmovisor/genesis/bin
+	mv build/nibid $HOME/.nibid/cosmovisor/genesis/bin/
+	rm -rf build
+	sudo ln -s $HOME/.nibid/cosmovisor/genesis $HOME/.nibid/cosmovisor/current -f
+	sudo ln -s $HOME/.nibid/cosmovisor/current/bin/nibid /usr/local/bin/nibid -f
 printGreen "Готово!" && sleep 1
 
 printYellow "Устанавливаем cosmovisor и создаем сервис........"
@@ -122,6 +127,7 @@ Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/
 [Install]
 WantedBy=multi-user.target
 EOF
+
 sudo systemctl daemon-reload
 sudo systemctl enable nibid
 printGreen "Готово!" && sleep 1
@@ -137,9 +143,8 @@ printGreen "Готово!" && sleep 1
 
 
 printYellow "7. Добавляем сиды и пиры........" && sleep 1
-curl -Ls https://snapshots.kjnodes.com/nibiru-testnet/genesis.json > $HOME/.nibid/config/genesis.json
-curl -Ls https://snapshots.kjnodes.com/nibiru-testnet/addrbook.json > $HOME/.nibid/config/addrbook.json
 sed -i -e "s|^seeds *=.*|seeds = \"3f472746f46493309650e5a033076689996c8881@nibiru-testnet.rpc.kjnodes.com:13959\"|" $HOME/.nibid/config/config.toml
+
 printGreen "Готово!" && sleep 1
 
 
