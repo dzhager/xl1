@@ -69,7 +69,7 @@ printGreen "Готово!" && sleep 1
  	CHAIN_ID="nibiru-itn-3"
 # 	CHAIN_DENOM="unibi"
 # 	BINARY_NAME="nibid"
-# 	BINARY_VERSION_TAG="v0.21.10"
+# 	BINARY_VERSION_TAG="v0.21.11"
 # 	IDENTITY="8F3C23EC3306B513"
 # 	source $HOME/.bash_profile > /dev/null 2>&1
  	echo -e "Node moniker:       ${CYAN}$MONIKER${NC}"
@@ -94,7 +94,7 @@ printYellow "5. Скачиваем и устанавливаем бинарни�
 	rm -rf nibiru
 	git clone https://github.com/NibiruChain/nibiru.git
 	cd nibiru
-	git checkout v0.21.10
+	git checkout v0.21.11
 # Build binaries
 	make build
 # Prepare binaries for Cosmovisor
