@@ -9,14 +9,15 @@ mainmenu() { echo -ne "
 
 		$(printBCyan ' -->') $(printBGreen    '1) Faucet')
 
-		$(printBCyan ' -->') $(printBGreen    '2) Bonding')
+		$(printBCyan ' -->') $(printBGreen    '2) Start operator')
+		$(printBCyan ' -->') $(printBGreen    '3) Bonding')
 		
-		$(printBCyan ' -->') $(printBGreen    '3) Управление')
+		$(printBCyan ' -->') $(printBGreen    '4) Управление')
 
-		$(printBCyan ' -->') $(printBGreen    '4) Установить ноду')
-		$(printBCyan ' -->') $(printBGreen    '5) Удалить ноду')
+		$(printBCyan ' -->') $(printBGreen    '5) Установить ноду')
+		$(printBCyan ' -->') $(printBGreen    '6) Удалить ноду')
 
-		$(printBBlue ' <-- 6) Назад')
+		$(printBBlue ' <-- 7) Назад')
 		$(printBRed        '     0) Выход')
 
 	$(printCyan 'Введите цифру:')  "
@@ -28,22 +29,26 @@ read -r ans
 		;;
 		
 		2)
+		operator
+		;;
+
+		3)
 		bonding
 		;;
 		
-		3)
+		4)
 		control
 		;;
 
-		4)
+		5)
 		install
 		;;
 		
-		5)
+		6)
 		delet
 		;;
 		
-		6)
+		7)
 		back
 		;;
 		
@@ -67,6 +72,15 @@ read -r ans
 delet(){
 	source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/holograph/delet.sh)
 }
+
+operator(){
+	clear && printlogo && printholograph
+	echo
+	holograph operator
+	echo
+	mainmenu
+}
+
 
 faucet(){
 	echo
