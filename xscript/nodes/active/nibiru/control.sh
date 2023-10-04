@@ -212,7 +212,7 @@ DelegateXl1bra(){
 	echo -ne "$(printBRed ' 1nibi = 1000000unibi')"
 	echo
 	read -r -p "  Введите количество монет unibi:  " VAR2
-	nibid tx staking delegate nibivaloper1fvmge2hjj8pfcksrek5r9nqh5dkxl0f7u88w4g "$VAR2"unibi --from wallet --chain-id nibiru-itn-2 --fees 5000unibi -y
+	nibid tx staking delegate nibivaloper1fvmge2hjj8pfcksrek5r9nqh5dkxl0f7u88w4g "$VAR2"unibi --from wallet --chain-id nibiru-itn-3 --fees 5000unibi -y
 	echo
 	mainmenu
 }
@@ -224,7 +224,7 @@ read -r -p " Введите валопер адрес:  " VAR1
 echo -ne "$(printBRed ' 1nibi = 1000000unibi')"
 echo
 read -r -p "  Введите количество монет unibi:  " VAR2
-nibid tx staking delegate "$VAR1" "$VAR2"unibi --from wallet --chain-id nibiru-itn-2 --fees 5000unibi -y
+nibid tx staking delegate "$VAR1" "$VAR2"unibi --from wallet --chain-id nibiru-itn-3 --fees 5000unibi -y
 echo
 mainmenu
 }
