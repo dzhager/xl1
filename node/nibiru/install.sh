@@ -26,9 +26,7 @@ mainmenu() {
 		;;
 		*)
 		clear
-		printLogo
-		printnibiru
-		echo
+		printLogo && printnibiru && echo
 		echo
 		echo    -ne "$(printRed '		   Неверный запрос !')"
 		echo

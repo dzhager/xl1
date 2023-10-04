@@ -82,7 +82,7 @@ printGreen "Готово!" && sleep 1
 
 printYellow "4. Устанавливаем go........" && sleep 1
 	sudo rm -rf /usr/local/go
-	curl -Ls https://go.dev/dl/go1.19.12.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
+	curl -Ls https://go.dev/dl/go1.21.1.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
 	eval $(echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/golang.sh)
 	eval $(echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile)
 printGreen "Готово!" && sleep 1
@@ -101,8 +101,8 @@ printYellow "5. Скачиваем и устанавливаем бинарни�
 	mkdir -p $HOME/.nibid/cosmovisor/genesis/bin
 	mv build/nibid $HOME/.nibid/cosmovisor/genesis/bin/
 	rm -rf build
-	sudo ln -s $HOME/.nibid/cosmovisor/genesis $HOME/.nibid/cosmovisor/current -f
-	sudo ln -s $HOME/.nibid/cosmovisor/current/bin/nibid /usr/local/bin/nibid -f
+sudo ln -s $HOME/.nibid/cosmovisor/genesis $HOME/.nibid/cosmovisor/current -f
+sudo ln -s $HOME/.nibid/cosmovisor/current/bin/nibid /usr/local/bin/nibid -f
 printGreen "Готово!" && sleep 1
 
 printYellow "Устанавливаем cosmovisor и создаем сервис........"
@@ -134,21 +134,29 @@ printGreen "Готово!" && sleep 1
 
 
 printYellow "6. Инициализируем ноду........" && sleep 1
+# Set node configuration
 nibid config chain-id nibiru-itn-3
 nibid config keyring-backend test
 nibid config node tcp://localhost:13957
-nibid init $MONIKER --chain-id nibiru-itn-3
 
+# Initialize the node
+nibid init $MONIKER --chain-id nibiru-itn-3
+# Download genesis and addrbook
+curl -Ls https://snapshots.kjnodes.com/nibiru-testnet/genesis.json > $HOME/.nibid/config/genesis.json
+curl -Ls https://snapshots.kjnodes.com/nibiru-testnet/addrbook.json > $HOME/.nibid/config/addrbook.json
 printGreen "Готово!" && sleep 1
 
 
 printYellow "7. Добавляем сиды и пиры........" && sleep 1
+
+# Add seeds
 sed -i -e "s|^seeds *=.*|seeds = \"3f472746f46493309650e5a033076689996c8881@nibiru-testnet.rpc.kjnodes.com:13959\"|" $HOME/.nibid/config/config.toml
 
 printGreen "Готово!" && sleep 1
 
 
 printYellow "8. Настраиваем прунинг........" && sleep 1
+# Set pruning
 sed -i \
   -e 's|^pruning *=.*|pruning = "custom"|' \
   -e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "100"|' \
@@ -159,12 +167,14 @@ printGreen "Готово!" && sleep 1
 
 
 printYellow "9. Задаем минимальную цену за gas........" && sleep 1
+# Set minimum gas price
 sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.025unibi\"|" $HOME/.nibid/config/app.toml
 printGreen "Готово!" && sleep 1
 
 
 
 printYellow "10. Устанавливаем кастомные порты........"
+# Set custom ports
 sed -i -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:13958\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:13957\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:13960\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:13956\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":13966\"%" $HOME/.nibid/config/config.toml
 sed -i -e "s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:13917\"%; s%^address = \":8080\"%address = \":13980\"%; s%^address = \"localhost:9090\"%address = \"0.0.0.0:13990\"%; s%^address = \"localhost:9091\"%address = \"0.0.0.0:13991\"%; s%:8545%:13945%; s%:8546%:13946%; s%:6065%:13965%" $HOME/.nibid/config/app.toml
 
