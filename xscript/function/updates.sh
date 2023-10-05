@@ -11,6 +11,9 @@ echo " $(printBMagenta '=|    Дата    |=====================================
 #-----------------------------------------------------------------------------------#
 
 #-----------------------------Лента новостей-----------------------------------------#
+	echo " $(printBMagenta '=')""$(printBYellow '| 05.10.2023 |') Holograph добавлен функционал в меню"
+	echo " $(printBMagenta '=')""$(printBYellow '| 04.10.2023 |') Holograph исправлен баг в установке ноды "
+    echo " $(printBMagenta '=')""$(printBYellow '| 03.10.2023 |') Обновление NIBIRU  v0.21.11 "
 	echo " $(printBMagenta '=')""$(printBYellow '| 28.09.2023 |') Обновление STARKNET pathfinder v0.8.2. "
 	echo " $(printBMagenta '=')""$(printBYellow '| 20.09.2023 |') Обновление сети NIBIRU v0.21.9 "
 	echo " $(printBMagenta '=')""$(printBYellow '| 31.08.2023 |') Добавлена новая нода Holograph "
