@@ -7,8 +7,7 @@
 #-----------------------------------------------------------------------------------------#
 
 echo
-mainmenu() {
-	echo -ne "
+mainmenu() {	echo -ne "
 		$(printBCyan ' -->') $(printBYellow    '1)') Просмотр текущей конфигурации сети.
 		$(printBCyan ' -->') $(printBYellow    '2)') Просмотр текущей информации о пользователе.
 		$(printBCyan ' -->') $(printBYellow    '3)') Просмотр конфигурации Holograph CLI. 

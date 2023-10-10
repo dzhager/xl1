@@ -16,10 +16,11 @@
 	mainmenu() { 
 		echo
 		echo "$(printBCyan '		-->') $(printBYellow    ' 1)') ZkSync $(printBTYellow '****')"
+		echo "$(printBCyan '		-->') $(printBYellow    ' 2)') Holograph $(printBTYellow '****')"
 		echo
-		echo "$(printBCyan '		-->') $(printBYellow    ' 2)') $(printBYellow 'Архив')"
+		echo "$(printBCyan '		-->') $(printBYellow    ' 3)') $(printBYellow 'Архив')"
 		echo
-		echo "$(printBCyan '		<--') $(printBYellow    ' 3)') $(printBBlue 'Назад')"
+		echo "$(printBCyan '		<--') $(printBYellow    ' 4)') $(printBBlue 'Назад')"
 		echo "$(printBRed        '                     0) Выход')"
 		echo
 		echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
@@ -32,10 +33,14 @@
 			;;
 		#-------------------#	
 			2)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/smartcontract/holograph.sh)
+			;;
+		#-------------------#	
+			3)
 			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/archivesmart.sh)
 			;;
 		#-------------------#
-			3)
+			4)
 			back
 			;;
 		#-------------------#
