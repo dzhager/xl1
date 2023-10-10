@@ -7,14 +7,14 @@
 
 #-------------------------------------Основное меню---------------------------------------#
 	mainmenu() {
-    echo
+    	echo
 		echo "$(printBCyan '            -->') $(printBCyan    '1) Deploying a Collection')"
 		echo "$(printBCyan '            -->') $(printBCyan    '2) Minting an NFT')"
 		echo "$(printBCyan '            -->') $(printBGreen   '3) Bridging an NFT)"
 		echo
-		echo "$(printBBlue '            <-- 4) Назад')"
+		echo "$(printBCyan '		<--') $(printBYellow    ' 4)') $(printBBlue 'Назад')"
 		echo "$(printBRed        '                0) Выход')" 
-    echo
+    	echo
  		echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
 	#-------------------------Свойства меню-------------------------#
 		read -r ans
