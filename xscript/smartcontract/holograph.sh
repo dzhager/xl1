@@ -10,7 +10,7 @@
     	echo
 		echo "$(printBCyan '            -->') $(printBCyan    '1) Deploying a Collection')"
 		echo "$(printBCyan '            -->') $(printBCyan    '2) Minting an NFT')"
-		echo "$(printBCyan '            -->') $(printBGreen   '3) Bridging an NFT)"
+		echo "$(printBCyan '            -->') $(printBGreen   '3) Bridging an NFT')"
 		echo
 		echo "$(printBCyan '		<--') $(printBYellow    ' 4)') $(printBBlue 'Назад')"
 		echo "$(printBRed        '                0) Выход')" 
