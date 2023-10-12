@@ -19,7 +19,7 @@
 		echo "$(printBCyan '              -->') $(printBYellow    '1)') Ноды"
 		echo "$(printBCyan '              -->') $(printBYellow    '2)') Смартконтракты"
 		echo
-		echo "$(printBCyan '              -->') $(printBYellow   '3)') Новости $(printCyanBlink '[ ')$(printBYellow '05.10.2023')$(printCyanBlink ' ]')"
+		echo "$(printBCyan '              -->') $(printBYellow   '3)') Новости $(printCyanBlink '[ ')$(printBYellow '12.10.2023')$(printCyanBlink ' ]')"
 		echo
 		echo "$(printBCyan '              -->') $(printBYellow    '4)') Показать IP сервера"
 		echo "$(printBCyan '              -->') $(printBYellow    '5)') Системный монитор"

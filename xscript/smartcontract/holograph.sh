@@ -12,7 +12,7 @@
 		echo "$(printBCyan '            -->') $(printBCyan    '2) Minting an NFT')"
 		echo "$(printBCyan '            -->') $(printBGreen   '3) Bridging an NFT')"
 		echo
-		echo "$(printBCyan '		<--') $(printBYellow    ' 4)') $(printBBlue 'Назад')"
+		echo "$(printBCyan '	    <--') $(printBYellow   '4)') $(printBBlue 'Назад')"
 		echo "$(printBRed        '                0) Выход')" 
     	echo
  		echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
