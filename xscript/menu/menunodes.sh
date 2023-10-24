@@ -21,10 +21,11 @@ echo " $(printBCyan '                 =====================')"
 		echo "$(printBCyan '		-->') $(printBYellow    ' 4)') 5ireChain $(printBTYellow '*****')"
 		echo "$(printBCyan '		-->') $(printBYellow    ' 5)') Elixir $(printBTYellow '****')"
 		echo "$(printBCyan '		-->') $(printBYellow    ' 6)') Holograph $(printBTYellow '****')"
+		echo "$(printBCyan '		-->') $(printBYellow    ' 7)') Fleek $(printBTYellow '****')"
 		echo
-		echo "$(printBCyan '		-->') $(printBYellow    ' 7)') $(printBYellow 'Архив')"
+		echo "$(printBCyan '		-->') $(printBYellow    ' 8)') $(printBYellow 'Архив')"
 		echo
-		echo "$(printBCyan '		<--') $(printBBlue    ' 8)') $(printBYellow 'Назад')"
+		echo "$(printBCyan '		<--') $(printBBlue    ' 9)') $(printBYellow 'Назад')"
 		echo "$(printBRed        '                     0) Выход')"
 		echo
 		echo -ne "$(printBGreen ' Введите цифру:') $(printYellowBlink '-->') "
@@ -57,10 +58,14 @@ echo " $(printBCyan '                 =====================')"
 			;;
 		#-------------------#
 			7)
+			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/Fleek/main.sh)
+			;;
+		#-------------------#		
+			8)
 			source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/menu/archivenodes.sh)
 			;;
 		#-------------------#
-			8)
+			9)
 			back
 			;;
 		#-------------------#
