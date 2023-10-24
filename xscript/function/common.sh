@@ -121,11 +121,11 @@
 	printBTYellow () { printf "${TBYELLOW}%s${RESET}\n" "$1"; }
 #------------------------------------------------------------------#
 
-printfleek
+
 	#-------------------------fleek----------------------------#
 		function printfleek {
 			echo "$(printCyan '                  =====================')"
-			echo "$(printRed  ' ================')$(printCyan ' =      ')$(printBRed 'fleek')$(printCyan '      = ')$(printRed  '================')"
+			echo "$(printRed  ' ================')$(printCyan ' =       ')$(printBRed 'fleek')$(printCyan '       = ')$(printRed  '================')"
 			echo "$(printCyan '                  =====================')"
 		}
 	#--------------------------------------------------------------#
