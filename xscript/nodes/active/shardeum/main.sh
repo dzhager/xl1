@@ -83,7 +83,7 @@ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/men
 }
 
 updatecli(){
-	
+	docker exec -i shardeum-dashboard /bin/bash -c "operator-cli stop"
 	docker exec -i shardeum-dashboard /bin/bash -c "operator-cli update"
 	mainmenu
 }
