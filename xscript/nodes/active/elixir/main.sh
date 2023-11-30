@@ -7,12 +7,12 @@
 #-----------------------------------------------------------------------------------------#
 
 mainmenu() { echo -ne "
-
 		$(printBCyan ' -->') $(printBGreen    '1) Установить')
 		$(printBCyan ' -->') $(printBYellow    '2) Обновить')
-		$(printBCyan ' -->') $(printBRed    '3) Удалить')
+		$(printBCyan ' -->') $(printBGreen    '3) Просмотр логов')
+		$(printBCyan ' -->') $(printBRed    '4) Удалить')
 
-		$(printBBlue ' <-- 4) Назад')
+		$(printBBlue ' <-- 5) Назад')
 		$(printBRed        '     0) Выход')
 
 	$(printCyan 'Введите цифру:')  "
@@ -26,9 +26,12 @@ read -r ans
 		update
 		;;
 		3)
-		delet
+		logs
 		;;
 		4)
+		delet
+		;;
+		5)
 		back
 		;;
 		0)
@@ -56,6 +59,11 @@ source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nod
 # control(){
 # source <(curl -s )
 # }
+
+logs(){
+	docker logs -f --tail 100 ev
+	mainmenu
+}
 
 update(){
 source <(curl -s https://raw.githubusercontent.com/dzhagerr/xl1/main/xscript/nodes/active/elixir/update.sh)

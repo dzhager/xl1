@@ -92,14 +92,36 @@ mainmenu() {
 		rpc
 		;;
 
-		15)
-		snapshot
-		;;
+	echo -ne "
+	    $(printBCyan ' -->') $(printBYellow    '1)') Проверить баланс
+	    $(printBCyan ' -->') $(printBYellow    '2)') Отправить монеты
+	    $(printBCyan ' -->') $(printBYellow    '3)') Показать адрес кошелька
+	    $(printBCyan ' -->') $(printBYellow    '4)') Добавить кошелек wallet
+	    $(printBCyan ' -->') $(printBYellow    '5)') Восстановить кошелек
 
-		16)
-		synced
-		;;
-		
+	    $(printBCyan ' -->') $(printBYellow    '6)') Делегировать для x-l1bra
+	    $(printBCyan ' -->') $(printBYellow    '7)') Делегировать кому-то
+	    $(printBCyan ' -->') $(printBYellow    '8)') Делегировать самому себе
+	    $(printBCyan ' -->') $(printBYellow    '9)') Проверить ключ валидатора
+	    $(printBCyan ' -->') $(printBYellow    '10)') Выйти из тюрьмы
+
+	    $(printBCyan ' -->') $(printBYellow    '11)') Создать валидатора
+	    $(printBCyan ' -->') $(printBYellow    '12)') Узнать информацию о валидаторе
+	    $(printBCyan ' -->') $(printBYellow    '13)') Резервная копия валидатора
+
+	    $(printBCyan ' -->') $(printBYellow    '14)') Подключиться к RPC x-l1bra
+	    $(printBCyan ' -->') $(printBYellow    '15)') Почистить кэш
+	    $(printBCyan ' -->') $(printBYellow    '16)') Проверить синхронизацию
+	    $(printBCyan ' -->') $(printBYellow    '17)') Просмотреть логи
+	
+	    $(printBBlue ' <--') $(printBBlue    '18) Вернутся назад')
+		 $(printBRed    ' 0) Выйти')
+		 
+	$(printCyan 'Введите цифру:')  "
+	read -r ans
+	case $ans in
+		1)
+		WalletBalance
 		17)
 		logs
 		;;
