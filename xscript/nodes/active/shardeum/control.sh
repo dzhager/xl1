@@ -29,7 +29,7 @@ mainmenu() {
 		$(printBCyan ' -->') $(printBYellow    '11)') Operator CLI start
 
 		$(printBBlue ' <--') $(printBBlue    '12) Вернутся назад')
-		 $(printBRed    ' 0) Выйти')
+		$(printBRed    ' 0) Выйти')
 		 
 	$(printCyan 'Введите цифру:')  "
 	read -r ans
